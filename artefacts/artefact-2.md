@@ -5,7 +5,7 @@
 > Diagram identifying actors and their relationships.
 
 Identifier | Description
-- | -
+-- | --
 Content Cell | Content Cell
 
 > Table identifying actors, including a brief description and examples.
@@ -18,19 +18,19 @@ Content Cell | Content Cell
 ### 2.1. Actor 1
 
 Identifier | Name | Priority | Description
-- | - | - | -
+-- | -- | -- | --
 Content cell | Content cell | Content cell | Content cell
  
 ### 2.2. Actor 2
 
 Identifier | Name | Priority | Description
-- | - | - | -
+-- | -- | -- | --
 Content cell | Content cell | Content cell | Content cell
  
 ### 2.N. Actor N
 
 Identifier | Name | Priority | Description
-- | - | - | -
+-- | -- | -- | --
 Content cell | Content cell | Content cell | Content cell
  
 ## A1. Annex: Supplementary requirements
@@ -41,19 +41,19 @@ Content cell | Content cell | Content cell | Content cell
 ### A1.1. Business rules
 
 Identifier | Name | Description
-- | - | -
+-- | -- | --
 Content cell | Content cell | Content cell
  
 ### A1.2. Technical requirements
 
 Identifier | Name | Description
-- | - | -
+-- | -- | --
 Content cell | Content cell | Content cell
  
 ### A1.3. Restrictions
 
 Identifier | Name | Description
-- | - | -
+-- | -- | --
 Content cell | Content cell | Content cell
  
 ***
