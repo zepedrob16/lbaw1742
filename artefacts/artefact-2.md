@@ -4,9 +4,13 @@
  
 > Diagram identifying actors and their relationships.
 
-Identifier | Description
--- | --
-Content Cell | Content Cell
+Identifier | Description | Examples
+-- | -- | --
+User | Generic user. Has access to all public information, which includes all news and profiles. | n/a
+Guest | A user which is not authenticated. Can either register on log in the system | n/a
+Authenticated User | A user that has authenticated into his account on the system. Can read all news, upvote and downvote if desired, comment on any post, manage **his** comments, post a news item and manage **his** news items. | jlopes69
+Moderator | An Authenticated User that has been promoted. Has all previous priviledges but can also remove comments and posts made by other users if needed. | jlopes69 
+Admin | Authenticated user. Responsible for the management of users and for some specific supervisory and moderation functions. | admin
 
 > Table identifying actors, including a brief description and examples.
  
