@@ -1,7 +1,7 @@
 # A2: Actors and User Stories
  
 ## 1. Actors
- 
+
 > Diagram identifying actors and their relationships.
 
 Identifier | Description | Examples
@@ -19,23 +19,39 @@ Admin | Authenticated user. Responsible for the management of users and for some
 > User stories organized by actor.
 > For each actor, a table containing a line for each user story, and for each user story: an identifier, a name, a priority, and a description (following the recommended structure).
  
-### 2.1. Actor 1
+### 2.1. User
+
+Identifier | Name | Priority | Description
+-- | -- | -- | --
+US01 | Search | Content cell | Content cell
+ 
+### 2.2. Guest
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 Content cell | Content cell | Content cell | Content cell
  
-### 2.2. Actor 2
+### 2.3. Authenticated User
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 Content cell | Content cell | Content cell | Content cell
- 
-### 2.N. Actor N
+
+### 2.4. Moderator
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
-Content cell | Content cell | Content cell | Content cell
+US41 | Delete User Comments  | High | As a *Moderator* I may need to delete innapropriate comments made by some users.
+US42 | Delete User Posts | High | As a *Moderator* I may need to delete innapropriate posts made by some users.
+US43 | Change Post Location | Medium | As a *Moderator* I may need to change a news items' location if it was posted in the wrong place.
+
+### 2.5. Admin
+
+Identifier | Name | Priority | Description
+-- | -- | -- | --
+US51 | Name Moderators | High | As an *Admin* I want to elect Moderators to my system so that they can help manage the community.
+US52 | Accept user | High | As an *Admin* I need to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
+US53 | Ban Users | High | As an *Admin* I need to have the ability to ban Users, preventing them from reusing the system.
  
 ## A1. Annex: Supplementary requirements
  
