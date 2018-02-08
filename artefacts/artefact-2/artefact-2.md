@@ -23,8 +23,8 @@ Admin | Authenticated user. Responsible for the management of users and for some
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
-US01 | Search | Content cell | Content cell
- 
+US01 | Search | High |  As a *User*, I want the ability to search for all kind of news posted on the site.
+
 ### 2.2. Guest
 
 Identifier | Name | Priority | Description
@@ -35,7 +35,7 @@ Content cell | Content cell | Content cell | Content cell
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
-US31 | Search  | High |  As a *Authenticated User*, I want the ability to search for all kind of news posted on the site.
+US31 | Add Friend | High | As an *Authenticated User*, I want the possibility to add other users as my friend.
 US32 | Filter | High |  As an *Authenticated User*, I want the possibility to filter and choose the content I pretend to read.
 US33 | Profile | High | As an *Authenticated User* it is important to have configurable settings in order to define or change names, emails, passowords and avatar.
 US34 | Comments  | High |  As an *Authenticated User*, I want to give my feedback about the existing publications.
