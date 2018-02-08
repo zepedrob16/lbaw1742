@@ -40,7 +40,7 @@ US32 | Filter | High |  As an *Authenticated User*, I want the possibility to fi
 US33 | Profile | High | As an *Authenticated User* it is important to have configurable settings in order to define or change names, emails, passowords and avatar.
 US34 | Comments  | High |  As an *Authenticated User*, I want to give my feedback about the existing publications.
 US35 | Rank  | High |  As an *Authenticated User*, I want to contribute to a reliable rating of the site's content posts.
-US36 | Share  | High |  As an *Authenticated User*, I want to share certain publications with my friends.
+US36 | Share  | Medium |  As an *Authenticated User*, I want to share certain publications with my friends.
 US37 | Post  | High |   As an *Authenticated User*, I want to write my own text and post it in the site so that everyone can read.
 
 ### 2.4. Moderator
