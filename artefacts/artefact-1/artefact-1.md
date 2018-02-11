@@ -1,6 +1,6 @@
 # A1: Newditt
 
-The goal of this project is to provide users with daily news filtered by category, allowing them to comment and rate positively or negatively (upvote/ downvote).
+The goal of this project is to provide users with daily news filtered by category, allowing them to comment and rate other user's submissions.
 
 A vital feature of the system is the user's capability of submitting its own news and rating other posts. Submissions are ordered by both user rating and post date, thus being possible for a client to directly influence a news article's exposure, whilst keeping the top submissions fresh.
 
