@@ -33,12 +33,16 @@ US02 | Check Profiles | High | As a *User*, I want the ability to be check other
 US03 | Home Page | High | As a *User* I want to be able to view the Home Page of the system, so that I can better understand what the website is about.
 US04 | About Page | High | As a *User* I want to be able to view the About Page of the system, so that I can see a description of the website and its authors.
 
+> Table 2: User's user stories.
+
 ### 2.2. Guest
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 US11 | Register | High | As a *Guest* I want to register myself into the system, creating an account so that I can later authenticate myself whenever I want.
 US12 | Log In | High | As a *Guest* I want to have the possibility to log into the system using an account that was previously created.
+ 
+> Table 3: Guest's user stories.
  
 ### 2.3. Authenticated User
 
@@ -54,6 +58,8 @@ US27 | Post  | High |   As an *Authenticated User*, I want to write my own text 
 US28 | Check Statistics | Optional | As an *Authenticated User*, I want to be able to check my own statistics and of other users, such as Comments Posted, News Posted and Overall rating.
 US29 | Exchange Messages | High | As an *Authenticated User*, I want to exchange messages with other authenticated users.
 
+> Table 4: Authenticated user's user stories.
+
 ### 2.4. Moderator
 
 Identifier | Name | Priority | Description
@@ -61,6 +67,8 @@ Identifier | Name | Priority | Description
 US31 | Delete User Comments  | High | As a *Moderator* I may need to delete innapropriate comments made by some users.
 US32 | Delete User Posts | High | As a *Moderator* I may need to delete innapropriate posts made by some users.
 US33 | Change Content Tags | Medium | As a *Moderator* I may need to change a news items' tag if it's wrongfully used.
+
+> Table 5: Moderator's user stories.
 
 ### 2.5. Admin
 
@@ -70,12 +78,13 @@ US41 | Name Moderators | High | As an *Admin* I want to elect Moderators to my s
 US42 | Accept user | High | As an *Admin* I need to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
 US43 | Ban Users | High | As an *Admin* I need to have the ability to ban Users, preventing them from reusing the system.
  
+> Table 6: Moderator's user stories. 
+
 ## A1. Annex: Supplementary requirements
- 
-> Annex including business rules, technical requirements, and restrictions.
-> For each subsection, a table containing identifiers, names, and descriptions for each requirement.
+This annex contains business rules, technical requirements and other non-functional requirements on the project.
  
 ### A1.1. Business rules
+A business rule defines or constrains one aspect of the business, with the intention of asserting business structure or influencing business behaviour.
 
 Identifier | Name | Description
 -- | -- | --
@@ -83,6 +92,7 @@ BR01 | Profit | Users do not have any profit when posting news and/or comments.
 BR02 | Profanity | Users should not post content that is innapropriate, such as pornographic or racist news.
  
 ### A1.2. Technical requirements
+Technical requirements are concerned with the technical aspects that the system must meet, such as performance-related issues, reliability issues and availability issues.
 
 Identifier | Name | Description
 -- | -- | --
@@ -100,6 +110,7 @@ TR11 | Ethics | The system must respect the ethical principles in software devel
 TR12 | Development | Git should be used to control software version envelopment.
  
 ### A1.3. Restrictions
+A restriction on the design limits the degree of freedom in the search for a solution.
 
 Identifier | Name | Description
 -- | -- | --
