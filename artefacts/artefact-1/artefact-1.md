@@ -1,4 +1,4 @@
-# A1: Newditt
+# A1: SHOWCHAN
 
 The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.  
 
@@ -15,8 +15,9 @@ We've nailed down four main user permissions - visitor, member, moderator and ad
 ## Revision history
 Changes made to the first submission:
 1. Reduced scope of project by mainly focusing on **tv show and movie news**;
-2. Something to admins.
-3. Added **name and university number** of elements;
+2. Changed title of project to fit with topic;
+3. Something to admins;
+4. Added **name and university number** of elements.
  
 ***
  
