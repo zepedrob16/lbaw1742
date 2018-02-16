@@ -3,7 +3,10 @@ This artifact contains the specification of the actors and their users stories, 
 
 ## 1. Actors
 
-For the SHOWCHAN system, the actors are represented in Figure 1 and described in Table 1. 
+For the **SHOWCHAN** system, the actors are represented in Figure 1 and described in Table 1. 
+<p align="center"><img src="actors.PNG" width="50%"></p>
+
+> Figure 1: Actors.
 
 Identifier | Description | Examples
 -- | -- | --
@@ -12,13 +15,13 @@ Guest | A user which is not authenticated. Can either register on log in the sys
 Authenticated User | A user that has authenticated into his account on the system. Can upvote and downvote articles if desired, comment on any post, manage **his** comments, post a news item and manage **his** news items. | jlopes69
 Moderator | An Authenticated User that has been promoted. Has all previous priviledges but can also remove comments and posts made by other users if needed. | jlopes69 
 Admin | Authenticated user. Responsible for the management of users and for some specific supervisory and moderation functions. | admin
-API | External API that can be used to register or authenticate into the system. | IMDB, TVDB
+API | External API to extract movies and tv show information from trusted databases. | IMDB, TVDB
 
 > Table 1: Identification of actors, including a brief description and examples.
  
 ## 2. User Stories
 
-For the SHOWCHAN system, consider the user stories that are presented in the following sections.
+For the **SHOWCHAN** system, consider the user stories that are presented in the following sections.
 
  
 ### 2.1. User
@@ -49,6 +52,7 @@ US25 | Rank  | High |  As an *Authenticated User*, I want to contribute to a rel
 US26 | Share  | Medium |  As an *Authenticated User*, I want to share certain publications with my friends.
 US27 | Post  | High |   As an *Authenticated User*, I want to write my own text and post it in the site so that everyone can read.
 US28 | Check Statistics | Optional | As an *Authenticated User*, I want to be able to check my own statistics and of other users, such as Comments Posted, News Posted and Overall rating.
+US29 | Exchange Messages | High | As an *Authenticated User*, I want to exchange messages with other authenticated users.
 
 ### 2.4. Moderator
 
