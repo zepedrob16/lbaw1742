@@ -6,7 +6,7 @@ A vital feature of the system is the user's capability of submitting its own new
 
 We believe most popular websites that provide this sort of service do not only focus on news themselves (e.g. Reddit and 4chan), but instead allow an assortment of themes. Our goal is to apply their success formula in a more concrete context.
 
-The platform aims to be highly interactive, as multiple users vote on eachother's submissions; clean and adaptive interface, across multiple devices; straightforward user experience, relying on pertinent keyboard shortcuts. It'll also feature a search engine with various filter options - sort by date, popularity, topic, domain, etc.
+The platform aims to be highly interactive, as multiple users vote on eachother's submissions; have clean and adaptive interface, across multiple devices; and provide a straightforward user experience, relying on pertinent keyboard shortcuts. It'll also feature a search engine with various filter options - sort by date, popularity, topic, domain, etc.
 
 We've nailed down four main user permissions - visitor, member, moderator and administrator. A visitor may simply read articles, not being able to interact with them in any way. A registered member has the possibility of creating its own posts and provide feedback to other submissions by commenting and rating. A moderator has every permission described thus far plus the ability to remove submissions and comments which do not follow the website's guidelines. The administrator has every privilege a moderator has plus the tools to assign the moderator role to any user.
 
@@ -17,7 +17,8 @@ Changes made to the first submission:
 1. Reduced scope of project by mainly focusing on **tv show and movie news**;
 2. Changed title of project to fit with topic;
 3. Something to admins;
-4. Added **name and university number** of elements.
+4. Added **name and university number** of elements;
+5. Minor sentence structuring.
  
 ***
  
