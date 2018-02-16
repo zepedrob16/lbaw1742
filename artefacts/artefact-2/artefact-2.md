@@ -1,24 +1,24 @@
 # A2: Actors and User Stories
- 
+This artifact contains the specification of the actors and their users stories, serving as agile documentation of project requirements.
+
 ## 1. Actors
 
-For the TubeNews system, the actors are represented in Figure 1 and described in Table 1. 
+For the SHOWCHAN system, the actors are represented in Figure 1 and described in Table 1. 
 
 Identifier | Description | Examples
 -- | -- | --
 User | Generic user. Has access to all public information, which includes all news and profiles. | n/a
-Guest | A user which is not authenticated. Can either register on log in the system | n/a
-Authenticated User | A user that has authenticated into his account on the system. Can read all news, upvote and downvote if desired, comment on any post, manage **his** comments, post a news item and manage **his** news items. | jlopes69
+Guest | A user which is not authenticated. Can either register on log in the system. | n/a
+Authenticated User | A user that has authenticated into his account on the system. Can upvote and downvote articles if desired, comment on any post, manage **his** comments, post a news item and manage **his** news items. | jlopes69
 Moderator | An Authenticated User that has been promoted. Has all previous priviledges but can also remove comments and posts made by other users if needed. | jlopes69 
 Admin | Authenticated user. Responsible for the management of users and for some specific supervisory and moderation functions. | admin
+API | External API that can be used to register or authenticate into the system. | IMDB, TVDB
 
 > Table 1: Identification of actors, including a brief description and examples.
  
 ## 2. User Stories
- 
-> User stories organized by actor.
 
-For the TubeNews system, consider the user stories that are presented in the following sections.
+For the SHOWCHAN system, consider the user stories that are presented in the following sections.
 
  
 ### 2.1. User
@@ -28,7 +28,7 @@ Identifier | Name | Priority | Description
 US01 | Search | High |  As a *User*, I want the ability to search for all kind of news posted on the site.
 US02 | Check Profiles | High | As a *User*, I want the ability to be check other user's profiles and my own.
 US03 | Home Page | High | As a *User* I want to be able to view the Home Page of the system, so that I can better understand what the website is about.
-US04 | About Page | High | As a *User* I want to be able to view the About Page of the system, so that I can see a description of the website and of the authors.
+US04 | About Page | High | As a *User* I want to be able to view the About Page of the system, so that I can see a description of the website and its authors.
 
 ### 2.2. Guest
 
@@ -56,7 +56,7 @@ Identifier | Name | Priority | Description
 -- | -- | -- | --
 US31 | Delete User Comments  | High | As a *Moderator* I may need to delete innapropriate comments made by some users.
 US32 | Delete User Posts | High | As a *Moderator* I may need to delete innapropriate posts made by some users.
-US33 | Change Post Location | Medium | As a *Moderator* I may need to change a news items' location if it was posted in the wrong place.
+US33 | Change Content Tags | Medium | As a *Moderator* I may need to change a news items' tag if it's wrongfully used.
 
 ### 2.5. Admin
 
@@ -109,4 +109,9 @@ No revision history to show.
  
 ***
  
-GROUP1742, xx/xx/2018
+**GROUP1742**, 16/02/2018  
+
+Bernardo José Coelho Leite, 201404464  
+José Pedro da Silva e Sousa Borges, 201503603  
+Miguel Mano Fernandes, 201503538  
+Ventura de Sousa Pereira, 201404690
