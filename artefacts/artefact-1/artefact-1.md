@@ -1,6 +1,6 @@
 # A1: Newditt
 
-The goal of this project is to provide users with daily news filtered by category, allowing them to comment and rate other user's submissions.
+The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.  
 
 A vital feature of the system is the user's capability of submitting its own news and rating other posts. Submissions are ordered by both user rating and post date, thus being possible for a client to directly influence a news article's exposure, whilst keeping the top submissions fresh.
 
@@ -13,8 +13,16 @@ We've nailed down four main user permissions - visitor, member, moderator and ad
 ***
  
 ## Revision history
-No revision history to show.
+Changes made to the first submission:
+1. Reduced scope of project by mainly focusing on **tv show and movie news**;
+2. Something to admins.
+3. Added **name and university number** of elements;
  
 ***
  
-GROUP1742, 11/02/2018
+**GROUP1742**, 11/02/2018  
+
+Bernardo José Coelho Leite, 201404464  
+José Pedro da Silva e Sousa Borges, 201503603  
+Miguel Mano Fernandes, 201503538  
+Ventura de Sousa Pereira, 201404690
