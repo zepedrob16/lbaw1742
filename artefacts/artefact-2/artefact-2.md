@@ -88,7 +88,7 @@ A business rule defines or constrains one aspect of the business, with the inten
 
 Identifier | Name | Description
 -- | -- | --
-BR01 | Profit | Users do not have any profit when posting news and/or comments.
+BR01 | Profit | Users must not profit when posting news and/or comments or advertise their own content.
 BR02 | Profanity | Users should not post content that is innapropriate, such as pornographic or racist news.
  
 ### A1.2. Technical requirements
