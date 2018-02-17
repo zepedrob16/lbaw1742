@@ -8,7 +8,7 @@ We believe most popular websites that provide this sort of service do not only f
 
 The platform aims to be highly interactive, as multiple users vote on eachother's submissions; have clean and adaptive interface, across multiple devices; and provide a straightforward user experience, relying on pertinent keyboard shortcuts. It'll also feature a search engine with various filter options - sort by date, popularity, topic, domain, etc.
 
-We've nailed down four main user permissions - visitor, member, moderator and administrator. A visitor may simply read articles, not being able to interact with them in any way. A registered member has the possibility of creating its own posts and provide feedback to other submissions by commenting and rating. A moderator has every permission described thus far plus the ability to remove submissions and comments which do not follow the website's guidelines. The administrator has every privilege a moderator has plus the tools to assign the moderator role to any user.
+We've nailed down four main user permissions - visitor, member, moderator and administrator. A visitor may simply read articles, not being able to interact with them in any way. A registered member has the possibility of creating its own posts and provide feedback to other submissions by commenting and rating. A moderator has every permission described thus far plus the ability to remove submissions and comments which do not follow the website's guidelines. The plataform administrator has every privilege a moderator has plus the tools to assign the moderator role to any user. Beyond this, the processes of adding, editing and deleting members (and their privileges) are important functions enabled for the administrator. Lastly, some advanced features of this entity undergo members customization profile display settings, analyze site usage data with monitoring tools on website, implement updates, upgrades, resolve usability issues and standardize levels of access and security.
 
 ***
  
@@ -16,7 +16,7 @@ We've nailed down four main user permissions - visitor, member, moderator and ad
 Changes made to the first submission:
 1. Reduced scope of project by mainly focusing on **tv show and movie news**;
 2. Changed **title of project to SHOWCHAN** (previously Newsditt) to better match the project's theme;
-3. Something to admins;
+3. Added important information about the **platform administrator**;
 4. Added **name and university number** of elements;
 5. Minor sentence structuring.
  
