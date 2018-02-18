@@ -2,7 +2,7 @@
 
 The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.  
 
-A vital feature of the system is the user's capability of submitting its own news and rating other posts. Submissions are ordered by both user rating and post date, thus being possible for a client to directly influence a news article's exposure, whilst keeping the top submissions fresh.
+A vital feature of the system is the user's capability of submitting its own news articles (by publishing external links to other domains) and rating other posts. Submissions are ordered by both user rating and post date, thus being possible for a client to directly influence a news article's exposure, whilst keeping the top submissions fresh.
 
 We believe most popular websites that provide this sort of service do not only focus on news themselves (e.g. Reddit and 4chan), but instead allow an assortment of themes. Our goal is to apply their success formula in a more concrete context.
 
