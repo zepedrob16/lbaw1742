@@ -4,7 +4,7 @@ This artifact contains the specification of the actors and their users stories, 
 ## 1. Actors
 
 For the **SHOWCHAN** system, the actors are represented in Figure 1 and described in Table 1. 
-<p align="center"><img src="actors.PNG" width="50%"/></p>
+![actors](../Images/actors.png)
 
 > Figure 1: Actors.
 
