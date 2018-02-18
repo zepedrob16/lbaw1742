@@ -49,8 +49,8 @@ US12 | Log In | High | As a *Guest* I want to have the possibility to log into t
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 US21 | Add Friend | High | As an *Authenticated User*, I want the possibility to add other users as my friend.
-US22 | Filter | High |  As an *Authenticated User*, I want the possibility to filter and choose the content I pretend to read.
-US23 | Profile | High | As an *Authenticated User* it is important to have configurable settings in order to define or change names, emails, passowords and avatar.
+US22 | Filter | High |  As an *Authenticated User*, I want the possibility to filter and choose the content I desire to read.
+US23 | Profile | High | As an *Authenticated User* it is important to have configurable settings in order to define or change names, emails, passwords and avatar.
 US24 | Comments  | High |  As an *Authenticated User*, I want to give my feedback about the existing publications.
 US25 | Rank  | High |  As an *Authenticated User*, I want to contribute to a reliable rating of the site's content posts.
 US26 | Share  | Medium |  As an *Authenticated User*, I want to share certain publications with my friends.
