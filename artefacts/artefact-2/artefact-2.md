@@ -13,7 +13,7 @@ Identifier | Description | Examples
 User | Generic user. Has access to all public information, which includes all news and profiles. | n/a
 Guest | A user which is not authenticated. Can either register on log in the system. | n/a
 Authenticated User | A user that has authenticated into his account on the system. Can upvote and downvote articles if desired, comment on any post, manage **his** comments, post a news item and manage **his** news items. | jlopes69
-Moderator | An Authenticated User that has been promoted. Has all previous priviledges but can also remove comments and posts made by other users if needed. | jlopes69 
+Moderator | An Authenticated User that has been promoted. Has all previous privileges but can also remove comments and posts made by other users if needed. | jlopes69 
 Admin | Authenticated user. Responsible for the management of users and for some specific supervisory and moderation functions. | admin
 API | External API to extract movies and tv show information from trusted databases. | IMDB, TVDB
 
@@ -30,7 +30,7 @@ Identifier | Name | Priority | Description
 -- | -- | -- | --
 US01 | Search | High |  As a *User*, I want the ability to search for all kind of news posted on the site.
 US02 | Check Profiles | High | As a *User*, I want the ability to be check other user's profiles and my own.
-US03 | Home Page | High | As a *User* I want to be able to view the Home Page of the system, so that I can better understand what the website is about.
+US03 | Home Page | High | As a *User* I want to be able to view the Home Page of the system, so that I can better understand what the website is made about.
 US04 | About Page | High | As a *User* I want to be able to view the About Page of the system, so that I can see a description of the website and its authors.
 
 > Table 2: User's user stories.
@@ -48,7 +48,7 @@ US12 | Log In | High | As a *Guest* I want to have the possibility to log into t
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
-US21 | Add Friend | High | As an *Authenticated User*, I want the possibility to add other users as my friend.
+US21 | Add Friend | High | As an *Authenticated User*, I want the possibility to add other users as my friends.
 US22 | Filter | High |  As an *Authenticated User*, I want the possibility to filter and choose the content I desire to read.
 US23 | Profile | High | As an *Authenticated User* it is important to have configurable settings in order to define or change names, emails, passwords and avatar.
 US24 | Comments  | High |  As an *Authenticated User*, I want to give my feedback about the existing publications.
@@ -75,7 +75,7 @@ US33 | Change Content Tags | Medium | As a *Moderator* I may need to change a ne
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 US41 | Name Moderators | High | As an *Admin* I want to elect Moderators to my system so that they can help manage the community.
-US42 | Accept user | High | As an *Admin* I need to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
+US42 | Accept User | High | As an *Admin* I need to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
 US43 | Ban Users | High | As an *Admin* I need to have the ability to ban Users, preventing them from reusing the system.
  
 > Table 6: Moderator's user stories. 
