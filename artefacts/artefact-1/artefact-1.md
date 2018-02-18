@@ -15,7 +15,7 @@ We've nailed down four main user permissions - visitor, member, moderator and ad
 ## Revision history
 Changes made to the first submission:
 1. Reduced scope of project by mainly focusing on **tv show and movie news**;
-2. Changed **title of project to SHOWCHAN** (previously Newsditt) to better match the project's theme;
+2. Changed **title of project to SHOWCHAN** (previously Newditt) to better match the project's theme;
 3. Added important information about the **platform administrator**;
 4. Added **name and university number** of elements;
 5. Minor sentence structuring.
