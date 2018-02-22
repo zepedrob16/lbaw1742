@@ -129,10 +129,11 @@ C01 | Deadline | The project must be developed throughout the semester and finis
 ***
  
 ## Revision history
-1 - Removed **"Profit"** Business Rule.
-2 - Added **Friends, Invitations, Messaging, Basnishment, Post History and User Profile** Business Rules.
-3 - Removed **Login Only** and **HTTP Response** Restrictions.
-4 - Removed **Portability** as Technical Requirement.
+Changes made to the first submission:
+1. Removed **"Profit"** Business Rule;
+2. Added **Friends, Invitations, Messaging, Basnishment, Post History and User Profile** Business Rules (Implementation Rules);
+3. Removed **Login Only** and **HTTP Response** Restrictions;
+4. Removed **Portability** as Technical Requirement.
  
 ***
  
