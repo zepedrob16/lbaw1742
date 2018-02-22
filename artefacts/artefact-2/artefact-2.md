@@ -88,10 +88,15 @@ A business rule defines or constrains one aspect of the business, with the inten
 
 Identifier | Name | Description
 -- | -- | --
-BR01 | Profit | Users must not profit when posting news and/or comments or advertise their own content.
-BR02 | Profanity | Users should not post content that is innapropriate, such as pornographic or racist news.
-BR03 | Credibility | The content of the website must be consistent and professional.
-BR04 | Convenience | The content present on the website must match the interests of its users and at the same time convering the largest number of people who may be interested on it.
+BR01 | Profanity | Users should not post content that is innapropriate, such as pornographic or racist news.
+BR02 | Credibility | The content of the website must be consistent and professional.
+BR03 | Convenience | The content present on the website must match the interests of its users and at the same time convering the largest number of people who may be interested on it.
+BR04 | Friends | Section that typically appears on profile page and displays user's collegues.
+BR05 | Invitations | An invitation allows a user to request friendship / follow-through within the site.
+BR06 | Messaging | Exchange message between users.
+BR07 | Basnishment | When a user is banned from the site all related comments, votes and posts are removed.
+BR08 | Post History | Displays a list of posts for a given user (user activity).
+BR09 | User Profile | A user's profile page on the website and it contains a Name, Username, Avatar (public) and Email (public or not).
  
 ### A1.2. Technical requirements
 Technical requirements are concerned with the technical aspects that the system must meet, such as performance-related issues, reliability issues and availability issues.
@@ -103,17 +108,16 @@ TR02 | Accessibility | The system must ensure that everyone can access the pages
 TR03 | Usability | The system should be simple, easy to use, user-friendly and easily navigable. The user must be able to find the intended content without any difficulty. Web pages must be uniform.
 TR04 | Performance | The system should have response times shorter than 2s to ensure the user's attention. The performance of the website must be optimal incase of huge loads and for that, appropriate load balancing must be done to achieve this.
 TR05 | Web application | The system should be implemented as a Web application with dynamic pages (HTML5, JavaScript, CSS3 and PHP).
-TR06 | Portability | The server-side system should work across multiple platforms (Linux, Mac OS, etc.).
-TR07 | Database | The PostgreSQL database management system must be used.
-TR08 | Security | The system shall protect information from unauthorised access through the use of an authentication and privilege verification system as well as security measures to prevent attackers. All the information about the registered users must be securely stored in the central base.
-TR09 | Robustness | The system must be prepared to handle and continue operating when runtime errors occur.
-TR10 | Scalability | The system must be prepared to deal with the growth in the number of users and corresponding operations.
-TR11 | Ethics | The system must respect the ethical principles in software development (for example, the password must be stored encrypted to ensure that only the owner knows it).
-TR12 | Development | Git should be used to control software version envelopment.
-TR13 | Functionality | An Authenticated User must be able to maintain his/her session information for a certain period of time of inactive session. All website options must be provided disregarding the time of log in.
-TR14 | Reliability | In the case of maintenance, the server(s) must be operable readily allowing users to access all the resources of the website anytime.
-TR15 | Supportability | It is necessary that the website is compatible with almost all browsers. If there are plug-ins enclose within the website, these must be compatible with the browsers. In case of any incompatibility there must be a troubleshooting instruction to resolve the problem.
-TR16 | Design Constraints | Provide relevant "guide rails" for users to ensure efficient interaction. It will be considered size, scale, proportion, emphasis and state helping creating hierarchy and guide the user.
+TR06 | Database | The PostgreSQL database management system must be used.
+TR07 | Security | The system shall protect information from unauthorised access through the use of an authentication and privilege verification system as well as security measures to prevent attackers. All the information about the registered users must be securely stored in the central base.
+TR08 | Robustness | The system must be prepared to handle and continue operating when runtime errors occur.
+TR09 | Scalability | The system must be prepared to deal with the growth in the number of users and corresponding operations.
+TR10 | Ethics | The system must respect the ethical principles in software development (for example, the password must be stored encrypted to ensure that only the owner knows it).
+TR11 | Development | Git should be used to control software version envelopment.
+TR12 | Functionality | An Authenticated User must be able to maintain his/her session information for a certain period of time of inactive session. All website options must be provided disregarding the time of log in.
+TR13 | Reliability | In the case of maintenance, the server(s) must be operable readily allowing users to access all the resources of the website anytime.
+TR14 | Supportability | It is necessary that the website is compatible with almost all browsers. If there are plug-ins enclose within the website, these must be compatible with the browsers. In case of any incompatibility there must be a troubleshooting instruction to resolve the problem.
+TR15 | Design Constraints | Provide relevant "guide rails" for users to ensure efficient interaction. It will be considered size, scale, proportion, emphasis and state helping creating hierarchy and guide the user.
  
 ### A1.3. Restrictions
 A restriction on the design limits the degree of freedom in the search for a solution.
@@ -121,13 +125,14 @@ A restriction on the design limits the degree of freedom in the search for a sol
 Identifier | Name | Description
 -- | -- | --
 C01 | Deadline | The project must be developed throughout the semester and finished before the end of it.
-C02 | Login Only | Users can only comment, rank, share, post and do other authenticated priveleges if they first log in.
-C03 | Website HTTP Response | Specify the HTTP responses sent according the website states. Message "200" when the page returned is the correct page or "503" when the page is not available.
- 
+
 ***
  
 ## Revision history
-No revision history to show.
+1 - Removed **"Profit"** Business Rule.
+2 - Added **Friends, Invitations, Messaging, Basnishment, Post History and User Profile** Business Rules.
+3 - Removed **Login Only** and **HTTP Response** Restrictions.
+4 - Removed **Portability** as Technical Requirement.
  
 ***
  
