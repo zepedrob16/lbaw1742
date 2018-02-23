@@ -109,6 +109,7 @@ TR02 | Accessibility | The system must ensure that everyone can access the pages
 TR03 | Usability | The system should be simple, easy to use, user-friendly and easily navigable. The user must be able to find the intended content without any difficulty. Web pages must be uniform.
 TR04 | Performance | The system should have response times shorter than 2s to ensure the user's attention. The performance of the website must be optimal incase of huge loads and for that, appropriate load balancing must be done to achieve this.
 TR05 | Web application | The system should be implemented as a Web application with dynamic pages (HTML5, JavaScript, CSS3 and PHP).
+<del>TR06 | <del>Portability | <del>The server-side system should work across multiple platforms (Linux, Mac OS, etc.).
 TR06 | Database | The PostgreSQL database management system must be used.
 TR07 | Security | The system shall protect information from unauthorised access through the use of an authentication and privilege verification system as well as security measures to prevent attackers. All the information about the registered users must be securely stored in the central base.
 TR08 | Robustness | The system must be prepared to handle and continue operating when runtime errors occur.
@@ -126,6 +127,8 @@ A restriction on the design limits the degree of freedom in the search for a sol
 Identifier | Name | Description
 -- | -- | --
 C01 | Deadline | The project must be developed throughout the semester and finished before the end of it.
+<del>C02 | <del>Login Only | <del>Users can only comment, rank, share, post and do other authenticated priveleges if they first log in.
+<del>C03 | <del>Website HTTP Response | <del>Specify the HTTP responses sent according the website states. Message "200" when the page returned is the correct page or "503" when the page is not available.
 
 ***
  
