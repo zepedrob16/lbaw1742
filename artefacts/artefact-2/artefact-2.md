@@ -88,6 +88,7 @@ A business rule defines or constrains one aspect of the business, with the inten
 
 Identifier | Name | Description
 -- | -- | --
+<del>BR01 | <del>Profit | <del>Users must not profit when posting news and/or comments or advertise their own content.
 BR01 | Profanity | Users should not post content that is innapropriate, such as pornographic or racist news.
 BR02 | Credibility | The content of the website must be consistent and professional.
 BR03 | Convenience | The content present on the website must match the interests of its users and at the same time convering the largest number of people who may be interested on it.
