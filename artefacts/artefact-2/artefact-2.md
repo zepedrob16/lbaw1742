@@ -1,3 +1,7 @@
+
+# Collaborative News, Subject 5
+
+
 # A2: Actors and User Stories
 This artifact contains the specification of the actors and their users stories, serving as agile documentation of project requirements.
 
@@ -15,7 +19,8 @@ Guest | A user which is not authenticated. Can either register on log in the sys
 Authenticated User | A user that has authenticated into his account on the system. Can upvote and downvote articles if desired, comment on any post, manage **his** comments, post a news item and manage **his** news items. | jlopes69
 Moderator | An Authenticated User that has been promoted. Has all previous privileges but can also remove comments and posts made by other users if needed. | jlopes69 
 Admin | Authenticated user. Responsible for the management of users and for some specific supervisory and moderation functions. | admin
-API | External API to extract movies and tv show information from trusted databases. | IMDB, TVDB
+API | External API to extract tv show information from trusted databases. | TVDB
+API | External API that extracts information, from trusted databases, about movies. | IMDB
 
 > Table 1: Identification of actors, including a brief description and examples.
  
@@ -29,7 +34,7 @@ For the **SHOWCHAN** system, consider the user stories that are presented in the
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 US01 | Search | High |  As a *User*, I want the ability to search for all kind of news posted on the site.
-US02 | Check Profiles | High | As a *User*, I want the ability to check other user's profiles and my own.
+US02 | Check Profiles | High | As a *User*, I want the ability to check other user's profiles.
 US03 | Home Page | High | As a *User* I want to be able to view the Home Page of the system, so that I can better understand what the website is made about.
 US04 | About Page | High | As a *User* I want to be able to view the About Page of the system, so that I can see a description of the website and its authors.
 
@@ -41,6 +46,7 @@ Identifier | Name | Priority | Description
 -- | -- | -- | --
 US11 | Register | High | As a *Guest* I want to register myself into the system, creating an account so that I can later authenticate myself whenever I want.
 US12 | Log In | High | As a *Guest* I want to have the possibility to log into the system using an account that was previously created.
+US13 | Log out | High | As a *Guest* I want to be able to finish my current session, logging out of the system. 
  
 > Table 3: Guest's user stories.
  
