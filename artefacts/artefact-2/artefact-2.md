@@ -29,7 +29,7 @@ For the **SHOWCHAN** system, consider the user stories that are presented in the
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 US01 | Search | High |  As a *User*, I want the ability to search for all kind of news posted on the site.
-US02 | Check Profiles | High | As a *User*, I want the ability to be check other user's profiles and my own.
+US02 | Check Profiles | High | As a *User*, I want the ability to check other user's profiles and my own.
 US03 | Home Page | High | As a *User* I want to be able to view the Home Page of the system, so that I can better understand what the website is made about.
 US04 | About Page | High | As a *User* I want to be able to view the About Page of the system, so that I can see a description of the website and its authors.
 
@@ -49,14 +49,15 @@ US12 | Log In | High | As a *Guest* I want to have the possibility to log into t
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 US21 | Add Friend | High | As an *Authenticated User*, I want the possibility to add other users as my friends.
-US22 | Filter | High |  As an *Authenticated User*, I want the possibility to filter and choose the content I desire to read.
-US23 | Profile | High | As an *Authenticated User* it is important to have configurable settings in order to define or change names, emails, passwords and avatar.
+US22 | Filter Information | High |  As an *Authenticated User*, I want the possibility to choose between reading news about TV shows or about movies.
+US23 | Check Profile | High | As an *Authenticated User* I want to have configurable settings in order to define or change names, emails, passwords and avatar.
 US24 | Comments  | High |  As an *Authenticated User*, I want to give my feedback about the existing publications.
-US25 | Rank  | High |  As an *Authenticated User*, I want to contribute to a reliable rating of the site's content posts.
-US26 | Share  | Medium |  As an *Authenticated User*, I want to share certain publications with my friends.
-US27 | Post  | High |   As an *Authenticated User*, I want to write my own text and post it in the site so that everyone can read.
-US28 | Check Statistics | Optional | As an *Authenticated User*, I want to be able to check my own statistics and of other users, such as Comments Posted, News Posted and Overall rating.
-US29 | Exchange Messages | High | As an *Authenticated User*, I want to exchange messages with other authenticated users.
+US25 | Upvote  | High |  As an *Authenticated User*, I want to be able to give a positive rating on news that I like.
+US26 | Downvote | High | As an *Authenticated User*, I want to be able to give a negative rating on news that I don't like.
+US27 | Share  | Medium |  As an *Authenticated User*, I want to share certain publications with my friends.
+US28 | Post  | High |   As an *Authenticated User*, I want to write my own text and post it in the site so that everyone can read.
+US29 | Check Statistics | Optional | As an *Authenticated User*, I want to be able to check my own statistics and of other users, such as Comments Posted, News Posted and Overall rating.
+US30 | Exchange Messages | High | As an *Authenticated User*, I want to exchange messages with other authenticated users.
 
 > Table 4: Authenticated user's user stories.
 
@@ -64,9 +65,9 @@ US29 | Exchange Messages | High | As an *Authenticated User*, I want to exchange
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
-US31 | Delete User Comments  | High | As a *Moderator* I may need to delete innapropriate comments made by some users.
-US32 | Delete User Posts | High | As a *Moderator* I may need to delete innapropriate posts made by some users.
-US33 | Change Content Tags | Medium | As a *Moderator* I may need to change a news items' tag if it's wrongfully used.
+US31 | Delete User Comments  | High | As a *Moderator* I want to delete innapropriate comments made by some users.
+US32 | Delete User Posts | High | As a *Moderator* I mant to delete innapropriate posts made by some users.
+US33 | Change Content Tags | Medium | As a *Moderator* I want to change a news items' tag if it's wrongfully used.
 
 > Table 5: Moderator's user stories.
 
@@ -75,8 +76,8 @@ US33 | Change Content Tags | Medium | As a *Moderator* I may need to change a ne
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 US41 | Name Moderators | High | As an *Admin* I want to elect Moderators to my system so that they can help manage the community.
-US42 | Accept User | High | As an *Admin* I need to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
-US43 | Ban Users | High | As an *Admin* I need to have the ability to ban Users, preventing them from reusing the system.
+US42 | Accept User | High | As an *Admin* I want to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
+US43 | Ban Users | High | As an *Admin* I want to have the ability to ban Users, preventing them from reusing the system.
  
 > Table 6: Moderator's user stories. 
 
@@ -137,7 +138,11 @@ Changes made to the first submission:
 1. Removed **"Profit"** Business Rule;
 2. Added **Friends, Invitations, Messaging, Basnishment, Post History and User Profile** Business Rules (Implementation Rules);
 3. Removed **Login Only** and **HTTP Response** Restrictions;
-4. Removed **Portability** as Technical Requirement.
+4. Removed **Portability** as Technical Requirement;
+5. Changed US22 in order to give it a more specific description;
+6. Changed US23 in order to give it a better name;
+7. Changed US25 so that it has a more accurate description;
+8. Added US26.
  
 ***
  
