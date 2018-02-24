@@ -78,6 +78,7 @@ Identifier | Name | Priority | Description
 US41 | Name Moderators | High | As an *Admin* I want to elect Moderators to my system so that they can help manage the community.
 US42 | Accept User | High | As an *Admin* I want to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
 US43 | Ban Users | High | As an *Admin* I want to have the ability to ban Users, preventing them from reusing the system.
+US44 | Admin Navigation | High | As An *Admin* I want to have a personalized page to perform the previously mentioned Admin tasks and to check the system usage statistics.
  
 > Table 6: Moderator's user stories. 
 
@@ -142,7 +143,8 @@ Changes made to the first submission:
 5. Changed US22 in order to give it a more specific description;
 6. Changed US23 in order to give it a better name;
 7. Changed US25 so that it has a more accurate description;
-8. Added US26.
+8. Added US26;
+9. Added US44.
  
 ***
  
