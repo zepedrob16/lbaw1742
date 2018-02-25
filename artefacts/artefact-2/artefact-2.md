@@ -100,10 +100,10 @@ Identifier | Name | Description
 <del>BR01 | <del>Profit | <del>Users must not profit when posting news and/or comments or advertise their own content.
 <del>BR02 | <del>Credibility | <del>The content of the website must be consistent and professional.
 <del>BR03 | <del>Convenience | <del>The content present on the website must match the interests of its users and at the same time convering the largest number of people who may be interested on it.
-BR01 | Profanity | Users should not post content that is innapropriate, such as pornographic or racist news.
-BR02 | Banishment | When a user is banned from the site all related comments and submissions are removed.
-BR03 | Submission Removal | When a submission is deleted, all associated comments are removed.
-BR04 | Downvote Threshold | When a submission/comment reaches a certain number of downvotes, the content is automatically flagged as controversial and might be filtered out.
+<del>BR01 | <del>Profanity | <del>Users should not post content that is innapropriate, such as pornographic or racist news.
+BR01 | Banishment | When a user is banned from the site all related comments and submissions are removed.
+BR02 | Submission Removal | When a submission is deleted, all associated comments are removed.
+BR03 | Downvote Threshold | When a submission/comment reaches a certain number of downvotes, the content is automatically flagged as controversial and might be filtered out.
  
 ### A1.2. Technical requirements
 Technical requirements are concerned with the technical aspects that the system must meet, such as performance-related issues, reliability issues and availability issues.
