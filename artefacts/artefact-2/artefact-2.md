@@ -1,5 +1,5 @@
 # SHOWCHAN - Collaborative News
-The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.
++ The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.
 
 # A2: Actors and User Stories
 This artifact contains the specification of the actors and their users stories, serving as agile documentation of project requirements.
@@ -36,7 +36,7 @@ US01 | Search | High |  As a *User*, I want the ability to search for all kind o
 US02 | Check Profiles | High | As a *User*, I want the ability to check other user's profiles.
 US03 | View Home Page | High | As a *User* I want to be able to view the Home Page of the system, so that I can better understand what the website is made about.
 US04 | View About Page | High | As a *User* I want to be able to view the About Page of the system, so that I can see a description of the website and its authors.
-US05 | View Individual Post | High | As a *User* I want a more detailed view on the article and check the submission's comments. 
+US05 | + View Individual Post | High | As a *User* I want a more detailed view on the article and check the submission's comments. 
 
 > Table 2: User's user stories.
 
@@ -46,7 +46,7 @@ Identifier | Name | Priority | Description
 -- | -- | -- | --
 US11 | Register | High | As a *Guest* I want to register myself into the system, creating an account so that I can later authenticate myself whenever I want.
 US12 | Login | High | As a *Guest* I want to have the possibility to log into the system using an account that was previously created.
-US13 | Logout | High | As a *Guest* I want to be able to finish my current session, logging out of the system. 
+US13 | + Logout | High | As a *Guest* I want to be able to finish my current session, logging out of the system. 
  
 > Table 3: Guest's user stories.
  
@@ -59,12 +59,12 @@ US22 | Filter Information | High |  As an *Authenticated User*, I want the possi
 US23 | Check Profile | High | As an *Authenticated User* I want to have configurable settings in order to define or change names, emails, passwords and avatar.
 US24 | View/Post Comments  | High |  As an *Authenticated User*, I want to give my feedback about the existing publications.
 US25 | Upvote  | High |  As an *Authenticated User*, I want to be able to give a positive rating on news that I like.
-US26 | Downvote | High | As an *Authenticated User*, I want to be able to give a negative rating on news that I don't like.
+US26 | + Downvote | High | As an *Authenticated User*, I want to be able to give a negative rating on news that I don't like.
 US27 | Share  | Medium |  As an *Authenticated User*, I want to share publications with my friends.
 US28 | Post  | High |   As an *Authenticated User*, I want to write my own text and post it in the site so that everyone can read.
 US29 | Check Statistics | Optional | As an *Authenticated User*, I want to be able to check my own statistics and of other users, such as Comments Posted, News Posted and Overall rating.
 US30 | Exchange Messages | High | As an *Authenticated User*, I want to exchange messages with other authenticated users.
-US31 | View Post History | High | As an *Authenticated User*, I want to see my activity (list of posts and comments).
+US31 | + View Post History | High | As an *Authenticated User*, I want to see my activity (list of posts and comments).
 
 > Table 4: Authenticated user's user stories.
 
@@ -85,7 +85,7 @@ Identifier | Name | Priority | Description
 US41 | Name Moderators | High | As an *Admin* I want to elect Moderators to my system so that they can help manage the community.
 US42 | Accept User | High | As an *Admin* I want to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
 US43 | Ban Users | High | As an *Admin* I want to have the ability to ban Users, preventing them from reusing the system.
-US44 | Enter Admin Control Panel | High | As An *Admin* I want to have a personalized page to perform the previously mentioned Admin tasks and to check the system usage statistics.
+US44 | + Enter Admin Control Panel | High | As An *Admin* I want to have a personalized page to perform the previously mentioned Admin tasks and to check the system usage statistics.
  
 > Table 6: Admin's user stories. 
 
@@ -101,9 +101,9 @@ Identifier | Name | Description
 <del>BR02 | <del>Credibility | <del>The content of the website must be consistent and professional.
 <del>BR03 | <del>Convenience | <del>The content present on the website must match the interests of its users and at the same time convering the largest number of people who may be interested on it.
 <del>BR01 | <del>Profanity | <del>Users should not post content that is innapropriate, such as pornographic or racist news.
-BR01 | Banishment | When a user is banned from the site all related comments and submissions are removed.
-BR02 | Submission Removal | When a submission is deleted, all associated comments are removed.
-BR03 | Downvote Threshold | When a submission/comment reaches a certain number of downvotes, the content is automatically flagged as controversial and might be filtered out.
+BR01 | + Banishment | When a user is banned from the site all related comments and submissions are removed.
+BR02 | + Submission Removal | When a submission is deleted, all associated comments are removed.
+BR03 | + Downvote Threshold | When a submission/comment reaches a certain number of downvotes, the content is automatically flagged as controversial and might be filtered out.
  
 ### A1.2. Technical requirements
 Technical requirements are concerned with the technical aspects that the system must meet, such as performance-related issues, reliability issues and availability issues.
