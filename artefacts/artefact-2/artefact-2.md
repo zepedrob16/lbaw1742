@@ -103,7 +103,7 @@ Identifier | Name | Description
 <del>BR01 | <del>Profanity | <del>Users should not post content that is innapropriate, such as pornographic or racist news.
 `BR01` | `Banishment` | `When a user is banned from the site all related comments and submissions are removed.`
 `BR02` | `Submission Removal` | `When a submission is deleted, all associated comments are removed.`
-`BR03` | `Downvote Threshold` | `When a submission/comment reaches a certain number of downvotes, the content is automatically flagged as controversial and might be filtered out.`
+`BR03` | `Downvote Threshold` | `When a submission/comment reaches a certain number of downvotes, the content is automatically flagged as controversial and is be filtered out.`
  
 ### A1.2. Technical requirements
 Technical requirements are concerned with the technical aspects that the system must meet, such as performance-related issues, reliability issues and availability issues.
