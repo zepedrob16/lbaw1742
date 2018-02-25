@@ -103,7 +103,7 @@ BR03 | Convenience | The content present on the website must match the interests
 BR04 | Friends | Section that typically appears on profile page and displays user's collegues.
 BR05 | Invitations | An invitation allows a user to request friendship / follow-through within the site.
 BR06 | Messaging | Exchange message between users.
-BR07 | Basnishment | When a user is banned from the site all related comments, votes and posts are removed.
+BR07 | Banishment | When a user is banned from the site all related comments, votes and posts are removed.
 BR08 | Post History | Displays a list of posts for a given user (user activity).
 BR09 | User Profile | A user's profile page on the website and it contains a Name, Username, Avatar (public) and Email (public or not).
  
