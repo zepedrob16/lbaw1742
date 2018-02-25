@@ -18,8 +18,8 @@ Guest | A user which is not authenticated. Can either register on log in the sys
 Authenticated User | A user that has authenticated into his account on the system. Can upvote and downvote articles if desired, comment on any post, manage **his** comments, post a news item and manage **his** news items. | jlopes69
 Moderator | An Authenticated User that has been promoted. Has all previous privileges but can also remove comments and posts made by other users if needed. | jlopes69 
 Admin | Authenticated user. Responsible for the management of users and for some specific supervisory and moderation functions. | admin
-`TVDB API` | External API to extract tv show information from a trusted database. | TVDB
-`IMDB API` | External API to extract movie information from a trusted database. | IMDB
+`TVDB API` | `External API to extract tv show information from a trusted database.` | `TVDB`
+`IMDB API` | `External API to extract movie information from a trusted database.` | `IMDB`
 
 > Table 1: Identification of actors, including a brief description and examples.
  
