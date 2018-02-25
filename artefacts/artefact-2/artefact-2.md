@@ -64,7 +64,7 @@ US27 | Share  | Medium |  As an *Authenticated User*, I want to share publicatio
 US28 | Post  | High |   As an *Authenticated User*, I want to write my own text and post it in the site so that everyone can read.
 US29 | Check Statistics | Optional | As an *Authenticated User*, I want to be able to check my own statistics and of other users, such as Comments Posted, News Posted and Overall rating.
 US30 | Exchange Messages | High | As an *Authenticated User*, I want to exchange messages with other authenticated users.
-US31 | View Post History | High | As an *Authenticated User*, I want to see my activity (list of posts and comments).
+US201 | View Post History | High | As an *Authenticated User*, I want to see my activity (list of posts and comments).
 
 > Table 4: Authenticated user's user stories.
 
