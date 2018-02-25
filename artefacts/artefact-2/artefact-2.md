@@ -83,9 +83,9 @@ US34 | Change Content Tags | Medium | As a *Moderator* I want to change a news i
 Identifier | Name | Priority | Description
 -- | -- | -- | --
 US41 | Name Moderators | High | As an *Admin* I want to elect Moderators to my system so that they can help manage the community.
-US42 | Accept User | High | As an *Admin* I want to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
-US43 | Ban Users | High | As an *Admin* I want to have the ability to ban Users, preventing them from reusing the system.
-`US44` | `Enter Admin Control Panel` | `High` | `As An *Admin* I want to have a personalized page to perform the previously mentioned Admin tasks and to check the system usage statistics.`
+<del>US42 | <del>Accept User | <del>High | <del>As an *Admin* I want to control who uses my system and the information that they need to give me so that I can verify they meet my requirements.
+US42 | Ban Users | High | As an *Admin* I want to have the ability to ban Users, preventing them from reusing the system.
+`US43` | `Enter Admin Control Panel` | `High` | `As An *Admin* I want to have a personalized page to manage all users and to check the system usage statistics.`
  
 > Table 6: Admin's user stories. 
 
