@@ -87,7 +87,7 @@ US42 | Accept User | High | As an *Admin* I want to control who uses my system a
 US43 | Ban Users | High | As an *Admin* I want to have the ability to ban Users, preventing them from reusing the system.
 US44 | Enter Admin Control Panel | High | As An *Admin* I want to have a personalized page to perform the previously mentioned Admin tasks and to check the system usage statistics.
  
-> Table 6: Moderator's user stories. 
+> Table 6: Admin's user stories. 
 
 ## A1. Annex: Supplementary requirements
 This annex contains business rules, technical requirements and other non-functional requirements on the project.
