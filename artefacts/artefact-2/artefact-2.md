@@ -97,15 +97,10 @@ A business rule defines or constrains one aspect of the business, with the inten
 Identifier | Name | Description
 -- | -- | --
 <del>BR01 | <del>Profit | <del>Users must not profit when posting news and/or comments or advertise their own content.
+<del>BR02 | <del>Credibility | <del>The content of the website must be consistent and professional.
+<del>BR03 | <del>Convenience | <del>The content present on the website must match the interests of its users and at the same time convering the largest number of people who may be interested on it.
 BR01 | Profanity | Users should not post content that is innapropriate, such as pornographic or racist news.
-BR02 | Credibility | The content of the website must be consistent and professional.
-BR03 | Convenience | The content present on the website must match the interests of its users and at the same time convering the largest number of people who may be interested on it.
-BR04 | Friends | Section that typically appears on profile page and displays user's collegues.
-BR05 | Invitations | An invitation allows a user to request friendship / follow-through within the site.
-BR06 | Messaging | Exchange message between users.
-BR07 | Banishment | When a user is banned from the site all related comments, votes and posts are removed.
-BR08 | Post History | Displays a list of posts for a given user (user activity).
-BR09 | User Profile | A user's profile page on the website and it contains a Name, Username, Avatar (public) and Email (public or not).
+BR02 | Banishment | When a user is banned from the site all related comments, votes and posts are removed.
  
 ### A1.2. Technical requirements
 Technical requirements are concerned with the technical aspects that the system must meet, such as performance-related issues, reliability issues and availability issues.
@@ -146,8 +141,8 @@ Changes made to the first submission:
 2. Divided the **API actor into two distinct actors** for each database used (TVDB and IMDB);
 3. Multiple small sentence structuring; 
 4. Removed **multiple nouns** from the user stories, replacing them with **verbs** (e.g. Admin Navigation -> Enter Admin Control Panel);
-5. Removed **Profit** business rule;
-6. Added **Friends, Invitations, Messaging, Banishment, Post History** and **User Profile** business rules (implementation rules);
+5. Removed **Profit**,**Credibility** and **Convenience** business rules;
+6. Added **Banishment** business rule;
 7. Removed **Login Only** and **HTTP Response** restrictions;
 8. Removed **Portability** as technical requirement;
 9. Changed US23 in order to give it a **better name**;
