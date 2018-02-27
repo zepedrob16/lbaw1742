@@ -46,7 +46,6 @@ Identifier | Name | Priority | Description
 -- | -- | -- | --
 US11 | Register | High | As a *Guest* I want to register myself into the system, creating an account so that I can later authenticate myself whenever I want.
 US12 | Login | High | As a *Guest* I want to have the possibility to log into the system using an account that was previously created.
-`US13` | `Logout` | `High` | `As a *Guest* I want to be able to finish my current session, logging out of the system.`
  
 > Table 3: Guest's user stories.
  
@@ -57,7 +56,7 @@ Identifier | Name | Priority | Description
 US21 | Add Friend | High | As an *Authenticated User*, I want the possibility to add other users as my friends.
 US22 | Filter Information | High |  As an *Authenticated User*, I want the possibility to choose between reading news about TV shows or about movies.
 US23 | Check Profile | High | As an *Authenticated User* I want to have configurable settings in order to define or change names, emails, passwords and avatar.
-US24 | View/Post Comments  | High |  As an *Authenticated User*, I want to give my feedback about the existing publications.
+US24 | Post Comments  | High |  As an *Authenticated User*, I want to give my feedback about the existing publications.
 US25 | Upvote  | High |  As an *Authenticated User*, I want to be able to give a positive rating on news that I like.
 `US26` | `Downvote` | `High` | `As an *Authenticated User*, I want to be able to give a negative rating on news that I don't like.`
 US27 | Share  | Medium |  As an *Authenticated User*, I want to share publications with my friends.
@@ -65,6 +64,7 @@ US28 | Post  | High |   As an *Authenticated User*, I want to write my own text 
 US29 | Check Statistics | Optional | As an *Authenticated User*, I want to be able to check my own statistics and of other users, such as Comments Posted, News Posted and Overall rating.
 US30 | Exchange Messages | High | As an *Authenticated User*, I want to exchange messages with other authenticated users.
 `US31` | `View Post History` | `High` | `As an *Authenticated User*, I want to see my activity (list of posts and comments).`
+`US32` | `Logout` | `High` | `As a *Guest* I want to be able to finish my current session, logging out of the system.`
 
 > Table 4: Authenticated user's user stories.
 
@@ -72,9 +72,9 @@ US30 | Exchange Messages | High | As an *Authenticated User*, I want to exchange
 
 Identifier | Name | Priority | Description
 -- | -- | -- | --
-US32 | Delete User Comments  | High | As a *Moderator* I want to delete innapropriate comments made by some users.
-US33 | Delete User Posts | High | As a *Moderator* I mant to delete innapropriate posts made by some users.
-US34 | Change Content Tags | Medium | As a *Moderator* I want to change a news items' tag if it's wrongfully used.
+US33 | Delete User Comments  | High | As a *Moderator* I want to delete innapropriate comments made by some users.
+US34 | Delete User Posts | High | As a *Moderator* I mant to delete innapropriate posts made by some users.
+US35 | Change Content Tags | Medium | As a *Moderator* I want to change a news items' tag if it's wrongfully used.
 
 > Table 5: Moderator's user stories.
 
