@@ -47,3 +47,54 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
 }
+
+img {
+    border: #2c2c2c 4px solid;
+    border-radius: 100px;
+    float:right;
+}
+
+.col-centered{
+    
+}
+
+#first_container :nth-child(2) {
+    float: right;
+    margin: 0 auto;
+}
+
+#name {
+    font-size: 25px;
+    color: #1a3073;
+    text-align: right;
+    padding-top: 50px;
+}
+
+#bio {
+    font-size: 10px;
+    font-style: italic;
+    padding-top: 13px;
+}
+
+#age {
+    margin-top: 50px;
+    margin-left: 12px;
+}
+
+#nationality {
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+#email {
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+#edit_profile {
+    float: right;
+}
+
+#third_container :first-child {
+    float: right;
+}
