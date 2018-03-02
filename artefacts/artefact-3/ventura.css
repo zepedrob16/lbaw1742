@@ -1,0 +1,22 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+h1, h2 {
+    font-family: 'harriet';
+    margin-right: 0.2em;
+    margin-bottom: 0em;
+}
+
+
+
+/* Font-faces */
+@font-face {
+    font-family: 'harriet';
+    src: url('assets/fonts/Harriet Display Bold Italic.otf');
+}
