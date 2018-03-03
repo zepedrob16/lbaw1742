@@ -69,3 +69,7 @@
 .page-link{
   color:black;
 }
+
+.table{
+  overflow-x:auto;
+}
