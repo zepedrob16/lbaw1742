@@ -83,6 +83,10 @@
     margin-right: 5px;
 }
 
+#adminPanel{
+    color:red;
+}
+
  body {
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
