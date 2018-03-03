@@ -62,3 +62,14 @@
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
 }
+
+.pagination{
+  margin-left:380px;
+}
+.page-link{
+  color:black;
+}
+
+.table{
+  overflow-x:auto;
+}

@@ -78,6 +78,15 @@
     background-color: #f5f5f5;
 }
 
+.inbox{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#adminPanel{
+    color:red;
+}
+
  body {
     font-family: 'Roboto Mono', monospace;
     font-weight: 400;
