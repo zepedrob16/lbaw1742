@@ -182,3 +182,8 @@ img {
     font-family: 'harriet';
     src: url('assets/fonts/Harriet Display Bold Italic.otf');
 }
+
+#stats_container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
