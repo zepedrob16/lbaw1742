@@ -1,0 +1,188 @@
+ body {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+}
+
+.Sender {
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+.font-weight-bold {
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+.username {
+    float:right;
+}
+
+#unopenMessage {
+    margin-top: 8px;
+    margin-right: 10px;
+}
+
+#openMessage {
+    margin-top: 6px;
+    margin-right: 10px; 
+}
+
+#secondRow {
+    color: grey;
+}
+
+#thirdRow {
+    color: grey;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+img {
+    border: #2c2c2c 4px solid;
+    border-radius: 100px;
+}
+
+#first_container :nth-child(2) {
+    float: right;
+    margin: 0 auto;
+}
+
+#name {
+    font-size: 25px;
+    color: #1a3073;
+    text-align: right;
+    padding-top: 50px;
+    font-family: 'harriet';
+}
+
+#bio {
+    font-size: 10px;
+    font-style: italic;
+    padding-top: 13px;
+}
+
+#age {
+    margin-top: 50px;
+    margin-left: 15px;
+}
+
+#nationality {
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+#email {
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+#edit_profile {
+    float: right;
+}
+
+#third_container :first-child {
+    float:right;
+}
+
+#statistics {
+    padding-top: 10px;
+    padding-right: 10px; 
+}
+
+#third_container {
+    border: #000000 2px solid;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+#comments_posted {
+    padding-top: 40px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+#news_posted {
+    padding-left: 20px;
+    font-weight: bold;
+
+}
+
+#likes_received {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+#likes_given {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+#third_container :nth-child(2) :nth-child(2) {
+    padding-top: 40px;
+    padding-left: 10px;
+}
+
+#third_container :nth-child(3) :nth-child(2) {
+    padding-left: 10px;
+}
+
+#third_container :nth-child(4) :nth-child(2) {
+    padding-left: 10px;
+}
+
+#third_container :nth-child(5) :nth-child(2) {
+    padding-left: 10px;
+}
+
+#edit_profile {
+    background-color: #7796f5;
+}
+
+.fa-chart-bar {
+    font-size: 50px;
+    padding-top: 10px;
+}
+
+#friends_col {
+    float:right;
+    font-style: italic;
+}
+
+.read a{
+    text-decoration: none;
+    color: grey;
+}
+
+.read a:hover{
+    text-decoration: underline;
+}
+
+.unread a{
+    text-decoration: none;
+    color: #1a3073;
+}
+
+.unread a:hover{
+    text-decoration: underline;
+}
+
+/* Font-faces */
+@font-face {
+    font-family: 'harriet';
+    src: url('assets/fonts/Harriet Display Bold Italic.otf');
+}
+
+#stats_container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
