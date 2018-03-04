@@ -45,39 +45,65 @@ The sitemap gives the project team an idea of how the website is going to be bui
 In this diagram, page stacks are represented as **double outline rectangles**.
  
 ## 3. Storyboards
- 
-> Storyboards for the main use cases of the system.
-> Do not include trivial use cases.
+<p align="center"><img src="screenshots/story-board-1.png"></p>
+<p align="center"><img src="screenshots/story-board-2.png"></p>
+<p align="center"><img src="screenshots/story-board-3.png"></p>
  
 ## 4. Interfaces
  
 > Screenshots, structured in subsections, including a reference, a description and a URL to the working version.
  
-### UI01: Home
+### UI01: Homepage (Authenticated User)
+The landing page of the website, which is virtually identical to the **guest** homepage, with the only exception the navigation items, which **link to the authenticated user's profile** and **settings**.
+<p align="center"><img src="screenshots/homepage.png"></p>
 
-### UI02: Sign in
+### UI02: Homepage (Guest)
+Identical to the previous page besides the header which includes both **sign up** and **sign in** options.
+<p align="center"><img src="screenshots/homepage-guest.png"></p>
 
-### UI03: Sign up
+### UI03: Sign in
+The sign in page requires both an **username** and **password**. It also provides the option to **remember the credentials** for future logins as well as a **retrieve password** option in case a user has forgotten its password.
+<p align="center"><img src="screenshots/signin.png"></p>
 
-### UI04: Post
+### UI04: Sign up
+The sign up page requires a valid **username**, **email**, **password** and **password confirmation**.
+<p align="center"><img src="screenshots/signup.png"></p>
 
-### UI05: Post Add/Edit
+### UI05: Post (Text)
+<p align="center"><img src="screenshots/post.png"></p>
 
-### UI06: Personal Profile
+### UI06: Post (Image)
+<p align="center"><img src="screenshots/post-image.png"></p>
 
-### UI07: Public Profile
+### UI07: Post (Link)
+<p align="center"><img src="screenshots/post-link.png"></p>
 
-### UI08: Inbox
+### UI08: Post (Moderator)
+<p align="center"><img src="screenshots/post-moderator.png"></p>
 
-### UI09: Open Inbox
+### UI09: Post Add/Edit
+<p align="center"><img src="screenshots/post-params.png"></p>
 
-### UI10: Post Moderator
+### UI10: Personal Profile
+<p align="center"><img src="screenshots/profile.png"></p>
 
-### UI11: Administrator Panel
+### UI11: Public Profile
+<p align="center"><img src="screenshots/public-profile.png"></p>
 
-### UI12: Settings
+### UI12: Inbox
+<p align="center"><img src="screenshots/inbox.png"></p>
 
-### UI13: About
+### UI13: Open Message Inbox
+<p align="center"><img src="screenshots/inbox-open.png"></p>
+
+### UI14: Administrator Panel
+<p align="center"><img src="screenshots/admin.png"></p>
+
+### UI15: Settings
+<p align="center"><img src="screenshots/settings.png"></p>
+
+### UI16: About
+<p align="center"><img src="screenshots/about.png"></p>
  
 ***
  
