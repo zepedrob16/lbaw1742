@@ -20,6 +20,7 @@ The interface's descriptions are presented on the end of the document.
 
 **SHOWCHAN** is a web application based on HTML5, JavaScript and CSS. The user interface was implemented using the Bootstrap framework.
 <p align="center"><img src="screenshots/common-features.png"></p>
+
 Figure 1: Interface's guidelines.
 
 These are the **main structural points** highlighted on the image which are present in most pages throughout the website:
