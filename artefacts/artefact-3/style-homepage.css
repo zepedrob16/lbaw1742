@@ -99,6 +99,17 @@ footer {
     color:red;
 }
 
+#horizontal-style {
+    display: table;
+}
+#horizontal-style li {
+    display: table-cell;
+}
+#horizontal-style a {
+    display: block;
+    text-align: center;
+}
+
 body {
     font-family: 'Open Sans', monospace;
     font-weight: 400;
