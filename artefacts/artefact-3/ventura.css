@@ -13,15 +13,28 @@ h1, h2 {
     margin-bottom: 0em;
 }
 
-
-
 /* Font-faces */
 @font-face {
     font-family: 'harriet';
     src: url('assets/fonts/Harriet Display Bold Italic.otf');
 }
 
-.imgcontainer {
+.inbox{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#adminPanel{
+    color:red;
+}
+
+#horizontal-style {
+    display: table;
+}
+#horizontal-style li {
+    display: table-cell;
+}
+#horizontal-style a {
+    display: block;
     text-align: center;
-    margin: 24px 0 12px 0;
 }
