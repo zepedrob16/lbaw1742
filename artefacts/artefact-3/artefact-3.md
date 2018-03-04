@@ -20,6 +20,7 @@ The interface's descriptions are presented on the end of the document.
 
 **SHOWCHAN** is a web application based on HTML5, JavaScript and CSS. The user interface was implemented using the Bootstrap framework.
 <p align="center"><img src="screenshots/common-features.png"></p>
+Figure 1: Interface's guidelines.
 
 These are the **main structural points** highlighted on the image which are present in most pages throughout the website:
 1. Logo
@@ -38,11 +39,9 @@ Some design choices lie in:
  
 A **sitemap** is a visual representation of the **relationship between the different pages** of a website that shows how all the information fits together.
 
-The sitemap gives the project team an idea of how the website is going to be build by helping to **clarify the information hierarchy**.
+The sitemap gives the project team an idea of how the website is going to be build by helping to **clarify the information hierarchy**. In this diagram, page stacks are represented as **double outline rectangles**.
 
 <p align="center"><img src="screenshots/sitemap.png"></p>
-
-In this diagram, page stacks are represented as **double outline rectangles**.
  
 ## 3. Storyboards
 Storyboards are presented to represent some of the main interactions with the system using a sequence of interfaces and explaining how navigation is done between them.
