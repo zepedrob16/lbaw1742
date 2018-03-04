@@ -38,3 +38,9 @@ h1, h2 {
     display: block;
     text-align: center;
 }
+
+btn-save-label{
+
+	display:block;
+    margin: 0 auto;
+}
