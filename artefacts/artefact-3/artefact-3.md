@@ -24,9 +24,13 @@ The interface's descriptions are presented on the end of the document.
 
 ## 2. Sitemap
  
-> Sitemap presenting the overall structure of the web application.
-> Each screen must be identified in the sitemap.
-> Multiple pages of the same screen (e.g. student profile in SIGARRA) are presented as page stacks.
+A **sitemap** is a visual representation of the **relationship between the different pages** of a website that shows how all the information fits together.
+
+The sitemap gives the project team an idea of how the website is going to be build by helping to **clarify the information hierarchy**.
+
+<p align="center"><img src="screenshots/sitemap.png"></p>
+
+In this diagram, page stacks are represented as **double outline rectangles**.
  
 ## 3. Storyboards
  
