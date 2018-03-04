@@ -92,3 +92,42 @@ img {
 	font-weight: bold;
 	color: #339933;
 }
+
+.inbox{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#adminPanel{
+    color:red;
+}
+
+#horizontal-style {
+    display: table;
+}
+#horizontal-style li {
+    display: table-cell;
+}
+#horizontal-style a {
+    display: block;
+    text-align: center;
+}
+.inbox{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#adminPanel{
+    color:red;
+}
+
+#horizontal-style {
+    display: table;
+}
+#horizontal-style li {
+    display: table-cell;
+}
+#horizontal-style a {
+    display: block;
+    text-align: center;
+}

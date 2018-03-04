@@ -19,8 +19,20 @@ The interface's descriptions are presented on the end of the document.
 ## 1. Interface and common features
 
 **SHOWCHAN** is a web application based on HTML5, JavaScript and CSS. The user interface was implemented using the Bootstrap framework.
- 
-> Screenshots highlighting the main elements of the interface, for desktop and mobile.
+<p align="center"><img src="screenshots/common-features.png"></p>
+
+These are the **main structural points** highlighted on the image which are present in most pages throughout the website:
+1. Logo
+2. Search bar
+3. Navigation items
+4. Content
+5. Footer
+
+Some design choices lie in:
+* The use of **bold, serif** fonts for **headlines** and **thinner, sans-serif** fonts for **body content** for better contrast;
+* The usage of **bright red** coloring for **administrator/moderation** navigation links;
+* Different sections have **clearly distinct styles** in order to highlight distinct hierarchies of information, and assist with the **visual flow**.
+
 
 ## 2. Sitemap
  
