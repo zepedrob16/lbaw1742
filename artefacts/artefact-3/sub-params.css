@@ -61,7 +61,7 @@ div[class^="col-"] {
     background-color: #f5f5f5;
 }
 
-img {
+#img-responsive {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -71,4 +71,24 @@ img {
 @font-face {
     font-family: 'harriet';
     src: url('assets/fonts/Harriet Display Bold Italic.otf');
+}
+
+.inbox{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#adminPanel{
+    color:red;
+}
+
+#horizontal-style {
+    display: table;
+}
+#horizontal-style li {
+    display: table-cell;
+}
+#horizontal-style a {
+    display: block;
+    text-align: center;
 }
