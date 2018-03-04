@@ -78,3 +78,17 @@ html, body {
 #response_box {
 	margin-top: 50px;
 }
+
+img {
+	margin-bottom: 10px;
+}
+
+#main_link {
+	margin-bottom: 20px;
+}
+
+#main_link a {
+	font-size: 20px;
+	font-weight: bold;
+	color: #339933;
+}
