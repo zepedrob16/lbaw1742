@@ -45,6 +45,8 @@ The sitemap gives the project team an idea of how the website is going to be bui
 In this diagram, page stacks are represented as **double outline rectangles**.
  
 ## 3. Storyboards
+Storyboards are presented to represent some of the main interactions with the system using a sequence of interfaces and explaining how navigation is done between them.
+
 <p align="center"><img src="screenshots/story-board-1.png"></p>
 <p align="center"><img src="screenshots/story-board-2.png"></p>
 <p align="center"><img src="screenshots/story-board-3.png"></p>
@@ -115,7 +117,7 @@ No changes to show.
  
 GROUP1742, 04/03/2018
  
-> Bernardo José Coelho Leite, up201404464@fe.up.pt
-> José Pedro da Silva e Sousa Borges, up201503603@fe.up.pt
-> Miguel Mano Fernandes, up201503538@fe.up.pt
-> Ventura de Sousa Pereira, up201404690@fe.up.pt
+> Bernardo José Coelho Leite, up201404464@fe.up.pt  
+> José Pedro da Silva e Sousa Borges, up201503603@fe.up.pt  
+> Miguel Mano Fernandes, up201503538@fe.up.pt  
+> Ventura de Sousa Pereira, up201404690@fe.up.pt  
