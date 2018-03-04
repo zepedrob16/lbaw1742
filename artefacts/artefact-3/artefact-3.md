@@ -29,9 +29,9 @@ These are the **main structural points** highlighted on the image which are pres
 5. Footer
 
 Some design choices lie in:
-* The use of bold, serif fonts for headlines and thinner, sans-serif fonts for body content for better contrast;
-* The usage of bright red coloring for administrator/moderation navigation links;
-* Different sections have clearly distinct styles in order to highlight distinct hierarchies of information, and assist with the visual flow.
+* The use of **bold, serif** fonts for **headlines** and **thinner, sans-serif** fonts for **body content** for better contrast;
+* The usage of **bright red** coloring for **administrator/moderation** navigation links;
+* Different sections have **clearly distinct styles** in order to highlight distinct hierarchies of information, and assist with the **visual flow**.
 
 
 ## 2. Sitemap
