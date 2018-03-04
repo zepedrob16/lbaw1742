@@ -43,14 +43,16 @@ A **sitemap** is a visual representation of the **relationship between the diffe
 The sitemap gives the project team an idea of how the website is going to be build by helping to **clarify the information hierarchy**. In this diagram, page stacks are represented as **double outline rectangles**.
 
 <p align="center"><img src="screenshots/sitemap.png"></p>
+
+Figure 2: Sitemap.
  
 ## 3. Storyboards
 Storyboards are presented to represent some of the main interactions with the system using a sequence of interfaces and explaining how navigation is done between them.
 
-<p align="center"><img src="screenshots/story-board-1.png"></p>
-<p align="center"><img src="screenshots/story-board-2.png"></p>
-<p align="center"><img src="screenshots/story-board-3.png"></p>
- 
+<p align="center"><img src="screenshots/story-board-1.png">Figure 3: Wireflow centered on the user's options.</p>
+<p align="center"><img src="screenshots/story-board-2.png">Figure 4: Wireflow centered on the reader's options.</p>
+<p align="center"><img src="screenshots/story-board-3.png">Figure 5: Wireflow for the sign-in and sign-up interaction.</p>
+
 ## 4. Interfaces
  
 > Screenshots, structured in subsections, including a reference, a description and a URL to the working version.
@@ -59,54 +61,86 @@ Storyboards are presented to represent some of the main interactions with the sy
 The landing page of the website, which is virtually identical to the **guest** homepage, with the only exception the navigation items, which **link to the authenticated user's profile** and **settings**.
 <p align="center"><img src="screenshots/homepage.png"></p>
 
+Figure 6: Homepage (Authenticated User).
+
 ### UI02: Homepage (Guest)
 Identical to the previous page besides the header which includes both **sign up** and **sign in** options.
 <p align="center"><img src="screenshots/homepage-guest.png"></p>
+
+Figure 7: Homepage (Guest).
 
 ### UI03: Sign in
 The sign in page requires both an **username** and **password**. It also provides the option to **remember the credentials** for future logins as well as a **retrieve password** option in case a user has forgotten its password.
 <p align="center"><img src="screenshots/signin.png"></p>
 
+Figure 8: Sign in.
+
 ### UI04: Sign up
 The sign up page requires a valid **username**, **email**, **password** and **password confirmation**.
 <p align="center"><img src="screenshots/signup.png"></p>
 
+Figure 9: Sign up.
+
 ### UI05: Post (Text)
 <p align="center"><img src="screenshots/post.png"></p>
+
+Figure 10: Post (Text)
 
 ### UI06: Post (Image)
 <p align="center"><img src="screenshots/post-image.png"></p>
 
+Figure 11: Post (Image)
+
 ### UI07: Post (Link)
 <p align="center"><img src="screenshots/post-link.png"></p>
+
+Figure 12: Post (Link)
 
 ### UI08: Post (Moderator)
 <p align="center"><img src="screenshots/post-moderator.png"></p>
 
+Figure 13: Post (Moderator)
+
 ### UI09: Post Add/Edit
 <p align="center"><img src="screenshots/post-params.png"></p>
+
+Figure 14: Post Add/Edit
 
 ### UI10: Personal Profile
 <p align="center"><img src="screenshots/profile.png"></p>
 
+Figure 15: Personal Profile
+
 ### UI11: Public Profile
 <p align="center"><img src="screenshots/public-profile.png"></p>
+
+Figure 16: Public Profile
 
 ### UI12: Inbox
 <p align="center"><img src="screenshots/inbox.png"></p>
 
+Figure 17: Inbox
+
 ### UI13: Open Message Inbox
 <p align="center"><img src="screenshots/inbox-open.png"></p>
+
+Figure 18: Open Message Inbox
 
 ### UI14: Administrator Panel
 <p align="center"><img src="screenshots/admin.png"></p>
 
+Figure 19: Administrator Panel
+
 ### UI15: Settings
 <p align="center"><img src="screenshots/settings.png"></p>
 
+Figure 20: Settings
+
 ### UI16: About
 <p align="center"><img src="screenshots/about.png"></p>
- 
+
+Figure 21: About
+
 ***
  
 ## Revision history
