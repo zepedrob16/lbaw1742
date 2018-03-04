@@ -34,3 +34,12 @@ html, body {
 	font-size: 10px;
 }
 
+#talking_with {
+    float:right;
+    font-weight: bold;
+}
+
+#talking_with :first-child {
+    font-size: 20px;
+}
+
