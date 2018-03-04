@@ -20,3 +20,8 @@ h1, h2 {
     font-family: 'harriet';
     src: url('assets/fonts/Harriet Display Bold Italic.otf');
 }
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
