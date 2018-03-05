@@ -58,97 +58,114 @@ Storyboards are presented to represent some of the main interactions with the sy
 > Screenshots, structured in subsections, including a reference, a description and a URL to the working version.
  
 ### UI01: Homepage (Authenticated User)
-The landing page of the website, which is virtually identical to the **guest** homepage, with the only exception the navigation items, which **link to the authenticated user's profile** and **settings**.
+The landing page of the website, which is virtually identical to the **guest** homepage, with the only exception the navigation items, which **link to the authenticated user's profile** and **settings**.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/homepage.html)**.
 <p align="center"><img src="screenshots/homepage.png"></p>
 
 Figure 6: Homepage (Authenticated User).
 
 ### UI02: Homepage (Guest)
-Identical to the previous page besides the header which includes both **sign up** and **sign in** options.
+Identical to the previous page besides the header which includes both **sign up** and **sign in** options.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/homepage-guest.html)**.
 <p align="center"><img src="screenshots/homepage-guest.png"></p>
 
 Figure 7: Homepage (Guest).
 
 ### UI03: Sign in
-The sign in page requires both a **username** and **password**. It also provides the option to **remember the credentials** for future logins as well as a **retrieve password** option in case a user has forgotten its password.
+The sign in page requires both a **username** and **password**. It also provides the option to **remember the credentials** for future logins as well as a **retrieve password** option in case a user has forgotten its password.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/signin.html)**.
 <p align="center"><img src="screenshots/signin.png"></p>
+
 
 Figure 8: Sign in.
 
 ### UI04: Sign up
-The sign up page requires a valid **username**, **email**, **password** and **password confirmation**.
+The sign up page requires a valid **username**, **email**, **password** and **password confirmation**.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/signup.html)**.
 <p align="center"><img src="screenshots/signup.png"></p>
 
 Figure 9: Sign up.
 
 ### UI05: Post (Text)
-The Post (Text) page refers to a specific text-based post written by a user.
+The Post (Text) page refers to a specific text-based post written by a user.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/post.html)**.
 <p align="center"><img src="screenshots/post.png"></p>
 
 Figure 10: Post (Text)
 
 ### UI06: Post (Image)
-The Post (Image) page refers to a specific image-based post written by a user.
+The Post (Image) page refers to a specific image-based post written by a user.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/post-image.html)**.
 <p align="center"><img src="screenshots/post-image.png"></p>
 
 Figure 11: Post (Image)
 
 ### UI07: Post (Link)
-The Post (Link) page refers to a specific link-based post written by a user.
+The Post (Link) page refers to a specific link-based post written by a user.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/post-link.html)**.
 <p align="center"><img src="screenshots/post-link.png"></p>
 
 Figure 12: Post (Link)
 
 ### UI08: Post (Moderator)
-The Post (Moderator) page refers to a specific post written by a user as seen by a Moderator.
+The Post (Moderator) page refers to a specific post written by a user as seen by a Moderator.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/post-moderator.html)**.
 <p align="center"><img src="screenshots/post-moderator.png"></p>
 
 Figure 13: Post (Moderator)
 
 ### UI09: Post Add/Edit
-The Post Add/Edit Page refers to the page which is used to create a post or edit information in a previously created one.
+The Post Add/Edit Page refers to the page which is used to create a post or edit information in a previously created one.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/sub-params.html)**.
 <p align="center"><img src="screenshots/post-params.png"></p>
 
 Figure 14: Post Add/Edit
 
 ### UI10: Personal Profile
-The Personal Profile page displays the user's information.
+The Personal Profile page displays the user's information.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/profile.html)**.
 <p align="center"><img src="screenshots/profile.png"></p>
 
 Figure 15: Personal Profile
 
 ### UI11: Public Profile
-The Public Profile page displays a user's information as seen by a different user.
+The Public Profile page displays a user's information as seen by a different user.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/public_profile.html)**.
 <p align="center"><img src="screenshots/public-profile.png"></p>
 
 Figure 16: Public Profile
 
 ### UI12: Inbox
-The Inbox page refers to the inbox of the current user, containing all messages exchanged with other users.
+The Inbox page refers to the inbox of the current user, containing all messages exchanged with other users.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/inbox.html)**.
 <p align="center"><img src="screenshots/inbox.png"></p>
 
 Figure 17: Inbox
 
 ### UI13: Open Message Inbox
-The Open Message Inbox page displays the current user's exchanged messages with a specific user.
+The Open Message Inbox page displays the current user's exchanged messages with a specific user.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/open_inbox.html)**.
 <p align="center"><img src="screenshots/inbox-open.png"></p>
 
 Figure 18: Open Message Inbox
 
 ### UI14: Administrator Panel
-The Administrator Panel page displays the Administrator's page where they can control all users and information regarding the website.
+The Administrator Panel page displays the Administrator's page where they can control all users and information regarding the website.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/admin.html)**.
 <p align="center"><img src="screenshots/admin.png"></p>
 
 Figure 19: Administrator Panel
 
 ### UI15: Settings
-The Settings page is a page where a user can change settings regarding their profile.
+The Settings page is a page where a user can change settings regarding their profile.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/settings.html)**.
 <p align="center"><img src="screenshots/settings.png"></p>
 
 Figure 20: Settings
 
 ### UI16: About
-The About page displays information regarding the creators of the website.
+The About page displays information regarding the creators of the website.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/about.html)**.
 <p align="center"><img src="screenshots/about.png"></p>
 
 Figure 21: About
