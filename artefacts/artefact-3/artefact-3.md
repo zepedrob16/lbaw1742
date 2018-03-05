@@ -63,7 +63,7 @@ The landing page of the website, which is virtually identical to the **guest** h
 
 <p float="left">
   <img src="screenshots/desktop/homepage.png" width="80%" />
-  <img src="screenshots/mobile/homepage.png" width="11%" /> 
+  <img src="screenshots/mobile/homepage.png" width="12%" /> 
 </p>
 
 Figure 6: Homepage (Authenticated User).
@@ -71,7 +71,7 @@ Figure 6: Homepage (Authenticated User).
 ### UI02: Homepage (Guest)
 Identical to the previous page besides the header which includes both **sign up** and **sign in** options.  
 **[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/homepage-guest.html)**.
-<p align="center"><img src="screenshots/desktop/homepage-guest.png" width="80%"></p>
+<p align="center"><img src="screenshots/desktop/homepage-guest.png" width="100%"></p>
 
 Figure 7: Homepage (Guest).
 
@@ -81,7 +81,7 @@ The sign in page requires both a **username** and **password**. It also provides
 
 <p float="left">
   <img src="screenshots/desktop/signin.png" width="80%" />
-  <img src="screenshots/mobile/signin.png" width="11%" /> 
+  <img src="screenshots/mobile/signin.png" width="18%" /> 
 </p>
 
 Figure 8: Sign in.
@@ -92,7 +92,7 @@ The sign up page requires a valid **username**, **email**, **password** and **pa
 
 <p float="left">
   <img src="screenshots/desktop/signup.png" width="80%" />
-  <img src="screenshots/mobile/signup.png" width="11%" /> 
+  <img src="screenshots/mobile/signup.png" width="16%" /> 
 </p>
 
 Figure 9: Sign up.
@@ -103,7 +103,7 @@ The Post (Text) page refers to a specific text-based post written by a user.
 
 <p float="left">
   <img src="screenshots/desktop/post.png" width="80%" />
-  <img src="screenshots/mobile/post.png" width="11%" /> 
+  <img src="screenshots/mobile/post.png" width="10%" /> 
 </p>
 
 Figure 10: Post (Text)
@@ -114,7 +114,7 @@ The Post (Image) page refers to a specific image-based post written by a user.
 
 <p float="left">
   <img src="screenshots/desktop/post-image.png" width="80%" />
-  <img src="screenshots/mobile/post-image.png" width="11%" /> 
+  <img src="screenshots/mobile/post-image.png" width="14%" /> 
 </p>
 
 Figure 11: Post (Image)
@@ -125,7 +125,7 @@ The Post (Link) page refers to a specific link-based post written by a user.
 
 <p float="left">
   <img src="screenshots/desktop/post-link.png" width="80%" />
-  <img src="screenshots/mobile/post-link.png" width="11%" /> 
+  <img src="screenshots/mobile/post-link.png" width="13%" /> 
 </p>
 
 Figure 12: Post (Link)
@@ -136,7 +136,7 @@ The Post (Moderator) page refers to a specific post written by a user as seen by
 
 <p float="left">
   <img src="screenshots/desktop/post-moderator.png" width="80%" />
-  <img src="screenshots/mobile/post-moderator.png" width="11%" /> 
+  <img src="screenshots/mobile/post-moderator.png" width="10%" /> 
 </p>
 
 Figure 13: Post (Moderator)
@@ -147,7 +147,7 @@ The Post Add/Edit Page refers to the page which is used to create a post or edit
 
 <p float="left">
   <img src="screenshots/desktop/post-params.png" width="80%" />
-  <img src="screenshots/mobile/post-params.png" width="11%" /> 
+  <img src="screenshots/mobile/sub-param.png" width="13%" /> 
 </p>
 
 Figure 14: Post Add/Edit
@@ -168,8 +168,7 @@ The Public Profile page displays a user's information as seen by a different use
 **[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/public_profile.html)**.
 
 <p float="left">
-  <img src="screenshots/desktop/public-profile.png" width="80%" />
-  <img src="screenshots/mobile/public-profile.png" width="11%" /> 
+  <img src="screenshots/desktop/public-profile.png" width="100%" />
 </p>
 
 Figure 16: Public Profile
@@ -180,7 +179,7 @@ The Inbox page refers to the inbox of the current user, containing all messages 
 
 <p float="left">
   <img src="screenshots/desktop/inbox.png" width="80%" />
-  <img src="screenshots/mobile/inbox.png" width="11%" /> 
+  <img src="screenshots/mobile/inbox.png" width="18%" /> 
 </p>
 
 Figure 17: Inbox
@@ -191,7 +190,7 @@ The Open Message Inbox page displays the current user's exchanged messages with 
 
 <p float="left">
   <img src="screenshots/desktop/inbox-open.png" width="80%" />
-  <img src="screenshots/mobile/inbox-open.png" width="11%" /> 
+  <img src="screenshots/mobile/open-inbox.png" width="12%" /> 
 </p>
 
 Figure 18: Open Message Inbox
@@ -202,7 +201,7 @@ The Administrator Panel page displays the Administrator's page where they can co
 
 <p float="left">
   <img src="screenshots/desktop/admin.png" width="80%" />
-  <img src="screenshots/mobile/admin.png" width="11%" /> 
+  <img src="screenshots/mobile/admin.png" width="18%" /> 
 </p>
 
 Figure 19: Administrator Panel
@@ -213,7 +212,7 @@ The Settings page is a page where a user can change settings regarding their pro
 
 <p float="left">
   <img src="screenshots/desktop/settings.png" width="80%" />
-  <img src="screenshots/mobile/settings.png" width="11%" /> 
+  <img src="screenshots/mobile/settings.png" width="18%" /> 
 </p>
 
 Figure 20: Settings
@@ -224,7 +223,7 @@ The About page displays information regarding the creators of the website.
 
 <p float="left">
   <img src="screenshots/desktop/about.png" width="80%" />
-  <img src="screenshots/mobile/about.png" width="11%" /> 
+  <img src="screenshots/mobile/about.png" width="10%" /> 
 </p>
 
 Figure 21: About
