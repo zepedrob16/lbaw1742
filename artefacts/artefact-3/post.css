@@ -22,7 +22,6 @@ html, body {
 }
 
 #post {
-	text-align: justify;
 	border: 1px solid black;
 	border-radius: 15px;
 	padding: 10px;
@@ -31,10 +30,6 @@ html, body {
 #sources {
 	font-size: 10px;
 	margin-bottom: 20px;
-}
-
-.col-10 p {
-	text-align: justify;
 }
 
 .col- a {

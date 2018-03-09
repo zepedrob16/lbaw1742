@@ -52,5 +52,17 @@
 
 #quote {
     font-size: 20px;
+}
+
+#username{
+    float: right;
+    padding-top: 40px;
+}
+
+#last_row {
     margin-bottom: 60px;
+}
+
+#edit_profile {
+    background-color: #8a91f9;
 }
