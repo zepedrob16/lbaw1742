@@ -1,0 +1,56 @@
+
+#profile_pic {
+    border: #2c2c2c 4px solid;
+    border-radius: 100px;
+}
+
+#first_container :nth-child(2) {
+    float: right;
+    margin: 0 auto;
+}
+
+#comments_posted {
+    padding-top: 40px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+#news_posted {
+    padding-left: 20px;
+    font-weight: bold;
+
+}
+
+#likes_received {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+#likes_given {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+#friends_col {
+    float:right;
+    font-style: italic;
+}
+
+/* -------------------------- */
+#full_name {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#age {
+    font-size: 20px;
+}
+
+#nationality {
+    font-size: 20px;
+}
+
+#quote {
+    font-size: 20px;
+    margin-bottom: 60px;
+}
