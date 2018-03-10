@@ -32,7 +32,10 @@ Some design choices lie in:
 * The usage of **bright red** coloring for **administrator/moderation** navigation links;
 * Different sections have **clearly distinct styles** in order to highlight distinct hierarchies of information, and assist with the **visual flow**.
 
-<p align="center"><img src="screenshots/desktop/common-features.png"></p>
+<p float="left">
+  <img src="screenshots/desktop/common-features.png" width="80%" />
+  <img src="screenshots/mobile/common-features.png" width="12%" /> 
+</p>
 
 Figure 1: Interface's guidelines.
 
