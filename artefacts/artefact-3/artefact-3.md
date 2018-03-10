@@ -33,7 +33,7 @@ Some design choices lie in:
 * Different sections have **clearly distinct styles** in order to highlight distinct hierarchies of information, and assist with the **visual flow**.
 
 <p float="left">
-  <img src="screenshots/desktop/common-features.png" width="80%" />
+  <img src="screenshots/desktop/common-features.png" width="85%" />
   <img src="screenshots/mobile/common-features.png" width="12%" /> 
 </p>
 
@@ -235,7 +235,9 @@ Figure 21: About
  
 ## Revision history
  
-* Flipped image with text on the interface topic.
+* Added mobile representation of interface and common features.
+* Slight text organization on interface and common features.
+* Reimagined sitemap with better organized areas, slight fixes and less clutter.
  
 ***
  
