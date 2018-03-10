@@ -70,7 +70,7 @@ div[class^="col-"] {
 /* Font-faces */
 @font-face {
     font-family: 'harriet';
-    src: url('assets/fonts/Harriet Display Bold Italic.otf');
+    src: url('assets/fonts/Harriet Display Bold.otf');
 }
 
 .inbox{

@@ -1,15 +1,7 @@
- body {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 400;
-}
-
-.Sender {
-    margin-bottom: 20px;
-    font-size: 12px;
-}
-.font-weight-bold {
-    margin-bottom: 0px;
-    font-size: 20px;
+/* Font-faces */
+@font-face {
+    font-family: 'harriet';
+    src: url('assets/fonts/Harriet Display Bold Italic.otf');
 }
 
 .footer {
@@ -20,169 +12,113 @@
     background-color: #f5f5f5;
 }
 
-.username {
-    float:right;
+html, body {
+    margin: 0;
+    height: 100%;
 }
 
-#unopenMessage {
-    margin-top: 8px;
-    margin-right: 10px;
+#posted-by {
+    font-size: 10px;
 }
 
-#openMessage {
-    margin-top: 6px;
-    margin-right: 10px; 
+#post {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
 }
 
-#secondRow {
-    color: grey;
-}
-
-#thirdRow {
-    color: grey;
-}
-
-h1 {
-    text-align: center;
+#sources {
+    font-size: 10px;
     margin-bottom: 20px;
 }
 
-img {
-    border: #2c2c2c 4px solid;
-    border-radius: 100px;
+.col- a {
+    color: black;
 }
 
-#first_container :nth-child(2) {
+#upvote:hover {
+  color: green;
+}
+
+#downvote:hover {
+  color: red;
+}
+
+.comment {
+    margin-top: 10px;
+}
+
+.comment p {
+    margin: 0;
+}
+
+.comment a {
     float: right;
-    margin: 0 auto;
-}
-
-#name {
-    font-size: 25px;
-    color: #1a3073;
-    text-align: right;
-    padding-top: 50px;
-    font-family: 'harriet';
-}
-
-#bio {
     font-size: 10px;
-    font-style: italic;
-    padding-top: 13px;
 }
 
-#age {
-    margin-top: 50px;
-    margin-left: 15px;
-}
-
-#nationality {
-    margin-top: 5px;
+.response p {
     margin-left: 30px;
 }
 
-#email {
-    margin-top: 5px;
-    margin-left: 30px;
-}
-
-#edit_profile {
+.response a {
     float: right;
+    font-size: 10px;
 }
 
-#third_container :first-child {
-    float:right;
+.respond {
+    margin-right: 10px;
 }
 
-#statistics {
-    padding-top: 10px;
-    padding-right: 10px; 
+#response_box {
+    margin-top: 50px;
 }
 
-#third_container {
-    border: #000000 2px solid;
-    border-radius: 25px;
-    margin-top: 20px;
+#main_link {
+    margin-bottom: 20px;
 }
 
-#comments_posted {
-    padding-top: 40px;
-    padding-left: 5px;
+#main_link a {
+    font-size: 20px;
     font-weight: bold;
+    color: #339933;
 }
 
-#news_posted {
-    padding-left: 20px;
-    font-weight: bold;
-
+.inbox{
+    margin-top: 10px;
+    margin-right: 5px;
 }
 
-#likes_received {
-    padding-left: 20px;
-    font-weight: bold;
+#adminPanel{
+    color:red;
 }
 
-#likes_given {
-    padding-left: 20px;
-    font-weight: bold;
+#horizontal-style {
+    display: table;
+}
+#horizontal-style li {
+    display: table-cell;
+}
+#horizontal-style a {
+    display: block;
+    text-align: center;
+}
+.inbox{
+    margin-top: 10px;
+    margin-right: 5px;
 }
 
-#third_container :nth-child(2) :nth-child(2) {
-    padding-top: 40px;
-    padding-left: 10px;
+#adminPanel{
+    color:red;
 }
 
-#third_container :nth-child(3) :nth-child(2) {
-    padding-left: 10px;
+#horizontal-style {
+    display: table;
 }
-
-#third_container :nth-child(4) :nth-child(2) {
-    padding-left: 10px;
+#horizontal-style li {
+    display: table-cell;
 }
-
-#third_container :nth-child(5) :nth-child(2) {
-    padding-left: 10px;
-}
-
-#edit_profile {
-    background-color: #7796f5;
-}
-
-.fa-chart-bar {
-    font-size: 50px;
-    padding-top: 10px;
-}
-
-#friends_col {
-    float:right;
-    font-style: italic;
-}
-
-.read a{
-    text-decoration: none;
-    color: grey;
-}
-
-.read a:hover{
-    text-decoration: underline;
-}
-
-.unread a{
-    text-decoration: none;
-    color: #1a3073;
-}
-
-.unread a:hover{
-    text-decoration: underline;
-}
-
-/* Font-faces */
-@font-face {
-    font-family: 'harriet';
-    src: url('assets/fonts/Harriet Display Bold Italic.otf');
-}
-
-#stats_container {
-    margin-top: 60px;
-    margin-bottom: 60px;
+#horizontal-style a {
+    display: block;
+    text-align: center;
 }
