@@ -4,13 +4,14 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 # A4: Conceptual Data Model
 
 ## 1. Class diagram
- 
-> UML class diagram containing the classes, associations, multiplicity and roles.
-> For each class, the attributes, associations and constraints are included in the class diagram
+<img src="showchan-uml.png" />
  
 ## 2. Additional Business Rules
- 
-> Business rules can be included in the UML diagram as UML notes or in a table in this section.
+Here are additional business rules the project required after further inspection.  
+
+| Identifier | Name | Description |
+| ---------- | ---- | ----------- |
+| .          | .    | .           |
  
 ## Revision history
  
