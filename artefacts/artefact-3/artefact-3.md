@@ -272,6 +272,7 @@ Figure 24: About
 * Slight text organization on interface and common features.
 * Reimagined sitemap with better organized areas, slight fixes and less clutter.
 * Added mockups for the administration area's tabs - moderators, statistics and reports.
+* Added the current webpage's title on each page's header for better navigation.
  
 ***
  
