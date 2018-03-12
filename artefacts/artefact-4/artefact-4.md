@@ -11,7 +11,7 @@ Here are additional business rules the project required after further inspection
 
 | Identifier | Name | Description |
 | ---------- | ---- | ----------- |
-| .          | .    | .           |
+| BR01 | Balance Update | When a user adds a post reaction, both the post's and the user's reaction balance is updated. |
  
 ## Revision history
 No changes.
