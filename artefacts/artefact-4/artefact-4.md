@@ -14,8 +14,10 @@ Here are additional business rules the project required after further inspection
 | .          | .    | .           |
  
 ## Revision history
- 
-No changes to show.
+Changes made to the first submission:
+1. Added **descriptive title of each page**;
+2. The **design of the top bar** has been improved;
+3. Added all **admin related pages**;
  
 ***
  
