@@ -198,7 +198,7 @@ The Open Message Inbox page displays the current user's exchanged messages with 
 
 Figure 18: Open Message Inbox
 
-### UI14: Administrator Panel
+### UI14: Administrator Panel - Users
 The Administrator Panel page displays the Administrator's page where they can control all users and information regarding the website.  
 **[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/admin.html)**.
 
@@ -207,9 +207,42 @@ The Administrator Panel page displays the Administrator's page where they can co
   <img src="screenshots/mobile/admin.png" width="18%" /> 
 </p>
 
-Figure 19: Administrator Panel
+Figure 19: Administrator Panel - Users Tab
 
-### UI15: Settings
+### UI15: Administrator Panel - Statistics
+The Administrator Panel page displays the Administrator's page where they can control all users and information regarding the website.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/admin_stats.html)**.
+
+<p float="left">
+  <img src="screenshots/desktop/admin-stats.png" width="80%" />
+  <img src="screenshots/mobile/admin-stats.png" width="18%" /> 
+</p>
+
+Figure 20: Administrator Panel - Statistics Tab
+
+### UI16: Administrator Panel - Mods
+The Administrator Panel page displays the Administrator's page where they can control all users and information regarding the website.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/admin_mod.html)**.
+
+<p float="left">
+  <img src="screenshots/desktop/admin-mods.png" width="80%" />
+  <img src="screenshots/mobile/admin-mods.png" width="18%" /> 
+</p>
+
+Figure 21: Administrator Panel - Mods Tab
+
+### UI17: Administrator Panel - Reports
+The Administrator Panel page displays the Administrator's page where they can control all users and information regarding the website.  
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/admin_reports.html)**.
+
+<p float="left">
+  <img src="screenshots/desktop/admin-reports.png" width="80%" />
+  <img src="screenshots/mobile/admin-reports.png" width="18%" /> 
+</p>
+
+Figure 22: Administrator Panel - Reports Tab
+
+### UI18: Settings
 The Settings page is a page where a user can change settings regarding their profile.  
 **[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/settings.html)**.
 
@@ -218,9 +251,9 @@ The Settings page is a page where a user can change settings regarding their pro
   <img src="screenshots/mobile/settings.png" width="18%" /> 
 </p>
 
-Figure 20: Settings
+Figure 23: Settings
 
-### UI16: About
+### UI19: About
 The About page displays information regarding the creators of the website.  
 **[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/about.html)**.
 
@@ -229,7 +262,7 @@ The About page displays information regarding the creators of the website.
   <img src="screenshots/mobile/about.png" width="10%" /> 
 </p>
 
-Figure 21: About
+Figure 24: About
 
 ***
  
