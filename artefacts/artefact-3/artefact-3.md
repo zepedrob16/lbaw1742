@@ -271,6 +271,7 @@ Figure 24: About
 * Added mobile representation of interface and common features.
 * Slight text organization on interface and common features.
 * Reimagined sitemap with better organized areas, slight fixes and less clutter.
+* Added mockups for the administration area's tabs - moderators, statistics and reports.
  
 ***
  
