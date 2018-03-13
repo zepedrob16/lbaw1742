@@ -1,0 +1,11 @@
+# Artefact #4 (Revision)
+- [ ] Bifurcação das generalizações;
+- [ ] Derivação a atributos a upvotes e downvotes;
+- [ ] Multiplicidade de PostReaction, FriendRequest;
+- [ ] Remover Conversation;
+- [ ] Data de início de FriendRequest e confirmação (nulo);
+- [ ] Multiplicidade no lado direito da composição;
+- [ ] FullName não é necessário;
+- [ ] Atributos que têm que ser únicos;
+- [ ] Consistência no uso de asteriscos e 0..*;
+- [ ] BR: usuário pode autoreportar-se, votar em posts que ele próprio fez, autopedido de amizade.
