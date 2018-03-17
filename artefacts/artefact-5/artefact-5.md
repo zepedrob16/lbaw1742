@@ -7,24 +7,57 @@ This artifact contains the Relational Schema obtained by mapping from the Concep
 ## 5. Relational Schema
 Relational schemas are specified in the compact notation: 
 
-| | | |
-|-|-|-|
-| R01 | Value1 |
-| R02 | Value2 |
- 
+|   |   |
+|--:|---|
+| R01 | image_post(id_post → post, image **NN**, source **NN**) |
+| R02 | text_post(id_post → post, opinion **NN**, source **NN**) |
+| R03 | link_post(id_post → post, url **NN**) |
+
 ## 6. Domains
 Specification of additional domains:
 
 ## 7. Functional Dependencies and schema validation
 To validate the Relational Schema obtained from the Conceptual Model, all functional dependencies are identified and the normalization of all relation schemas is accomplished.
 
+Table R01 image_post
+Keys: {id_post}
+Functional Dependencies
+FD0101 {id_post} → {image, source}
+NORMAL FORM BCNF
+
+Table R02 text_post
+Keys: {id_post}
+Functional Dependencies
+FD0201 {id_post} → {opinion, source}
+NORMAL FORM BCNF
+
+Table R03 link_post
+Keys: {id_post}
+Functional Dependencies
+FD0301 {id_post} → {url}
+NORMAL FORM BCNF
+
+
 ## 8. SQL Code
 ```SQL
 -- Tables
  
-CREATE TABLE ImagePost (
- 	image text NOT NULL
- 	source text NOT NULL,
+CREATE TABLE image_post (
+ 	id_post INTEGER NOT NULL,
+ 	image text NOT NULL,
+ 	source text NOT NULL
+);
+
+CREATE TABLE text_post (
+ 	id_post INTEGER NOT NULL,
+ 	image text NOT NULL,
+ 	source text NOT NULL
+);
+
+CREATE TABLE link_post (
+ 	id_post INTEGER NOT NULL,
+ 	image text NOT NULL,
+ 	source text NOT NULL
 );
 ```
 
