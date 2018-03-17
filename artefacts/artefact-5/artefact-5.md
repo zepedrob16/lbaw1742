@@ -12,6 +12,9 @@ Relational schemas are specified in the compact notation:
 | R01 | image_post(id_post → post, image **NN**, source **NN**) |
 | R02 | text_post(id_post → post, opinion **NN**, source **NN**) |
 | R03 | link_post(id_post → post, url **NN**) |
+| R04 | media_category(id_post → post, title **NN**) |
+| R05 | media_tag(id_post → post, title **NN**, rating) |
+| R06 | conversation(id_sender → user, id_recipient → user, title **NN**) | 
 
 ## 6. Domains
 Specification of additional domains:
