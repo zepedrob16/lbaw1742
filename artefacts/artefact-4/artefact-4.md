@@ -14,7 +14,13 @@ Here are additional business rules the project required after further inspection
 | BR01 | Balance Update | When a user adds a post reaction, both the post's and the user's reaction balance is updated. |
  
 ## Revision history
-No changes.
+* Fixed two instances of incorrect **generalization bifurcations**;
+* Added missing **post author relationship**;
+* Fixed **consistency of multiplicity** (* and 0..\*);
+* Removed useless **Conversation class** and replaced it with simply ConversationMessage;
+* Removed **derived attribute Full Name** since it may be easily calculated;
+* Removed **Thread class** and simplified thread-based commenting relationships;
+* Overall **UML cleanup**, better structuring and organization.
 
  
 ***
