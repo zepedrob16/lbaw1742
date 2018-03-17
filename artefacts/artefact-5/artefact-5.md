@@ -70,6 +70,17 @@ ALTER TABLE ONLY text_post
 ALTER TABLE ONLY link_post
     ADD CONSTRAINT link_post_pkey PRIMARY KEY (id_post); 
 
+-- Foreign Keys
+
+ALTER TABLE ONLY image_post
+    ADD CONSTRAINT image_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) ON UPDATE CASCADE;
+
+ALTER TABLE ONLY text_post
+    ADD CONSTRAINT text_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) ON UPDATE CASCADE;
+
+ALTER TABLE ONLY link_post
+    ADD CONSTRAINT link_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) ON UPDATE CASCADE;
+
 ```
 
 ## Revision history
