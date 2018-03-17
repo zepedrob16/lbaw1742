@@ -50,14 +50,23 @@ CREATE TABLE image_post (
 
 CREATE TABLE text_post (
  	id_post INTEGER NOT NULL,
- 	image text NOT NULL,
+ 	opinion text NOT NULL,
  	source text NOT NULL
 );
 
 CREATE TABLE link_post (
  	id_post INTEGER NOT NULL,
- 	image text NOT NULL,
- 	source text NOT NULL
+ 	url text NOT NULL
+
+ -- Primary Keys and Uniques
+
+ ALTER TABLE ONLY image_post
+    ADD CONSTRAINT image_post_pkey PRIMARY KEY (id_post);
+
+ ALTER TABLE ONLY text_post
+    ADD CONSTRAINT text_post_pkey PRIMARY KEY (id_post);
+ 
+
 );
 ```
 
