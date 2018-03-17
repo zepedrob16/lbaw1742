@@ -7,7 +7,10 @@ This artifact contains the Relational Schema obtained by mapping from the Concep
 ## 5. Relational Schema
 Relational schemas are specified in the compact notation: 
 
-| R01 | something  | 
+| | | |
+|-|-|-|
+| R01 | Value1 |
+| R02 | Value2 |
  
 ## 6. Domains
 Specification of additional domains:
@@ -20,8 +23,8 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 -- Tables
  
 CREATE TABLE ImagePost (
-	image text NOT NULL
-    source text NOT NULL,
+ 	image text NOT NULL
+ 	source text NOT NULL,
 );
 ```
 
