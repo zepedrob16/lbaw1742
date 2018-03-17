@@ -57,17 +57,19 @@ CREATE TABLE text_post (
 CREATE TABLE link_post (
  	id_post INTEGER NOT NULL,
  	url text NOT NULL
+);
 
- -- Primary Keys and Uniques
+-- Primary Keys and Uniques
 
- ALTER TABLE ONLY image_post
+ALTER TABLE ONLY image_post
     ADD CONSTRAINT image_post_pkey PRIMARY KEY (id_post);
 
- ALTER TABLE ONLY text_post
+ALTER TABLE ONLY text_post
     ADD CONSTRAINT text_post_pkey PRIMARY KEY (id_post);
- 
 
-);
+ALTER TABLE ONLY link_post
+    ADD CONSTRAINT link_post_pkey PRIMARY KEY (id_post); 
+
 ```
 
 ## Revision history
