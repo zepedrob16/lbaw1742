@@ -9,41 +9,71 @@ Relational schemas are specified in the compact notation:
 
 |   |   |
 |--:|---|
+| R01 | post(id, title **NN**, timestamp **NN**, upvotes, downvotes, balance) |
+| R01 | post_comment(id, body **NN**, timestamp **NN**) |
+| R01 | post_reaction(id, balance **NN**) |
 | R01 | image_post(id_post → post, image **NN**, source **NN**) |
-| R02 | text_post(id_post → post, opinion **NN**, source **NN**) |
-| R03 | link_post(id_post → post, url **NN**) |
-| R04 | media_category(id_post → post, title **NN**) |
-| R05 | media_tag(id_post → post, title **NN**, rating) |
-| R06 | conversation(id_sender → user, id_recipient → user, title **NN**) | 
+| R01 | text_post(id_post → post, opinion **NN**, source **NN**) |
+| R01 | link_post(id_post → post, url **NN**) |
 
 ## 6. Domains
 Specification of additional domains:
 
+|   |   |
+|--:|---|
+| Today | DATE DEFAULT CURRENT_DATE |
+
 ## 7. Functional Dependencies and schema validation
 To validate the Relational Schema obtained from the Conceptual Model, all functional dependencies are identified and the normalization of all relation schemas is accomplished.
 
-Table R01 image_post
-Keys: {id_post}
-Functional Dependencies
-FD0101 {id_post} → {image, source}
-NORMAL FORM BCNF
+**Table R01** (user)  
+**Keys**: {id, username, email}  
+**Functional Dependencies**  
+* FD0101
+* FD0102
 
-Table R02 text_post
-Keys: {id_post}
-Functional Dependencies
-FD0201 {id_post} → {opinion, source}
-NORMAL FORM BCNF
+**Normal form**: BCNF
 
-Table R03 link_post
-Keys: {id_post}
-Functional Dependencies
-FD0301 {id_post} → {url}
-NORMAL FORM BCNF
+---
+
+**Table R01** (image_post)  
+**Keys**: {id_post}  
+**Functional Dependencies**  
+* FD0101 {id_post} → {image, source}
+
+**Normal form**: BCNF
+
+---
+
+**Table R01** (text_post)  
+**Keys**: {id_post}  
+**Functional Dependencies**  
+* FD0101 {id_post} → {opinion, source}
+
+**Normal form**: BCNF
+
+---
+
+**Table R01** (link_post)  
+**Keys**: {id_post}  
+**Functional Dependencies**  
+* FD0101 {id_post} → {url}
+
+**Normal form**: BCNF
 
 
 ## 8. SQL Code
 ```SQL
 -- Tables
+
+CREATE TABLE post (
+  id_post INTEGER NOT NULL,
+  title text NOT NULL,
+  timestamp timestampz NOT NULL,
+  upvotes smallint,
+  downvotes smallint,
+  balance smallint
+);
  
 CREATE TABLE image_post (
  	id_post INTEGER NOT NULL,
