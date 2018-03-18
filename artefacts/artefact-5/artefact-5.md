@@ -88,6 +88,34 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 **Normal form**: BCNF
 
+---
+
+**Table R01** (conversation)  
+**Keys**: {id_sender, id_recipient}  
+**Functional Dependencies**  
+* FD0101 {id_sender} → {title}
+* FD0101 {id_recipient} 
+
+**Normal form**: BCNF
+
+---
+
+**Table R01** (media_category)  
+**Keys**: {id_post}  
+**Functional Dependencies**  
+* FD0101 {id_post} → {title}
+
+**Normal form**: BCNF
+
+---
+
+**Table R01** (media_tag)  
+**Keys**: {id_post}  
+**Functional Dependencies**  
+* FD0101 {id_post} → {title, rating}
+
+**Normal form**: BCNF
+
 
 ## 8. SQL Code
 ```SQL
