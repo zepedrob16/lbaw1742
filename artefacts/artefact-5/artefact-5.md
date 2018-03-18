@@ -22,6 +22,9 @@ Relational schemas are specified in the compact notation:
 | R01 | report(<ins>id</ins>, timestamp, criminal->User, author->User) |
 | R01 | friendship(<ins>id</ins>, start, user1->user, user2->user) |
 | R01 | friend_request(<ins>id</ins>, dateRequest, dateConfirmation, sender->User, receiver->user) |
+| R01 | member(<ins>id_user</ins> → user, reports) |
+| R01 | moderator(<ins>id_user</ins> → user) |
+| R01 | admin(<ins>id_user</ins> → user) |
 
 ## 6. Domains
 Specification of additional domains:
@@ -147,7 +150,32 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 **Functional Dependencies**  
 * FD0101 {id_post} → {title, rating}
 
+---
 
+**Table R01** (member)  
+**Keys**: {id}  
+**Functional Dependencies**  
+* FD0101 {id_user} → {reports}
+
+**Normal form**: BCNF  
+
+---
+
+**Table R01** (moderator)  
+**Keys**: {id}  
+**Functional Dependencies**  
+* (none)
+
+**Normal form**: BCNF  
+
+---
+
+**Table R01** (admin)  
+**Keys**: {id_user}  
+**Functional Dependencies**  
+* (none)
+
+**Normal form**: BCNF  
 
 
 ## 8. SQL Code
@@ -244,6 +272,18 @@ CREATE TABLE media_tag (
   rating FLOAT
 );
 
+CREATE TABLE moderator (
+ 	id_user INTEGER NOT NULL,
+ 	reports smallint
+);
+
+CREATE TABLE member (
+ 	id_user INTEGER NOT NULL
+);
+
+CREATE TABLE admin (
+ 	id_user INTEGER NOT NULL
+);
 
 -- Primary Keys and Uniques
 ALTER TABLE ONLY report
