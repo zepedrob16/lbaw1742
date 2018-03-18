@@ -20,6 +20,7 @@ Here are additional business rules the project required after further inspection
 * Removed useless **Conversation class** and replaced it with simply ConversationMessage;
 * Removed **derived attribute Full Name** since it may be easily calculated;
 * Removed **Thread class** and simplified thread-based commenting relationships;
+* Added derivation to **upvotes and downvotes** attributes;
 * Overall **UML cleanup**, better structuring and organization.
 
  
