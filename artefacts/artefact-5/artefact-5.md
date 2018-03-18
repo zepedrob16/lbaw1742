@@ -39,6 +39,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 * FD0101 {id} → {username, passowrd, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance}
 
 **Normal form**: BCNF
+
 ---
 
 **Table R01** (post)  
