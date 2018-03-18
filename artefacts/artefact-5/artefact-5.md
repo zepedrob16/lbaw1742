@@ -45,6 +45,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 **Keys**: {id}  
 **Functional Dependencies**  
 * FD0101 {id} → {title, timestamp, upvotes, downvotes, balance}
+
 **Normal form**: BCNF  
 
 ---
@@ -53,6 +54,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 **Keys**: {id}
 **Functional Dependencies** 
 * FD0101 {id} → {body, timestamp}
+
 **Normal form**: BCNF
 
 ---
@@ -61,6 +63,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 **Keys**: {id}
 **Functional Dependencies** 
 * FD0101 {id} → {balance}
+
 **Normal form**: BCNF
 
 ---
