@@ -181,7 +181,7 @@ CREATE TABLE post (
 CREATE TABLE image_post (
  	id_post INTEGER NOT NULL,
  	image text NOT NULL,
- 	source text NOT NULL
+mm 	source text NOT NULL
 );
 
 CREATE TABLE text_post (
@@ -195,6 +195,24 @@ CREATE TABLE link_post (
  	url text NOT NULL
 );
 
+CREATE TABLE conversation (
+ 	id_sender INTEGER NOT NULL,
+  id_recipient INTEGER NOT NULL,
+ 	title text NOT NULL
+);
+
+CREATE TABLE media_category (
+ 	id_post INTEGER NOT NULL,
+ 	title text NOT NULL
+);
+
+CREATE TABLE media_tag (
+ 	id_post INTEGER NOT NULL,
+ 	title text NOT NULL,
+  rating FLOAT
+);
+
+
 -- Primary Keys and Uniques
 ALTER TABLE ONLY report
    ADD CONSTRAINT report_id_pkey PRIMARY KEY (id);
@@ -203,7 +221,6 @@ ALTER TABLE ONLY user
    ADD CONSTRAINT user_id_pkey PRIMARY KEY (id);
    ADD CONSTRAINT user_username_uk UNIQUE (username);
    ADD CONSTRAINT user_email_uk UNIQUE (email);
-   
    
 ALTER TABLE ONLY frienship
    ADD CONSTRAINT friendship_id_pkey PRIMARY KEY (id);
@@ -218,8 +235,8 @@ ALTER TABLE ONLY text_post
     ADD CONSTRAINT text_post_pkey PRIMARY KEY (id_post);
 
 ALTER TABLE ONLY link_post
-    ADD CONSTRAINT link_post_pkey PRIMARY KEY (id_post); 
-
+    ADD CONSTRAINT link_post_pkey PRIMARY KEY (id_post);
+   
 -- Foreign Keys
 
 ALTER TABLE ONLY report
@@ -242,6 +259,18 @@ ALTER TABLE ONLY text_post
 
 ALTER TABLE ONLY link_post
     ADD CONSTRAINT link_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) ON UPDATE CASCADE;
+
+ALTER TABLE ONLY conversation
+    ADD CONSTRAINT conversation_id_sender_fkey FOREING KEY (id_sender) REFERENCES user(id) on UPDATE CASCADE;
+    
+ALTER TABLE ONLY conversation
+    ADD CONSTRAINT conversation_id_recipient_fkey FOREIGN KEY (id_recipient) REFERENCES user(id) on UPDATE CASCADE;
+    
+ALTER TABLE ONLY media_category
+    ADD CONSTRAINT media_category_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) on UPDATE CASCADE;
+
+ALTER TABLE ONLY media_tag
+    ADD CONSTRAINT media_tag_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) on UPDATE CASCADE;
 
 ```
 
