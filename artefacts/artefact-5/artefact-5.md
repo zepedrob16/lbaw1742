@@ -9,12 +9,12 @@ Relational schemas are specified in the compact notation:
 
 |   |   |
 |--:|---|
-| R01 | post(id, title **NN**, timestamp **NN**, upvotes, downvotes, balance) |
-| R01 | post_comment(id, body **NN**, timestamp **NN**) |
-| R01 | post_reaction(id, balance **NN**) |
-| R01 | image_post(id_post → post, image **NN**, source **NN**) |
-| R01 | text_post(id_post → post, opinion **NN**, source **NN**) |
-| R01 | link_post(id_post → post, url **NN**) |
+| R01 | post(<ins>id</ins>, author → user **NN**, title **NN**, timestamp **NN**, upvotes, downvotes, balance) |
+| R01 | post_comment(<ins>id</ins>, id_post → post **NN**, body **NN**, timestamp **NN**) |
+| R01 | post_reaction(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, balance **NN**) |
+| R01 | image_post(<ins>id_post</ins> → post, image **NN**, source **NN**) |
+| R01 | text_post(<ins>id_post</ins> → post, opinion **NN**, source **NN**) |
+| R01 | link_post(<ins>id_post</ins> → post, url **NN**) |
 
 ## 6. Domains
 Specification of additional domains:
@@ -32,6 +32,30 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 * FD0101
 * FD0102
 
+**Normal form**: BCNF
+
+---
+
+**Table R01** (post)  
+**Keys**: {id}  
+**Functional Dependencies**  
+* FD0101 {id} → {title, timestamp, upvotes, downvotes, balance}
+**Normal form**: BCNF  
+
+---
+
+**Table R01** (post_comment)
+**Keys**: {id}
+**Functional Dependencies** 
+* FD0101 {id} → {body, timestamp}
+**Normal form**: BCNF
+
+---
+
+**Table R01** (post_reaction)
+**Keys**: {id}
+**Functional Dependencies** 
+* FD0101 {id} → {balance}
 **Normal form**: BCNF
 
 ---
