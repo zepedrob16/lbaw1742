@@ -18,6 +18,10 @@ Relational schemas are specified in the compact notation:
 | R01 | media_category(<ins>id_post</ins> → post, title **NN**) |
 | R01 | media_tag(<ins>id_post</ins> → post, title **NN**, rating) |
 | R01 | conversation(<ins>id_sender</ins> → user, id_recipient → user, title **NN**) | 
+| R01 | user(<ins>id</ins>, username **UK**, passowrd **NN**, firstname **NN**, lastname **NN**, email **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, upvotes, downvotes, balance) |
+| R01 | report(<ins>id</ins>, timestamp, criminal->User, author->User) |
+| R01 | friendship(<ins>id</ins>, start, user1->user, user2->user) |
+| R01 | friend_request(<ins>id</ins>, dateRequest, dateConfirmation, sender->User, receiver->user) |
 
 ## 6. Domains
 Specification of additional domains:
@@ -29,14 +33,12 @@ Specification of additional domains:
 ## 7. Functional Dependencies and schema validation
 To validate the Relational Schema obtained from the Conceptual Model, all functional dependencies are identified and the normalization of all relation schemas is accomplished.
 
-**Table R01** (user)  
-**Keys**: {id, username, email}  
+**Table R01** (User)  
+**Keys**: {id}  
 **Functional Dependencies**  
-* FD0101
-* FD0102
+* FD0101 {id} → {username, passowrd, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance}
 
 **Normal form**: BCNF
-
 ---
 
 **Table R01** (post)  
@@ -90,36 +92,82 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R01** (conversation)  
-**Keys**: {id_sender, id_recipient}  
+**Table R01** (Report)  
+**Keys**: {id, user}  
 **Functional Dependencies**  
-* FD0101 {id_sender} → {title}
-* FD0101 {id_recipient} 
+* FD0101 {id} → {timestamp, user}
 
 **Normal form**: BCNF
 
 ---
 
-**Table R01** (media_category)  
-**Keys**: {id_post}  
+
+**Table R01** (report)  
+**Keys**: {id}  
 **Functional Dependencies**  
-* FD0101 {id_post} → {title}
+* FD0101 {id} → {timestamp, user}
 
 **Normal form**: BCNF
 
 ---
 
-**Table R01** (media_tag)  
-**Keys**: {id_post}  
+
+**Table R01** (frienship)  
+**Keys**: {id}  
 **Functional Dependencies**  
-* FD0101 {id_post} → {title, rating}
+* FD0101 {id} → {start, user1, user2}
 
 **Normal form**: BCNF
+---
+
+
+**Table R01** (friend_request)  
+**Keys**: {id}  
+**Functional Dependencies**  
+* FD0101 {id} → {dateRequest, dateConfirmation, sender, receiver}
+
+**Normal form**: BCNF
+
 
 
 ## 8. SQL Code
 ```SQL
 -- Tables
+CREATE TABLE user (
+ 
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  username text NOT NULL,
+  password text NOT NULL,
+  firstname text NOT NULL,
+  lastname text NOT NULL,
+  email text NOT NULL,
+  datebirth date NOT NULL,
+  nationality text,
+  quote text,
+  avatar text,
+  upvotes smallint,
+  downvotes smallint,
+  balance smallint
+);
+
+CREATE TABLE report(
+ 
+  id INTEGER NOT NULL,
+  timestamp timestampz NOT NULL
+);
+
+CREATE TABLE friendship (
+ 
+ id INTEGER NOT NULL,
+ start date
+);
+
+CREATe TABLE friend_request (
+ 
+ id INTEGER NOT NULL,
+ dateRequest date,
+ dateConfirmation date
+);
 
 CREATE TABLE post (
   id_post INTEGER NOT NULL,
@@ -148,7 +196,21 @@ CREATE TABLE link_post (
 );
 
 -- Primary Keys and Uniques
-
+ALTER TABLE ONLY report
+   ADD CONSTRAINT report_id_pkey PRIMARY KEY (id);
+   
+ALTER TABLE ONLY user
+   ADD CONSTRAINT user_id_pkey PRIMARY KEY (id);
+   ADD CONSTRAINT user_username_uk UNIQUE (username);
+   ADD CONSTRAINT user_email_uk UNIQUE (email);
+   
+   
+ALTER TABLE ONLY frienship
+   ADD CONSTRAINT friendship_id_pkey PRIMARY KEY (id);
+   
+ ALTER TABLE ONLY friend_request
+   ADD CONSTRAINT friend_request_id_pkey PRIMARY KEY (id);
+   
 ALTER TABLE ONLY image_post
     ADD CONSTRAINT image_post_pkey PRIMARY KEY (id_post);
 
@@ -159,6 +221,18 @@ ALTER TABLE ONLY link_post
     ADD CONSTRAINT link_post_pkey PRIMARY KEY (id_post); 
 
 -- Foreign Keys
+
+ALTER TABLE ONLY report
+   ADD CONSTRAINT report_id_user_fkey FOREIGN KEY (author) REFERENCES user(id) ON UPDATE CASCADE;
+   ADD CONSTRAINT report_id_user_fkey FOREIGN KEY (criminal) REFERENCES user(id) ON UPDATE CASCADE;
+   
+ALTER TABLE friendhsip
+    ADD CONSTRAINT friendship_id_user_fkey FOREIGN KEY (user1) REFERENCES user(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT friendship_id_user_fkey FOREIGN KEY (user2) REFERENCES user(id) ON UPDATE CASCADE;
+    
+ALTER TABLE friend_request
+    ADD CONSTRAINT friend_request_id_user_fkey FOREIGN KEY (sender) REFERENCES user(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT friend_request_id_user_fkey FOREIGN KEY (receiver) REFERENCES user(id) ON UPDATE CASCADE;
 
 ALTER TABLE ONLY image_post
     ADD CONSTRAINT image_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) ON UPDATE CASCADE;
