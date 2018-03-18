@@ -24,6 +24,10 @@ Here are additional business rules the project required after further inspection
 * Removed **Thread class** and simplified thread-based commenting relationships;
 * Added derivation to **upvotes and downvotes** attributes;
 * Overall **UML cleanup**, better structuring and organization.
+* Removed composition relationship between Friendship and User.
+* Added missing multiplicity to self association.
+* Added missing attributes to Friend Request.
+
 
  
 ***
