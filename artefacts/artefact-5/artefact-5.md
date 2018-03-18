@@ -170,23 +170,20 @@ CREATE TABLE user (
   balance smallint
 );
 
-CREATE TABLE report(
- 
+CREATE TABLE report (
   id INTEGER NOT NULL,
-  timestamp timestampz NOT NULL
+  timestamp TIMESTAMPZ NOT NULL
 );
 
 CREATE TABLE friendship (
- 
- id INTEGER NOT NULL,
- start date
+  id INTEGER NOT NULL,
+  start date
 );
 
-CREATe TABLE friend_request (
- 
- id INTEGER NOT NULL,
- dateRequest date,
- dateConfirmation date
+CREATE TABLE friend_request (
+  id INTEGER NOT NULL,
+  dateRequest date,
+  dateConfirmation date
 );
 
 CREATE TABLE post (
@@ -201,7 +198,7 @@ CREATE TABLE post (
 CREATE TABLE image_post (
  	id_post INTEGER NOT NULL,
  	image text NOT NULL,
-mm 	source text NOT NULL
+  source text NOT NULL
 );
 
 CREATE TABLE text_post (
@@ -213,6 +210,21 @@ CREATE TABLE text_post (
 CREATE TABLE link_post (
  	id_post INTEGER NOT NULL,
  	url text NOT NULL
+);
+
+CREATE TABLE post_reaction (
+  id INTEGER NOT NULL,
+  id_user INTEGER NOT NULL,
+  id_post INTEGER NOT NULL,
+  balance BIT NOT NULL
+);
+
+CREATE TABLE post_comment (
+  id INTEGER NOT NULL,
+  id_post INTEGER,
+  id_comment INTEGER,
+  body text NOT NULL,
+  timestamp TIMESTAMPZ NOT NULL
 );
 
 CREATE TABLE conversation (
@@ -242,12 +254,15 @@ ALTER TABLE ONLY user
    ADD CONSTRAINT user_username_uk UNIQUE (username);
    ADD CONSTRAINT user_email_uk UNIQUE (email);
    
-ALTER TABLE ONLY frienship
+ALTER TABLE ONLY friendship
    ADD CONSTRAINT friendship_id_pkey PRIMARY KEY (id);
    
  ALTER TABLE ONLY friend_request
    ADD CONSTRAINT friend_request_id_pkey PRIMARY KEY (id);
    
+ALTER TABLE ONLY post
+    ADD CONSTRAINT post_pkey PRIMARY KEY (id);
+
 ALTER TABLE ONLY image_post
     ADD CONSTRAINT image_post_pkey PRIMARY KEY (id_post);
 
@@ -256,6 +271,12 @@ ALTER TABLE ONLY text_post
 
 ALTER TABLE ONLY link_post
     ADD CONSTRAINT link_post_pkey PRIMARY KEY (id_post);
+    
+ALTER TABLE ONLY post_comment
+    ADD CONSTRAINT post_comment_pkey PRIMARY KEY (id);
+    
+ALTER TABLE ONLY post_reaction
+    ADD CONSTRAINT post_reaction_pkey PRIMARY KEY (id);
    
 -- Foreign Keys
 
@@ -271,6 +292,18 @@ ALTER TABLE friend_request
     ADD CONSTRAINT friend_request_id_user_fkey FOREIGN KEY (sender) REFERENCES user(id) ON UPDATE CASCADE;
     ADD CONSTRAINT friend_request_id_user_fkey FOREIGN KEY (receiver) REFERENCES user(id) ON UPDATE CASCADE;
 
+ALTER TABLE ONLY post_reaction
+    ADD CONSTRAINT id_user FOREIGN KEY (reactor) REFERENCES user(id) ON UPDATE CASCADE;
+    
+ALTER TABLE ONLY post_reaction
+    ADD CONSTRAINT id_post FOREIGN KEY (reacted) REFERENCES post(id) ON UPDATE CASCADE;
+    
+ALTER TABLE ONLY post_comment
+    ADD CONSTRAINT id_post FOREIGN KEY (parent) REFERENCES post(id) ON UPDATE CASCADE;
+    
+ALTER TABLE ONLY post_comment
+    ADD CONSTRAINT id_comment FOREIGN KEY (parent) REFERENCES comment(id) ON UPDATE CASCADE;
+
 ALTER TABLE ONLY image_post
     ADD CONSTRAINT image_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) ON UPDATE CASCADE;
 
@@ -281,7 +314,7 @@ ALTER TABLE ONLY link_post
     ADD CONSTRAINT link_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) ON UPDATE CASCADE;
 
 ALTER TABLE ONLY conversation
-    ADD CONSTRAINT conversation_id_sender_fkey FOREING KEY (id_sender) REFERENCES user(id) on UPDATE CASCADE;
+    ADD CONSTRAINT conversation_id_sender_fkey FOREIGN KEY (id_sender) REFERENCES user(id) on UPDATE CASCADE;
     
 ALTER TABLE ONLY conversation
     ADD CONSTRAINT conversation_id_recipient_fkey FOREIGN KEY (id_recipient) REFERENCES user(id) on UPDATE CASCADE;
