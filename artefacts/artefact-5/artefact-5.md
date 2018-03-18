@@ -92,16 +92,6 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R01** (Report)  
-**Keys**: {id, user}  
-**Functional Dependencies**  
-* FD0101 {id} → {timestamp, user}
-
-**Normal form**: BCNF
-
----
-
-
 **Table R01** (report)  
 **Keys**: {id}  
 **Functional Dependencies**  
@@ -111,15 +101,14 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-
 **Table R01** (frienship)  
 **Keys**: {id}  
 **Functional Dependencies**  
 * FD0101 {id} → {start, user1, user2}
 
 **Normal form**: BCNF
----
 
+---
 
 **Table R01** (friend_request)  
 **Keys**: {id}  
@@ -127,6 +116,33 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 * FD0101 {id} → {dateRequest, dateConfirmation, sender, receiver}
 
 **Normal form**: BCNF
+
+---
+ 
+**Table R01** (conversation)  
+**Keys**: {id_sender, id_recipient}  
+ **Functional Dependencies**  
+* FD0101 {id_sender} → {title}
+* FD0101 {id_recipient} → {title}
+ 
+ **Normal form**: BCNF
+ 
+---
+ 
+**Table R01** (media_category)  
+**Keys**: {id_post}  
+ **Functional Dependencies**  
+* FD0101 {id_post} → {title}
+ 
+ **Normal form**: BCNF
+
+---
+ 
+ **Table R01** (media_tag)  
+**Keys**: {id_post}  
+**Functional Dependencies**  
+* FD0101 {id_post} → {title, rating}
+
 
 
 
