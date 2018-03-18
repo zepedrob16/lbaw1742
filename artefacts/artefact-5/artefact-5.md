@@ -364,6 +364,15 @@ ALTER TABLE ONLY media_category
 
 ALTER TABLE ONLY media_tag
     ADD CONSTRAINT media_tag_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(id) on UPDATE CASCADE;
+    
+ALTER TABLE ONLY moderator
+    ADD CONSTRAINT moderator_id_user_fkey FOREIGN KEY (id_user) REFERENCES user(id) on UPDATE CASCADE;
+    
+ALTER TABLE ONLY member
+    ADD CONSTRAINT member_id_user_fkey FOREIGN KEY (id_user) REFERENCES user(id) on UPDATE CASCADE;
+    
+ALTER TABLE ONLY admin
+    ADD CONSTRAINT admin_id_user_fkey FOREIGN KEY (id_user) REFERENCES user(id) on UPDATE CASCADE;
 
 ```
 
