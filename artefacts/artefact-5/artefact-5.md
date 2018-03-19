@@ -9,22 +9,22 @@ Relational schemas are specified in the compact notation:
 
 |   |   |
 |--:|---|
-| R01 | post(<ins>id</ins>, author → user **NN**, title **NN**, timestamp **NN**, upvotes, downvotes, balance) |
-| R01 | post_comment(<ins>id</ins>, id_post → post **NN**, body **NN**, timestamp **NN**) |
-| R01 | post_reaction(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, balance **NN**) |
-| R01 | image_post(<ins>id_post</ins> → post, image **NN**, source **NN**) |
-| R01 | text_post(<ins>id_post</ins> → post, opinion **NN**, source **NN**) |
-| R01 | link_post(<ins>id_post</ins> → post, url **NN**) |
-| R01 | media_category(<ins>id_post</ins> → post, title **NN**) |
-| R01 | media_tag(<ins>id_post</ins> → post, title **NN**, rating) |
-| R01 | conversation(<ins>id_sender</ins> → user, id_recipient → user, title **NN**) | 
 | R01 | user(<ins>id</ins>, username **UK**, passowrd **NN**, firstname **NN**, lastname **NN**, email **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, upvotes, downvotes, balance) |
-| R01 | report(<ins>id</ins>, timestamp, criminal->User, author->User) |
-| R01 | friendship(<ins>id</ins>, start, user1->user, user2->user) |
-| R01 | friend_request(<ins>id</ins>, dateRequest, dateConfirmation, sender->User, receiver->user) |
-| R01 | member(<ins>id_user</ins> → user, reports) |
-| R01 | moderator(<ins>id_user</ins> → user) |
-| R01 | admin(<ins>id_user</ins> → user) |
+| R02 | post(<ins>id</ins>, author → user **NN**, title **NN**, timestamp **NN**, upvotes, downvotes, balance) |
+| R03 | post_comment(<ins>id</ins>, id_post → post **NN**, body **NN**, timestamp **NN**) |
+| R04 | post_reaction(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, balance **NN**) |
+| R05 | image_post(<ins>id_post</ins> → post, image **NN**, source **NN**) |
+| R06 | text_post(<ins>id_post</ins> → post, opinion **NN**, source **NN**) |
+| R07 | link_post(<ins>id_post</ins> → post, url **NN**) |
+| R08 | report(<ins>id</ins>, timestamp, criminal->User, author->User) |
+| R09 | friendship(<ins>id</ins>, start, user1->user, user2->user) |
+| R10 | friend_request(<ins>id</ins>, dateRequest, dateConfirmation, sender->User, receiver->user) |
+| R11 | conversation(<ins>id_sender</ins> → user, id_recipient → user, title **NN**) | 
+| R12 | media_category(<ins>id_post</ins> → post, title **NN**) |
+| R13 | media_tag(<ins>id_post</ins> → post, title **NN**, rating) |
+| R14 | member(<ins>id_user</ins> → user, reports) |
+| R15 | moderator(<ins>id_user</ins> → user) |
+| R16 | admin(<ins>id_user</ins> → user) |
 
 ## 6. Domains
 Specification of additional domains:
@@ -99,7 +99,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R01** (report)  
+**Table R08** (report)  
 **Keys**: {id}  
 **Functional Dependencies**  
 * FD0801 {id} → {timestamp, user}
@@ -108,7 +108,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R08** (frienship)  
+**Table R09** (frienship)  
 **Keys**: {id}  
 **Functional Dependencies**  
 * FD0901 {id} → {start, user1, user2}
@@ -117,7 +117,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R09** (friend_request)  
+**Table R10** (friend_request)  
 **Keys**: {id}  
 **Functional Dependencies**  
 * FD1001 {id} → {dateRequest, dateConfirmation, sender, receiver}
@@ -126,7 +126,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
  
-**Table R10** (conversation)  
+**Table R11** (conversation)  
 **Keys**: {id_sender, id_recipient}  
  **Functional Dependencies**  
 * FD1101 {id_sender} → {title}
@@ -136,7 +136,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
  
 ---
  
-**Table R11** (media_category)  
+**Table R12** (media_category)  
 **Keys**: {id_post}  
  **Functional Dependencies**  
 * FD1201 {id_post} → {title}
@@ -145,14 +145,14 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
  
- **Table R12** (media_tag)  
+ **Table R13** (media_tag)  
 **Keys**: {id_post}  
 **Functional Dependencies**  
 * FD1301 {id_post} → {title, rating}
 
 ---
 
-**Table R13** (member)  
+**Table R14** (member)  
 **Keys**: {id}  
 **Functional Dependencies**  
 * FD1401 {id_user} → {reports}
@@ -161,7 +161,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R14** (moderator)  
+**Table R15** (moderator)  
 **Keys**: {id}  
 **Functional Dependencies**  
 * (none)
@@ -170,7 +170,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R15** (admin)  
+**Table R16** (admin)  
 **Keys**: {id_user}  
 **Functional Dependencies**  
 * (none)
