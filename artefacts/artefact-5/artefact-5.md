@@ -54,7 +54,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R03** (post_comment)
+**Table R03** (post_comment)  
 **Keys**: {id}
 **Functional Dependencies** 
 * FD0301 {id} → {body, timestamp}
@@ -63,7 +63,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R04** (post_reaction)
+**Table R04** (post_reaction)  
 **Keys**: {id}
 **Functional Dependencies** 
 * FD0401 {id} → {balance}
