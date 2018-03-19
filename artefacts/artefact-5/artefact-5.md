@@ -45,55 +45,55 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R01** (post)  
+**Table R02** (post)  
 **Keys**: {id}  
 **Functional Dependencies**  
-* FD0101 {id} → {title, timestamp, upvotes, downvotes, balance}
+* FD0201 {id} → {title, timestamp, upvotes, downvotes, balance}
 
 **Normal form**: BCNF  
 
 ---
 
-**Table R01** (post_comment)
+**Table R03** (post_comment)
 **Keys**: {id}
 **Functional Dependencies** 
-* FD0101 {id} → {body, timestamp}
+* FD0301 {id} → {body, timestamp}
 
 **Normal form**: BCNF
 
 ---
 
-**Table R01** (post_reaction)
+**Table R04** (post_reaction)
 **Keys**: {id}
 **Functional Dependencies** 
-* FD0101 {id} → {balance}
+* FD0401 {id} → {balance}
 
 **Normal form**: BCNF
 
 ---
 
-**Table R01** (image_post)  
+**Table R05** (image_post)  
 **Keys**: {id_post}  
 **Functional Dependencies**  
-* FD0101 {id_post} → {image, source}
+* FD0501 {id_post} → {image, source}
 
 **Normal form**: BCNF
 
 ---
 
-**Table R01** (text_post)  
+**Table R06** (text_post)  
 **Keys**: {id_post}  
 **Functional Dependencies**  
-* FD0101 {id_post} → {opinion, source}
+* FD0601 {id_post} → {opinion, source}
 
 **Normal form**: BCNF
 
 ---
 
-**Table R01** (link_post)  
+**Table R07** (link_post)  
 **Keys**: {id_post}  
 **Functional Dependencies**  
-* FD0101 {id_post} → {url}
+* FD0701 {id_post} → {url}
 
 **Normal form**: BCNF
 
@@ -102,66 +102,66 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 **Table R01** (report)  
 **Keys**: {id}  
 **Functional Dependencies**  
-* FD0101 {id} → {timestamp, user}
+* FD0801 {id} → {timestamp, user}
 
 **Normal form**: BCNF
 
 ---
 
-**Table R01** (frienship)  
+**Table R08** (frienship)  
 **Keys**: {id}  
 **Functional Dependencies**  
-* FD0101 {id} → {start, user1, user2}
+* FD0901 {id} → {start, user1, user2}
 
 **Normal form**: BCNF
 
 ---
 
-**Table R01** (friend_request)  
+**Table R09** (friend_request)  
 **Keys**: {id}  
 **Functional Dependencies**  
-* FD0101 {id} → {dateRequest, dateConfirmation, sender, receiver}
+* FD1001 {id} → {dateRequest, dateConfirmation, sender, receiver}
 
 **Normal form**: BCNF
 
 ---
  
-**Table R01** (conversation)  
+**Table R10** (conversation)  
 **Keys**: {id_sender, id_recipient}  
  **Functional Dependencies**  
-* FD0101 {id_sender} → {title}
-* FD0101 {id_recipient} → {title}
+* FD1101 {id_sender} → {title}
+* FD1102 {id_recipient} → {title}
  
  **Normal form**: BCNF
  
 ---
  
-**Table R01** (media_category)  
+**Table R11** (media_category)  
 **Keys**: {id_post}  
  **Functional Dependencies**  
-* FD0101 {id_post} → {title}
+* FD1201 {id_post} → {title}
  
  **Normal form**: BCNF
 
 ---
  
- **Table R01** (media_tag)  
+ **Table R12** (media_tag)  
 **Keys**: {id_post}  
 **Functional Dependencies**  
-* FD0101 {id_post} → {title, rating}
+* FD1301 {id_post} → {title, rating}
 
 ---
 
-**Table R01** (member)  
+**Table R13** (member)  
 **Keys**: {id}  
 **Functional Dependencies**  
-* FD0101 {id_user} → {reports}
+* FD1401 {id_user} → {reports}
 
 **Normal form**: BCNF  
 
 ---
 
-**Table R01** (moderator)  
+**Table R14** (moderator)  
 **Keys**: {id}  
 **Functional Dependencies**  
 * (none)
@@ -170,7 +170,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 ---
 
-**Table R01** (admin)  
+**Table R15** (admin)  
 **Keys**: {id_user}  
 **Functional Dependencies**  
 * (none)
