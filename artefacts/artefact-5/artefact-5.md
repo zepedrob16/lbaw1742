@@ -324,7 +324,7 @@ ALTER TABLE ONLY report
    ADD CONSTRAINT report_id_user_fkey FOREIGN KEY (author) REFERENCES user(id) ON UPDATE CASCADE;
    ADD CONSTRAINT report_id_user_fkey FOREIGN KEY (criminal) REFERENCES user(id) ON UPDATE CASCADE;
    
-ALTER TABLE friendhsip
+ALTER TABLE friendship
     ADD CONSTRAINT friendship_id_user_fkey FOREIGN KEY (user1) REFERENCES user(id) ON UPDATE CASCADE;
     ADD CONSTRAINT friendship_id_user_fkey FOREIGN KEY (user2) REFERENCES user(id) ON UPDATE CASCADE;
     
