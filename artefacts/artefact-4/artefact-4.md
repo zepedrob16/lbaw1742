@@ -12,6 +12,8 @@ Here are additional business rules the project required after further inspection
 | Identifier | Name | Description |
 | ---------- | ---- | ----------- |
 | BR01 | Balance Update | When a user adds a post reaction, both the post's and the user's reaction balance is updated. |
+| BR02 | Self Friend Request | A user can't send a friend request for himself. |
+| BR03 | Auto Report | A user can't report himself. |
  
 ## Revision history
 * Fixed two instances of incorrect **generalization bifurcations**;
@@ -21,7 +23,12 @@ Here are additional business rules the project required after further inspection
 * Removed **derived attribute Full Name** since it may be easily calculated;
 * Removed **Thread class** and simplified thread-based commenting relationships;
 * Added derivation to **upvotes and downvotes** attributes;
-* Overall **UML cleanup**, better structuring and organization.
+* Overall **UML cleanup**, better structuring and organization;
+* Removed composition relationship between Friendship and User;
+* Added missing multiplicity to self association;
+* Added missing attributes to Friend Request;
+* Added **UNIQUE constraints**.
+
 
  
 ***
