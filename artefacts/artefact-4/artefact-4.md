@@ -13,7 +13,7 @@ Here are additional business rules the project required after further inspection
 | ---------- | ---- | ----------- |
 | BR01 | Balance Update | When a user adds a post reaction, both the post's and the user's reaction balance is updated. |
 | BR02 | Self Friend Request | A user can't send a friend request for himself. |
-| BR03 | Auto Report | A user can't report himmself. |
+| BR03 | Auto Report | A user can't report himself. |
  
 ## Revision history
 * Fixed two instances of incorrect **generalization bifurcations**;
