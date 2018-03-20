@@ -1,5 +1,3 @@
-> # A6: Indexes, triggers, user functions and population
-
 # A6: Indexes, triggers, user functions and population
 
 ## 0. Project Description (SHOWCHAN)
