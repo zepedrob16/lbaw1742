@@ -9,17 +9,17 @@ Relational schemas are specified in the compact notation:
 
 |   |   |
 |--:|---|
-| R01 | user(<ins>id</ins>, username **UK**, passowrd **NN**, firstname **NN**, lastname **NN**, email **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, upvotes, downvotes, balance) |
-| R02 | post(<ins>id</ins>, author → user **NN**, title **NN**, timestamp **NN**, upvotes, downvotes, balance) |
+| R01 | user(<ins>id</ins>, username **UK** **NN**, passowrd **NN**, firstname **NN**, lastname **NN**, email **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
+| R02 | post(<ins>id</ins>, author → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
 | R03 | post_comment(<ins>id</ins>, id_post → post **NN**, body **NN**, timestamp **NN**) |
 | R04 | post_reaction(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, balance **NN**) |
 | R05 | image_post(<ins>id_post</ins> → post, image **NN**, source **NN**) |
 | R06 | text_post(<ins>id_post</ins> → post, opinion **NN**, source **NN**) |
 | R07 | link_post(<ins>id_post</ins> → post, url **NN**) |
-| R08 | report(<ins>id</ins>, timestamp, criminal->User, author->User) |
-| R09 | friendship(<ins>id</ins>, start, user1->user, user2->user) |
+| R08 | report(<ins>id</ins>, timestamp **NN**, criminal->User, author->User) |
+| R09 | friendship(<ins>id</ins>, start **NN**, user1->user, user2->user) |
 | R10 | friend_request(<ins>id</ins>, dateRequest, dateConfirmation, sender->User, receiver->user) |
-| R11 | conversation(<ins>id_sender</ins> → user, id_recipient → user, title **NN**) | 
+| R11 | conversation_message(<ins>id_sender</ins> → user, <ins>id_recipient → user</ins>, body **NN**, timestamp **NN**, read) |
 | R12 | media_category(<ins>id_post</ins> → post, title **NN**) |
 | R13 | media_tag(<ins>id_post</ins> → post, title **NN**, rating) |
 | R14 | member(<ins>id_user</ins> → user, reports) |
@@ -176,6 +176,8 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 * (none)
 
 **Normal form**: BCNF  
+
+Because all relations are in the Boyce–Codd Normal Form (BCNF), the relational schema is also in the BCNF and therefore there is no need to be refined it using normalisation. 
 
 
 ## 8. SQL Code
