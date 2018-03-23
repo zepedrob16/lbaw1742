@@ -1,1 +1,22 @@
+A5
 
+- [ ] Username não é NN
+- [x] Atributos derivados deviam ter barra direita
+- [X] Inconsistência entre modelo concetual e A5
+- [X] Timestamp deveria ter NN, entre outros
+- [ ] Deve Upvote e downvote poder ser NULL?
+- [ ] media_category e media_tag têm chaves erradas
+- [ ] post_comment não está ligado com user
+- [X] R11 faltam atributos
+- [ ] post_reaction está mal modelado
+- [ ] Domínios deviamos por algo relacionado com os upvotes positivos ou negativos
+- [ ] Dependências funcionais devem ter mais do que uma chave
+- [ ] response não está modelada
+- [X] conversation foi removida do uml
+- [ ] post reaction é uma classe de associação e nós ao mapear fizemos como se fosse uma classe independente
+- [ ] Temos de identificar todas as chaves, username seria uma chave candidata por exemplo
+- [X] Deixar um comentário final (como todas as tabelas são bcnf então toda a base de dados é bcnf)
+- [ ] Falta um link para o github para poder descarregar
+- [ ] Falta criar drops
+- [ ] Auto_increment pode não funcionar (usar serial)
+- [ ] Corrigir sql
