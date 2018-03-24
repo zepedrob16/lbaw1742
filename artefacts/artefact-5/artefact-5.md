@@ -12,7 +12,7 @@ Relational schemas are specified in the compact notation:
 | R01 | user(<ins>id</ins>, username **UK** **NN**, passowrd **NN**, firstname **NN**, lastname **NN**, email **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
 | R02 | post(<ins>postnumber</ins>, author → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
 | R03 | post_comment(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, body **NN**, timestamp **NN**) |
-| R04 | post_reaction(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, balance **NN**) |
+| R04 | post_reaction(<ins>postnumber</ins> → post **NN**, <ins>id</ins> → user **NN**, balance **NN**) |
 | R05 | image_post(<ins>id_post</ins> → post, image **NN**, source **NN**) |
 | R06 | text_post(<ins>id_post</ins> → post, opinion **NN**, source **NN**) |
 | R07 | link_post(<ins>id_post</ins> → post, url **NN**) |
@@ -65,9 +65,10 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 ---
 
 **Table R04** (post_reaction)  
-**Keys**: {id}
+**Keys**: {postnumber,id}
 **Functional Dependencies** 
-* FD0401 {id} → {balance}
+* FD0401 {postnumber} → {balance}
+* FD0402 {id} → {balance}
 
 **Normal form**: BCNF
 
