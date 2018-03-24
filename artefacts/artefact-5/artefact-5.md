@@ -20,8 +20,8 @@ Relational schemas are specified in the compact notation:
 | R09 | friendship(<ins>id</ins>, start **NN**, user1->user, user2->user) |
 | R10 | friend_request(<ins>id</ins>, dateRequest, dateConfirmation, sender->User, receiver->user) |
 | R11 | conversation_message(<ins>id_sender</ins> → user, <ins>id_recipient → user</ins>, body **NN**, timestamp **NN**, read) |
-| R12 | media_category(<ins>cat_id</ins> **NN**) |
-| R13 | media_tag(<ins>tag_id</ins> **NN**, rating) |
+| R12 | media_category(<ins>cat_id</ins> **NN**, title **NN**) |
+| R13 | media_tag(<ins>tag_id</ins> **NN**, rating, title **NN**) |
 | R14 | member(<ins>id_user</ins> → user, reports) |
 | R15 | moderator(<ins>id_user</ins> → user) |
 | R16 | admin(<ins>id_user</ins> → user) |
