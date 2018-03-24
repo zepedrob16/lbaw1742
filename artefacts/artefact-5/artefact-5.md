@@ -11,7 +11,7 @@ Relational schemas are specified in the compact notation:
 |--:|---|
 | R01 | user(<ins>id</ins>, username **UK** **NN**, passowrd **NN**, firstname **NN**, lastname **NN**, email **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
 | R02 | post(<ins>id</ins>, author → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
-| R03 | post_comment(<ins>id</ins>, id_post → post **NN**, body **NN**, timestamp **NN**) |
+| R03 | post_comment(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, body **NN**, timestamp **NN**) |
 | R04 | post_reaction(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, balance **NN**) |
 | R05 | image_post(<ins>id_post</ins> → post, image **NN**, source **NN**) |
 | R06 | text_post(<ins>id_post</ins> → post, opinion **NN**, source **NN**) |
@@ -57,7 +57,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 **Table R03** (post_comment)  
 **Keys**: {id}
 **Functional Dependencies** 
-* FD0301 {id} → {body, timestamp}
+* FD0301 {id} → {body, timestamp, id_post, id_user}
 
 **Normal form**: BCNF
 
