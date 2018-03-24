@@ -5,10 +5,10 @@ A5
 - [X] Inconsistência entre modelo concetual e A5
 - [X] Timestamp deveria ter NN, entre outros
 - [ ] Deve Upvote e downvote poder ser NULL?
-- [ ] media_category e media_tag têm chaves erradas
-- [ ] post_comment não está ligado com user
+- [X] media_category e media_tag têm chaves erradas
+- [X] post_comment não está ligado com user
 - [X] R11 faltam atributos
-- [ ] post_reaction está mal modelado
+- [X] post_reaction está mal modelado
 - [ ] Domínios deviamos por algo relacionado com os upvotes positivos ou negativos
 - [ ] Dependências funcionais devem ter mais do que uma chave
 - [ ] response não está modelada
