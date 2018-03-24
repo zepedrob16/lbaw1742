@@ -1,6 +1,6 @@
 A5
 
-- [ ] Username não é NN
+- [x] Username não é NN
 - [x] Atributos derivados deviam ter barra direita
 - [X] Inconsistência entre modelo concetual e A5
 - [X] Timestamp deveria ter NN, entre outros
