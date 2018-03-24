@@ -10,7 +10,7 @@ Relational schemas are specified in the compact notation:
 |   |   |
 |--:|---|
 | R01 | user(<ins>id</ins>, username **UK** **NN**, passowrd **NN**, firstname **NN**, lastname **NN**, email **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
-| R02 | post(<ins>id</ins>, author → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
+| R02 | post(<ins>postnumber</ins>, author → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
 | R03 | post_comment(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, body **NN**, timestamp **NN**) |
 | R04 | post_reaction(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, balance **NN**) |
 | R05 | image_post(<ins>id_post</ins> → post, image **NN**, source **NN**) |
@@ -21,10 +21,11 @@ Relational schemas are specified in the compact notation:
 | R10 | friend_request(<ins>id</ins>, dateRequest, dateConfirmation, sender->User, receiver->user) |
 | R11 | conversation_message(<ins>id_sender</ins> → user, <ins>id_recipient → user</ins>, body **NN**, timestamp **NN**, read) |
 | R12 | media_category(<ins>id_post</ins> → post, title **NN**) |
-| R13 | media_tag(<ins>id_post</ins> → post, title **NN**, rating) |
+| R13 | media_tag(<ins>title</ins> **NN**, rating) |
 | R14 | member(<ins>id_user</ins> → user, reports) |
 | R15 | moderator(<ins>id_user</ins> → user) |
 | R16 | admin(<ins>id_user</ins> → user) |
+| R17 | post_tag(<ins>postnumber</ins> → post, <ins>title</ins> → media_tag) 
 
 ## 6. Domains
 Specification of additional domains:
@@ -46,9 +47,9 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 ---
 
 **Table R02** (post)  
-**Keys**: {id}  
+**Keys**: {postnumber}  
 **Functional Dependencies**  
-* FD0201 {id} → {title, timestamp, upvotes, downvotes, balance}
+* FD0201 {postnumber} → {title, timestamp, upvotes, downvotes, balance}
 
 **Normal form**: BCNF  
 
@@ -146,9 +147,9 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 ---
  
  **Table R13** (media_tag)  
-**Keys**: {id_post}  
+**Keys**: {title}  
 **Functional Dependencies**  
-* FD1301 {id_post} → {title, rating}
+* FD1301 {title} → {title, rating}
 
 ---
 
