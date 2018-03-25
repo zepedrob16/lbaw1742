@@ -183,12 +183,16 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 **Normal form**: BCNF  
 
+---
+
 **Table R17** (post_tag)  
 **Keys**: {postnumber, tag_id}  
 **Functional Dependencies**  
 * (none)
 
 **Normal form**: BCNF  
+
+---
 
 **Table R18** (post_category)  
 **Keys**: {postnumber, cat_id}  
