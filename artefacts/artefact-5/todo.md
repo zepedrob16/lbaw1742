@@ -10,7 +10,7 @@ A5
 - [X] R11 faltam atributos
 - [X] post_reaction está mal modelado
 - [ ] Domínios deviamos por algo relacionado com os upvotes positivos ou negativos
-- [ ] Dependências funcionais devem ter mais do que uma chave
+- [X] Dependências funcionais devem ter mais do que uma chave
 - [ ] response não está modelada
 - [X] conversation foi removida do uml
 - [X] post reaction é uma classe de associação e nós ao mapear fizemos como se fosse uma classe independente
