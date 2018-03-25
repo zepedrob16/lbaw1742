@@ -18,5 +18,5 @@ A5
 - [X] Deixar um comentário final (como todas as tabelas são bcnf então toda a base de dados é bcnf)
 - [ ] Falta um link para o github para poder descarregar
 - [x] Falta criar drops
-- [ ] Auto_increment pode não funcionar (usar serial)
+- [x] Auto_increment pode não funcionar (usar serial)
 - [ ] Corrigir sql
