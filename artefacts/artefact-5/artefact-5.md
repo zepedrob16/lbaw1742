@@ -183,6 +183,20 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 
 **Normal form**: BCNF  
 
+**Table R17** (post_tag)  
+**Keys**: {postnumber, tag_id}  
+**Functional Dependencies**  
+* (none)
+
+**Normal form**: BCNF  
+
+**Table R18** (post_category)  
+**Keys**: {postnumber, cat_id}  
+**Functional Dependencies**  
+* (none)
+
+**Normal form**: BCNF  
+
 Because all relations are in the Boyce–Codd Normal Form (BCNF), the relational schema is also in the BCNF and therefore there is no need to be refined it using normalisation. 
 
 
