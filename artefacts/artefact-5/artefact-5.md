@@ -9,7 +9,7 @@ Relational schemas are specified in the compact notation:
 
 |   |   |
 |--:|---|
-| R01 | user(<ins>id</ins>, username **UK** **NN**, passowrd **NN**, firstname **NN**, lastname **NN**, email **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
+| R01 | user(<ins>id</ins>, <ins>username</ins> **UK** **NN**, password **NN**, firstname **NN**, lastname **NN**, <ins>email</ins> **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
 | R02 | post(<ins>postnumber</ins>, author → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
 | R03 | post_comment(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, body **NN**, timestamp **NN**) |
 | R04 | post_reaction(<ins>postnumber</ins> → post **NN**, <ins>id</ins> → user **NN**, balance **NN**) |
@@ -39,9 +39,11 @@ Specification of additional domains:
 To validate the Relational Schema obtained from the Conceptual Model, all functional dependencies are identified and the normalization of all relation schemas is accomplished.
 
 **Table R01** (User)  
-**Keys**: {id}  
+**Keys**: {id,username,email}  
 **Functional Dependencies**  
-* FD0101 {id} → {username, passowrd, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance}
+* FD0101 {id} → {username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance}
+* FD0102 {username} → {id, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance}
+* FD0103 {email} → {id, username, password, firstname, lastname, datebirth, nationality, quote, avatar, upvotes, downvotes, balance}
 
 **Normal form**: BCNF
 
