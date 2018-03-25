@@ -9,7 +9,7 @@ Relational schemas are specified in the compact notation:
 
 |   |   |
 |--:|---|
-| R01 | user(<ins>id</ins>, <ins>username</ins> **UK** **NN**, password **NN**, firstname **NN**, lastname **NN**, <ins>email</ins> **UK** **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
+| R01 | user(<ins>id</ins>, <ins>username</ins> **UK** **NN**, <ins>email</ins> **UK** **NN**, password **NN**, firstname **NN**, lastname **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
 | R02 | post(<ins>postnumber</ins>, author → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
 | R03 | post_comment(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, body **NN**, timestamp **NN**) |
 | R04 | post_reaction(<ins>postnumber</ins> → post **NN**, <ins>id</ins> → user **NN**, balance **NN**) |
