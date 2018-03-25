@@ -14,7 +14,7 @@ A5
 - [ ] response não está modelada
 - [X] conversation foi removida do uml
 - [X] post reaction é uma classe de associação e nós ao mapear fizemos como se fosse uma classe independente
-- [ ] Temos de identificar todas as chaves, username seria uma chave candidata por exemplo
+- [X] Temos de identificar todas as chaves, username seria uma chave candidata por exemplo
 - [X] Deixar um comentário final (como todas as tabelas são bcnf então toda a base de dados é bcnf)
 - [ ] Falta um link para o github para poder descarregar
 - [x] Falta criar drops
