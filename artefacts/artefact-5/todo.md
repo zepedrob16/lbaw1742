@@ -17,6 +17,6 @@ A5
 - [ ] Temos de identificar todas as chaves, username seria uma chave candidata por exemplo
 - [X] Deixar um comentário final (como todas as tabelas são bcnf então toda a base de dados é bcnf)
 - [ ] Falta um link para o github para poder descarregar
-- [ ] Falta criar drops
+- [x] Falta criar drops
 - [ ] Auto_increment pode não funcionar (usar serial)
 - [ ] Corrigir sql
