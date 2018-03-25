@@ -13,7 +13,7 @@ A5
 - [ ] Dependências funcionais devem ter mais do que uma chave
 - [ ] response não está modelada
 - [X] conversation foi removida do uml
-- [ ] post reaction é uma classe de associação e nós ao mapear fizemos como se fosse uma classe independente
+- [X] post reaction é uma classe de associação e nós ao mapear fizemos como se fosse uma classe independente
 - [ ] Temos de identificar todas as chaves, username seria uma chave candidata por exemplo
 - [X] Deixar um comentário final (como todas as tabelas são bcnf então toda a base de dados é bcnf)
 - [ ] Falta um link para o github para poder descarregar
