@@ -10,7 +10,7 @@ Relational schemas are specified in the compact notation:
 |   |   |
 |--:|---|
 | R01 | user(<ins>id</ins>, <ins>username</ins> **UK** **NN**, <ins>email</ins> **UK** **NN**, password **NN**, firstname **NN**, lastname **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
-| R02 | post(<ins>postnumber</ins>, author → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
+| R02 | post(<ins>postnumber</ins>, <ins>author</ins> → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
 | R03 | post_comment(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, body **NN**, timestamp **NN**) |
 | R04 | post_reaction(<ins>postnumber</ins> → post **NN**, <ins>id</ins> → user **NN**, balance **NN**) |
 | R05 | image_post(<ins>id_post</ins> → post, image **NN**, source **NN**) |
@@ -50,9 +50,10 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 ---
 
 **Table R02** (post)  
-**Keys**: {postnumber}  
+**Keys**: {postnumber,author}  
 **Functional Dependencies**  
-* FD0201 {postnumber} → {title, timestamp, upvotes, downvotes, balance}
+* FD0201 {postnumber} → {author, title, timestamp, upvotes, downvotes, balance}
+* FD0202 {author} → {postnumber, title, timestamp, upvotes, downvotes, balance}
 
 **Normal form**: BCNF  
 
