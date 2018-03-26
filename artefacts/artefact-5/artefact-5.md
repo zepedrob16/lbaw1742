@@ -34,6 +34,8 @@ Specification of additional domains:
 |   |   |
 |--:|---|
 | Today | DATE DEFAULT CURRENT_DATE |
+| Upvotes | \[0, MAX_INT\] |
+| Downvotes | \[0, MAX_INT\] |
 
 ## 7. Functional Dependencies and schema validation
 To validate the Relational Schema obtained from the Conceptual Model, all functional dependencies are identified and the normalization of all relation schemas is accomplished.
@@ -60,7 +62,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 ---
 
 **Table R03** (post_comment)  
-**Keys**: {id}
+**Keys**: {id}  
 **Functional Dependencies** 
 * FD0301 {id} → {body, timestamp, id_post, id_user}
 
@@ -69,7 +71,7 @@ To validate the Relational Schema obtained from the Conceptual Model, all functi
 ---
 
 **Table R04** (post_reaction)  
-**Keys**: {postnumber,id}
+**Keys**: {postnumber,id}  
 **Functional Dependencies** 
 * FD0401 {postnumber} → {balance}
 * FD0402 {id} → {balance}
