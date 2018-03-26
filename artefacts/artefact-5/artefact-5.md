@@ -9,7 +9,7 @@ Relational schemas are specified in the compact notation:
 
 |   |   |
 |--:|---|
-| R01 | user(<ins>id</ins>, <ins>username</ins> **UK** **NN**, <ins>email</ins> **UK** **NN**, password **NN**, firstname **NN**, lastname **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
+| R01 | user_table(<ins>id</ins>, <ins>username</ins> **UK** **NN**, <ins>email</ins> **UK** **NN**, password **NN**, firstname **NN**, lastname **NN**, datebirth **NN**, nationality **NN**, quote, avatar, \upvotes, \downvotes, \balance) |
 | R02 | post(<ins>postnumber</ins>, <ins>author</ins> → user **NN**, title **NN**, timestamp **NN**, \upvotes, \downvotes, \balance) |
 | R03 | post_comment(<ins>id</ins>, id_post → post **NN**, id_user → user **NN**, body **NN**, timestamp **NN**) |
 | R04 | post_reaction(<ins>postnumber</ins> → post **NN**, <ins>id</ins> → user **NN**, balance **NN**) |
@@ -19,7 +19,7 @@ Relational schemas are specified in the compact notation:
 | R08 | report(<ins>id</ins>, timestamp **NN**, criminal->User, author->User) |
 | R09 | friendship(<ins>id</ins>, start **NN**, user1->user, user2->user) |
 | R10 | friend_request(<ins>id</ins>, dateRequest, dateConfirmation, sender->User, receiver->user) |
-| R11 | conversation_message(<ins>id_sender</ins> → user, <ins>id_recipient → user</ins>, body **NN**, timestamp **NN**, read) |
+| R11 | conversation_message(<ins>id_sender</ins> → user, <ins>id_recipient</ins> → user, body **NN**, timestamp **NN**, read) |
 | R12 | media_category(<ins>cat_id</ins> **NN**, title **NN**) |
 | R13 | media_tag(<ins>tag_id</ins> **NN**, rating, title **NN**) |
 | R14 | member(<ins>id_user</ins> → user, reports) |
