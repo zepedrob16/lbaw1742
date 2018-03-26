@@ -506,7 +506,6 @@ ALTER TABLE ONLY post_category
 * Added **keys** to some **functional dependencies**.
 * Added some missing **candidate keys** (e.g. username).
 * There's now a **final paragraph** relative to the **normal form** present on **topic seven's relational schema**.
-* **Replaced AUTO_INCREMENT** tag for **SERIAL**.
 * Added missing **drops**.
 * Fixed plenty of **errors** previously present on the **SQL code**.
 * Added **Github download link** for **SQL code**.
