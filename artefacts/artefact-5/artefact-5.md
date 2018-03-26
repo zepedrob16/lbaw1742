@@ -207,6 +207,8 @@ Because all relations are in the Boyce–Codd Normal Form (BCNF), the relational
 
 
 ## 8. SQL Code
+
+#### [Download](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-5/lbaw.sql)
 ```SQL
 
 DROP TABLE IF EXISTS user_table cascade;
@@ -465,7 +467,6 @@ ALTER TABLE ONLY conversation_message
 ALTER TABLE ONLY media_category
     ADD CONSTRAINT media_category_id_post_fkey FOREIGN KEY (cat_id) REFERENCES post(postnumber) on UPDATE CASCADE;
 
-
 ALTER TABLE ONLY media_tag
     ADD CONSTRAINT media_tag_id_post_fkey FOREIGN KEY (tag_id) REFERENCES post(postnumber) on UPDATE CASCADE;
     
@@ -494,7 +495,22 @@ ALTER TABLE ONLY post_category
 ```
 
 ## Revision history
-No changes.
+* **Username** and every instance of **timestamp** is now a **NOT NULL** attribute.
+* Fixed direction of **derivation bar**.
+* Fixed some **inconsistencies** between the conceptual model and this artefact.
+* Fixed incorrect **media tag** and **media category keys**.
+* Added **connection** between **post_comment** and **user**.
+* Added plenty of **attributes** to **conversation_message** (we got mixed up because of parent class deletion).
+* **Post_reaction** is now modelled according to **derived class rules**, as well as the **response** relation.
+* Added **domains** for **upvotes** and **downvotes**.
+* Added **keys** to some **functional dependencies**.
+* Added some missing **candidate keys** (e.g. username).
+* There's now a **final paragraph** relative to the **normal form** present on **topic seven's relational schema**.
+* **Replaced AUTO_INCREMENT** tag for **SERIAL**.
+* Added missing **drops**.
+* Fixed plenty of **errors** previously present on the **SQL code**.
+* Added **Github download link** for **SQL code**.
+* **Markdown formatting**.
 
  
 ***
