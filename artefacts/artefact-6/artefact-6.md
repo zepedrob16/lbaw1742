@@ -46,6 +46,61 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 
 ```
 
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT02        | Read Messages     | dozens per day   |
+
+```sql
+
+```
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT03        | Search by type    | dozens per day   |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT04        | Filter by Category| hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT05        | Read comments     | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT06        | Read Post Content | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT07        | Check Post Rank   | dozens per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT08        | Check statistics  | units per day    |
+
+```sql
+
+```
+
 ### 1.3. Frequent Updates
 
 > Most important updates (INSERT, UPDATE, DELETE) and their frequency.
