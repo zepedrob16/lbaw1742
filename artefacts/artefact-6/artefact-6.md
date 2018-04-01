@@ -41,12 +41,16 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
 | SELECT01        | User's profile    | hundreds per day |
+
+
 ```  SELECT username, email, firstname, lastname, email, quote, avatar FROM "user_table" WHERE "user_table".id = $userId; ``` 
 
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
 | SELECT02        | Read Message     | dozens per day   |
+
+
 ``` SELECT body, timestamp FROM "conversation_message" WHERE "recipient".id = $recipientId; ```
 
 | Query Reference | Query Description | Query Frequency  |
