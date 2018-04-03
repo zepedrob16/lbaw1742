@@ -57,20 +57,20 @@ SELECT username, email, firstname, lastname, email, quote, avatar FROM "user_tab
 SELECT body, timestamp FROM "conversation_message" WHERE "recipient".id = $recipientId;
 ```
 
-| Query Reference | Query Description | Query Frequency  |
-| --------------- | ----------------- | ---------------- |
-| SELECT03        | Search by Type    | dozens per day   |
+| Query Reference | Query Description  | Query Frequency  |
+| --------------- | ------------------ | ---------------- |
+| SELECT03        | Search by Category | dozens per day   |
 
-```sql
-SELECT 
+```sql0=
+SELECT "post".* FROM "post", media_category WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id AND media_category.type LIKE 'action';
 ```
 
 | Query Reference | Query Description  | Query Frequency  |
 | --------------- | ------------------ | ---------------- |
-| SELECT04        | Filter by Category | hundreds per day |
+| SELECT04        | Search by Tag      | hundreds per day |
 
 ```sql
-
+SELECT * FROM "post" WHERE ANY(tags) = $tag;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
@@ -107,7 +107,7 @@ SELECT
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT08        | Display Posts     | units per day    |
+| SELECT09        | Display Posts     | units per day    |
 
 ```sql
 
@@ -115,7 +115,7 @@ SELECT
 
 | Query Reference | Query Description    | Query Frequency  |
 | --------------- | -------------------- | ---------------- |
-| SELECT08        | Show Friend Requests | units per day    |
+| SELECT10        | Show Friend Requests | units per day    |
 
 ```sql
 
@@ -123,7 +123,7 @@ SELECT
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT08        | Show User List    | units per day    |
+| SELECT11        | Show User List    | units per day    |
 
 ```sql
 
@@ -131,7 +131,7 @@ SELECT
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT08        | Show Report List  | units per day    |
+| SELECT12        | Show Report List  | units per day    |
 
 ```sql
 
@@ -139,7 +139,7 @@ SELECT
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT08        | Display Posts     | units per day    |
+| SELECT13        | Display Posts     | units per day    |
 
 ```sql
 
@@ -147,7 +147,7 @@ SELECT
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT01        | Read Image Post Content | hundreds per day |
+| SELECT14        | Read Image Post Content | hundreds per day |
 
 ```sql
 
@@ -155,7 +155,7 @@ SELECT
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT01        | Read Link Post Content  | hundreds per day |
+| SELECT15        | Read Link Post Content  | hundreds per day |
 
 ```sql
 
@@ -163,7 +163,7 @@ SELECT
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT01        | Read Text Post Content  | hundreds per day |
+| SELECT16        | Read Text Post Content  | hundreds per day |
 
 ```sql
 
@@ -171,7 +171,7 @@ SELECT
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT01        | Open Inbox              | hundreds per day |
+| SELECT17        | Open Inbox              | hundreds per day |
 
 ```sql
 
@@ -179,7 +179,7 @@ SELECT
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT01        | Open Conversation       | hundreds per day |
+| SELECT18        | Open Conversation       | hundreds per day |
 
 ```sql
 
@@ -199,7 +199,7 @@ SELECT
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| UPDATE01        | Edit Comment            | hundreds per day |
+| UPDATE02        | Edit Comment            | hundreds per day |
 
 ```sql
 
@@ -207,7 +207,7 @@ SELECT
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| UPDATE01        | Edit Text Post Content  | hundreds per day |
+| UPDATE03        | Edit Text Post Content  | hundreds per day |
 
 ```sql
 
@@ -215,7 +215,7 @@ SELECT
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| UPDATE01        | Promote/Demote User     | hundreds per day |
+| UPDATE04        | Promote/Demote User     | hundreds per day |
 
 ```sql
 
@@ -226,39 +226,44 @@ SELECT
 | INSERT01        | Create New Post         | hundreds per day |
 
 ```sql
-
+INSERT INTO "post" (user, title, timestamp, upvotes, downvotes, balance)
+VALUES ($user, $title, current_timestamp, 0, 0, 0);
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT01        | Register New User       | hundreds per day |
+| INSERT02        | Register New User       | hundreds per day |
 
 ```sql
-
+INSERT INTO "user" (username, email, password, first_name, last_name, date_birth, nationality, quote, avatar, upvotes, downvotes, balance)
+VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, $nationality, $quote, $avatar, 0, 0, 0);
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT01        | Write New Comment       | hundreds per day |
+| INSERT03        | Write New Comment       | hundreds per day |
 
 ```sql
-
+INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
+VALUES ($id_post, $id_user, $body, current_timestamp);
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT01        | Compose New Message     | hundreds per day |
+| INSERT04        | Compose New Message     | hundreds per day |
 
 ```sql
-
+INSERT INTO "conversation_message" (id_sender, id_recipient, body, timestamp, read)
+VALUES ($id_sender, $id_recipient, $body, current_timestamp, false);
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT01        | Send New Friend Request | hundreds per day |
+| INSERT05        | Send New Friend Request | hundreds per day |
 
 ```sql
-
+INSERT INTO "friend_request" (id_sender, id_recipient, date_request, date_confirmation)
+VALUES ($id_sender, $id_recipient, current_timestamp, NULL);
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -266,23 +271,23 @@ SELECT
 | DELETE01        | Ban User                | hundreds per day |
 
 ```sql
-
+DELETE FROM "user" WHERE username = $username;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| DELETE01        | Delete Post             | hundreds per day |
+| DELETE02        | Delete Post             | hundreds per day |
 
 ```sql
-
+DELETE FROM "post" WHERE id = $id;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| DELETE01        | Delete Comments         | hundreds per day |
+| DELETE03        | Delete Comments         | hundreds per day |
 
 ```sql
-
+DELETE FROM "post_comment" WHERE id = $id;
 ```
 
 ## 2. Proposed Indexes
