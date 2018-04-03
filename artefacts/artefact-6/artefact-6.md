@@ -188,6 +188,16 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 SELECT * FROM conversation_message;
 ```
 
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT19        | Search                  | hundreds per day |
+
+```sql
+SELECT postnumber, title, FROM post
+  WHERE title LIKE %$search% 
+ORDER BY title; 
+```
+
 ### 1.3. Frequent Updates
 
 > Most important updates (INSERT, UPDATE, DELETE) and their frequency.
