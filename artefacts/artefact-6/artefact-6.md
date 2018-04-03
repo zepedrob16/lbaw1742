@@ -277,6 +277,33 @@ VALUES ($criminal, $author, $type, current_timestamp);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
+| INSERT07        | Create Text Post        | hundreds per day |
+
+```sql
+INSERT INTO "text_post" (id_post, opinion, source)
+VALUES ($id_post, $opinion, $source);
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| INSERT08        | Create Link Post        | hundreds per day |
+
+```sql
+INSERT INTO "link_post" (id_post, url)
+VALUES ($id_post, $url);
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| INSERT09        | Create Link Post        | hundreds per day |
+
+```sql
+INSERT INTO "image_post" (id_post, image, source)
+VALUES ($id_post, $image, $source);
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
 | DELETE01        | Ban User                | hundreds per day |
 
 ```sql
