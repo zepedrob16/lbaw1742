@@ -185,7 +185,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 | SELECT18        | Open Conversation       | hundreds per day |
 
 ```sql
-
+SELECT * FROM conversation_message;
 ```
 
 ### 1.3. Frequent Updates
