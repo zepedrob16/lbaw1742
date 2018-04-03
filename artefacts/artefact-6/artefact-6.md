@@ -38,12 +38,14 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 
 > Most important queries (SELECT) and their frequency.
 
-| Query Reference | Query Description | Query Frequency  |
-| --------------- | ----------------- | ---------------- |
-| SELECT01        | User's profile    | hundreds per day |
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT01        | Check User's Profile    | hundreds per day |
 
 
-```  SELECT username, email, firstname, lastname, email, quote, avatar FROM "user_table" WHERE "user_table".id = $userId; ``` 
+```sql  
+SELECT username, email, firstname, lastname, email, quote, avatar FROM "user_table" WHERE "user_table".id = $userId;
+``` 
 
 
 | Query Reference | Query Description | Query Frequency  |
@@ -51,16 +53,21 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | SELECT02        | Read Message     | dozens per day   |
 
 
-``` SELECT body, timestamp FROM "conversation_message" WHERE "recipient".id = $recipientId; ```
+```sql
+SELECT body, timestamp FROM "conversation_message" WHERE "recipient".id = $recipientId;
+```
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT03        | Search by type    | dozens per day   |
-|```SELECT ``` |
+| SELECT03        | Search by Type    | dozens per day   |
 
-| Query Reference | Query Description | Query Frequency  |
-| --------------- | ----------------- | ---------------- |
-| SELECT04        | Filter by Category| hundreds per day |
+```sql
+SELECT 
+```
+
+| Query Reference | Query Description  | Query Frequency  |
+| --------------- | ------------------ | ---------------- |
+| SELECT04        | Filter by Category | hundreds per day |
 
 ```sql
 
@@ -68,7 +75,7 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT05        | Read comments     | hundreds per day |
+| SELECT05        | Read Comments     | hundreds per day |
 
 ```sql
 
@@ -84,7 +91,7 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT07        | Check Post Rank   | dozens per day |
+| SELECT07        | Check Post Rank   | dozens per day   |
 
 ```sql
 
@@ -92,7 +99,87 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT08        | Check statistics  | units per day    |
+| SELECT08        | Check Statistics  | units per day    |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT08        | Display Posts     | units per day    |
+
+```sql
+
+```
+
+| Query Reference | Query Description    | Query Frequency  |
+| --------------- | -------------------- | ---------------- |
+| SELECT08        | Show Friend Requests | units per day    |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT08        | Show User List    | units per day    |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT08        | Show Report List  | units per day    |
+
+```sql
+
+```
+
+| Query Reference | Query Description | Query Frequency  |
+| --------------- | ----------------- | ---------------- |
+| SELECT08        | Display Posts     | units per day    |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT01        | Read Image Post Content | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT01        | Read Link Post Content  | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT01        | Read Text Post Content  | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT01        | Open Inbox              | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT01        | Open Conversation       | hundreds per day |
 
 ```sql
 
@@ -104,7 +191,95 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| UPDATE01        | Update user information | hundreds per day |
+| UPDATE01        | Update User information | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| UPDATE01        | Edit Comment            | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| UPDATE01        | Edit Text Post Content  | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| UPDATE01        | Promote/Demote User     | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| INSERT01        | Create New Post         | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| INSERT01        | Register New User       | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| INSERT01        | Write New Comment       | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| INSERT01        | Compose New Message     | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| INSERT01        | Send New Friend Request | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| DELETE01        | Ban User                | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| DELETE01        | Delete Post             | hundreds per day |
+
+```sql
+
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| DELETE01        | Delete Comments         | hundreds per day |
 
 ```sql
 
