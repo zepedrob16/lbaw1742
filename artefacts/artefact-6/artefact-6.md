@@ -202,6 +202,43 @@ INSERT INTO "image_post" (id_post, image, source) VALUES (3, 'http://dummyimage.
 INSERT INTO "image_post" (id_post, image, source) VALUES (4, 'http://dummyimage.com/103x218.jpg/ff4444/ffffff', 'http://businessinsider.com/mi.js');
 INSERT INTO "image_post" (id_post, image, source) VALUES (5, 'http://dummyimage.com/125x149.png/5fa2dd/ffffff', 'http://canalblog.com/pretium/iaculis/justo/in/hac.xml');
 
+INSERT INTO "link_post" (id_post, url) VALUES (1, 'https://mac.com/congue/elementum.js');
+INSERT INTO "link_post" (id_post, url) VALUES (2, 'https://opensource.org/potenti/nullam.aspx');
+INSERT INTO "link_post" (id_post, url) VALUES (3, 'http://ucoz.com/dolor/sit/amet/consectetuer/adipiscing.png');
+INSERT INTO "link_post" (id_post, url) VALUES (4, 'https://mit.edu/ut/rhoncus/aliquet/pulvinar/sed/nisl.png');
+INSERT INTO "link_post" (id_post, url) VALUES (5, 'https://epa.gov/etiam/vel/augue/vestibulum.aspx');
+
+INSERT INTO "text_post" (id_post, opinion, source) VALUES (1, 'Integer ac neque.', 'https://hhs.gov/pretium/nisl/ut/volutpat/sapien/arcu/sed.png');
+INSERT INTO "text_post" (id_post, opinion, source) VALUES (2, 'Morbi non quam nec dui luctus rutrum.', 'http://google.nl/aenean/lectus.jpg');
+INSERT INTO "text_post" (id_post, opinion, source) VALUES (3, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.', 'https://hibu.com/mauris/sit/amet/eros/suspendisse.xml');
+INSERT INTO "text_post" (id_post, opinion, source) VALUES (4, 'Nulla suscipit ligula in lacus.', 'https://google.com/neque/aenean/auctor/gravida/sem/praesent/id.js');
+INSERT INTO "text_post" (id_post, opinion, source) VALUES (5, 'Praesent id massa id nisl venenatis lacinia.', 'https://surveymonkey.com/mauris/lacinia/sapien/quis.js');
+
+
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (1, 1, 'earmsden0', 'Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', '18:45:06');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (2, 2, 'bpash1', 'Sed vel enim sit amet nunc viverra dapibus.', '2:01:48');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (3, 3, 'cpridie2', 'Sed sagittis.', '23:36:05');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (4, 4, 'mdanielot3', 'Fusce posuere felis sed lacus.', '8:47:45');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (5, 5, 'hgentzsch4', 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', '22:10:55');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (1, 1, 'cwogan0', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', '15:02:59');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (2, 2, 'cdenisot1', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', '23:15:52');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (3, 3, 'bkenwright2', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '18:43:04');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (4, 4, 'jspilling3', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', '18:48:00');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (5, 5, 'myerrington4', 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', '19:40:29');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (6, 6, 'seykel5', 'Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', '22:10:37');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (7, 7, 'dluxford6', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', '21:23:05');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (8, 8, 'tpetrusch7', 'Quisque ut erat. Curabitur gravida nisi at nibh.', '6:23:32');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (9, 9, 'abelden8', 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '8:37:24');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (10, 10, 'usavidge9', 'In hac habitasse platea dictumst.', '20:36:36');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (11, 11, 'spettingalla', 'Vivamus tortor.', '14:35:25');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (12, 12, 'lbartleb', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', '6:48:10');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (13, 13, 'tpattinic', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', '2:22:20');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (14, 14, 'jjoistd', 'Nulla justo.', '0:51:25');
+INSERT INTO "post_comment" (id, id_post, id_user, body, timestamp) VALUES (15, 15, 'eclampe', 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '0:53:05');
+
+
+
+
 
 ```
 
