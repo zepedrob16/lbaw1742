@@ -268,6 +268,15 @@ VALUES ($id_sender, $id_recipient, current_timestamp, NULL);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
+| INSERT06        | Report User             | hundreds per day |
+
+```sql
+INSERT INTO "report" (criminal, author, type, timestamp)
+VALUES ($criminal, $author, $type, current_timestamp);
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
 | DELETE01        | Ban User                | hundreds per day |
 
 ```sql
