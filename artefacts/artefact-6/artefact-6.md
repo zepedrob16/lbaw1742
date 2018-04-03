@@ -442,7 +442,7 @@ DELETE FROM "post_comment" WHERE id = $id;
 **Justification**: To improve the performance of full text searches; GiST because it's better for dynamic data.
 
 ```sql
- CREATE INDEX search_idx ON post USING GIST (title)
+ CREATE INDEX search_idx ON post USING GIST (title);
 ```
 
 ## 3. Triggers
