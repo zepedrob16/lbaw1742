@@ -196,7 +196,11 @@ INSERT INTO "post" (postnumber, author, title, timestamp, upvotes, downvotes, ba
 INSERT INTO "post" (postnumber, author, title, timestamp, upvotes, downvotes, balance) VALUES (19, 'rrodgei', 'Nanny Diaries, The', '12:10:30', 46, 94, 53);
 INSERT INTO "post" (postnumber, author, title, timestamp, upvotes, downvotes, balance) VALUES (20, 'whandj', 'School of Flesh, The (École de la chair, L'')', '16:29:29', 52, 57, 67);
 
-
+INSERT INTO "image_post" (id_post, image, source) VALUES (1, 'http://dummyimage.com/186x117.jpg/dddddd/000000', 'http://blogger.com/phasellus/in.js');
+INSERT INTO "image_post" (id_post, image, source) VALUES (2, 'http://dummyimage.com/191x139.png/5fa2dd/ffffff', 'http://amazon.com/pede/ac.jsp');
+INSERT INTO "image_post" (id_post, image, source) VALUES (3, 'http://dummyimage.com/187x113.jpg/cc0000/ffffff', 'https://ebay.co.uk/parturient/montes/nascetur.jsp');
+INSERT INTO "image_post" (id_post, image, source) VALUES (4, 'http://dummyimage.com/103x218.jpg/ff4444/ffffff', 'http://businessinsider.com/mi.js');
+INSERT INTO "image_post" (id_post, image, source) VALUES (5, 'http://dummyimage.com/125x149.png/5fa2dd/ffffff', 'http://canalblog.com/pretium/iaculis/justo/in/hac.xml');
 
 
 ```
