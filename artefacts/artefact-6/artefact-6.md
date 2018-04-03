@@ -344,7 +344,6 @@ DELETE FROM "post" WHERE id = $id;
 ```sql
 DELETE FROM "post_comment" WHERE id = $id;
 ```
-
 ## 2. Proposed Indexes
 
 ### 2.1. Performance Indexes
@@ -353,26 +352,77 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX01           | SELECT01        | user           | email           | Hash       | High        | No         |
+| IDX01           | SELECT01        | user_table     | username        | Hash       | High        | No         |
+
+**Justification**: Query SELECT01 has to be fast as it is executed many times; doesn't need range query support; cardinality is high because username is an unique key; it's not a good candidate for clustering.
+
+```sql
+ CREATE INDEX username_idx ON user_table USING hash (username); 
+```
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX02           | SELECT01        | user_table     | email           | Hash       | High        | No         |
 
 **Justification**: Query SELECT01 has to be fast as it is executed many times; doesn't need range query support; cardinality is high because email is an unique key; it's not a good candidate for clustering.
 
 ```sql
+ CREATE INDEX email_idx ON user_table USING hash (email); 
+```
 
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX03           | SELECT01        | user_table     | id              | Hash       | High        | No         |
+
+**Justification**: Query SELECT01 has to be fast as it is executed many times; doesn't need range query support; cardinality is high because id is an unique key; it's not a good candidate for clustering.
+
+```sql
+ CREATE INDEX id_idx ON user_table USING hash (id); 
+```
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX04           | SELECT03        | media_category | title           | Hash       | Low         | Yes        |
+
+**Justification**: Allow to see the Media type of a post quickly; cardinality is low since it is a column with few unique values so it's a good candidate for clustering.
+
+```sql
+ CREATE INDEX type_idx ON media_category USING hash (title); 
+```
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX05           | SELECT05        | post_comment   | body            | Hash       | High        | No         |
+
+**Justification**: post_commment table is very large; query SELECT05; used to read comments, has to be fast because it's executed many times; cardinality is high since each comment is very uncommon or unique.
+
+```sql
+ CREATE INDEX comment_idx ON post_comment USING hash (body); 
+```
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX06           | SELECT06        | text_post      | opinion         | Hash       | High        | No         |
+
+**Justification**: Allow to see the content of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
+
+```sql
+ CREATE INDEX opinion_idx ON text_post USING hash (opinion); 
 ```
 
 ### 2.2. Full-text Search Indexes
 
 > The system being developed must provide full-text search features supported by PostgreSQL. Thus, it is necessary to specify the fields where full-text search will be available and the associated setup, namely all necessary configurations, indexes definitions and other relevant details.
 
-| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
-| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX01           | SELECT01        | user           | email           | Hash       | High        | No         |
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ---------- |
+| IDX07           | SELECT019       | post           | title           | GiST       | No         |
 
-**Justification**: Query SELECT01 has to be fast as it is executed many times; doesn't need range query support; cardinality is high because email is an unique key; it's not a good candidate for clustering.
+**Justification**: To improve the performance of full text searches; GiST because it's better for dynamic data.
 
 ```sql
-
+ CREATE INDEX search_idx ON post USING GIST (title)
 ```
 
 ## 3. Triggers
