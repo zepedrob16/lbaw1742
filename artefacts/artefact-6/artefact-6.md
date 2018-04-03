@@ -194,7 +194,9 @@ SELECT * FROM "post" WHERE ANY(tags) = $tag;
 | UPDATE01        | Update User information | hundreds per day |
 
 ```sql
-
+UPDATE "user"
+SET email = $email, password = $password, first_name = $first_name, last_name = $last_name, date_birth = $date_birth, nationality = $nationality, quote = $quote, avatar = $avatar
+WHERE id = $id AND username = $username;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -202,7 +204,9 @@ SELECT * FROM "post" WHERE ANY(tags) = $tag;
 | UPDATE02        | Edit Comment            | hundreds per day |
 
 ```sql
-
+UPDATE "post_comment"
+SET body = $body
+WHERE id_user = $id_user AND id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -210,7 +214,9 @@ SELECT * FROM "post" WHERE ANY(tags) = $tag;
 | UPDATE03        | Edit Text Post Content  | hundreds per day |
 
 ```sql
-
+UPDATE "text_post"
+SET opinion = $opinion
+WHERE id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -218,7 +224,7 @@ SELECT * FROM "post" WHERE ANY(tags) = $tag;
 | UPDATE04        | Promote/Demote User     | hundreds per day |
 
 ```sql
-
+I don't fucking know how to add entries for inherited tables (flip).
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
