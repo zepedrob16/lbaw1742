@@ -78,7 +78,7 @@ SELECT * FROM "post" WHERE ANY(tags) = $tag;
 | SELECT05        | Read Comments     | hundreds per day |
 
 ```sql
-
+SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.postnumber;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
@@ -86,7 +86,10 @@ SELECT * FROM "post" WHERE ANY(tags) = $tag;
 | SELECT06        | Read Post Content | hundreds per day |
 
 ```sql
-
+  SELECT text_post.opinion FROM "text_post" WHERE text_post.id_post = post.postnumber;
+  SELECT image_post.image FROM "image_post" WHERE image_post.id_post = post.postnumber;
+  SELECT link_post.url FROM "link_post" WHERE link_post.id_post = post.postnumber;
+  
 ```
 
 | Query Reference | Query Description | Query Frequency  |
