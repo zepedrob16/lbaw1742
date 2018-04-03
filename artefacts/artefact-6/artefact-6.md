@@ -405,10 +405,30 @@ DELETE FROM "post_comment" WHERE id = $id;
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
 | IDX06           | SELECT06        | text_post      | opinion         | Hash       | High        | No         |
 
-**Justification**: Allow to see the content of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
+**Justification**: Allow to see the content (text) of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
 
 ```sql
- CREATE INDEX opinion_idx ON text_post USING hash (opinion); 
+ CREATE INDEX text_idx ON text_post USING hash (opinion); 
+```
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX07           | SELECT06        | image_post     | image           | Hash       | High        | No         |
+
+**Justification**: Allow to see the content (image) of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
+
+```sql
+ CREATE INDEX image_idx ON image_post USING hash (image); 
+```
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX08          | SELECT06         | link_post      | url             | Hash       | High        | No         |
+
+**Justification**: Allow to see the content (url) of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
+
+```sql
+ CREATE INDEX url_idx ON link_post USING hash (url); 
 ```
 
 ### 2.2. Full-text Search Indexes
@@ -417,7 +437,7 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ---------- |
-| IDX07           | SELECT019       | post           | title           | GiST       | No         |
+| IDX09           | SELECT019       | post           | title           | GiST       | No         |
 
 **Justification**: To improve the performance of full text searches; GiST because it's better for dynamic data.
 
