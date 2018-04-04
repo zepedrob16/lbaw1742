@@ -451,7 +451,55 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 | Trigger Reference | Trigger Description                                     |
 | ----------------- | ------------------------------------------------------- |
-| TRIGGER01         | An item can only be loaned to one user in every moment. |
+| TRIGGER01         | All user information must be deleted when a user is erased. |
+
+```sql
+CREATE FUNCTION deleted_user(id) RETURNS TRIGGER AS
+$BODY$
+	BEGIN
+		DELETE FROM post WHERE post.author = id;
+		DELETE FROM post_comment WHERE post_comment.id_user = id;
+		DELETE FROM post_reaction WHERE post_reaction.id = id;
+		DELETE FROM friendship WHERE friendship.user1 = id OR friendship.user2 = id;
+		DELETE FROM friend_request WHERE friend_request.sender = id OR friend_request.receiver = id;
+		DELETE FROM conversation_message WHERE conversation_message.id_sender = id OR conversation_message.id_recipient = id;
+		DELETE FROM member WHERE member.id_user = id;
+		DELETE FROM moderator WHERE member.id_user = id;
+		DELETE FROM admin WHERE admin.id_user = id;
+	RETURN NEW;
+	END
+	$BODY$
+	LANGUAGE plpgsql;
+
+
+	CREATE TRIGGER deleted_user
+		AFTER DELETE ON user_table
+			FOR EACH ROW
+				EXECUTE PROCEDURE deleted_user(user_table.id);
+```
+
+| Trigger Reference | Trigger Description                                     |
+| ----------------- | ------------------------------------------------------- |
+| TRIGGER01         | A user cannot downvote a post with 0 upvotes. |
+
+```sql
+
+CREATE FUNCTION downvote_post() RETURNS TRIGGER AS
+$BODY$
+	BEGIN
+		IF EXISTS (SELECT * FROM post WHERE balance = 0) THEN
+			RAISE EXCEPTION 'A POST WITH 0 UPVOTES CANNOT BE DOWNVOTED.';
+		END IF;
+		RETURN NEW;
+	END
+	$BODY$
+	LANGUAGE plpgsql;
+
+CREATE TRIGGER downvote_post
+	BEFORE INSERT OR UPDATE ON downvote_post
+	FOR EACH ROW
+		EXECUTE PROCEDURE downvote_post();
+```
 
 ## 4. Complete SQL Code
 
