@@ -15,7 +15,7 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | Relation Reference | Relation Name | Order of Magnitude | Estimated Growth |
 | ------------------ | ------------- | ------------------ | ---------------- |
 | R01                | user          | tens               | units per day    |
-| R02                | post          | tens               | units per day    |
+| R02                | post          | hundreds               | units per day    |
 | R03                | post_comment  | hundreds           | dozens per day    |
 | R04                | post_reaction | hundreds           | dozens per day    |
 | R05                | image_post    | tens               | units per day    |
@@ -67,7 +67,7 @@ SELECT "post".* FROM "post", media_category WHERE "post".category = $category AN
 
 | Query Reference | Query Description  | Query Frequency  |
 | --------------- | ------------------ | ---------------- |
-| SELECT04        | Search by Tag      | hundreds per day |
+| SELECT04        | Search by Tag      | dozens per day |
 
 ```sql
 SELECT * FROM "post" WHERE ANY(tags) = $tag;
@@ -75,20 +75,20 @@ SELECT * FROM "post" WHERE ANY(tags) = $tag;
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT05        | Read Comments     | hundreds per day |
+| SELECT05        | Read Comments     | thousands per day |
 
 ```sql
-SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.postnumber;
+SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT06        | Read Post Content | hundreds per day |
+| SELECT06        | Read Post Content | thousands per day |
 
 ```sql
-  SELECT text_post.opinion FROM "text_post" WHERE text_post.id_post = post.postnumber;
-  SELECT image_post.image FROM "image_post" WHERE image_post.id_post = post.postnumber;
-  SELECT link_post.url FROM "link_post" WHERE link_post.id_post = post.postnumber;
+  SELECT text_post.opinion FROM "text_post" WHERE text_post.id_post = post.postnumber AND text_post.id_post = $id;
+  SELECT image_post.image FROM "image_post" WHERE image_post.id_post = post.postnumber AND image_post.id_post = $id;
+  SELECT link_post.url FROM "link_post" WHERE link_post.id_post = post.postnumber AND link_post.id_post = $id;
   
 ```
 
@@ -97,100 +97,84 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 | SELECT07        | Check Post Rank   | dozens per day   |
 
 ```sql
-
+  SELECT "post.balance" FROM "post" WHERE post.id = $id;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT08        | Check Statistics  | units per day    |
+| SELECT08        | Display Posts     | dozens per day    |
 
 ```sql
-
-```
-
-| Query Reference | Query Description | Query Frequency  |
-| --------------- | ----------------- | ---------------- |
-| SELECT09        | Display Posts     | units per day    |
-
-```sql
-
+  SELECT * FROM "post";
 ```
 
 | Query Reference | Query Description    | Query Frequency  |
 | --------------- | -------------------- | ---------------- |
-| SELECT10        | Show Friend Requests | units per day    |
+| SELECT9        | Show Friend Requests | dozens per day    |
 
 ```sql
-
+  SELECT * FROM "friend_request" WHERE id = $id AND receiver = $receiver;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT11        | Show User List    | units per day    |
+| SELECT10        | Show User List    | units per day    |
 
 ```sql
-
+  SELECT * FROM "user";
 ```
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT12        | Show Report List  | units per day    |
+| SELECT11        | Show Report List  | units per day    |
 
 ```sql
-
-```
-
-| Query Reference | Query Description | Query Frequency  |
-| --------------- | ----------------- | ---------------- |
-| SELECT13        | Display Posts     | units per day    |
-
-```sql
-
+  SELECT * FROM "report";
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT14        | Read Image Post Content | hundreds per day |
+| SELECT12        | Read Image Post Content | hundreds per day |
 
 ```sql
-
+  SELECT * FROM "image_post" WHERE image_post.id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT15        | Read Link Post Content  | hundreds per day |
+| SELECT13        | Read Link Post Content  | hundreds per day |
 
 ```sql
-
+  SELECT * FROM "link_post" WHERE image_post.id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT16        | Read Text Post Content  | hundreds per day |
+| SELECT14        | Read Text Post Content  | hundreds per day |
 
 ```sql
-
+  SELECT * FROM "text_post" WHERE image_post.id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT17        | Open Inbox              | hundreds per day |
+| SELECT15        | Open Inbox              | dozens per day |
 
 ```sql
-
+  SELECT * FROM "conversation_message" WHERE id_recipient = $id_recipient;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT18        | Open Conversation       | hundreds per day |
+| SELECT16        | Open Conversation       | dozens per day |
 
 ```sql
-SELECT * FROM conversation_message;
+SELECT * FROM conversation_message WHERE id_recipient = $id_recipient AND id_sender = $id_sender;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT19        | Search                  | hundreds per day |
+| SELECT17        | Search                  | dozens per day |
 
 ```sql
 SELECT postnumber, title, FROM post
@@ -204,7 +188,7 @@ ORDER BY title;
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| UPDATE01        | Update User information | hundreds per day |
+| UPDATE01        | Update User information | dozens per month |
 
 ```sql
 UPDATE "user"
@@ -214,7 +198,7 @@ WHERE id = $id AND username = $username;
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| UPDATE02        | Edit Comment            | hundreds per day |
+| UPDATE02        | Edit Comment            | hundreds per month |
 
 ```sql
 UPDATE "post_comment"
@@ -224,7 +208,7 @@ WHERE id_user = $id_user AND id_post = $id_post;
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| UPDATE03        | Edit Text Post Content  | hundreds per day |
+| UPDATE03        | Edit Text Post Content  | hundreds per month |
 
 ```sql
 UPDATE "text_post"
@@ -234,15 +218,15 @@ WHERE id_post = $id_post;
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| UPDATE04        | Promote/Demote User     | hundreds per day |
+| UPDATE04        | Promote/Demote User     | units per month |
 
 ```sql
-I don't fucking know how to add entries for inherited tables (flip).
+  Não sabemos como implementar.
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT01        | Create New Post         | hundreds per day |
+| INSERT01        | Create New Post         | hundreds per month |
 
 ```sql
 INSERT INTO "post" (user, title, timestamp, upvotes, downvotes, balance)
@@ -251,7 +235,7 @@ VALUES ($user, $title, current_timestamp, 0, 0, 0);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT02        | Register New User       | hundreds per day |
+| INSERT02        | Register New User       | hundreds per month |
 
 ```sql
 INSERT INTO "user" (username, email, password, first_name, last_name, date_birth, nationality, quote, avatar, upvotes, downvotes, balance)
@@ -260,7 +244,7 @@ VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, $nat
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT03        | Write New Comment       | hundreds per day |
+| INSERT03        | Write New Comment       | hundreds per month |
 
 ```sql
 INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
@@ -269,7 +253,7 @@ VALUES ($id_post, $id_user, $body, current_timestamp);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT04        | Compose New Message     | hundreds per day |
+| INSERT04        | Compose New Message     | hundreds per month |
 
 ```sql
 INSERT INTO "conversation_message" (id_sender, id_recipient, body, timestamp, read)
@@ -278,7 +262,7 @@ VALUES ($id_sender, $id_recipient, $body, current_timestamp, false);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT05        | Send New Friend Request | hundreds per day |
+| INSERT05        | Send New Friend Request | hundreds per month |
 
 ```sql
 INSERT INTO "friend_request" (id_sender, id_recipient, date_request, date_confirmation)
@@ -287,7 +271,7 @@ VALUES ($id_sender, $id_recipient, current_timestamp, NULL);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT06        | Report User             | hundreds per day |
+| INSERT06        | Report User             | hundreds per month |
 
 ```sql
 INSERT INTO "report" (criminal, author, type, timestamp)
@@ -296,7 +280,7 @@ VALUES ($criminal, $author, $type, current_timestamp);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT07        | Create Text Post        | hundreds per day |
+| INSERT07        | Create Text Post        | hundreds per month |
 
 ```sql
 INSERT INTO "text_post" (id_post, opinion, source)
@@ -305,7 +289,7 @@ VALUES ($id_post, $opinion, $source);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT08        | Create Link Post        | hundreds per day |
+| INSERT08        | Create Link Post        | hundreds per month |
 
 ```sql
 INSERT INTO "link_post" (id_post, url)
@@ -314,7 +298,7 @@ VALUES ($id_post, $url);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| INSERT09        | Create Link Post        | hundreds per day |
+| INSERT09        | Create Link Post        | hundreds per month |
 
 ```sql
 INSERT INTO "image_post" (id_post, image, source)
@@ -323,7 +307,7 @@ VALUES ($id_post, $image, $source);
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| DELETE01        | Ban User                | hundreds per day |
+| DELETE01        | Ban User                | dozens per month |
 
 ```sql
 DELETE FROM "user" WHERE username = $username;
@@ -331,7 +315,7 @@ DELETE FROM "user" WHERE username = $username;
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| DELETE02        | Delete Post             | hundreds per day |
+| DELETE02        | Delete Post             | dozens per day |
 
 ```sql
 DELETE FROM "post" WHERE id = $id;
