@@ -16,6 +16,53 @@
 > At the end of this page is presented some usual descriptors to document the web resources.
  
 ### 3.1 Module 1
+
+R101: Login Form
+| URL | /login
+| Description | Page with a login form to authenticate a user into his account
+| Method | GET
+| UI | UI06
+| SUBMIT | R101 (Deve redirecionar para login action)
+| Permissions | PUB
+
+R101: Login Action
+| URL | /register
+| Description | This web resource logs out the authenticated user of admin.
+| Method | POST
+| Request Body | +email: string, +username: string | Email or Username
+|              | +password: string | Password
+| Redirects | R101 (Deve redirecionar para homepage) | Success
+|           | R101 (Para login novamente)            | Error
+| Permissions | PUB
+
+R101: Logout Action
+| URL | /logout
+| Description | This web resource logs out the authenticated user or admin.
+| Method | POST
+| Redirects | R101 (LOGIN) | Success
+| Permissions | USR, ADM
+
+R101: Signup Form
+| URL | /signup
+| Description | Page with a form to register a new user account
+| Method | GET
+| UI | UI07
+| SUBMIT | R101
+| Permissions | PUB
+
+R101: Signup Action
+| URL | /signup
+| Description | This web resource inserts a new user into the system. Redirects to the homepage on success and the register form on failure.
+| Method | POST
+| Request Body | +username: string | Username
+|              | +email: string | Email
+|              | +password: string | Password
+|              | +confirmPassword: string | Password confirmation
+| Redirects | R101 (Homepage) | Success
+|           | R101 (Signup) | Error
+| Permissions | PUB
+
+
  
 ### 3.2 Module 2
  
