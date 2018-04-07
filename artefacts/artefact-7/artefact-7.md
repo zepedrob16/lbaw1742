@@ -18,6 +18,9 @@
 ### 3.1 Module 1
 
 R101: Login Form
+
+|   |   |
+|--:|---|
 | URL | /login
 | Description | Page with a login form to authenticate a user into his account
 | Method | GET
@@ -26,6 +29,9 @@ R101: Login Form
 | Permissions | PUB
 
 R101: Login Action
+
+|   |   |
+|--:|---|
 | URL | /register
 | Description | This web resource logs out the authenticated user of admin.
 | Method | POST
@@ -36,6 +42,9 @@ R101: Login Action
 | Permissions | PUB
 
 R101: Logout Action
+
+|   |   |
+|--:|---|
 | URL | /logout
 | Description | This web resource logs out the authenticated user or admin.
 | Method | POST
@@ -43,6 +52,9 @@ R101: Logout Action
 | Permissions | USR, ADM
 
 R101: Signup Form
+
+|   |   |
+|--:|---|
 | URL | /signup
 | Description | Page with a form to register a new user account
 | Method | GET
@@ -51,6 +63,9 @@ R101: Signup Form
 | Permissions | PUB
 
 R101: Signup Action
+
+|   |   |
+|--:|---|
 | URL | /signup
 | Description | This web resource inserts a new user into the system. Redirects to the homepage on success and the register form on failure.
 | Method | POST
