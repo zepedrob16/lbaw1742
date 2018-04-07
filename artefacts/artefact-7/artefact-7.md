@@ -5,6 +5,13 @@
 > Identify and overview the modules that will be part of the application.
  
 ## 2. Permissions
+
+|   |   |   |
+|--:|---|---|
+| PUB | Public | Group of users without privileges
+| USR | User | Authenticated user
+| OWN | Owner | Group of users that can update their profiles and have privileges regarding their items
+| ADM | Administrator | Group of administrators
  
 > Define the permissions used by each module, necessary to access its data and features.
  
@@ -30,8 +37,8 @@ R101: Login Form
 
 R101: Login Action
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /register
 | **Description** | This web resource logs out the authenticated user of admin.
 | **Method** | POST
@@ -43,8 +50,8 @@ R101: Login Action
 
 R101: Logout Action
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /logout
 | **Description** | This web resource logs out the authenticated user or admin.
 | **Method** | POST
@@ -64,8 +71,8 @@ R101: Signup Form
 
 R101: Signup Action
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /signup
 | **Description** | This web resource inserts a new user into the system. Redirects to the homepage on success and the register form on failure.
 | **Method** | POST
@@ -79,8 +86,8 @@ R101: Signup Action
 
 R101: View Profile
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /profile/{id}
 | **Description** | Shows the user individual
 | **Method** | GET
@@ -90,8 +97,8 @@ R101: View Profile
 
 R101: Edit Profile Form
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /edit_profile/{id}
 | **Description** | Edits the current user's profile
 | **Method** | GET
@@ -102,8 +109,8 @@ R101: Edit Profile Form
 
 R101: Edit Profile Action
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /edit_profile/{id}
 | **Description** | Web resource that changes user profile info based on the input received. Redirects to the user profile on success and edit profile page on failure. 
 | **Method** | POST
@@ -130,8 +137,8 @@ R101: Password Recovery Form
 
 R101: Password Recovery Action
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /password_reset
 | **Description** | Web resource that sends a reset password link to the specified email.
 | **Method** | POST
