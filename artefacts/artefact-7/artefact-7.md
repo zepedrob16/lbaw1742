@@ -21,61 +21,125 @@ R101: Login Form
 
 |   |   |
 |--:|---|
-| URL | /login
-| Description | Page with a login form to authenticate a user into his account
-| Method | GET
-| UI | UI06
-| SUBMIT | R101 (Deve redirecionar para login action)
-| Permissions | PUB
+| **URL** | /login
+| **Description** | Page with a login form to authenticate a user into his account
+| **Method** | GET
+| **UI** | UI06
+| **SUBMIT** | R101 (Deve redirecionar para login action)
+| **Permissions** | PUB
 
 R101: Login Action
 
 |   |   |
 |--:|---|
-| URL | /register
-| Description | This web resource logs out the authenticated user of admin.
-| Method | POST
-| Request Body | +email: string, +username: string | Email or Username
+| **URL** | /register
+| **Description** | This web resource logs out the authenticated user of admin.
+| **Method** | POST
+| **Request Body** | +email: string, +username: string | Email or Username
 |              | +password: string | Password
-| Redirects | R101 (Deve redirecionar para homepage) | Success
+| **Redirects** | R101 (Deve redirecionar para homepage) | Success
 |           | R101 (Para login novamente)            | Error
-| Permissions | PUB
+| **Permissions** | PUB
 
 R101: Logout Action
 
 |   |   |
 |--:|---|
-| URL | /logout
-| Description | This web resource logs out the authenticated user or admin.
-| Method | POST
-| Redirects | R101 (LOGIN) | Success
-| Permissions | USR, ADM
+| **URL** | /logout
+| **Description** | This web resource logs out the authenticated user or admin.
+| **Method** | POST
+| **Redirects** | R101 (LOGIN) | Success
+| **Permissions** | USR, ADM
 
 R101: Signup Form
 
 |   |   |
 |--:|---|
-| URL | /signup
-| Description | Page with a form to register a new user account
-| Method | GET
-| UI | UI07
-| SUBMIT | R101
-| Permissions | PUB
+| **URL** | /signup
+| **Description** | Page with a form to register a new user account
+| **Method** | GET
+| **UI** | UI01 (já vou ver)
+| **SUBMIT** | R101
+| **Permissions** | PUB
 
 R101: Signup Action
 
 |   |   |
 |--:|---|
-| URL | /signup
-| Description | This web resource inserts a new user into the system. Redirects to the homepage on success and the register form on failure.
-| Method | POST
-| Request Body | +username: string | Username
+| **URL** | /signup
+| **Description** | This web resource inserts a new user into the system. Redirects to the homepage on success and the register form on failure.
+| **Method** | POST
+| **Request Body** | +username: string | Username
 |              | +email: string | Email
 |              | +password: string | Password
 |              | +confirmPassword: string | Password confirmation
-| Redirects | R101 (Homepage) | Success
+| **Redirects** | R101 (Homepage) | Success
 |           | R101 (Signup) | Error
-| Permissions | PUB
+| **Permissions** | PUB
+
+R101: View Profile
+
+|   |   |
+|--:|---|
+| **URL** | /profile/{id}
+| **Description** | Shows the user individual
+| **Method** | GET
+| **Parameters** | +id: integer | user primary key
+| **UI** | UI01 (já vou ver)
+| **Permissions** | USR
+
+R101: Edit Profile Form
+
+|   |   |
+|--:|---|
+| **URL** | /edit_profile/{id}
+| **Description** | Edits the current user's profile
+| **Method** | GET
+| **Parameters** | +id: integer | user primary key
+| **UI** | UI01
+| **SUBMIT** | R101 (Para o edit profile action)
+| **Permissions** | OWN
+
+R101: Edit Profile Action
+
+|   |   |
+|--:|---|
+| **URL** | /edit_profile/{id}
+| **Description** | Web resource that changes user profile info based on the input received. Redirects to the user profile on success and edit profile page on failure. 
+| **Method** | POST
+| **Parameters** | +id: integer | user primary key
+| **Request body** | ?username: string | New username
+|              | ?picture: string | New profile picture path
+|              | ?name: string | New name
+|              | ?password: string | New password
+|              | ?quote: quote | New favourite quote
+| **Redirects** | R101 (Profile)      | Success
+|           | R101 (Edit_profile) | Error
+| **Permissions** | OWN
+
+R101: Password Recovery Form
+
+|   |   |
+|--:|---|
+| **URL** | /password_reset
+| **Description** | Page with a form to request a token to reset the password
+| **Method** | GET
+| **UI** | UI01
+| **SUBMIT** | R101 (Password Action)
+| **Permissions** | PUB
+
+R101: Password Recovery Action
+
+|   |   |
+|--:|---|
+| **URL** | /password_reset
+| **Description** | Web resource that sends a reset password link to the specified email.
+| **Method** | POST
+| **Request Body** | +email: string | User email
+| **Redirects** | UI01 | Success
+|           | R109 | Error
+| **Permissions** | PUB
+
 
 
  
