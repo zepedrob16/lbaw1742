@@ -89,7 +89,7 @@ R101: View Profile
 |   |   |   |
 |--:|---|---|
 | **URL** | /profile/{id}
-| **Description** | Shows the user individual
+| **Description** | Shows the user's profile
 | **Method** | GET
 | **Parameters** | +id: integer | user primary key
 | **UI** | UI01 (já vou ver)
@@ -146,12 +146,113 @@ R101: Password Recovery Action
 | **Redirects** | UI01 | Success
 |           | R109 | Error
 | **Permissions** | PUB
-
-
-
  
 ### 3.2 Module 2
- 
+
+R301: View Posts
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /homepage
+| **Description** | Shows a few posts made by the users of the system
+| **Method** | GET
+| **UI** | UI01 (já vou ver)
+| **Permissions** | PUB
+
+
+R302: Search Post by Tag
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /homepage/{search}
+| **Description** | Shows a few posts made by the users of the system with a specific tag
+| **Method** | GET
+| **Parameters** | ?query: string | String field to search for in posts
+|                | ?tag: string | String Tag of the post
+|                | ?author: string | Author of the post
+|                | ?content: string | Content of the post
+| **UI** | UI01 (já vou ver)
+| **Response body** | JSON201 (**mudar isto**)
+| **Permissions** | PUB
+
+
+R303: Search Post by Category
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /homepage/{search}
+| **Description** | Shows a few posts made by the users of the system with a specific tag
+| **Method** | GET
+| **Parameters** | ?query: string | String field to search for in posts
+|                | ?category: string | Category of the post
+|                | ?author: string | Author of the post
+|                | ?content: string | Content of the post
+| **UI** | UI01 (já vou ver)
+| **Permissions** | PUB
+
+
+R304: View Link Post
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /post-link
+| **Description** | Shows a Link Post
+| **Method** | GET
+| **UI** | UI01 (já vou ver)
+| **Permissions** | PUB
+
+R305: View Text Post
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /post
+| **Description** | Shows a Text Post
+| **Method** | GET
+| **UI** | UI01 (já vou ver)
+| **Permissions** | PUB
+
+R306: View Image Post
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /post-image
+| **Description** | Shows an Image Post
+| **Method** | GET
+| **UI** | UI01 (já vou ver)
+| **Permissions** | PUB
+
+R307: Submit Post Form
+
+|   |   |
+|--:|---|
+| **URL** | /sub-params
+| **Description** | Page with a form to submit a new post
+| **Method** | GET
+| **Parameters** | +id: integer | User primary key
+| **UI** | UI01
+| **SUBMIT** | R308 (Password Action)
+| **Permissions** | PUB
+
+
+R308: Submit Post Action
+
+|   |   |
+|--:|---|
+| **URL** | /sub-params/{id}
+| **Description** | Web Resource for the user to submit a post
+| **Method** | POST
+| **Parameters** | +id: integer | User primary key
+| **UI** | UI01
+| **Request Body** | ?title: string | Post title
+|                  | ?content: string | Post content
+|                  | ?image: string | Post image
+|                  | ?link: string | Post link
+|                  | ?source: string | Post source
+| **Redirects** | R301 | Success
+|               | R307 | Error
+| **Permissions** | PUB
+
+
 ## 4. JSON/XML Types
  
 > Document the JSON or XML responses that will be used by the web resources.
