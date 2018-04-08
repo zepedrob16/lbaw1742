@@ -264,6 +264,17 @@ The About page displays information regarding the creators of the website.
 
 Figure 24: About
 
+### UI20: Error 404
+The Error 404 when the page is not found.
+**[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/error.html)**.
+
+<p float="left">
+  <img src="screenshots/desktop/error404.png" width="80%" />
+  <img src="screenshots/mobile/error404.png" width="10%" /> 
+</p>
+
+Figure 25: Error 404
+
 ***
  
 ## Revision history
