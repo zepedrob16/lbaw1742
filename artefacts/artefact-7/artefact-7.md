@@ -223,8 +223,8 @@ R306: View Image Post
 
 R307: Submit Post Form
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /sub-params
 | **Description** | Page with a form to submit a new post
 | **Method** | GET
@@ -236,8 +236,8 @@ R307: Submit Post Form
 
 R308: Submit Post Action
 
-|   |   |
-|--:|---|
+|   |   |   |
+|--:|---|---|
 | **URL** | /sub-params/{id}
 | **Description** | Web Resource for the user to submit a post
 | **Method** | POST
