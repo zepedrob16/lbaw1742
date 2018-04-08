@@ -257,7 +257,7 @@ R201: 404
 | **URL** | /404
 | **Description** | Get 404 page.
 | **Method** | GET
-| **UI** | A colocar
+| **UI** | UI20
 | **Permissions** | PUB
 
 ### 3.3 Module M03:
