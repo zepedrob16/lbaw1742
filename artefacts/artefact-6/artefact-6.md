@@ -70,7 +70,7 @@ SELECT "post".* FROM "post", media_category WHERE "post".category = $category AN
 | SELECT04        | Search by Tag      | dozens per day |
 
 ```sql
-SELECT * FROM "post" WHERE ANY(tags) = $tag;
+SELECT * FROM "post" WHERE post.postnumber=post_tag.postnumber AND media_tag.id=post_tag.tag_id;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
@@ -78,23 +78,16 @@ SELECT * FROM "post" WHERE ANY(tags) = $tag;
 | SELECT05        | Read Comments     | thousands per day |
 
 ```sql
-SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
+SELECT user_table.username, post_comment.body 
+FROM "post_comment" 
+JOIN user_table ON user_table.id=post_comment=id_user
+WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 ```
+
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT06        | Read Post Content | thousands per day |
-
-```sql
-  SELECT text_post.opinion FROM "text_post" WHERE text_post.id_post = post.postnumber AND text_post.id_post = $id;
-  SELECT image_post.image FROM "image_post" WHERE image_post.id_post = post.postnumber AND image_post.id_post = $id;
-  SELECT link_post.url FROM "link_post" WHERE link_post.id_post = post.postnumber AND link_post.id_post = $id;
-  
-```
-
-| Query Reference | Query Description | Query Frequency  |
-| --------------- | ----------------- | ---------------- |
-| SELECT07        | Check Post Rank   | dozens per day   |
+| SELECT06        | Check Post Rank   | dozens per day   |
 
 ```sql
   SELECT "post.balance" FROM "post" WHERE post.id = $id;
@@ -102,7 +95,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT08        | Display Posts     | dozens per day    |
+| SELECT07        | Display Posts     | dozens per day    |
 
 ```sql
   SELECT * FROM "post";
@@ -110,7 +103,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description    | Query Frequency  |
 | --------------- | -------------------- | ---------------- |
-| SELECT9        | Show Friend Requests | dozens per day    |
+| SELECT08        | Show Friend Requests | dozens per day    |
 
 ```sql
   SELECT * FROM "friend_request" WHERE id = $id AND receiver = $receiver;
@@ -118,7 +111,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT10        | Show User List    | units per day    |
+| SELECT09        | Show User List    | units per day    |
 
 ```sql
   SELECT * FROM "user";
@@ -126,7 +119,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description | Query Frequency  |
 | --------------- | ----------------- | ---------------- |
-| SELECT11        | Show Report List  | units per day    |
+| SELECT10        | Show Report List  | units per day    |
 
 ```sql
   SELECT * FROM "report";
@@ -134,7 +127,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT12        | Read Image Post Content | hundreds per day |
+| SELECT11        | Read Image Post Content | hundreds per day |
 
 ```sql
   SELECT * FROM "image_post" WHERE image_post.id_post = $id_post;
@@ -142,7 +135,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT13        | Read Link Post Content  | hundreds per day |
+| SELECT12        | Read Link Post Content  | hundreds per day |
 
 ```sql
   SELECT * FROM "link_post" WHERE image_post.id_post = $id_post;
@@ -150,7 +143,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT14        | Read Text Post Content  | hundreds per day |
+| SELECT13        | Read Text Post Content  | hundreds per day |
 
 ```sql
   SELECT * FROM "text_post" WHERE image_post.id_post = $id_post;
@@ -158,7 +151,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT15        | Open Inbox              | dozens per day |
+| SELECT14        | Open Inbox              | dozens per day |
 
 ```sql
   SELECT * FROM "conversation_message" WHERE id_recipient = $id_recipient;
@@ -166,7 +159,7 @@ SELECT post_comment.body FROM "post_comment" WHERE post_comment.id_post = post.p
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT16        | Open Conversation       | dozens per day |
+| SELECT15        | Open Conversation       | dozens per day |
 
 ```sql
 SELECT * FROM conversation_message WHERE id_recipient = $id_recipient AND id_sender = $id_sender;
@@ -174,7 +167,7 @@ SELECT * FROM conversation_message WHERE id_recipient = $id_recipient AND id_sen
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT17        | Search                  | dozens per day |
+| SELECT16        | Search                  | dozens per day |
 
 ```sql
 SELECT postnumber, title, FROM post
