@@ -1,4 +1,8 @@
 # A7: High-level architecture. Privileges. Web resources specification
+
+## 0. Project Description (SHOWCHAN)
+
+The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.
  
 ## 1. Overview
  
