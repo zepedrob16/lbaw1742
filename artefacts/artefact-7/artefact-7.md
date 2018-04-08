@@ -22,7 +22,7 @@
 > Follow the RESTful resource naming
 > At the end of this page is presented some usual descriptors to document the web resources.
  
-### 3.1 Module 1
+### 3.1 Module M01:
 
 R101: Login Form
 
@@ -147,7 +147,120 @@ R101: Password Recovery Action
 |           | R109 | Error
 | **Permissions** | PUB
  
-### 3.2 Module 2
+### 3.2 Module M02: User Administration and Static Pages
+
+#### Endpoints of User Administration and Static pages
+
+  * R201: Get Users /users
+  * R201: Get Moderators /users
+  * R201: Get Statistics /statistics
+  * R201: Get Reports /reports
+  * R201: Promote User /users/{id}/promote
+  * R201: Demote Moderator /users/{id}/demote
+  * R201: Ban User /users/{id}/ban
+  * R201: About /about
+  * R201: 404 /404
+
+R201: Get Users
+
+|   |   |
+|--:|---|
+| **URL** | /users
+| **Description** | Get all registed users.
+| **Method** | GET
+| **UI** | UI14
+| **Permissions** | ADM
+
+R201: Get Moderators
+
+|   |   |
+|--:|---|
+| **URL** | /users
+| **Description** | Get all Moderators. The Moderators are Users. This works as a shortcut to access Moderators list.
+| **Method** | GET
+| **UI** | UI16
+| **Permissions** | ADM
+
+R201: Get Statistics
+
+|   |   |
+|--:|---|
+| **URL** | /statistics
+| **Description** | Get Statistics related to Posts, Comments and Reports.
+| **Method** | GET
+| **UI** | UI15
+| **Permissions** | ADM
+
+R201: Get Reports
+
+|   |   |
+|--:|---|
+| **URL** | /reports
+| **Description** | Get all Reports related to the Comments and Posts.
+| **Method** | GET
+| **UI** | UI17
+| **Permissions** | ADM
+
+R201: Promote User
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /users/{id}/promote
+| **Description** | This web resource promotes a User (to Moderator).
+| **Method** | PUT
+| **Parameters** | +id: integer | User id
+| **Returns** | 200 OK | The user was successfully promoted.
+|                | 400 Bad Request | Error. Error message is specified via a HTTP header.
+|                | 404 Not Found | Error. No user with the specified primary key exists.
+| **Permissions** | ADM
+
+R201: Demote Moderator
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /users/{id}/demote
+| **Description** | This web resource demotes a Moderator (to Member).
+| **Method** | PUT
+| **Parameters** | +id: integer | User (moderator) id
+| **Returns** | 200 OK | The user was successfully demoted.
+|                | 400 Bad Request | Error. Error message is specified via a HTTP header.
+|                | 404 Not Found | Error. No user (moderator) with the specified primary key exists.
+| **Permissions** | ADM
+
+R201: Ban User
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /users/{id}/ban
+| **Description** | This web resource produces a banishment of particular user.
+| **Method** | PUT
+| **Parameters** | +id: integer | User id
+| **Returns** | 200 OK | The user was successfully banned.
+|                | 400 Bad Request | Error. Error message is specified via a HTTP header.
+|                | 404 Not Found | Error. No user with the specified primary key exists.
+| **Permissions** | ADM
+
+R201: About
+
+|   |   |
+|--:|---|
+| **URL** | /about
+| **Description** | Get about page.
+| **Method** | GET
+| **UI** | UI19
+| **Permissions** | PUB
+
+R201: 404
+
+|   |   |
+|--:|---|
+| **URL** | /404
+| **Description** | Get 404 page.
+| **Method** | GET
+| **UI** | A colocar
+| **Permissions** | PUB
+
+### 3.3 Module M03:
 
 R301: View Posts
 
