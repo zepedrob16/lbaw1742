@@ -500,7 +500,9 @@ Changes made to the first submission:
  
 ***
  
-GROUP17xx, xx/xx/2018
+GROUP1742, 06/03/2018
  
-> Group member 1 name, email
-> Group member 2 name, email
+> Bernardo José Coelho Leite, up201404464@fe.up.pt  
+> José Pedro da Silva e Sousa Borges, up201503603@fe.up.pt  
+> Miguel Mano Fernandes, up201503538@fe.up.pt  
+> Ventura de Sousa Pereira, up201404690@fe.up.pt  
