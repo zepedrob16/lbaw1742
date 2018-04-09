@@ -343,11 +343,19 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 **Justification**: post table is very large; used too see post balance, has to be fast because it's executed many times; doesn't need range query support; cardinality is medium so it's a good candidate for clustering.
 
+```sql
+ CREATE INDEX balance_idx ON post USING hash (balance); 
+```
+
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
 | IDX02           | SELECT08        | friend_request | sender          | Hash       | Medium      | Yes        |
 
 **Justification**: There are too many friend requests; used too see the sender of that request, has to be fast because it's executed many times; doesn't need range query support; cardinality is medium so it's a good candidate for clustering.
+
+```sql
+ CREATE INDEX sender_idx ON friend_request USING hash (sender); 
+```
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
@@ -355,6 +363,9 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 **Justification**: There are too many friend requests; used too see the receiver of that request, has to be fast because it's executed many times; doesn't need range query support; cardinality is medium so it's a good candidate for clustering.
 
+```sql
+ CREATE INDEX receiver_idx ON friend_request USING hash (receiver); 
+```
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
