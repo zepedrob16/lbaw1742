@@ -367,6 +367,15 @@ R308: Submit Post Action
 
 ### 3.3 Module M04:
 
+R401: View homepage
+|   |   |
+|--:|---|---|
+| **URL** | /homepage
+| **Description** | Shows the initial page
+| **Method** | GET
+| **UI** | UI01 
+| **Permissions** | PUB
+
 R401: View inbox
 |   |   |
 |--:|---|---|
