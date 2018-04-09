@@ -369,7 +369,8 @@ R308: Submit Post Action
 
 R401: View homepage
 
-|   |   |
+
+|   |   |   |
 |--:|---|---|
 | **URL** | /homepage
 | **Description** | Shows the initial page
@@ -379,7 +380,8 @@ R401: View homepage
 
 R401: View inbox
 
-|   |   |
+
+|   |   |   |
 |--:|---|---|
 | **URL** | /inbox
 | **Description** | Shows a list of conversations belonging to a user
@@ -389,7 +391,8 @@ R401: View inbox
 
 R401: Open_inbox form
 
-|   |   |
+
+|   |   |   |
 |--:|---|---|
 | **URL** | /open_inbox
 | **Description** | Shows a conversation between users
