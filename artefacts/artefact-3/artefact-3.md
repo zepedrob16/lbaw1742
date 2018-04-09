@@ -71,7 +71,7 @@ The landing page of the website, which is virtually identical to the **guest** h
 
 Figure 6: Homepage (Authenticated User).
 
-### UI02:Homepage(Guest)
+### UI02
 Identical to the previous page besides the header which includes both **sign up** and **sign in** options.  
 **[Navigate to webpage](https://zepedrob16.github.io/lbaw1742/artefacts/artefact-3/homepage-guest.html)**.
 <p align="center"><img src="screenshots/desktop/homepage-guest.png" width="100%"></p>
