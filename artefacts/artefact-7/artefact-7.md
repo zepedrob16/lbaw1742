@@ -11,8 +11,7 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | M01: Authentication and Individual Profile | Web resources associated with user authentication and individual profile management, includes the following system features: login/logout, registration, view and edit personal profile information.
 | M02: User Administration and Static pages | Web resources associates with user management, specifically: view and search users, delete or ban user accounts, view user information and view system access details for each user. Web resources with static content are associated with this module: dashboard and about.
 | M03: Posts | Web resources associated with Posts, includes the following system features: posts list and search, view and submit details.
-| M04? | ?? 
-| M05? | ?? 
+| M04: Inbox | Module dedicated to the interaction between users, including: inbox and individual conversations.
  
 ## 2. Permissions
 
@@ -35,14 +34,14 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 ### 3.1 Module M01: Authentication and Individual Profile
 
  * R101: Login Form /login
- * R101: Login Action /register
- * R101: Logout Action /logout
- * R101: Signup Form /signup
- * R101: View Profile /profile/{id}
- * R101: Edit Profile Form /edit_profile/{id}
- * R101: Edit Profile Action /edit_profile/{id}
- * R101: Password Recovery Form /password_reset
- * R101: Password Recovery Form Action /password_reset
+ * R102: Login Action /register
+ * R103: Logout Action /logout
+ * R104: Signup Form /signup
+ * R105: View Profile /profile/{id}
+ * R106: Edit Profile Form /edit_profile/{id}
+ * R107: Edit Profile Action /edit_profile/{id}
+ * R108: Password Recovery Form /password_reset
+ * R109: Password Recovery Form Action /password_reset
 
 R101: Login Form
 
@@ -55,7 +54,7 @@ R101: Login Form
 | **SUBMIT** | R101 (Deve redirecionar para login action)
 | **Permissions** | PUB
 
-R101: Login Action
+R102: Login Action
 
 |   |   |   |
 |--:|---|---|
@@ -68,7 +67,7 @@ R101: Login Action
 |           | R101 (Para login novamente)            | Error
 | **Permissions** | PUB
 
-R101: Logout Action
+R103: Logout Action
 
 |   |   |   |
 |--:|---|---|
@@ -78,7 +77,7 @@ R101: Logout Action
 | **Redirects** | R101 (LOGIN) | Success
 | **Permissions** | USR, ADM
 
-R101: Signup Form
+R104: Signup Form
 
 |   |   |
 |--:|---|
@@ -89,7 +88,7 @@ R101: Signup Form
 | **SUBMIT** | R101
 | **Permissions** | PUB
 
-R101: Signup Action
+R105: Signup Action
 
 |   |   |   |
 |--:|---|---|
@@ -104,7 +103,7 @@ R101: Signup Action
 |           | R101 (Signup) | Error
 | **Permissions** | PUB
 
-R101: View Profile
+R106: View Profile
 
 |   |   |   |
 |--:|---|---|
@@ -115,7 +114,7 @@ R101: View Profile
 | **UI** | UI01 (já vou ver)
 | **Permissions** | USR
 
-R101: Edit Profile Form
+R107: Edit Profile Form
 
 |   |   |   |
 |--:|---|---|
@@ -127,7 +126,7 @@ R101: Edit Profile Form
 | **SUBMIT** | R101 (Para o edit profile action)
 | **Permissions** | OWN
 
-R101: Edit Profile Action
+R108: Edit Profile Action
 
 |   |   |   |
 |--:|---|---|
@@ -144,7 +143,7 @@ R101: Edit Profile Action
 |           | R101 (Edit_profile) | Error
 | **Permissions** | OWN
 
-R101: Password Recovery Form
+R109: Password Recovery Form
 
 |   |   |
 |--:|---|
@@ -155,7 +154,7 @@ R101: Password Recovery Form
 | **SUBMIT** | R101 (Password Action)
 | **Permissions** | PUB
 
-R101: Password Recovery Action
+R110: Password Recovery Action
 
 |   |   |   |
 |--:|---|---|
@@ -396,17 +395,6 @@ R308: Submit Post Action
 
 ### 3.3 Module M04:
 
-R401: View homepage
-
-
-|   |   |   |
-|--:|---|---|
-| **URL** | /homepage
-| **Description** | Shows the initial page
-| **Method** | GET
-| **UI** | UI01 
-| **Permissions** | PUB
-
 R401: View inbox
 
 
@@ -418,7 +406,7 @@ R401: View inbox
 | **UI** | UI01 
 | **Permissions** | USR
 
-R401: Open_inbox form
+R402: Open_inbox form
 
 
 |   |   |   |
@@ -430,7 +418,7 @@ R401: Open_inbox form
 | **Permissions** | USR
 
 
-R402: Open_inbox action
+R403: Open_inbox action
 
 |   |   |   |
 |--:|---|---|
