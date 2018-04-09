@@ -404,7 +404,7 @@ R401: View inbox
 | **URL** | /inbox
 | **Description** | Shows a list of conversations belonging to a user
 | **Method** | GET
-| **UI** | UI01 
+| **UI** | UI12
 | **Permissions** | USR
 
 R402: Open_inbox form
@@ -415,7 +415,7 @@ R402: Open_inbox form
 | **URL** | /open_inbox
 | **Description** | Shows a conversation between users
 | **Method** | GET
-| **UI** | UI01 
+| **UI** | UI13
 | **Permissions** | USR
 
 
@@ -427,7 +427,6 @@ R403: Open_inbox action
 | **Description** | Page that displays a conversation between the authenticated user and a friend
 | **Method** | POST
 | **Parameters** | +id: integer | User primary key
-| **UI** | UI01
 | **Request Body** | ?body: string | Message
 | **Permissions** | USR
 
