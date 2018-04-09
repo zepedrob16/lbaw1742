@@ -284,6 +284,15 @@ R209: 404
 
 ### 3.3 Module M03: Posts
 
+  * R301: View Posts /homepage
+  * R302: Search Post by Tag /homepage/{search}
+  * R303: Search Post by Category /homepage/{search}
+  * R304: View Link Post /post-link
+  * R305: View Text Post /post
+  * R306: View Image Post /post-image
+  * R307: Submit Post Form /sub-params
+  * R308: Submit Post Action /sub-params/{id}
+
 R301: View Posts
 
 |   |   |   |
