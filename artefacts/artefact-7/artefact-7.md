@@ -1,8 +1,18 @@
 # A7: High-level architecture. Privileges. Web resources specification
- 
+
+## 0. Project Description (SHOWCHAN) 
+
+The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.
+
 ## 1. Overview
- 
-> Identify and overview the modules that will be part of the application.
+
+|   |   | 
+|--:|---|
+| M01: Authentication and Individual Profile | Web resources associated with user authentication and individual profile management, includes the following system features: login/logout, registration, view and edit personal profile information.
+| M02: User Administration and Static pages | Web resources associates with user management, specifically: view and search users, delete or ban user accounts, view user information and view system access details for each user. Web resources with static content are associated with this module: dashboard and about.
+| M03: Posts | Web resources associated with Posts, includes the following system features: posts list and search, view and submit details.
+| M04? | ?? 
+| M05? | ?? 
  
 ## 2. Permissions
 
@@ -22,7 +32,17 @@
 > Follow the RESTful resource naming
 > At the end of this page is presented some usual descriptors to document the web resources.
  
-### 3.1 Module M01:
+### 3.1 Module M01: Authentication and Individual Profile
+
+ * R101: Login Form /login
+ * R101: Login Action /register
+ * R101: Logout Action /logout
+ * R101: Signup Form /signup
+ * R101: View Profile /profile/{id}
+ * R101: Edit Profile Form /edit_profile/{id}
+ * R101: Edit Profile Action /edit_profile/{id}
+ * R101: Password Recovery Form /password_reset
+ * R101: Password Recovery Form Action /password_reset
 
 R101: Login Form
 
@@ -151,15 +171,15 @@ R101: Password Recovery Action
 
 #### Endpoints of User Administration and Static pages
 
-  * R201: Get Users /users
-  * R201: Get Moderators /users
-  * R201: Get Statistics /statistics
-  * R201: Get Reports /reports
-  * R201: Promote User /users/{id}/promote
-  * R201: Demote Moderator /users/{id}/demote
-  * R201: Ban User /users/{id}/ban
-  * R201: About /about
-  * R201: 404 /404
+ * R201: Get Users /users
+ * R202: Get Moderators /users
+ * R203: Get Statistics /statistics
+ * R204: Get Reports /reports
+ * R205: Promote User /users/{id}/promote
+ * R206: Demote Moderator /users/{id}/demote
+ * R207: Ban User /users/{id}/ban
+ * R208: About /about
+ * R209: 404 /404
 
 R201: Get Users
 
@@ -171,7 +191,7 @@ R201: Get Users
 | **UI** | UI14
 | **Permissions** | ADM
 
-R201: Get Moderators
+R202: Get Moderators
 
 |   |   |
 |--:|---|
@@ -181,7 +201,7 @@ R201: Get Moderators
 | **UI** | UI16
 | **Permissions** | ADM
 
-R201: Get Statistics
+R203: Get Statistics
 
 |   |   |
 |--:|---|
@@ -191,7 +211,7 @@ R201: Get Statistics
 | **UI** | UI15
 | **Permissions** | ADM
 
-R201: Get Reports
+R204: Get Reports
 
 |   |   |
 |--:|---|
@@ -201,7 +221,7 @@ R201: Get Reports
 | **UI** | UI17
 | **Permissions** | ADM
 
-R201: Promote User
+R205: Promote User
 
 |   |   |   |
 |--:|---|---|
@@ -214,7 +234,7 @@ R201: Promote User
 |                | 404 Not Found | Error. No user with the specified primary key exists.
 | **Permissions** | ADM
 
-R201: Demote Moderator
+R206: Demote Moderator
 
 |   |   |   |
 |--:|---|---|
@@ -227,7 +247,7 @@ R201: Demote Moderator
 |                | 404 Not Found | Error. No user (moderator) with the specified primary key exists.
 | **Permissions** | ADM
 
-R201: Ban User
+R207: Ban User
 
 |   |   |   |
 |--:|---|---|
@@ -240,7 +260,7 @@ R201: Ban User
 |                | 404 Not Found | Error. No user with the specified primary key exists.
 | **Permissions** | ADM
 
-R201: About
+R208: About
 
 |   |   |
 |--:|---|
@@ -250,17 +270,26 @@ R201: About
 | **UI** | UI19
 | **Permissions** | PUB
 
-R201: 404
+R209: 404
 
 |   |   |
 |--:|---|
 | **URL** | /404
 | **Description** | Get 404 page.
 | **Method** | GET
-| **UI** | A colocar
+| **UI** | UI20
 | **Permissions** | PUB
 
-### 3.3 Module M03:
+### 3.3 Module M03: Posts
+
+* R301: View Posts /homepage
+* R302: Search Post by Tag /homepage/{search}
+* R303: Search Post by Category /homepage/{search}
+* R304: View Link Post /post-link
+* R305: View Text Post /post
+* R306: View Image Post /post-image
+* R307: Submit Post Form /sub-params
+* R308: Submit Post Action /sub-params/{id}
 
 R301: View Posts
 
