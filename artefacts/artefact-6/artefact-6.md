@@ -339,68 +339,26 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX01           | SELECT01        | user_table     | username        | Hash       | High        | No         |
+| IDX01           | SELECT06        | post           | balance         | Hash       | Medium      | Yes        |
 
-**Justification**: Query SELECT01 has to be fast as it is executed many times; doesn't need range query support; cardinality is high because username is an unique key; it's not a good candidate for clustering.
-
-```sql
- CREATE INDEX username_idx ON user_table USING hash (username); 
-```
+**Justification**: post table is very large; used too see post balance, has to be fast because it's executed many times; doesn't need range query support; cardinality is medium so it's a good candidate for clustering.
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX02           | SELECT01        | user_table     | email           | Hash       | High        | No         |
+| IDX02           | SELECT08        | friend_request | sender          | Hash       | Medium      | Yes        |
 
-**Justification**: Query SELECT01 has to be fast as it is executed many times; doesn't need range query support; cardinality is high because email is an unique key; it's not a good candidate for clustering.
+**Justification**: There are too many friend requests; used too see the sender of that request, has to be fast because it's executed many times; doesn't need range query support; cardinality is medium so it's a good candidate for clustering.
 
-```sql
- CREATE INDEX email_idx ON user_table USING hash (email); 
-```
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX03           | SELECT08        | friend_request | receiver        | Hash       | Medium      | Yes        |
+
+**Justification**: There are too many friend requests; used too see the receiver of that request, has to be fast because it's executed many times; doesn't need range query support; cardinality is medium so it's a good candidate for clustering.
 
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX03           | SELECT01        | user_table     | id              | Hash       | High        | No         |
-
-**Justification**: Query SELECT01 has to be fast as it is executed many times; doesn't need range query support; cardinality is high because id is an unique key; it's not a good candidate for clustering.
-
-```sql
- CREATE INDEX id_idx ON user_table USING hash (id); 
-```
-
-| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
-| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX04           | SELECT03        | media_category | title           | Hash       | Low         | Yes        |
-
-**Justification**: Allow to see the Media type of a post quickly; cardinality is low since it is a column with few unique values so it's a good candidate for clustering.
-
-```sql
- CREATE INDEX type_idx ON media_category USING hash (title); 
-```
-
-| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
-| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX05           | SELECT05        | post_comment   | body            | Hash       | High        | No         |
-
-**Justification**: post_commment table is very large; query SELECT05; used to read comments, has to be fast because it's executed many times; cardinality is high since each comment is very uncommon or unique.
-
-```sql
- CREATE INDEX comment_idx ON post_comment USING hash (body); 
-```
-
-| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
-| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX06           | SELECT06        | text_post      | opinion         | Hash       | High        | No         |
-
-**Justification**: Allow to see the content (text) of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
-
-```sql
- CREATE INDEX text_idx ON text_post USING hash (opinion); 
-```
-
-| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
-| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX07           | SELECT06        | image_post     | image           | Hash       | High        | No         |
+| IDX04           | SELECT11        | image_post     | image           | Hash       | High        | No         |
 
 **Justification**: Allow to see the content (image) of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
 
@@ -410,12 +368,22 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
-| IDX08          | SELECT06         | link_post      | url             | Hash       | High        | No         |
+| IDX05          | SELECT12         | link_post      | url             | Hash       | High        | No         |
 
 **Justification**: Allow to see the content (url) of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
 
 ```sql
  CREATE INDEX url_idx ON link_post USING hash (url); 
+```
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Cardinality | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ----------- | ---------- |
+| IDX06           | SELECT13        | text_post      | opinion         | Hash       | High        | No         |
+
+**Justification**: Allow to see the content (text) of a post quickly; cardinality is high since each post is very uncommon or unique; it's not a good candidate for clustering.
+
+```sql
+ CREATE INDEX text_idx ON text_post USING hash (opinion); 
 ```
 
 ### 2.2. Full-text Search Indexes
@@ -424,12 +392,22 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 | Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Clustering |
 | --------------- | --------------- | -------------- | --------------- | ---------- | ---------- |
-| IDX09           | SELECT019       | post           | title           | GiST       | No         |
+| IDX07           | SELECT016       | post           | title           | GiST       | No         |
 
 **Justification**: To improve the performance of full text searches; GiST because it's better for dynamic data.
 
 ```sql
- CREATE INDEX search_idx ON post USING GIST (title);
+ CREATE INDEX search_idx ON post USING GIST (to_tsvector('english'), title);
+```
+
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ---------- |
+| IDX08           | SELECT017       | user_table     | firstname       | GiST       | No         |
+
+**Justification**: To improve the performance of full text searches related to the users search box on admin Dashboard; GiST because it's better for dynamic data.
+
+```sql
+ CREATE INDEX search_user_idx ON user_table USING GIST (to_tsvector('english'), firstname);
 ```
 
 ## 3. Triggers
@@ -1125,8 +1103,16 @@ CREATE TRIGGER downvote_post
 
 ## Revision History
 
-No changes to show.
-
+* Removed Primary Keys Indexes because PKs on PosgreSQL are automatically indexed;
+* Removed IDX04 of type Hash where attribute is "title" and relation is "media_category";
+* Removed IDX05 of type Hash where attribute is "body" and relation is "post_comment";
+* SELECT16 is now using indexes of type FTS;
+* Syntax of IDX07 (attribute "title" and relation "post") is now correct;
+* Added IDX01 for attribute "balance" and relation "post";
+* Added IDX02 for attribute "sender" and relation "friend_request";
+* Added IDX03 for attribute "receiver" and relation "friend_request";
+* Added SELECT17 in order to complete illustrative queries related to full-text-search type;
+* Added IDX08 of type full-text-search related to the users search box on admin Dashboard.
 
 
 ## Submission Information
