@@ -368,6 +368,7 @@ R308: Submit Post Action
 ### 3.3 Module M04:
 
 R401: View homepage
+
 |   |   |
 |--:|---|---|
 | **URL** | /homepage
@@ -377,6 +378,7 @@ R401: View homepage
 | **Permissions** | PUB
 
 R401: View inbox
+
 |   |   |
 |--:|---|---|
 | **URL** | /inbox
@@ -386,6 +388,7 @@ R401: View inbox
 | **Permissions** | USR
 
 R401: Open_inbox form
+
 |   |   |
 |--:|---|---|
 | **URL** | /open_inbox
