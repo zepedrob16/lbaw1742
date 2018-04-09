@@ -175,6 +175,16 @@ SELECT postnumber, title, FROM post
 ORDER BY title; 
 ```
 
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT17        | Search Users            | dozens per day   |
+
+```sql
+SELECT firstname, lastname FROM user_table
+  WHERE firstname LIKE %$search% OR lastname LIKE %$search%
+ORDER BY firstname; 
+```
+
 ### 1.3. Frequent Updates
 
 > Most important updates (INSERT, UPDATE, DELETE) and their frequency.
