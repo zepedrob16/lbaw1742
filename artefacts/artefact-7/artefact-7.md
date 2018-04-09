@@ -368,8 +368,7 @@ R308: Submit Post Action
 ### 3.3 Module M04:
 
 R401: View inbox
-
-  |   |   |
+|   |   |
 |--:|---|---|
 | **URL** | /inbox
 | **Description** | Shows a list of conversations belonging to a user
@@ -378,8 +377,7 @@ R401: View inbox
 | **Permissions** | USR
 
 R401: Open_inbox form
-
-  |   |   |
+|   |   |
 |--:|---|---|
 | **URL** | /open_inbox
 | **Description** | Shows a conversation between users
@@ -393,7 +391,7 @@ R402: Open_inbox action
 |   |   |   |
 |--:|---|---|
 | **URL** | /../open_inbox
-| **Description** | Page that displays a cnversation between the authenticated user and a friend
+| **Description** | Page that displays a conversation between the authenticated user and a friend
 | **Method** | POST
 | **Parameters** | +id: integer | User primary key
 | **UI** | UI01
