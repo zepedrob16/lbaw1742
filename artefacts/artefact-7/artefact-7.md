@@ -34,8 +34,18 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 > Follow the RESTful resource naming
 > At the end of this page is presented some usual descriptors to document the web resources.
  
-### 3.1 Module M01:
+### 3.1 Module M01: Authentication and Individual Profile
 
+  * R101: Login Form /login
+  * R101: Login Action /register
+  * R101: Logout Action /logout
+  * R101: Signup Form /signup
+  * R101: View Profile /profile/{id}
+  * R101: Edit Profile Form /edit_profile/{id}
+  * R101: Edit Profile Action /edit_profile/{id}
+  * R101: Password Recovery Form /password_reset
+  * R101: Password Recovery Form Action /password_reset
+  
 R101: Login Form
 
 |   |   |
@@ -272,7 +282,7 @@ R209: 404
 | **UI** | UI20
 | **Permissions** | PUB
 
-### 3.3 Module M03:
+### 3.3 Module M03: Posts
 
 R301: View Posts
 
