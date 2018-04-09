@@ -51,7 +51,7 @@ R101: Login Form
 | **Description** | Page with a login form to authenticate a user into his account
 | **Method** | GET
 | **UI** | UI06
-| **SUBMIT** | R101 (Deve redirecionar para login action)
+| **SUBMIT** | R102
 | **Permissions** | PUB
 
 R102: Login Action
@@ -63,8 +63,8 @@ R102: Login Action
 | **Method** | POST
 | **Request Body** | +email: string, +username: string | Email or Username
 |              | +password: string | Password
-| **Redirects** | R101 (Deve redirecionar para homepage) | Success
-|           | R101 (Para login novamente)            | Error
+| **Redirects** | R301 | Success
+|           | R101 | Error
 | **Permissions** | PUB
 
 R103: Logout Action
@@ -74,7 +74,7 @@ R103: Logout Action
 | **URL** | /logout
 | **Description** | This web resource logs out the authenticated user or admin.
 | **Method** | POST
-| **Redirects** | R101 (LOGIN) | Success
+| **Redirects** | R101 | Success
 | **Permissions** | USR, ADM
 
 R104: Signup Form
@@ -84,8 +84,8 @@ R104: Signup Form
 | **URL** | /signup
 | **Description** | Page with a form to register a new user account
 | **Method** | GET
-| **UI** | UI01 (já vou ver)
-| **SUBMIT** | R101
+| **UI** | UI04
+| **SUBMIT** | R105
 | **Permissions** | PUB
 
 R105: Signup Action
@@ -99,8 +99,8 @@ R105: Signup Action
 |              | +email: string | Email
 |              | +password: string | Password
 |              | +confirmPassword: string | Password confirmation
-| **Redirects** | R101 (Homepage) | Success
-|           | R101 (Signup) | Error
+| **Redirects** | R301 | Success
+|           | R104 | Error
 | **Permissions** | PUB
 
 R106: View Profile
@@ -111,7 +111,7 @@ R106: View Profile
 | **Description** | Shows the user's profile
 | **Method** | GET
 | **Parameters** | +id: integer | user primary key
-| **UI** | UI01 (já vou ver)
+| **UI** | UI10 (já vou ver)
 | **Permissions** | USR
 
 R107: Edit Profile Form
@@ -122,8 +122,8 @@ R107: Edit Profile Form
 | **Description** | Edits the current user's profile
 | **Method** | GET
 | **Parameters** | +id: integer | user primary key
-| **UI** | UI01
-| **SUBMIT** | R101 (Para o edit profile action)
+| **UI** | A completar
+| **SUBMIT** | R108
 | **Permissions** | OWN
 
 R108: Edit Profile Action
@@ -139,8 +139,8 @@ R108: Edit Profile Action
 |              | ?name: string | New name
 |              | ?password: string | New password
 |              | ?quote: quote | New favourite quote
-| **Redirects** | R101 (Profile)      | Success
-|           | R101 (Edit_profile) | Error
+| **Redirects** | R106 | Success
+|           | R107 | Error
 | **Permissions** | OWN
 
 R109: Password Recovery Form
@@ -150,7 +150,7 @@ R109: Password Recovery Form
 | **URL** | /password_reset
 | **Description** | Page with a form to request a token to reset the password
 | **Method** | GET
-| **UI** | UI01
+| **UI** | A completar
 | **SUBMIT** | R101 (Password Action)
 | **Permissions** | PUB
 
@@ -162,7 +162,7 @@ R110: Password Recovery Action
 | **Description** | Web resource that sends a reset password link to the specified email.
 | **Method** | POST
 | **Request Body** | +email: string | User email
-| **Redirects** | UI01 | Success
+| **Redirects** | R102 | Success
 |           | R109 | Error
 | **Permissions** | PUB
  
@@ -297,7 +297,7 @@ R301: View Posts
 | **URL** | /homepage
 | **Description** | Shows a few posts made by the users of the system
 | **Method** | GET
-| **UI** | UI01 (já vou ver)
+| **UI** | UI01
 | **Permissions** | PUB
 
 
@@ -312,8 +312,8 @@ R302: Search Post by Tag
 |                | ?tag: string | String Tag of the post
 |                | ?author: string | Author of the post
 |                | ?content: string | Content of the post
-| **UI** | UI01 (já vou ver)
-| **Response body** | JSON201 (**mudar isto**)
+| **UI** | UI01
+| **Response body** | JSON201
 | **Permissions** | PUB
 
 
@@ -328,7 +328,8 @@ R303: Search Post by Category
 |                | ?category: string | Category of the post
 |                | ?author: string | Author of the post
 |                | ?content: string | Content of the post
-| **UI** | UI01 (já vou ver)
+| **UI** | UI01
+| **Response body** | JSON202
 | **Permissions** | PUB
 
 
@@ -339,7 +340,7 @@ R304: View Link Post
 | **URL** | /post-link
 | **Description** | Shows a Link Post
 | **Method** | GET
-| **UI** | UI01 (já vou ver)
+| **UI** | UI03
 | **Permissions** | PUB
 
 R305: View Text Post
@@ -349,7 +350,7 @@ R305: View Text Post
 | **URL** | /post
 | **Description** | Shows a Text Post
 | **Method** | GET
-| **UI** | UI01 (já vou ver)
+| **UI** | UI05
 | **Permissions** | PUB
 
 R306: View Image Post
@@ -359,7 +360,7 @@ R306: View Image Post
 | **URL** | /post-image
 | **Description** | Shows an Image Post
 | **Method** | GET
-| **UI** | UI01 (já vou ver)
+| **UI** | UI06
 | **Permissions** | PUB
 
 R307: Submit Post Form
@@ -370,8 +371,8 @@ R307: Submit Post Form
 | **Description** | Page with a form to submit a new post
 | **Method** | GET
 | **Parameters** | +id: integer | User primary key
-| **UI** | UI01
-| **SUBMIT** | R308 (Password Action)
+| **UI** | UI09
+| **SUBMIT** | R308
 | **Permissions** | PUB
 
 
@@ -431,17 +432,52 @@ R403: Open_inbox action
 | **Permissions** | USR
 
 
+## 4. 
+/XML Types
+
+JSON201: Search by Tag
+{
+  "post": [
+    {
+      "id": "1",
+      "title": "Netflix cancels 'Everything Sucks'",
+      "url: https://dummylink.com"
+      "tag: everything sucks"
+      "category: TV"
+    },
+    {
+      "id": "15",
+      "title": "Boss Baby the series now on movie",
+      "opinion: Lorem ipsum dona beu."
+      "source: https://dummylink.com"
+      "tag: boss baby"
+      "category: TV"
+    }
+  ]
+}
+
+JSON201: Search by Category
+{
+  "post": [
+    {
+      "id": "2",
+      "title": "A Series of Unfortunate Events is amazing",
+      "image: https://dummyimage.com/images/asoue.jpg"
+      "tag: a series of unfortunate events"
+      "category: TV"
+    },
+    {
+      "id": "13",
+      "title": "Lady Bird wins the Oscar",
+      "url: https://dummylink.com"
+      "tag: lady bird"
+      "category: Movie"
+    }
+  ]
+}
 
 
 
-
-
-
-
-
-## 4. JSON/XML Types
- 
-> Document the JSON or XML responses that will be used by the web resources.
  
 ## Web resources descriptors <note important>Do not include on the final artefact</note>
  
