@@ -76,8 +76,8 @@ WHERE "post".category = $category AND "post".mediacategory_id LIKE media_categor
 | SELECT04        | Search by Tag      | dozens per day |
 
 ```sql
-SELECT * FROM "post" 
-WHERE post.postnumber=post_tag.postnumber AND media_tag.id=post_tag.tag_id;
+SELECT * FROM "post" , "post_tag", "media_tag"
+WHERE post.postnumber=post_tag.postnumber AND media_tag.tag_id=post_tag.tag_id;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
