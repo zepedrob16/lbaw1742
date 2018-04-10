@@ -1149,6 +1149,8 @@ ALTER TABLE ONLY post_category
  CREATE INDEX image_idx ON image_post USING hash (image); 
  CREATE INDEX url_idx ON link_post USING hash (url);
  CREATE INDEX search_idx ON post USING GIST (title);
+
+
 CREATE FUNCTION deleted_user(id) RETURNS TRIGGER AS
 $BODY$
 	BEGIN
@@ -1171,21 +1173,39 @@ $BODY$
 		AFTER DELETE ON user_table
 			FOR EACH ROW
 				EXECUTE PROCEDURE deleted_user(user_table.id);
-CREATE FUNCTION downvote_post() RETURNS TRIGGER AS
+				
+				
+CREATE FUNCTION downvote_post(id_post) RETURNS TRIGGER AS
 $BODY$
 	BEGIN
-		IF EXISTS (SELECT * FROM post WHERE balance = 0) THEN
+		IF New.balance < 0 AND New.postnumber = id_post
 			RAISE EXCEPTION 'A POST WITH 0 UPVOTES CANNOT BE DOWNVOTED.';
 		END IF;
-		RETURN NEW;
+	RETURN NEW;
 	END
 	$BODY$
 	LANGUAGE plpgsql;
 
 CREATE TRIGGER downvote_post
-	BEFORE INSERT OR UPDATE ON downvote_post
+	BEFORE UPDATE ON post
 	FOR EACH ROW
-		EXECUTE PROCEDURE downvote_post();
+		EXECUTE PROCEDURE downvote_post(id_post);
+		
+CREATE FUNCTION remove_post(id_post) RETURNS TRIGGER AS
+$BODY$
+	BEGIN
+		DELETE FROM post_comment WHERE post_comment.id = id_post;
+	RETURN NEW;
+	END
+	$BODY$
+	LANGUAGE plpgsql;
+
+CREATE TRIGGER downvote_post
+	BEFORE DELETE ON post
+	FOR EACH ROW
+		EXECUTE PROCEDURE downvote_post(id_post);
+		
+
 
 ```
 
