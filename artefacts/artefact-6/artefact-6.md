@@ -554,6 +554,8 @@ CREATE TRIGGER downvote_post
 > The database script must also include the SQL to populate a database with test data with an amount of tuples suitable for testing and with plausible values for the fields of the database. This code should also be included in the group's github repository as an SQL script, and a link include here.
 
 ### 4.1. Populate SQL Code
+#### [Download](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-6/populate.sql)
+
 ```sql
 
 INSERT INTO "user_table" (id, username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES (1, 'bcurless0', 'HmeeUgMD7', 'Inès', 'Curless', 'lcurless0@google.com', '2002/01/09', 'Kazakhstan', 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 'http://dummyimage.com/237x147.png/ff4444/ffffff', 32, 62, 44);
@@ -850,6 +852,9 @@ INSERT INTO "post_category" (postnumber, cat_id) VALUES (15, 15);
 ```
 
 ### 4.2. Create SQL Code
+
+#### [Download](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-6/create.sql)
+
 ```sql
 DROP TABLE IF EXISTS user_table cascade;
 DROP TABLE IF EXISTS report cascade;
