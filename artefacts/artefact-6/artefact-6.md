@@ -475,18 +475,18 @@ DELETE FROM "post_comment" WHERE id = $id;
 | TRIGGER01         | All user information must be deleted when a user is erased. |
 
 ```sql
-CREATE FUNCTION deleted_user(id) RETURNS TRIGGER AS
+CREATE FUNCTION deleted_user() RETURNS TRIGGER AS
 $BODY$
 	BEGIN
-		DELETE FROM post WHERE post.author = id;
-		DELETE FROM post_comment WHERE post_comment.id_user = id;
-		DELETE FROM post_reaction WHERE post_reaction.id = id;
-		DELETE FROM friendship WHERE friendship.user1 = id OR friendship.user2 = id;
-		DELETE FROM friend_request WHERE friend_request.sender = id OR friend_request.receiver = id;
-		DELETE FROM conversation_message WHERE conversation_message.id_sender = id OR conversation_message.id_recipient = id;
-		DELETE FROM member WHERE member.id_user = id;
-		DELETE FROM moderator WHERE member.id_user = id;
-		DELETE FROM admin WHERE admin.id_user = id;
+		DELETE FROM post WHERE post.author = TD['args'][0];
+		DELETE FROM post_comment WHERE post_comment.id_user = TD['args'][0];
+		DELETE FROM post_reaction WHERE post_reaction.id = TD['args'][0];
+		DELETE FROM friendship WHERE friendship.user1 = id OR friendship.user2 = TD['args'][0];
+		DELETE FROM friend_request WHERE friend_request.sender = id OR friend_request.receiver = TD['args'][0];
+		DELETE FROM conversation_message WHERE conversation_message.id_sender = id OR conversation_message.id_recipient = TD['args'][0];
+		DELETE FROM member WHERE member.id_user = TD['args'][0];
+		DELETE FROM moderator WHERE member.id_user = TD['args'][0];
+		DELETE FROM admin WHERE admin.id_user = TD['args'][0];
 	RETURN NEW;
 	END
 	$BODY$
