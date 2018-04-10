@@ -456,26 +456,53 @@ $BODY$
 
 | Trigger Reference | Trigger Description                                     |
 | ----------------- | ------------------------------------------------------- |
-| TRIGGER01         | A user cannot downvote a post with 0 upvotes. |
+| TRIGGER02         | A user cannot downvote a post with 0 upvotes. |
 
 ```sql
 
-CREATE FUNCTION downvote_post() RETURNS TRIGGER AS
+CREATE FUNCTION downvote_post(id_post) RETURNS TRIGGER AS
 $BODY$
 	BEGIN
-		IF EXISTS (SELECT * FROM post WHERE balance = 0) THEN
+		IF New.balance < 0 AND New.postnumber = id_post
 			RAISE EXCEPTION 'A POST WITH 0 UPVOTES CANNOT BE DOWNVOTED.';
 		END IF;
-		RETURN NEW;
+	RETURN NEW;
 	END
 	$BODY$
 	LANGUAGE plpgsql;
 
 CREATE TRIGGER downvote_post
-	BEFORE INSERT OR UPDATE ON downvote_post
+	BEFORE UPDATE ON post
 	FOR EACH ROW
-		EXECUTE PROCEDURE downvote_post();
+		EXECUTE PROCEDURE downvote_post(id_post);
 ```
+
+
+| Trigger Reference | Trigger Description                                     |
+| ----------------- | ------------------------------------------------------- |
+| TRIGGER03         | When a submission is deleted, all associated comments are removed. |
+
+```sql
+
+CREATE FUNCTION remove_post(id_post) RETURNS TRIGGER AS
+$BODY$
+	BEGIN
+		DELETE FROM post_comment WHERE post_comment.id = id_post;
+	RETURN NEW;
+	END
+	$BODY$
+	LANGUAGE plpgsql;
+
+CREATE TRIGGER downvote_post
+	BEFORE DELETE ON post
+	FOR EACH ROW
+		EXECUTE PROCEDURE downvote_post(id_post);
+
+```
+
+
+
+
 
 ## 4. Complete SQL Code
 
