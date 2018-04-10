@@ -111,7 +111,7 @@ R106: View Profile
 | **Description** | Shows the user's profile
 | **Method** | GET
 | **Parameters** | +id: integer | user primary key
-| **UI** | UI10 (já vou ver)
+| **UI** | UI10
 | **Permissions** | USR
 
 R107: Edit Profile Form
