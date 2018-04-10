@@ -433,7 +433,7 @@ R403: Open_inbox action
 
 ## 4. 
 /XML Types
-
+```
 JSON201: Search by Tag
 {
   "post": [
@@ -474,6 +474,7 @@ JSON201: Search by Category
     }
   ]
 }
+```
 
 
 
