@@ -529,10 +529,10 @@ CREATE TRIGGER downvote_post
 
 ```sql
 
-CREATE FUNCTION remove_post(id_post) RETURNS TRIGGER AS
+CREATE FUNCTION remove_post() RETURNS TRIGGER AS
 $BODY$
 	BEGIN
-		DELETE FROM post_comment WHERE post_comment.id = id_post;
+		DELETE FROM post_comment WHERE post_comment.id = TD['args'][0];
 	RETURN NEW;
 	END
 	$BODY$
