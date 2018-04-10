@@ -151,7 +151,7 @@ R109: Password Recovery Form
 | **Description** | Page with a form to request a token to reset the password
 | **Method** | GET
 | **UI** | A completar
-| **SUBMIT** | R101 (Password Action)
+| **SUBMIT** | R110
 | **Permissions** | PUB
 
 R110: Password Recovery Action
