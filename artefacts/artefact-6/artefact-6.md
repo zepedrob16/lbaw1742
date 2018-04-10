@@ -97,8 +97,8 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT06        | Check Post Rank   | dozens per day   |
 
 ```sql
-  SELECT "post.balance" 
-  FROM "post" WHERE post.id = $id;
+SELECT "balance" 
+  FROM "post" WHERE post.postnumber = $id;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
