@@ -44,7 +44,9 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 
 
 ```sql  
-SELECT username, email, firstname, lastname, email, quote, avatar FROM "user_table" WHERE "user_table".id = $userId;
+SELECT username, email, firstname, lastname, email, quote, avatar 
+FROM "user_table" 
+WHERE "user_table".id = $userId;
 ``` 
 
 
@@ -54,7 +56,9 @@ SELECT username, email, firstname, lastname, email, quote, avatar FROM "user_tab
 
 
 ```sql
-SELECT body, timestamp FROM "conversation_message" WHERE "recipient".id = $recipientId;
+SELECT body, timestamp 
+FROM "conversation_message" 
+WHERE "recipient".id = $recipientId;
 ```
 
 | Query Reference | Query Description  | Query Frequency  |
@@ -62,7 +66,9 @@ SELECT body, timestamp FROM "conversation_message" WHERE "recipient".id = $recip
 | SELECT03        | Search by Category | dozens per day   |
 
 ```sql0=
-SELECT "post".* FROM "post", media_category WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id AND media_category.type LIKE 'action';
+SELECT "post".* 
+FROM "post", media_category 
+WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id AND media_category.type LIKE 'action';
 ```
 
 | Query Reference | Query Description  | Query Frequency  |
@@ -70,7 +76,8 @@ SELECT "post".* FROM "post", media_category WHERE "post".category = $category AN
 | SELECT04        | Search by Tag      | dozens per day |
 
 ```sql
-SELECT * FROM "post" WHERE post.postnumber=post_tag.postnumber AND media_tag.id=post_tag.tag_id;
+SELECT * FROM "post" 
+WHERE post.postnumber=post_tag.postnumber AND media_tag.id=post_tag.tag_id;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
@@ -90,7 +97,8 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT06        | Check Post Rank   | dozens per day   |
 
 ```sql
-  SELECT "post.balance" FROM "post" WHERE post.id = $id;
+  SELECT "post.balance" 
+  FROM "post" WHERE post.id = $id;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
@@ -98,7 +106,8 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT07        | Display Posts     | dozens per day    |
 
 ```sql
-  SELECT * FROM "post";
+  SELECT * 
+  FROM "post";
 ```
 
 | Query Reference | Query Description    | Query Frequency  |
@@ -106,7 +115,9 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT08        | Show Friend Requests | dozens per day    |
 
 ```sql
-  SELECT * FROM "friend_request" WHERE id = $id AND receiver = $receiver;
+  SELECT * 
+  FROM "friend_request" 
+  WHERE id = $id AND receiver = $receiver;
 ```
 
 | Query Reference | Query Description | Query Frequency  |
@@ -114,7 +125,8 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT09        | Show User List    | units per day    |
 
 ```sql
-  SELECT * FROM "user";
+  SELECT * 
+  FROM "user";
 ```
 
 | Query Reference | Query Description | Query Frequency  |
@@ -122,7 +134,8 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT10        | Show Report List  | units per day    |
 
 ```sql
-  SELECT * FROM "report";
+  SELECT * 
+  FROM "report";
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -130,7 +143,9 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT11        | Read Image Post Content | hundreds per day |
 
 ```sql
-  SELECT * FROM "image_post" WHERE image_post.id_post = $id_post;
+  SELECT * 
+  FROM "image_post" 
+  WHERE image_post.id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -138,7 +153,9 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT12        | Read Link Post Content  | hundreds per day |
 
 ```sql
-  SELECT * FROM "link_post" WHERE link_post.id_post = $id_post;
+  SELECT * 
+  FROM "link_post" 
+  WHERE link_post.id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -146,7 +163,9 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT13        | Read Text Post Content  | hundreds per day |
 
 ```sql
-  SELECT * FROM "text_post" WHERE text_post.id_post = $id_post;
+  SELECT * 
+  FROM "text_post" 
+  WHERE text_post.id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -154,7 +173,9 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT14        | Open Inbox              | dozens per day |
 
 ```sql
-  SELECT * FROM "conversation_message" WHERE id_recipient = $id_recipient;
+  SELECT * 
+  FROM "conversation_message" 
+  WHERE id_recipient = $id_recipient;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -162,7 +183,9 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT15        | Open Conversation       | dozens per day |
 
 ```sql
-SELECT * FROM conversation_message WHERE id_recipient = $id_recipient AND id_sender = $id_sender;
+SELECT * 
+FROM conversation_message 
+WHERE id_recipient = $id_recipient AND id_sender = $id_sender;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -170,8 +193,9 @@ SELECT * FROM conversation_message WHERE id_recipient = $id_recipient AND id_sen
 | SELECT16        | Search Post Title       | dozens per day   |
 
 ```sql
-SELECT postnumber, title, FROM post
-  WHERE title LIKE %$search% 
+SELECT postnumber, title 
+FROM post
+WHERE title LIKE %$search% 
 ORDER BY title; 
 ```
 
@@ -180,8 +204,9 @@ ORDER BY title;
 | SELECT17        | Search Users            | dozens per day   |
 
 ```sql
-SELECT firstname, lastname FROM user_table
-  WHERE firstname LIKE %$search% OR lastname LIKE %$search%
+SELECT firstname, lastname 
+FROM user_table
+WHERE firstname LIKE %$search% OR lastname LIKE %$search%
 ORDER BY firstname; 
 ```
 
@@ -190,8 +215,9 @@ ORDER BY firstname;
 | SELECT18        | Search on Post Body     | dozens per day   |
 
 ```sql
-SELECT opinion FROM text_post
-  WHERE opinion LIKE %$search% 
+SELECT opinion 
+FROM text_post
+WHERE opinion LIKE %$search% 
 ORDER BY opinion; 
 ```
 
