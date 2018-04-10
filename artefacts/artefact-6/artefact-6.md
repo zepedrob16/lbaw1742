@@ -167,7 +167,7 @@ SELECT * FROM conversation_message WHERE id_recipient = $id_recipient AND id_sen
 
 | Query Reference | Query Description       | Query Frequency  |
 | --------------- | ----------------------- | ---------------- |
-| SELECT16        | Search                  | dozens per day |
+| SELECT16        | Search Post Title       | dozens per day   |
 
 ```sql
 SELECT postnumber, title, FROM post
@@ -183,6 +183,16 @@ ORDER BY title;
 SELECT firstname, lastname FROM user_table
   WHERE firstname LIKE %$search% OR lastname LIKE %$search%
 ORDER BY firstname; 
+```
+
+| Query Reference | Query Description       | Query Frequency  |
+| --------------- | ----------------------- | ---------------- |
+| SELECT18        | Search on Post Body     | dozens per day   |
+
+```sql
+SELECT opinion FROM text_post
+  WHERE opinion LIKE %$search% 
+ORDER BY opinion; 
 ```
 
 ### 1.3. Frequent Updates
@@ -421,6 +431,15 @@ DELETE FROM "post_comment" WHERE id = $id;
  CREATE INDEX search_user_idx ON user_table USING GIST (to_tsvector('english'), firstname);
 ```
 
+| Index Reference | Related Queries | Index Relation | Index Attribute | Index Type | Clustering |
+| --------------- | --------------- | -------------- | --------------- | ---------- | ---------- |
+| IDX09           | SELECT018       | text_post      | opinion         | GiST       | No         |
+
+**Justification**: To improve the performance of full text searches related to the opinion of a post; GiST because it's better for dynamic data.
+
+```sql
+ CREATE INDEX opinion_idx ON text_post USING GIST (to_tsvector('english'), opinion);
+```
 ## 3. Triggers
 
 > User-defined functions and trigger procedures that add control structures to the SQL language or perform complex computations, are identified and described to be trusted by the database server. Every kind of function (SQL functions, Stored procedures, Trigger procedures) can take base types, composite types, or combinations of these as arguments (parameters). In addition, every kind of function can return a base type or a composite type. Functions can also be defined to return sets of base or composite values.
@@ -1150,7 +1169,8 @@ CREATE TRIGGER downvote_post
 * Added IDX02 for attribute "sender" and relation "friend_request";
 * Added IDX03 for attribute "receiver" and relation "friend_request";
 * Added SELECT17 in order to complete illustrative queries related to full-text-search type;
-* Added IDX08 of type full-text-search related to the users search box on admin Dashboard.
+* Added IDX08 of type full-text-search related to the users search box on admin Dashboard;
+* Added IDX09 of type full-text-search related to the search of a text-post opinion.
 
 
 ## Submission Information
