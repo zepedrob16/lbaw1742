@@ -138,7 +138,7 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT12        | Read Link Post Content  | hundreds per day |
 
 ```sql
-  SELECT * FROM "link_post" WHERE image_post.id_post = $id_post;
+  SELECT * FROM "link_post" WHERE link_post.id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
@@ -146,7 +146,7 @@ WHERE post_comment.id_post = post.postnumber AND post_comment.id = $id;
 | SELECT13        | Read Text Post Content  | hundreds per day |
 
 ```sql
-  SELECT * FROM "text_post" WHERE image_post.id_post = $id_post;
+  SELECT * FROM "text_post" WHERE text_post.id_post = $id_post;
 ```
 
 | Query Reference | Query Description       | Query Frequency  |
