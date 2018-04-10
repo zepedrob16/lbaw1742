@@ -56,9 +56,9 @@ WHERE "user_table".id = $userId;
 
 
 ```sql
-SELECT body, timestamp 
+SELECT body, time_stamp 
 FROM "conversation_message" 
-WHERE "recipient".id = $recipientId;
+WHERE "id_recipient" = $recipientId;
 ```
 
 | Query Reference | Query Description  | Query Frequency  |
