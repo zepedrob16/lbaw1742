@@ -16,18 +16,18 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | ------------------ | ------------- | ------------------ | ---------------- |
 | R01                | user          | tens               | units per day    |
 | R02                | post          | hundreds               | units per day    |
-| R03                | post_comment  | hundreds           | dozens per day    |
+| R03                | post_comment  | thousands           | dozens per day    |
 | R04                | post_reaction | hundreds           | dozens per day    |
-| R05                | image_post    | tens               | units per day    |
-| R06                | text_post     | tens               | units per day    |
-| R07                | link_post     | tens               | units per day    |
+| R05                | image_post    | hundreds               | dozens per day    |
+| R06                | text_post     | hundreds               | dozens per day    |
+| R07                | link_post     | hundreds               | dozens per day    |
 | R08                | report        | tens               | units per day    |
-| R09                | friendship    | tens               | units per day
-| R10                | friend_request | tens | units per day |
-| R11                | conversation_message | tens | units per day |
+| R09                | friendship    | tens               | dozens per day
+| R10                | friend_request | tens | dozens per day |
+| R11                | conversation_message | tens | dozens per day |
 | R12                | media_category | tens | units per day |
 | R13                | media_tag     | tens | units per day |
-| R14                | member        | tens | units per day |
+| R14                | member        | hundreds | dozens per day |
 | R15                | moderator     | tens | units per day |
 | R16                | admin         | tens | units per day |
 | R17                | post_tag      | tens | units per day |
