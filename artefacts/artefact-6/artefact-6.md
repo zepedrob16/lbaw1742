@@ -505,11 +505,11 @@ $BODY$
 
 ```sql
 
-CREATE FUNCTION downvote_post(id_post) RETURNS TRIGGER AS
+CREATE FUNCTION downvote_post() RETURNS TRIGGER AS
 $BODY$
 	BEGIN
-		IF New.balance < 0 AND New.postnumber = id_post
-			RAISE EXCEPTION 'A POST WITH 0 UPVOTES CANNOT BE DOWNVOTED.';
+		IF New.balance < 0 AND New.postnumber = TD['args'][0]
+			THEN RAISE EXCEPTION 'A POST WITH 0 UPVOTES CANNOT BE DOWNVOTED.';
 		END IF;
 	RETURN NEW;
 	END
