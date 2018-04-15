@@ -15,16 +15,11 @@
 
 
 
-Route::get('/', 'PagesController@index');
+Route::get('/homepage', 'PagesController@homepage');
 
-Route::get('/about', function(){
-	return view('pages.about');
-});
+Route::get('/about', 'PagesController@about');
 
-Route::get('/error404', function(){
-	return view('pages.error404');
-});
-
+Route::get('/error404', 'PagesController@error404');
 
 
 /*

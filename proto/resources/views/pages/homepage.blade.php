@@ -17,11 +17,11 @@
 
 <body>
     <div class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <a class="navbar-brand" href="homepage.html">SHOWCHAN</a>
+        <a class="navbar-brand" href="homepage">SHOWCHAN</a>
         <input type="text" class="form-control col-md-2" placeholder="I search for you!">
         <ul id="horizontal-style" class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="profile.html">blinky</a>
+                <a class="nav-link" href="profile">blinky</a>
             </li>
             <span style="display:inline-block; width: 15px;"></span>
             <li class="nav-item">
@@ -30,11 +30,11 @@
                 <img src="settings.png"  alt="icon name" height="30" width="30"> 
                 </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="inbox.html">Inbox</a>
+                    <a class="dropdown-item" href="inbox">Inbox</a>
                     <a class="dropdown-item" href="#">Settings</a>
                     <a class="dropdown-item" href="#">Logout</a>
                     <div class="dropdown-divider"></div>
-                    <a id="adminPanel" class="dropdown-item" href="admin.html">Admin Panel</a>
+                    <a id="adminPanel" class="dropdown-item" href="admin">Admin Panel</a>
                   </div>
                 </div>
             </li>
@@ -47,7 +47,7 @@
         <div class="row">
             
             <div class="col-3">
-                <a href="sub-params.html"><button type="button" class="btn btn-success" id="submit">Submit Post</button></a>
+                <a href="sub-params"><button type="button" class="btn btn-success" id="submit">Submit Post</button></a>
             </div>
         </div>
       
@@ -61,9 +61,9 @@
                 <a href="#" class="downvote"><i class="far fa-thumbs-down"></i></a>
             </div>
             <div class="col-6">
-                <a href="post-image.html" id="news_title">Mauris hendrerit turpis eget lorem convallis dignissim.</a><br>
+                <a href="post-image" id="news_title">Mauris hendrerit turpis eget lorem convallis dignissim.</a><br>
                 <p>Nam consectetur iaculis imperdiet. Fusce ac eros justo. Sed vel risus ac sapien sollicitudin iaculis. Praesent non diam sapien. Curabitur et dui ut dolor mattis.</p>
-                <a href="post.html" class="comments">10 comments</a>
+                <a href="post" class="comments">10 comments</a>
             </div>
             <div class="col-3">
                 <i class="fas fa-tv"></i> <br>
@@ -80,7 +80,7 @@
                 <a href="#" class="downvote"><i class="far fa-thumbs-down"></i></a>
             </div>
             <div class="col-6">
-                <a href="post-link.html" id="news_title">Proin non neque elementum, condimentum ligula in, feugiat nibh.</a><br>
+                <a href="post-link" id="news_title">Proin non neque elementum, condimentum ligula in, feugiat nibh.</a><br>
                 <p>Nam consectetur iaculis imperdiet. Fusce ac eros justo. Sed vel risus ac sapien sollicitudin iaculis. Praesent non diam sapien. Curabitur et dui ut dolor mattis.</p>
                 <a href="#" class="comments">430 comments</a>
             </div>
@@ -99,7 +99,7 @@
                 <a href="#" class="downvote"><i class="far fa-thumbs-down"></i></a>
             </div>
             <div class="col-6">
-                <a href="post.html" id="news_title">Suspendisse congue dignissim leo, sed consectetur elit.</a><br>
+                <a href="post" id="news_title">Suspendisse congue dignissim leo, sed consectetur elit.</a><br>
                 <p>Nam consectetur iaculis imperdiet. Fusce ac eros justo. Sed vel risus ac sapien sollicitudin iaculis. Praesent non diam sapien. Curabitur et dui ut dolor mattis.</p>
                 <a href="#" class="comments">1.2k comments</a>
             </div>

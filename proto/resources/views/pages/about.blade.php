@@ -19,7 +19,7 @@
 
 <body>
     <div class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <a class="navbar-brand" href="homepage.html">SHOWCHAN - About Us</a>
+        <a class="navbar-brand" href="homepage">SHOWCHAN - About Us</a>
         <input type="text" class="form-control col-md-2" placeholder="I search for you!">
         <ul id="horizontal-style" class="navbar-nav ml-auto">
             <li class="nav-item">
