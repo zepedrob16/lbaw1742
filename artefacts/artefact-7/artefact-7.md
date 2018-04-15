@@ -58,7 +58,7 @@ R102: Login Action
 
 |   |   |   |
 |--:|---|---|
-| **URL** | /register
+| **URL** | /login
 | **Description** | This web resource logs out the authenticated user of admin.
 | **Method** | POST
 | **Request Body** | +email: string, +username: string | Email or Username
@@ -135,7 +135,7 @@ R108: Edit Profile Action
 | **Method** | POST
 | **Parameters** | +id: integer | user primary key
 | **Request body** | ?username: string | New username
-|              | ?picture: string | New profile picture path
+|              | ?picture: img | New profile picture
 |              | ?name: string | New name
 |              | ?password: string | New password
 |              | ?quote: quote | New favourite quote
@@ -194,7 +194,7 @@ R202: Get Moderators
 
 |   |   |
 |--:|---|
-| **URL** | /users
+| **URL** | /mods
 | **Description** | Get all Moderators. The Moderators are Users. This works as a shortcut to access Moderators list.
 | **Method** | GET
 | **UI** | UI16
@@ -284,11 +284,9 @@ R209: 404
 * R301: View Posts /homepage
 * R302: Search Post by Tag /homepage/{search}
 * R303: Search Post by Category /homepage/{search}
-* R304: View Link Post /post-link
-* R305: View Text Post /post
-* R306: View Image Post /post-image
-* R307: Submit Post Form /sub-params
-* R308: Submit Post Action /sub-params/{id}
+* R304: View Post
+* R305: Submit Post Form /sub-params
+* R306: Submit Post Action /sub-params/{id}
 
 R301: View Posts
 
@@ -314,6 +312,8 @@ R302: Search Post by Tag
 |                | ?content: string | Content of the post
 | **UI** | UI01
 | **Response body** | JSON201
+| **Redirects** | R301 | Success
+|               | R302 | Error
 | **Permissions** | PUB
 
 
@@ -330,40 +330,22 @@ R303: Search Post by Category
 |                | ?content: string | Content of the post
 | **UI** | UI01
 | **Response body** | JSON202
+| **Redirects** | R301 | Success
+|               | R303 | Error
 | **Permissions** | PUB
 
-
-R304: View Link Post
-
-|   |   |   |
-|--:|---|---|
-| **URL** | /post-link
-| **Description** | Shows a Link Post
-| **Method** | GET
-| **UI** | UI03
-| **Permissions** | PUB
-
-R305: View Text Post
+R304: View Post
 
 |   |   |   |
 |--:|---|---|
 | **URL** | /post
-| **Description** | Shows a Text Post
+| **Description** | Shows post information, it being either a text, image or link type post
 | **Method** | GET
-| **UI** | UI05
+| **Parameters** | +id: integer | Post identifier
+| **UI** | UI03
 | **Permissions** | PUB
 
-R306: View Image Post
-
-|   |   |   |
-|--:|---|---|
-| **URL** | /post-image
-| **Description** | Shows an Image Post
-| **Method** | GET
-| **UI** | UI06
-| **Permissions** | PUB
-
-R307: Submit Post Form
+R305: Submit Post Form
 
 |   |   |   |
 |--:|---|---|
@@ -372,11 +354,11 @@ R307: Submit Post Form
 | **Method** | GET
 | **Parameters** | +id: integer | User primary key
 | **UI** | UI09
-| **SUBMIT** | R308
+| **SUBMIT** | R306
 | **Permissions** | PUB
 
 
-R308: Submit Post Action
+R306: Submit Post Action
 
 |   |   |   |
 |--:|---|---|
@@ -391,10 +373,14 @@ R308: Submit Post Action
 |                  | ?link: string | Post link
 |                  | ?source: string | Post source
 | **Redirects** | R301 | Success
-|               | R307 | Error
+|               | R305 | Error
 | **Permissions** | PUB
 
-### 3.3 Module M04:
+### 3.4 Module M04:
+
+* R401: View Inbox
+* R402: Open_inbox Form
+* R403: Open_inbox Action
 
 R401: View inbox
 
@@ -404,6 +390,7 @@ R401: View inbox
 | **URL** | /inbox
 | **Description** | Shows a list of conversations belonging to a user
 | **Method** | GET
+| **Parameters** | +id: integer | User primary key
 | **UI** | UI12
 | **Permissions** | USR
 
@@ -413,8 +400,10 @@ R402: Open_inbox form
 |   |   |   |
 |--:|---|---|
 | **URL** | /open_inbox
-| **Description** | Shows a conversation between users
+| **Description** | Shows conversation between users
 | **Method** | GET
+| **Parameters** | +id: integer | User primary key
+|                | +recipient: string | Message recipient's username
 | **UI** | UI13
 | **Permissions** | USR
 
@@ -423,10 +412,11 @@ R403: Open_inbox action
 
 |   |   |   |
 |--:|---|---|
-| **URL** | /../open_inbox
+| **URL** | /open_inbox
 | **Description** | Page that displays a conversation between the authenticated user and a friend
 | **Method** | POST
 | **Parameters** | +id: integer | User primary key
+|                | +recipient: string | Message recipient's username
 | **Request Body** | ?body: string | Message
 | **Permissions** | USR
 
@@ -495,8 +485,14 @@ JSON201: Search by Category
 ## Revision history
  
 Changes made to the first submission:
-1. Item 1
-1. Item 2
+* **R108** now **returns an image** instead of returning the image's path.
+* **R202** no longer redirects to the same URL as R201.
+* Added **redirects for content filtering** in case of both success and error.
+* **Removed link, text and image post resource separation** by now accepting an id post parameter.
+* **Inbox-related resources** now include receiver parameters.
+* Removed **relative path** on resource **R403**.
+* Added an index for **module 4**.
+* **Overall small additions of missing information** on several resources (check revision history).
  
 ***
  
