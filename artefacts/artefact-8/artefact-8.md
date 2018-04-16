@@ -1,5 +1,9 @@
 # A8: Vertical prototype
  
+## 0. Project Description (SHOWCHAN) 
+
+The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions. 
+ 
 ## 1. Implemented Features
  
 ### 1.1. Implemented User Stories
@@ -24,16 +28,10 @@ Module M01: Authentication and Individual Profile
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
-| R101: Login Form       | /login                         |
+| R101: Login Form       | [/login](https://lbaw1742.lbaw-prod.fe.up.pt/login)                         |
 | R102: Login Action     | POST /login                    |
-| R103: Logout Action    | POST /logout                   |
-| R104: Register Form    | /register                      |
+| R104: Register Form    | [/register](https://lbaw1742.lbaw-prod.fe.up.pt/register)                      |
 | R105: Register Action  | POST /register                 |
-| R106: View Profile     | /users/{id}                    |
-| R107: Edit Profile Form| /users/{id}/edit               |
-| R108: Edit Profile Action| POST /users/{id}/edit        |
-| R109: Password Reset Form| /password/reset              |
-| R110: Password Reset Action| POST /password/reset       |
 
 ...
  
@@ -41,27 +39,32 @@ Module M02: User Administration and Static pages
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
-| R208: About            | /about                         |
-| R209: 404              | /404                           |
+| R208: About            | [/about](https://lbaw1742.lbaw-prod.fe.up.pt/about)                         |
+| R209: Error              | [/error](https://lbaw1742.lbaw-prod.fe.up.pt/error)                           |
  
  
 ## 2. Prototype
  
 > URL of the prototype plus user credentials necessary to test all features.
 > Link to the prototype source code on Github.
- 
+
+The prototype is available at https://lbaw1742.lbaw-prod.fe.up.pt/.
+
+Credentials:
+
+* Regular user: bcurless0 : HmeeUgMD7
+The code is avalable at https://github.com/zepedrob16/lbaw1742/tree/proto
  
 ## Revision history
  
 Changes made to the first submission:
-1. Item 1
-1. Item 2
+No changes thus far.
  
 ***
  
 ## Submission Information
 
-GROUP1742, 20/03/2018
+GROUP1742, 16/04/2018
 
 - Bernardo José Coelho Leite - [up201404464@fe.up.pt](mailto:up201404464@fe.up.pt)
 
