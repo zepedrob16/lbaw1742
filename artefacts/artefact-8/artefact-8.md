@@ -8,8 +8,8 @@
  
 | User Story reference | Name                   | Priority                   | Description                   |
 | -------------------- | ---------------------- | -------------------------- | ----------------------------- |
-| US12                 | Sign-in                | high                       | As an Visitor, I want to authenticate into the system, so that I can access privileged information. |
-| US11                 | Sign-up                | high                       | As Visitor, I want to register myself into the system, so that I can authenticate myself into the system. |
+| US12                 | Login                  | high                       | As an Visitor, I want to authenticate into the system, so that I can access privileged information. |
+| US11                 | Register               | high                       | As Visitor, I want to register myself into the system, so that I can authenticate myself into the system. |
 | US03                 | HomePage               | high                       | As an User, I want to access home page, so that I can see a brief website's presentation. |
 | US04                 | About Page             | high                       | As an User, I want to access the about page, so that I can see a complete website's description. |
 | US02                 | Profile                | high                       | As a Reader, I want to change my information, so that I can keep it updated (e.g. changing the password). |
