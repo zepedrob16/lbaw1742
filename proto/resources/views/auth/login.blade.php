@@ -1,32 +1,53 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link href="{{ asset('css/signin.css')}}" type="text/css" rel="stylesheet">
 
-@section('content')
-<form method="POST" action="{{ route('login') }}">
-    {{ csrf_field() }}
+<title>SHOWCHAN</title>
 
-    <label for="email">E-mail</label>
-    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-    @if ($errors->has('email'))
-        <span class="error">
-          {{ $errors->first('email') }}
-        </span>
-    @endif
+</head>
+<body>
 
-    <label for="password" >Password</label>
-    <input id="password" type="password" name="password" required>
-    @if ($errors->has('password'))
-        <span class="error">
-            {{ $errors->first('password') }}
-        </span>
-    @endif
+<h2>WELCOME TO SHOWCHAN</h2>
 
+<form action="/action_page.php">
+  <div class="imgcontainer">
+    <img src="friends.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <div class="row">
+        <label for="uname"><b>Username</b></label><br>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+    </div>
+
+    <div class="row">
+    <label for="psw"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+  </div>
+        
+    <div class="row">
+    <button type="submit">Login</button><br>
     <label>
-        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+      <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
+  </div>
+    <div class="row">
+      <span class="psw">Forgot <a href="#">password?</a></span><br><br>
+    </div>
+  </div>
 
-    <button type="submit">
-        Login
-    </button>
-    <a class="button button-outline" href="{{ route('register') }}">Register</a>
 </form>
-@endsection
+
+<footer class="footer">
+        <div class="container">
+            <span class="text-muted">© SHOWCHAN 2018, LBAW Industries 42</span>
+        </div>
+    </footer>
+
+</body>
+</html>
