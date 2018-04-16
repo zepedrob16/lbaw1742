@@ -8,8 +8,12 @@
  
 | User Story reference | Name                   | Priority                   | Description                   |
 | -------------------- | ---------------------- | -------------------------- | ----------------------------- |
-| US01                 | Name of the user story | Priority of the user story | Description of the user story |
- 
+| USXX                 | Sign-in                | high                       | As an Visitor, I want to authenticate into the system, so that I can access privileged information. |
+| USXX                 | Sign-up                | high                       | As Visitor, I want to register myself into the system, so that I can authenticate myself into the system. |
+| USXX                 | HomePage               | high                       | As an User, I want to access home page, so that I can see a brief website's presentation. |
+| USXX                 | About Page             | high                       | As an User, I want to access the about page, so that I can see a complete website's description. |
+| USXX                 | Profile                | high                       | As a Reader, I want to change my information, so that I can keep it updated (e.g. changing the password). |
+
 ...
  
 ### 1.2. Implemented Web Resources
@@ -20,13 +24,25 @@
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
-| R01: Web resource name | URL to access the web resource |
- 
+| R101: Login Form       | /login                         |
+| R101: Login Action     | POST /login                    |
+| R103: Logout Action    | POST /logout                   |
+| R104: Register Form    | /register                      |
+| R105: Register Action  | POST /register                 |
+| R106: View Profile     | /users/{id}                    |
+| R107: Edit Profile Form| /users/{id}/edit               |
+| R108: Edit Profile Action| POST /users/{id}/edit        |
+| R109: Password Reset Form| /password/reset              |
+| R110: Password Reset Action| POST /password/reset       |
+
 ...
  
 > Module M02: Module Name
  
-...
+| Web Resource Reference | URL                            |
+| ---------------------- | ------------------------------ |
+| RXXX: About            | /about                         |
+| RXXX: 404              | /404                           |
  
  
 ## 2. Prototype
