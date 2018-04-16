@@ -20,7 +20,7 @@
  
 > Identify the web resources that were implemented in the prototype.
  
-> Module M01: Module Name
+Module M01: Authentication and Individual Profile
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
@@ -37,7 +37,7 @@
 
 ...
  
-> Module M02: Module Name
+Module M02: User Administration and Static pages
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
