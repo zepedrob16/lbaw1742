@@ -147,7 +147,7 @@ R109: Password Recovery Form
 
 |   |   |
 |--:|---|
-| **URL** | /password_reset
+| **URL** | /password_reset/{id}
 | **Description** | Page with a form to request a token to reset the password
 | **Method** | GET
 | **UI** | A completar
@@ -158,7 +158,7 @@ R110: Password Recovery Action
 
 |   |   |   |
 |--:|---|---|
-| **URL** | /password_reset
+| **URL** | /password_reset/{id}
 | **Description** | Web resource that sends a reset password link to the specified email.
 | **Method** | POST
 | **Request Body** | +email: string | User email
@@ -491,6 +491,7 @@ Changes made to the first submission:
 * **Removed link, text and image post resource separation** by now accepting an id post parameter.
 * **Inbox-related resources** now include receiver parameters.
 * Removed **relative path** on resource **R403**.
+* **Fixed link on R110** so it reflects which user the password is being reset on.
 * Added an index for **module 4**.
 * **Overall small additions of missing information** on several resources (check revision history).
  
