@@ -52,8 +52,8 @@ The prototype is available at https://lbaw1742.lbaw-prod.fe.up.pt/.
 
 Credentials:
 
-* Regular user: bcurless0 : HmeeUgMD7
-The code is avalable at https://github.com/zepedrob16/lbaw1742/tree/proto
+* Regular user: bcurless0 : HmeeUgMD7  
+The code is available at https://github.com/zepedrob16/lbaw1742/tree/proto
  
 ## Revision history
  
