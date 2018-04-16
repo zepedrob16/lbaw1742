@@ -25,7 +25,7 @@
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
 | R101: Login Form       | /login                         |
-| R101: Login Action     | POST /login                    |
+| R102: Login Action     | POST /login                    |
 | R103: Logout Action    | POST /logout                   |
 | R104: Register Form    | /register                      |
 | R105: Register Action  | POST /register                 |
@@ -41,8 +41,8 @@
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
-| RXXX: About            | /about                         |
-| RXXX: 404              | /404                           |
+| R208: About            | /about                         |
+| R209: 404              | /404                           |
  
  
 ## 2. Prototype
