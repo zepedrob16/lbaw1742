@@ -1,20 +1,19 @@
 # A8: Vertical prototype
  
-## 0. Project Description (SHOWCHAN) 
-
-The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.
-
 ## 1. Implemented Features
  
 ### 1.1. Implemented User Stories
  
 > Identify the user stories that were implemented in the prototype.
  
-| User Story reference | Name                   | Priority | Description                   |
-| -------------------- | ---------------------- | -------- | ----------------------------- |
-| US11                 | Register               | High     | As a *Guest* I want to register myself into the system, creating an account so that I can later authenticate myself whenever I want. |
-| US12                 | Login                  | High     | As a *Guest* I want to have the possibility to log into the system using an account that was previously created. |
- 
+| User Story reference | Name                   | Priority                   | Description                   |
+| -------------------- | ---------------------- | -------------------------- | ----------------------------- |
+| USXX                 | Sign-in                | high                       | As an Visitor, I want to authenticate into the system, so that I can access privileged information. |
+| USXX                 | Sign-up                | high                       | As Visitor, I want to register myself into the system, so that I can authenticate myself into the system. |
+| USXX                 | HomePage               | high                       | As an User, I want to access home page, so that I can see a brief website's presentation. |
+| USXX                 | About Page             | high                       | As an User, I want to access the about page, so that I can see a complete website's description. |
+| USXX                 | Profile                | high                       | As a Reader, I want to change my information, so that I can keep it updated (e.g. changing the password). |
+
 ...
  
 ### 1.2. Implemented Web Resources
@@ -25,13 +24,25 @@ The goal of this project is to provide tv show and movie aficionados with daily 
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
-| R01: Web resource name | URL to access the web resource |
- 
+| R101: Login Form       | /login                         |
+| R101: Login Action     | POST /login                    |
+| R103: Logout Action    | POST /logout                   |
+| R104: Register Form    | /register                      |
+| R105: Register Action  | POST /register                 |
+| R106: View Profile     | /users/{id}                    |
+| R107: Edit Profile Form| /users/{id}/edit               |
+| R108: Edit Profile Action| POST /users/{id}/edit        |
+| R109: Password Reset Form| /password/reset              |
+| R110: Password Reset Action| POST /password/reset       |
+
 ...
  
 > Module M02: Module Name
  
-...
+| Web Resource Reference | URL                            |
+| ---------------------- | ------------------------------ |
+| RXXX: About            | /about                         |
+| RXXX: 404              | /404                           |
  
  
 ## 2. Prototype
@@ -43,13 +54,14 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 ## Revision history
  
 Changes made to the first submission:
-* None thus far.
+1. Item 1
+1. Item 2
  
 ***
  
 ## Submission Information
 
-GROUP1742, 16/04/2018
+GROUP1742, 20/03/2018
 
 - Bernardo José Coelho Leite - [up201404464@fe.up.pt](mailto:up201404464@fe.up.pt)
 
