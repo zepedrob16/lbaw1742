@@ -28,9 +28,9 @@ Module M01: Authentication and Individual Profile
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
-| R101: Login Form       | [/login](https://lbaw1742.lbaw-prod.fe.up.pt/login)                         |
+| R101: Login Form       | [/login](http://lbaw1742.lbaw-prod.fe.up.pt/login)                         |
 | R102: Login Action     | POST /login                    |
-| R104: Register Form    | [/register](https://lbaw1742.lbaw-prod.fe.up.pt/register)                      |
+| R104: Register Form    | [/register](http://lbaw1742.lbaw-prod.fe.up.pt/register)                      |
 | R105: Register Action  | POST /register                 |
 
 ...
@@ -39,8 +39,8 @@ Module M02: User Administration and Static pages
  
 | Web Resource Reference | URL                            |
 | ---------------------- | ------------------------------ |
-| R208: About            | [/about](https://lbaw1742.lbaw-prod.fe.up.pt/about)                         |
-| R209: Error              | [/error](https://lbaw1742.lbaw-prod.fe.up.pt/error)                           |
+| R208: About            | [/about](http://lbaw1742.lbaw-prod.fe.up.pt/about)                         |
+| R209: Error              | [/error](http://lbaw1742.lbaw-prod.fe.up.pt/error)                           |
  
  
 ## 2. Prototype
@@ -48,12 +48,12 @@ Module M02: User Administration and Static pages
 > URL of the prototype plus user credentials necessary to test all features.
 > Link to the prototype source code on Github.
 
-The prototype is available at https://lbaw1742.lbaw-prod.fe.up.pt/.
+The prototype is available at http://lbaw1742.lbaw-prod.fe.up.pt/.
 
 Credentials:
 
 * Regular user: bcurless0 : HmeeUgMD7  
-The code is available at https://github.com/zepedrob16/lbaw1742/tree/proto
+The code is available at http://github.com/zepedrob16/lbaw1742/tree/proto
  
 ## Revision history
  
