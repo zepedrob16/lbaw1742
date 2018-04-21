@@ -326,6 +326,7 @@ class ComposerStaticInitee60d56d94b3d79644be590c3d6006fd
         'App\\Http\\Controllers\\CardController' => __DIR__ . '/../..' . '/app/Http/Controllers/CardController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ItemController' => __DIR__ . '/../..' . '/app/Http/Controllers/ItemController.php',
+        'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',

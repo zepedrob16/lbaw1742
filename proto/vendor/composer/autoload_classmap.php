@@ -14,6 +14,7 @@ return array(
     'App\\Http\\Controllers\\CardController' => $baseDir . '/app/Http/Controllers/CardController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\ItemController' => $baseDir . '/app/Http/Controllers/ItemController.php',
+    'App\\Http\\Controllers\\PagesController' => $baseDir . '/app/Http/Controllers/PagesController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
