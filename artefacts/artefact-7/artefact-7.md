@@ -147,7 +147,7 @@ R109: Password Recovery Form
 
 |   |   |
 |--:|---|
-| **URL** | /password_reset
+| **URL** | /password_reset/{id}
 | **Description** | Page with a form to request a token to reset the password
 | **Method** | GET
 | **UI** | A completar
@@ -158,7 +158,7 @@ R110: Password Recovery Action
 
 |   |   |   |
 |--:|---|---|
-| **URL** | /password_reset
+| **URL** | /password_reset/{id}
 | **Description** | Web resource that sends a reset password link to the specified email.
 | **Method** | POST
 | **Request Body** | +email: string | User email
@@ -465,22 +465,6 @@ JSON201: Search by Category
   ]
 }
 ```
-
-
-
- 
-## Web resources descriptors <note important>Do not include on the final artefact</note>
- 
-  * URL - Resource identifier, following the RESTful resource naming conventions 
-  * Description - Describe the resource, when it's used and why
-  * UI - Reference to the A3 user interface used by the resource
-  * SUBMIT - Reference to the actions/requests integrated with the resource
-  * Method - HTTP request Method
-  * Parameters - Information that is sent through the URL, by a query string or path
-  * Request Body - Data associated and transmitted with each request
-  * Returns - HTTP code returned from a request
-  * Response Body - Data sent from the server, in response to a given request
-  * Permissions - Required permissions to access the resource
  
 ## Revision history
  
@@ -491,7 +475,9 @@ Changes made to the first submission:
 * **Removed link, text and image post resource separation** by now accepting an id post parameter.
 * **Inbox-related resources** now include receiver parameters.
 * Removed **relative path** on resource **R403**.
+* **Fixed link on R110** so it reflects which user the password is being reset on.
 * Added an index for **module 4**.
+* Deleted web resource descriptors.
 * **Overall small additions of missing information** on several resources (check revision history).
  
 ***
