@@ -51,6 +51,24 @@ SET email = $email, password = $password, first_name = $first_name, last_name = 
 WHERE id = $id AND username = $username;
 ```
 
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL105        | Sends a friend request from the logged user to a provided one | TODO: No relation on A7 |
+
+```sql
+INSERT INTO "friend_request" (id_sender, id_recipient, date_request, date_confirmation)
+VALUES ($id_sender, $id_recipient, current_timestamp, NULL);
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL106        | Reports user so it must be reviewed by administrators | TODO: No relation on A7 |
+
+```sql
+INSERT INTO "report" (criminal, author, type, timestamp)
+VALUES ($criminal, $author, $type, current_timestamp);
+```
+
 ### 1.2. M02: User Administration and Static Pages
 
 | SQL Reference | Access Description | Web Resource |
@@ -134,8 +152,6 @@ TODO
 | SQL305        | Creates a new post in the platform, it being either a text, image or link type post | [R306](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r306-submit-post-action)|
 
 ```sql
-TODO: May we present SQL like this?
-
 INSERT INTO "text_post" (id_post, opinion, source)
 VALUES ($id_post, $opinion, $source);
 
@@ -144,6 +160,51 @@ VALUES ($id_post, $url);
 
 INSERT INTO "image_post" (id_post, image, source)
 VALUES ($id_post, $image, $source);
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL306        | Creates a new comment on a post | TODO: No relation on A7 |
+
+```sql
+INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
+VALUES ($id_post, $id_user, $body, current_timestamp);
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL307        | Deletes an user owned comment on post | TODO: No relation on A7 |
+
+```sql
+DELETE FROM "post_comment" WHERE id = $id;
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL308        | Deletes an user owned post | TODO: No relation on A7 |
+
+```sql
+DELETE FROM "post" WHERE id = $id;
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL309        | Edits an user owned comment on post | TODO: No relation on A7 |
+
+```sql
+UPDATE "post_comment"
+SET body = $body
+WHERE id_user = $id_user AND id_post = $id_post;
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL310        | Edits an user owned post content, provided it is a text post | TODO: No relation on A7 |
+
+```sql
+UPDATE "text_post"
+SET opinion = $opinion
+WHERE id_post = $id_post;
 ```
 
 ### 1.4. M04: Inbox
