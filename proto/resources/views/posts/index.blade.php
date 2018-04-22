@@ -2,6 +2,7 @@
 
 @section('content')
 	<h1>Posts</h1>
+	<a href="/posts/create">Create Post</a>
 	@if(count($posts) > 0)
 		@foreach($posts as $post)
 			<div class="well">
@@ -12,3 +13,6 @@
 		<p>No posts found</p>
 	@endif
 @endsection
+
+
+

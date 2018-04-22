@@ -9,7 +9,10 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "oyejorge/less.php": "~1.7.0.9"
+        "laravelcollective/html": "^5.4.0",
+        "oyejorge/less.php": "~1.7.0.9",
+        "unisharp/laravel-ckeditor": "^4.7",
+        "unisharp/laravel-filemanager": "~1.8"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

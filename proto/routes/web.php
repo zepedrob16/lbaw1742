@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::resource('/', 'PostsController');
 Route::get('/about', 'PagesController@about');
 Route::get('/error', 'PagesController@error');
 
