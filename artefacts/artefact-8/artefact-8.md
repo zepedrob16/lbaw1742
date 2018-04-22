@@ -30,8 +30,14 @@ Module M01: Authentication and Individual Profile
 | ---------------------- | ------------------------------ |
 | R101: Login Form       | [/login](http://lbaw1742.lbaw-prod.fe.up.pt/login)                         |
 | R102: Login Action     | POST /login                    |
-| R104: Register Form    | [/register](http://lbaw1742.lbaw-prod.fe.up.pt/register)                      |
-| R105: Register Action  | POST /register                 |
+| R103: Register Form    | [/register](http://lbaw1742.lbaw-prod.fe.up.pt/register)                      |
+| R104: Register Action  | POST /register                 |
+| R104: View all HomePage Posts | [/posts/](http://lbaw1742.lbaw-prod.fe.up.pt/posts)            |
+| R104: View Post Content| /posts/{postnumber}            |
+| R104: Create Post Form | [/posts/create](http://lbaw1742.lbaw-prod.fe.up.pt/posts/create)             |
+| R104: Create Post Action | POST /posts/create             |
+| R104: Edit Post Form   | [/posts/{postnumber}/edit](http://lbaw1742.lbaw-prod.fe.up.pt/posts/edit)       |
+| R104: Edit Post Action | POST /posts/{postnumber}/edit  |
 
 ...
  
@@ -57,9 +63,11 @@ The code is available at http://github.com/zepedrob16/lbaw1742/tree/proto
  
 ## Revision history
  
-Changes made to the first submission:
-No changes thus far.
- 
+Added Homepage to see all related Posts
+Added the possibility to open an individual Post
+Added the possibility to create a new Post and submit it
+Added the possibility to edit a Post and resubmit it
+
 ***
  
 ## Submission Information
