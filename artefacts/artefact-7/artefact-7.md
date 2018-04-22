@@ -43,7 +43,7 @@ The goal of this project is to provide tv show and movie aficionados with daily 
  * R108: Password Recovery Form /password_reset
  * R109: Password Recovery Form Action /password_reset
 
-R101: Login Form
+#### R101: Login Form
 
 |   |   |
 |--:|---|
@@ -54,7 +54,7 @@ R101: Login Form
 | **SUBMIT** | R102
 | **Permissions** | PUB
 
-R102: Login Action
+#### R102: Login Action
 
 |   |   |   |
 |--:|---|---|
@@ -67,7 +67,7 @@ R102: Login Action
 |           | R101 | Error
 | **Permissions** | PUB
 
-R103: Logout Action
+#### R103: Logout Action
 
 |   |   |   |
 |--:|---|---|
@@ -77,7 +77,7 @@ R103: Logout Action
 | **Redirects** | R101 | Success
 | **Permissions** | USR, ADM
 
-R104: Signup Form
+#### R104: Signup Form
 
 |   |   |
 |--:|---|
@@ -88,7 +88,7 @@ R104: Signup Form
 | **SUBMIT** | R105
 | **Permissions** | PUB
 
-R105: Signup Action
+#### R105: Signup Action
 
 |   |   |   |
 |--:|---|---|
@@ -103,7 +103,7 @@ R105: Signup Action
 |           | R104 | Error
 | **Permissions** | PUB
 
-R106: View Profile
+#### R106: View Profile
 
 |   |   |   |
 |--:|---|---|
@@ -114,7 +114,7 @@ R106: View Profile
 | **UI** | UI10
 | **Permissions** | USR
 
-R107: Edit Profile Form
+#### R107: Edit Profile Form
 
 |   |   |   |
 |--:|---|---|
@@ -126,7 +126,7 @@ R107: Edit Profile Form
 | **SUBMIT** | R108
 | **Permissions** | OWN
 
-R108: Edit Profile Action
+#### R108: Edit Profile Action
 
 |   |   |   |
 |--:|---|---|
@@ -143,7 +143,7 @@ R108: Edit Profile Action
 |           | R107 | Error
 | **Permissions** | OWN
 
-R109: Password Recovery Form
+#### R109: Password Recovery Form
 
 |   |   |
 |--:|---|
@@ -154,7 +154,7 @@ R109: Password Recovery Form
 | **SUBMIT** | R110
 | **Permissions** | PUB
 
-R110: Password Recovery Action
+#### R110: Password Recovery Action
 
 |   |   |   |
 |--:|---|---|
@@ -180,7 +180,7 @@ R110: Password Recovery Action
  * R208: About /about
  * R209: 404 /404
 
-R201: Get Users
+#### R201: Get Users
 
 |   |   |
 |--:|---|
@@ -190,7 +190,7 @@ R201: Get Users
 | **UI** | UI14
 | **Permissions** | ADM
 
-R202: Get Moderators
+#### R202: Get Moderators
 
 |   |   |
 |--:|---|
@@ -200,7 +200,7 @@ R202: Get Moderators
 | **UI** | UI16
 | **Permissions** | ADM
 
-R203: Get Statistics
+#### R203: Get Statistics
 
 |   |   |
 |--:|---|
@@ -210,7 +210,7 @@ R203: Get Statistics
 | **UI** | UI15
 | **Permissions** | ADM
 
-R204: Get Reports
+#### R204: Get Reports
 
 |   |   |
 |--:|---|
@@ -220,7 +220,7 @@ R204: Get Reports
 | **UI** | UI17
 | **Permissions** | ADM
 
-R205: Promote User
+#### R205: Promote User
 
 |   |   |   |
 |--:|---|---|
@@ -233,7 +233,7 @@ R205: Promote User
 |                | 404 Not Found | Error. No user with the specified primary key exists.
 | **Permissions** | ADM
 
-R206: Demote Moderator
+#### R206: Demote Moderator
 
 |   |   |   |
 |--:|---|---|
@@ -246,7 +246,7 @@ R206: Demote Moderator
 |                | 404 Not Found | Error. No user (moderator) with the specified primary key exists.
 | **Permissions** | ADM
 
-R207: Ban User
+#### R207: Ban User
 
 |   |   |   |
 |--:|---|---|
@@ -259,7 +259,7 @@ R207: Ban User
 |                | 404 Not Found | Error. No user with the specified primary key exists.
 | **Permissions** | ADM
 
-R208: About
+#### R208: About
 
 |   |   |
 |--:|---|
@@ -269,7 +269,7 @@ R208: About
 | **UI** | UI19
 | **Permissions** | PUB
 
-R209: 404
+#### R209: 404
 
 |   |   |
 |--:|---|
@@ -288,7 +288,7 @@ R209: 404
 * R305: Submit Post Form /sub-params
 * R306: Submit Post Action /sub-params/{id}
 
-R301: View Posts
+#### R301: View Posts
 
 |   |   |   |
 |--:|---|---|
@@ -299,7 +299,7 @@ R301: View Posts
 | **Permissions** | PUB
 
 
-R302: Search Post by Tag
+#### R302: Search Post by Tag
 
 |   |   |   |
 |--:|---|---|
@@ -317,7 +317,7 @@ R302: Search Post by Tag
 | **Permissions** | PUB
 
 
-R303: Search Post by Category
+#### R303: Search Post by Category
 
 |   |   |   |
 |--:|---|---|
@@ -334,7 +334,7 @@ R303: Search Post by Category
 |               | R303 | Error
 | **Permissions** | PUB
 
-R304: View Post
+#### R304: View Post
 
 |   |   |   |
 |--:|---|---|
@@ -345,7 +345,7 @@ R304: View Post
 | **UI** | UI03
 | **Permissions** | PUB
 
-R305: Submit Post Form
+#### R305: Submit Post Form
 
 |   |   |   |
 |--:|---|---|
@@ -358,7 +358,7 @@ R305: Submit Post Form
 | **Permissions** | PUB
 
 
-R306: Submit Post Action
+#### R306: Submit Post Action
 
 |   |   |   |
 |--:|---|---|
@@ -382,7 +382,7 @@ R306: Submit Post Action
 * R402: Open_inbox Form
 * R403: Open_inbox Action
 
-R401: View inbox
+#### R401: View inbox
 
 
 |   |   |   |
@@ -394,7 +394,7 @@ R401: View inbox
 | **UI** | UI12
 | **Permissions** | USR
 
-R402: Open_inbox form
+#### R402: Open_inbox form
 
 
 |   |   |   |
@@ -408,7 +408,7 @@ R402: Open_inbox form
 | **Permissions** | USR
 
 
-R403: Open_inbox action
+#### R403: Open_inbox action
 
 |   |   |   |
 |--:|---|---|
