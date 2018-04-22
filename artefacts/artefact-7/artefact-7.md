@@ -97,6 +97,8 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | **Method** | POST
 | **Request Body** | +username: string | Username
 |              | +email: string | Email
+|              | +name: string | Name
+|              | +date_birth: date | Date of Birth
 |              | +password: string | Password
 |              | +confirmPassword: string | Password confirmation
 | **Redirects** | R301 | Success
@@ -135,10 +137,12 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | **Method** | POST
 | **Parameters** | +id: integer | user primary key
 | **Request body** | ?username: string | New username
-|              | ?picture: img | New profile picture
+|              | ?avatar: img | New profile picture
 |              | ?name: string | New name
 |              | ?password: string | New password
-|              | ?quote: quote | New favourite quote
+|              | ?quote: string | New favourite quote
+|              | ?date_birth: date | New date of birth
+|              | ?nationality: string | New nationality
 | **Redirects** | R106 | Success
 |           | R107 | Error
 | **Permissions** | OWN
