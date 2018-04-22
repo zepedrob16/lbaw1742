@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Text_Post;
+use App\Image_Post;
+use App\Link_Post;
 use DB;
 
 class PostsController extends Controller
@@ -33,13 +35,16 @@ class PostsController extends Controller
         colocar     {{ $posts->links() }}  depois do @endforeach em index.blade
     */
 
-        
-
         $posts = Post::orderBy('title','asc')->get();
+
         $posts_text = Text_Post::orderBy('id_post','asc')->get();
+        $posts_image = Image_Post::orderBy('id_post','asc')->get();
+        $posts_link = Link_Post::orderBy('id_post','asc')->get();
+
+        $allposts = array($posts,$posts_text,$posts_image,$posts_link);
 
 
-        return view('posts.index')->with(['posts' => $posts, 'posts_text' => $posts_text]);
+        return view('posts.index')->with('allposts',$allposts);
     }
 
     /**
@@ -66,7 +71,6 @@ class PostsController extends Controller
         ]);
 
         
-
         //Create Post
         $post = new Post;
         //$post->postnumber = $request->input('title');
@@ -75,7 +79,7 @@ class PostsController extends Controller
         $post->title = $request->input('title');
       //  $post->body = $request->input('body');
 
-       // $post->body = $request->input('body');
+
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
@@ -123,10 +127,32 @@ class PostsController extends Controller
 
         //Find Post
         $post = Post::find($postnumber);
-  
+
         $post->title = $request->input('title');
- 
+
+        //Save Content
+        $post_type = Text_Post::find($postnumber);
+        if($post_type !== null){
+            $post_type->opinion = $request->input('body');
+        }
+        if($post_type === null){
+            $post_type = Image_Post::find($postnumber);
+            if($post_type !== null){
+                $post_type->image = $request->input('body');
+             }
+        }
+        if($post_type === null){
+            $post_type = Link_Post::find($postnumber);
+            if($post_type !== null){
+                $post_type->url = $request->input('body');
+             }
+        }
+  
+        
         $post->save();
+
+        if($post_type !== null)
+         $post_type->save();
 
         return redirect('/posts')->with('success', 'Post Updated');     
     }
