@@ -38,6 +38,8 @@ Module M01: Authentication and Individual Profile
 | R108: Create Post Action | POST /posts/create             |
 | R109: Edit Post Form   | [/posts/{postnumber}/edit](http://lbaw1742.lbaw-prod.fe.up.pt/posts/edit)       |
 | R110: Edit Post Action | POST /posts/{postnumber}/edit  |
+| R111: Password Reset Form | [/password/reset](http://lbaw1742.lbaw-prod.fe.up.pt/password/reset)       |
+| R112: Password Reset Action | POST /password/reset  |
 
 ...
  
@@ -68,6 +70,7 @@ Changes made to the first submission:
 * Added the possibility to open an individual Post;
 * Added the possibility to create a new Post and submit it;
 * Added the possibility to edit a Post and resubmit it.
+* Added the possibility to reset Password.
 
 ***
  
