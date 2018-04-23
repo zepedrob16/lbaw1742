@@ -27,8 +27,10 @@ WHERE "user_table".username = $username OR "user_table".email = $email AND "user
 | SQL102        | Creates a new user in the platform | [R105](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r105-signup-action) |
 
 ```sql
-INSERT INTO "user" (username, email, password, first_name, last_name, date_birth, nationality, quote, avatar, upvotes, downvotes, balance)
-VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, "NONE", "This user hasn't setup their quote.", "default", 0, 0, 0);
+INSERT INTO "user" (username, email, password, first_name, last_name, date_birth, nationality, quote, avatar, 
+upvotes, downvotes, balance)
+VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, "NONE", "This user hasn't setup 
+their quote.", "default", 0, 0, 0);
 ```
 
 | SQL Reference | Access Description | Web Resource |
@@ -47,7 +49,8 @@ WHERE "user_table".id = $userId;
 
 ```sql
 UPDATE "user"
-SET email = $email, password = $password, first_name = $first_name, last_name = $last_name, date_birth = $date_birth, nationality = $nationality, quote = $quote, avatar = $avatar
+SET email = $email, password = $password, first_name = $first_name, last_name = $last_name, 
+date_birth = $date_birth, nationality = $nationality, quote = $quote, avatar = $avatar
 WHERE id = $id AND username = $username;
 ```
 
@@ -140,7 +143,8 @@ WHERE post.postnumber = post_tag.postnumber AND media_tag.tag_id = post_tag.tag_
 
 ```sql
 SELECT * FROM "post", media_category 
-WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id AND media_category.type LIKE 'action';
+WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id 
+AND media_category.type LIKE 'action';
 ```
 
 | SQL Reference | Access Description | Web Resource |
@@ -253,8 +257,10 @@ Here follow transactions needed to assure the integrity of the data.
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
 
-INSERT INTO "user" (username, email, password, first_name, last_name, date_birth, nationality, quote, avatar, upvotes, downvotes, balance)
-VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, "NONE", "This user hasn't setup their quote.", "default", 0, 0, 0);
+INSERT INTO "user" (username, email, password, first_name, last_name, date_birth, nationality, 
+quote, avatar, upvotes, downvotes, balance)
+VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, "NONE", "This user 
+hasn't setup their quote.", "default", 0, 0, 0);
 
 COMMIT;
 ```
@@ -288,7 +294,8 @@ SELECT * FROM "post", "post_tag", "media_tag"
 WHERE post.postnumber = post_tag.postnumber AND media_tag.tag_id = post_tag.tag_id;
 
 SELECT * FROM "post", media_category 
-WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id AND media_category.type LIKE 'action';
+WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id 
+AND media_category.type LIKE 'action';
 
 COMMIT;
 ```
