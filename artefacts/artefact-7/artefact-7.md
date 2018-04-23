@@ -291,6 +291,11 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 * R304: View Post
 * R305: Submit Post Form /sub-params
 * R306: Submit Post Action /sub-params/{id}
+* R307:
+* R308:
+* R309:
+* R310:
+* R311:
 
 #### R301: View Posts
 
@@ -380,11 +385,68 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 |               | R305 | Error
 | **Permissions** | PUB
 
+#### R307: Post Comment Action
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /post_comment/{id}
+| **Description** | Web resource that posts a user comment on a post.
+| **Method** | POST
+| **Redirects** | R304 | Success
+|           | R304 | Error
+| **Permissions** | USR
+
+#### R308: Delete Comment Action
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /delete_comment/{id}
+| **Description** | Web resource that deletes a user comment on a post.
+| **Method** | POST
+| **Redirects** | R304 | Success
+|           | R304 | Error
+| **Permissions** | USR
+
+#### R309: Delete Post Action
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /delete_post/{id}
+| **Description** | Web resource that deletes a user's post.
+| **Method** | POST
+| **Redirects** | R301 | Success
+|           | R304 | Error
+| **Permissions** | USR
+
+#### R310: Edit Comment Action
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /edit_comment/{id}
+| **Description** | Web resource that edits a user's comment.
+| **Method** | POST
+| **Redirects** | R304 | Success
+|           | R304 | Error
+| **Permissions** | USR
+
+#### R311: Edit Post Action
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /edit_post/{id}
+| **Description** | Web resource that edits a user's post.
+| **Method** | POST
+| **Redirects** | R304 | Success
+|           | R304 | Error
+| **Permissions** | USR
+
 ### 3.4 Module M04: User area
 
 * R401: View Inbox
 * R402: Open_inbox Form
 * R403: Open_inbox Action
+* R404: Send Friend Request Action
+* R405: Report User Action
 
 #### R401: View inbox
 
@@ -506,6 +568,7 @@ Changes made to the first submission:
 * Deleted web resource descriptors.
 * **Overall small additions of missing information** on several resources (check revision history).
 * Added R404 and R405
+* Added R307 to R311
  
 ***
  
