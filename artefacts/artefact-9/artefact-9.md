@@ -1,10 +1,10 @@
 # A9: Main accesses to the database and transactions
 
-## 0\. Project Description (SHOWCHAN)
+## 0. Project Description (SHOWCHAN)
 
 The goal of this project is to provide tv show and movie aficionados with daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.
 
-## 1\. Main Accesses
+## 1. Main Accesses
 
 Here lie the main accesses to the database from every module.
 
@@ -92,7 +92,9 @@ SELECT * FROM "report";
 | SQL203        | Promotes user to a higher role on the platform | [R205](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r205-promote-user)|
 
 ```sql
-TODO
+DELETE FROM "member" WHERE id_user = $id_user
+INSERT INTO "moderator" (id_user)
+VALUES ($id_user)
 ```
 
 | SQL Reference | Access Description | Web Resource |
@@ -100,7 +102,9 @@ TODO
 | SQL204        | Demotes user to a low role on the platform | [R206](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r206-demote-moderator)|
 
 ```sql
-TODO
+DELETE FROM "moderator" WHERE id_user = $id_user
+INSERT INTO "member" (id_user, reports)
+VALUES ($id_user, NULL)
 ```
 
 | SQL Reference | Access Description | Web Resource |
@@ -144,7 +148,8 @@ WHERE "post".category = $category AND "post".mediacategory_id LIKE media_categor
 | SQL304        | Shows post information, it being either a text, image or link type post | [R304](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r304-view-post)|
 
 ```sql
-TODO
+SELECT * FROM "image_post", "text_post", "link_post"
+WHERE id_post = $id_post
 ```
 
 | SQL Reference | Access Description | Web Resource |
@@ -164,7 +169,7 @@ VALUES ($id_post, $image, $source);
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL306        | Creates a new comment on a post | [R307]() |
+| SQL306        | Creates a new comment on a post | [R307](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r307-post-comment-action) |
 
 ```sql
 INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
@@ -173,7 +178,7 @@ VALUES ($id_post, $id_user, $body, current_timestamp);
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL307        | Deletes a user owned comment on a post | [R308]() |
+| SQL307        | Deletes a user owned comment on a post | [R308](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r308-delete-comment-action) |
 
 ```sql
 DELETE FROM "post_comment" WHERE id = $id;
@@ -181,7 +186,7 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL308        | Deletes a user owned post | [R309] |
+| SQL308        | Deletes a user owned post | [R309](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r309-delete-post-action) |
 
 ```sql
 DELETE FROM "post" WHERE id = $id;
@@ -189,7 +194,7 @@ DELETE FROM "post" WHERE id = $id;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL309        | Edits a user owned comment on a post | [R310] |
+| SQL309        | Edits a user owned comment on a post | [R310](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r310-edit-comment-action) |
 
 ```sql
 UPDATE "post_comment"
@@ -199,7 +204,7 @@ WHERE id_user = $id_user AND id_post = $id_post;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL310        | Edits a user owned post content, provided it is a text post | [R311]() |
+| SQL310        | Edits a user owned post content, provided it is a text post | [R311](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r311-edit-post-action) |
 
 ```sql
 UPDATE "text_post"
