@@ -164,7 +164,7 @@ VALUES ($id_post, $image, $source);
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL306        | Creates a new comment on a post | TODO: No relation on A7 |
+| SQL306        | Creates a new comment on a post | [R307]() |
 
 ```sql
 INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
@@ -173,7 +173,7 @@ VALUES ($id_post, $id_user, $body, current_timestamp);
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL307        | Deletes an user owned comment on post | TODO: No relation on A7 |
+| SQL307        | Deletes a user owned comment on a post | [R308]() |
 
 ```sql
 DELETE FROM "post_comment" WHERE id = $id;
@@ -181,7 +181,7 @@ DELETE FROM "post_comment" WHERE id = $id;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL308        | Deletes an user owned post | TODO: No relation on A7 |
+| SQL308        | Deletes a user owned post | [R309] |
 
 ```sql
 DELETE FROM "post" WHERE id = $id;
@@ -189,7 +189,7 @@ DELETE FROM "post" WHERE id = $id;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL309        | Edits an user owned comment on post | TODO: No relation on A7 |
+| SQL309        | Edits a user owned comment on a post | [R310] |
 
 ```sql
 UPDATE "post_comment"
@@ -199,7 +199,7 @@ WHERE id_user = $id_user AND id_post = $id_post;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL310        | Edits an user owned post content, provided it is a text post | TODO: No relation on A7 |
+| SQL310        | Edits a user owned post content, provided it is a text post | [R311]() |
 
 ```sql
 UPDATE "text_post"
