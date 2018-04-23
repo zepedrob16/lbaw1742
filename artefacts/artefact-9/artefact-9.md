@@ -11,7 +11,7 @@ Here lie the main accesses to the database from every module.
 ### 1.1. M01: Authentication and Individual Profile
 
 | SQL Reference | Access Description | Web Resource |
-|:------------- |:------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL101        | Logs in a user in the platform | [R102](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r102-login-action) |
 
 ```sql
@@ -23,7 +23,7 @@ WHERE "user_table".username = $username OR "user_table".email = $email AND "user
 *Note: the user is successfully logged in if the database is able to return a valid username.*
 
 | SQL Reference | Access Description | Web Resource |
-|:------------- |:------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL102        | Creates a new user in the platform | [R105](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r105-signup-action) |
 
 ```sql
@@ -32,7 +32,7 @@ VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, "NON
 ```
 
 | SQL Reference | Access Description | Web Resource |
-|:------------- |:------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL103        | Fetches a specific user's profile | [R106](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r106-view-profile) |
 
 ```sql
@@ -42,7 +42,7 @@ WHERE "user_table".id = $userId;
 ```
 
 | SQL Reference | Access Description | Web Resource |
-|:------------- |:------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL104        | Updates a user's profile information | [R108](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r108-edit-profile-action) |
 
 ```sql
@@ -51,10 +51,28 @@ SET email = $email, password = $password, first_name = $first_name, last_name = 
 WHERE id = $id AND username = $username;
 ```
 
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL105        | Sends a friend request from the logged user to a provided one | TODO: No relation on A7 |
+
+```sql
+INSERT INTO "friend_request" (id_sender, id_recipient, date_request, date_confirmation)
+VALUES ($id_sender, $id_recipient, current_timestamp, NULL);
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL106        | Reports user so it must be reviewed by administrators | TODO: No relation on A7 |
+
+```sql
+INSERT INTO "report" (criminal, author, type, timestamp)
+VALUES ($criminal, $author, $type, current_timestamp);
+```
+
 ### 1.2. M02: User Administration and Static Pages
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL201        | Displays a list of every registered user | [R201](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r201-get-users)|
 
 ```sql
@@ -62,7 +80,7 @@ SELECT * FROM "user";
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL202        | Displays a list of reports related to comments and posts | [R204](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r204-get-reports)|
 
 ```sql
@@ -70,7 +88,7 @@ SELECT * FROM "report";
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL203        | Promotes user to a higher role on the platform | [R205](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r205-promote-user)|
 
 ```sql
@@ -78,7 +96,7 @@ TODO
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL204        | Demotes user to a low role on the platform | [R206](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r206-demote-moderator)|
 
 ```sql
@@ -86,7 +104,7 @@ TODO
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL205        | Banishes user from platform yet their content remains available for access | [R207](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r207-ban-user)|
 
 ```sql
@@ -96,7 +114,7 @@ DELETE FROM "user" WHERE username = $username;
 ### 1.3. M03: Posts
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL301        | Shows posts made by users on the system | [R301](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r301-view-posts)|
 
 ```sql
@@ -104,7 +122,7 @@ SELECT * FROM "post";
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL302        | Search posts by the provided tag | [R302](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r302-search-post-by-tag)|
 
 ```sql
@@ -113,7 +131,7 @@ WHERE post.postnumber = post_tag.postnumber AND media_tag.tag_id = post_tag.tag_
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL303        | Search posts by the provided category | [R303](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r303-search-post-by-category)|
 
 ```sql
@@ -122,7 +140,7 @@ WHERE "post".category = $category AND "post".mediacategory_id LIKE media_categor
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL304        | Shows post information, it being either a text, image or link type post | [R304](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r304-view-post)|
 
 ```sql
@@ -130,12 +148,10 @@ TODO
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
+|:------------- |:------------------ |:------------ |
 | SQL305        | Creates a new post in the platform, it being either a text, image or link type post | [R306](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r306-submit-post-action)|
 
 ```sql
-TODO: May we present SQL like this?
-
 INSERT INTO "text_post" (id_post, opinion, source)
 VALUES ($id_post, $opinion, $source);
 
@@ -144,6 +160,51 @@ VALUES ($id_post, $url);
 
 INSERT INTO "image_post" (id_post, image, source)
 VALUES ($id_post, $image, $source);
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL306        | Creates a new comment on a post | TODO: No relation on A7 |
+
+```sql
+INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
+VALUES ($id_post, $id_user, $body, current_timestamp);
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL307        | Deletes an user owned comment on post | TODO: No relation on A7 |
+
+```sql
+DELETE FROM "post_comment" WHERE id = $id;
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL308        | Deletes an user owned post | TODO: No relation on A7 |
+
+```sql
+DELETE FROM "post" WHERE id = $id;
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL309        | Edits an user owned comment on post | TODO: No relation on A7 |
+
+```sql
+UPDATE "post_comment"
+SET body = $body
+WHERE id_user = $id_user AND id_post = $id_post;
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL310        | Edits an user owned post content, provided it is a text post | TODO: No relation on A7 |
+
+```sql
+UPDATE "text_post"
+SET opinion = $opinion
+WHERE id_post = $id_post;
 ```
 
 ### 1.4. M04: Inbox
@@ -167,30 +228,62 @@ WHERE id_recipient = $id_recipient AND id_sender = $id_sender;
 ```
 
 | SQL Reference | Access Description | Web Resource |
-| ------------- | ------------------ | ------------ |
-| SQL403        | Sends a new message from the logged in user to a provided recipient | [R402](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r403-open_inbox-action)|
+|:------------- |:------------------ |:------------ |
+| SQL403        | Sends a new message from the logged in user to a provided recipient | [R403](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r403-open_inbox-action)|
 
 ```sql
 INSERT INTO "conversation_message" (id_sender, id_recipient, body, timestamp, read)
 VALUES ($id_sender, $id_recipient, $body, current_timestamp, false);
 ```
 
-## 2\. Transactions
+## 2. Transactions
 
 Here follow transactions needed to assure the integrity of the data.
 
 | SQL Reference | Description | Justification | Isolation Level |
-| T01           |             |               | REPEATABLE READ | 
+|:------------- |:----------- |:------------- |:----------------|
+| T01           | User registration | By multiple users registering at the same time, altering the sequential user identificator, inconsistent data would be stored. It is necessary to guarantee the consistency of data by locking transactions when manipulating the user's ID. | REPEATABLE READ | 
 
-...
+```sql
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+
+TODO
+
+COMMIT;
+```
+
+| SQL Reference | Description | Justification | Isolation Level |
+|:------------- |:----------- |:------------- |:----------------|
+| T02           | Insert a new comment | An update of post_id could happen, due to insertion or deletion of a new post committed by a concurrent transaction, and as a result, a new comment would be published in an unexpected post. | REPEATABLE READ |
+
+```sql
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+
+TODO
+
+COMMIT;
+```
+
+| SQL Reference | Description | Justification | Isolation Level |
+|:------------- |:----------- |:------------- |:----------------|
+| T03           | Filtering posts by tag or category | Whilst a particular user filters content by tag or category, fetching posts from the database, fellow users may insert more posts that match the query, resulting on **Phantom Reads**. This would result on the particular user's query being executed twice. | SERIALIZABLE |
+
+```sql
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+
+TODO
+
+COMMIT;
+```
 
 ## Revision history
 
 Changes made to the first submission:
 
-- No changes thus far.
-
-***
+* No changes thus far.
 
 ## Submission Information
 
