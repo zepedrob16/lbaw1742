@@ -47,13 +47,13 @@ Here are the web resources which were implemented in the prototype.
  
 ## 2. Prototype
 
-The prototype is available at http://lbaw1742.lbaw-prod.fe.up.pt/.
+* The prototype is available at http://lbaw1742.lbaw-prod.fe.up.pt/.
+* The code is available at http://github.com/zepedrob16/lbaw1742/tree/proto.
 
 #### Credentials
 
 * A test user has the username **bcurless0** and password **HmeeUgMD7**.  
-The code is available at http://github.com/zepedrob16/lbaw1742/tree/proto
- 
+
 ## Revision history
 
 Changes made to the first submission:
