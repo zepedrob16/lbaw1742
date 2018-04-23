@@ -53,7 +53,7 @@ WHERE id = $id AND username = $username;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL105        | Sends a friend request from the logged user to a provided one | TODO: No relation on A7 |
+| SQL105        | Sends a friend request from the logged user to a provided one | [R404](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r404-send-friend-request-action) |
 
 ```sql
 INSERT INTO "friend_request" (id_sender, id_recipient, date_request, date_confirmation)
@@ -62,7 +62,7 @@ VALUES ($id_sender, $id_recipient, current_timestamp, NULL);
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL106        | Reports user so it must be reviewed by administrators | TODO: No relation on A7 |
+| SQL106        | Reports user so it must be reviewed by administrators | [R405](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r405-report-user-action) |
 
 ```sql
 INSERT INTO "report" (criminal, author, type, timestamp)
