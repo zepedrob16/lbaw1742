@@ -253,7 +253,8 @@ Here follow transactions needed to assure the integrity of the data.
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
 
-TODO
+INSERT INTO "user" (username, email, password, first_name, last_name, date_birth, nationality, quote, avatar, upvotes, downvotes, balance)
+VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, "NONE", "This user hasn't setup their quote.", "default", 0, 0, 0);
 
 COMMIT;
 ```
@@ -266,7 +267,11 @@ COMMIT;
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
 
-TODO
+INSERT INTO "text_post" (id_post, opinion, source)
+VALUES ($id_post, $opinion, $source);
+
+INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
+VALUES (currval($id_post), $id_user, $body, current_timestamp);
 
 COMMIT;
 ```
@@ -279,7 +284,11 @@ COMMIT;
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
 
-TODO
+SELECT * FROM "post", "post_tag", "media_tag"
+WHERE post.postnumber = post_tag.postnumber AND media_tag.tag_id = post_tag.tag_id;
+
+SELECT * FROM "post", media_category 
+WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id AND media_category.type LIKE 'action';
 
 COMMIT;
 ```
@@ -287,17 +296,13 @@ COMMIT;
 ## Revision history
 
 Changes made to the first submission:
-
 * No changes thus far.
 
 ## Submission Information
 
-GROUP1742, 16/04/2018
+GROUP1742, 23/04/2018
 
-- Bernardo José Coelho Leite - [up201404464@fe.up.pt](mailto:up201404464@fe.up.pt)
-
-- José Pedro da Silva e Sousa Borges - [up201503603@fe.up.pt](mailto:up201503603@fe.up.pt)
-
-- Miguel Mano Fernandes - [up201503538@fe.up.pt](mailto:up201503538@fe.up.pt)
-
-- Ventura de Sousa Pereira - [up201404690@fe.up.pt](mailto:up201404690@fe.up.pt)
+* Bernardo José Coelho Leite - [up201404464@fe.up.pt](mailto:up201404464@fe.up.pt)
+* José Pedro da Silva e Sousa Borges - [up201503603@fe.up.pt](mailto:up201503603@fe.up.pt)
+* Miguel Mano Fernandes - [up201503538@fe.up.pt](mailto:up201503538@fe.up.pt)
+* Ventura de Sousa Pereira - [up201404690@fe.up.pt](mailto:up201404690@fe.up.pt)
