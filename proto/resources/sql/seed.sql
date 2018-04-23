@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS member cascade;
 DROP TABLE IF EXISTS admin cascade;
 DROP TABLE IF EXISTS post_tag cascade;
 DROP TABLE IF EXISTS post_category cascade;
+DROP TABLE IF EXISTS password_resets cascade;
 
 -- Tables
 
@@ -23,9 +24,9 @@ SET datestyle = dmy;
 
 CREATE TABLE users (
   id SERIAL UNIQUE,
-  username text NOT NULL,
+  username text,
   password text NOT NULL,
-  firstname text,
+  name text,
   lastname text,
   email text NOT NULL,
   datebirth date,
@@ -34,14 +35,21 @@ CREATE TABLE users (
   avatar text,
   upvotes smallint,
   downvotes smallint,
-  balance smallint
+  balance smallint,
+  remember_token text
+);
+
+CREATE TABLE password_resets (
+  email text,
+  token text,
+  created_at text
 );
 
 CREATE TABLE post (
-  postnumber INTEGER NOT NULL,
-  author text NOT NULL,
+  postnumber SERIAL UNIQUE ,
+  author text ,
   title text NOT NULL,
-  time_stamp time NOT NULL,
+  time_stamp time ,
   upvotes smallint,
   downvotes smallint,
   balance smallint
@@ -103,21 +111,21 @@ CREATE TABLE friend_request (
 );
 
 CREATE TABLE conversation_message (
- 	id_sender INTEGER NOT NULL,
+  id_sender INTEGER NOT NULL,
   id_recipient INTEGER NOT NULL,
- 	body text NOT NULL,
+  body text NOT NULL,
   time_stamp date NOT NULL,
   read smallint
 );
 
 CREATE TABLE media_category (
- 	cat_id INTEGER NOT NULL,
- 	title text NOT NULL
+  cat_id INTEGER NOT NULL,
+  title text NOT NULL
 );
 
 CREATE TABLE media_tag (
- 	tag_id INTEGER NOT NULL,
- 	title text NOT NULL,
+  tag_id INTEGER NOT NULL,
+  title text NOT NULL,
   rating FLOAT
 );
 
@@ -127,11 +135,11 @@ CREATE TABLE member (
 );
 
 CREATE TABLE moderator (
- 	id_user INTEGER NOT NULL
+  id_user INTEGER NOT NULL
 );
 
 CREATE TABLE admin (
- 	id_user INTEGER NOT NULL
+  id_user INTEGER NOT NULL
 );
 
 CREATE TABLE post_tag(
@@ -282,48 +290,48 @@ ALTER TABLE ONLY post_category
 ALTER TABLE ONLY post_category
 ADD CONSTRAINT postnumber_cat_id_fkey FOREIGN KEY (cat_id) REFERENCES media_category(cat_id) on UPDATE CASCADE;
 
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('bcurless0', 'HmeeUgMD7', 'Inès', 'Curless', 'lcurless0@google.com', '2002/01/09', 'Kazakhstan', 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 'http://dummyimage.com/237x147.png/ff4444/ffffff', 32, 62, 44);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('cnolleth1', 'b6eeebM', 'Léandre', 'Nolleth', 'cnolleth1@illinois.edu', '1977/05/05', 'Brazil', 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', 'http://dummyimage.com/190x240.png/cc0000/ffffff', 86, 1, 97);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('rdennehy2', '2ivVAD', 'Bérengère', 'Dennehy', 'ldennehy2@census.gov', '1979/08/11', 'Indonesia', 'Suspendisse potenti.', 'http://dummyimage.com/146x239.bmp/ff4444/ffffff', 82, 74, 7);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('jhruska3', 'tQBf6E6zN', 'Wá', 'Hruska', 'khruska3@jalbum.net', '1987/09/06', 'Indonesia', 'Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'http://dummyimage.com/144x156.bmp/cc0000/ffffff', 71, 42, 69);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('chumburton4', 'F3JPPx', 'Léone', 'Humburton', 'ehumburton4@utexas.edu', '2008/03/24', 'Egypt', 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', 'http://dummyimage.com/213x147.png/dddddd/000000', 58, 32, 88);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('hcharker5', 'iwXcscQaQ', 'Irène', 'Charker', 'rcharker5@vistaprint.com', '1970/10/10', 'China', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', 'http://dummyimage.com/137x132.jpg/cc0000/ffffff', 61, 94, 92);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('srubinowitsch6', 'dVeDO9FuzEh', 'Marie-hélène', 'Rubinowitsch', 'crubinowitsch6@usgs.gov', '1999/03/15', 'Indonesia', 'Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', 'http://dummyimage.com/146x207.jpg/5fa2dd/ffffff', 15, 15, 83);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('ndenziloe7', 'Ih4CjNyGaJ', 'Eugénie', 'Denziloe', 'jdenziloe7@gravatar.com', '1960/11/21', 'Sweden', 'Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', 'http://dummyimage.com/219x104.jpg/5fa2dd/ffffff', 72, 44, 93);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('epaulich8', 'PgR0Yb', 'Crééz', 'Paulich', 'lpaulich8@youtu.be', '1982/10/19', 'Greece', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.', 'http://dummyimage.com/160x115.bmp/dddddd/000000', 7, 78, 63);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('sgriss9', 'rz64uv4rxUa', 'Céline', 'Griss', 'dgriss9@samsung.com', '1957/03/19', 'Philippines', 'Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.', 'http://dummyimage.com/215x165.bmp/5fa2dd/ffffff', 20, 70, 100);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('bbeelbya', 'wDhFYVIZUCs', 'Loïca', 'Beelby', 'hbeelbya@ning.com', '1978/06/27', 'China', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.', 'http://dummyimage.com/218x108.png/cc0000/ffffff', 91, 52, 77);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('kstearleyb', 'LweWxKJOE4', 'Véronique', 'Stearley', 'istearleyb@flickr.com', '1985/04/13', 'Poland', 'Quisque id justo sit amet sapien dignissim vestibulum.', 'http://dummyimage.com/192x173.png/5fa2dd/ffffff', 83, 14, 30);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('dmedinac', 'taVz0yB', 'Célia', 'Medina', 'dmedinac@shop-pro.jp', '1972/03/15', 'Mexico', 'Proin interdum mauris non ligula pellentesque ultrices.', 'http://dummyimage.com/241x199.bmp/5fa2dd/ffffff', 15, 48, 38);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('xscoldingd', 'zNEG3Z', 'Eléa', 'Scolding', 'tscoldingd@cnbc.com', '1973/02/15', 'China', 'Nulla facilisi.', 'http://dummyimage.com/231x107.jpg/cc0000/ffffff', 23, 89, 83);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('teymore', 'sCgaLBfywPCo', 'Marie-ève', 'Eymor', 'leymore@digg.com', '1956/03/17', 'France', 'Donec quis orci eget orci vehicula condimentum.', 'http://dummyimage.com/227x105.jpg/5fa2dd/ffffff', 69, 89, 48);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('rarkleyf', 'K6dvVSZpUU4B', 'Maëlla', 'Arkley', 'jarkleyf@phpbb.com', '1952/07/26', 'Japan', 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper.', 'http://dummyimage.com/139x147.png/cc0000/ffffff', 83, 36, 79);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('flocksg', 'khHA8lGtL', 'Pò', 'Locks', 'mlocksg@sciencedaily.com', '1952/11/23', 'Czech Republic', 'Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', 'http://dummyimage.com/197x140.bmp/5fa2dd/ffffff', 71, 31, 72);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('jharrollh', 'GQGfKMN', 'Gaïa', 'Harroll', 'bharrollh@tuttocitta.it', '1952/04/21', 'Sweden', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 'http://dummyimage.com/209x180.png/dddddd/000000', 49, 22, 21);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('jyakunkini', 'ofwomKa7vUM', 'Marie-françoise', 'Yakunkin', 'byakunkini@mashable.com', '1996/03/30', 'Syria', 'Praesent blandit lacinia erat.', 'http://dummyimage.com/206x103.bmp/ff4444/ffffff', 55, 72, 88);
-INSERT INTO "users" (username, password, firstname, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'fQC51NA429Dx', 'Zoé', 'Pidgeley', 'mpidgeleyj@goo.gl', '1992/07/19', 'Kazakhstan', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', 'http://dummyimage.com/125x176.jpg/dddddd/000000', 49, 62, 69);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('bcurless0', 'HmeeUgMD7', 'Inès', 'Curless', 'lcurless0@google.com', '2002/01/09', 'Kazakhstan', 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 'http://dummyimage.com/237x147.png/ff4444/ffffff', 32, 62, 44);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('cnolleth1', 'b6eeebM', 'Léandre', 'Nolleth', 'cnolleth1@illinois.edu', '1977/05/05', 'Brazil', 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', 'http://dummyimage.com/190x240.png/cc0000/ffffff', 86, 1, 97);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('rdennehy2', '2ivVAD', 'Bérengère', 'Dennehy', 'ldennehy2@census.gov', '1979/08/11', 'Indonesia', 'Suspendisse potenti.', 'http://dummyimage.com/146x239.bmp/ff4444/ffffff', 82, 74, 7);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('jhruska3', 'tQBf6E6zN', 'Wá', 'Hruska', 'khruska3@jalbum.net', '1987/09/06', 'Indonesia', 'Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 'http://dummyimage.com/144x156.bmp/cc0000/ffffff', 71, 42, 69);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('chumburton4', 'F3JPPx', 'Léone', 'Humburton', 'ehumburton4@utexas.edu', '2008/03/24', 'Egypt', 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', 'http://dummyimage.com/213x147.png/dddddd/000000', 58, 32, 88);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('hcharker5', 'iwXcscQaQ', 'Irène', 'Charker', 'rcharker5@vistaprint.com', '1970/10/10', 'China', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', 'http://dummyimage.com/137x132.jpg/cc0000/ffffff', 61, 94, 92);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('srubinowitsch6', 'dVeDO9FuzEh', 'Marie-hélène', 'Rubinowitsch', 'crubinowitsch6@usgs.gov', '1999/03/15', 'Indonesia', 'Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', 'http://dummyimage.com/146x207.jpg/5fa2dd/ffffff', 15, 15, 83);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('ndenziloe7', 'Ih4CjNyGaJ', 'Eugénie', 'Denziloe', 'jdenziloe7@gravatar.com', '1960/11/21', 'Sweden', 'Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', 'http://dummyimage.com/219x104.jpg/5fa2dd/ffffff', 72, 44, 93);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('epaulich8', 'PgR0Yb', 'Crééz', 'Paulich', 'lpaulich8@youtu.be', '1982/10/19', 'Greece', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.', 'http://dummyimage.com/160x115.bmp/dddddd/000000', 7, 78, 63);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('sgriss9', 'rz64uv4rxUa', 'Céline', 'Griss', 'dgriss9@samsung.com', '1957/03/19', 'Philippines', 'Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.', 'http://dummyimage.com/215x165.bmp/5fa2dd/ffffff', 20, 70, 100);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('bbeelbya', 'wDhFYVIZUCs', 'Loïca', 'Beelby', 'hbeelbya@ning.com', '1978/06/27', 'China', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.', 'http://dummyimage.com/218x108.png/cc0000/ffffff', 91, 52, 77);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('kstearleyb', 'LweWxKJOE4', 'Véronique', 'Stearley', 'istearleyb@flickr.com', '1985/04/13', 'Poland', 'Quisque id justo sit amet sapien dignissim vestibulum.', 'http://dummyimage.com/192x173.png/5fa2dd/ffffff', 83, 14, 30);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('dmedinac', 'taVz0yB', 'Célia', 'Medina', 'dmedinac@shop-pro.jp', '1972/03/15', 'Mexico', 'Proin interdum mauris non ligula pellentesque ultrices.', 'http://dummyimage.com/241x199.bmp/5fa2dd/ffffff', 15, 48, 38);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('xscoldingd', 'zNEG3Z', 'Eléa', 'Scolding', 'tscoldingd@cnbc.com', '1973/02/15', 'China', 'Nulla facilisi.', 'http://dummyimage.com/231x107.jpg/cc0000/ffffff', 23, 89, 83);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('teymore', 'sCgaLBfywPCo', 'Marie-ève', 'Eymor', 'leymore@digg.com', '1956/03/17', 'France', 'Donec quis orci eget orci vehicula condimentum.', 'http://dummyimage.com/227x105.jpg/5fa2dd/ffffff', 69, 89, 48);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('rarkleyf', 'K6dvVSZpUU4B', 'Maëlla', 'Arkley', 'jarkleyf@phpbb.com', '1952/07/26', 'Japan', 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper.', 'http://dummyimage.com/139x147.png/cc0000/ffffff', 83, 36, 79);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('flocksg', 'khHA8lGtL', 'Pò', 'Locks', 'mlocksg@sciencedaily.com', '1952/11/23', 'Czech Republic', 'Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', 'http://dummyimage.com/197x140.bmp/5fa2dd/ffffff', 71, 31, 72);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('jharrollh', 'GQGfKMN', 'Gaïa', 'Harroll', 'bharrollh@tuttocitta.it', '1952/04/21', 'Sweden', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 'http://dummyimage.com/209x180.png/dddddd/000000', 49, 22, 21);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('jyakunkini', 'ofwomKa7vUM', 'Marie-françoise', 'Yakunkin', 'byakunkini@mashable.com', '1996/03/30', 'Syria', 'Praesent blandit lacinia erat.', 'http://dummyimage.com/206x103.bmp/ff4444/ffffff', 55, 72, 88);
+INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'fQC51NA429Dx', 'Zoé', 'Pidgeley', 'mpidgeleyj@goo.gl', '1992/07/19', 'Kazakhstan', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', 'http://dummyimage.com/125x176.jpg/dddddd/000000', 49, 62, 69);
 
 
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (1, 'chumburton4', 'Charlotte''s Web', '20:00:01', 73, 89, 49);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (2, 'dmedinac', 'Such Good Friends', '5:28:29', 93, 43, 90);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (3, 'flocksg', 'Vertical Ray of the Sun, The (Mua he chieu thang dung)', '20:41:01', 90, 100, 62);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (4, 'dmedinac', 'Love Crazy', '5:53:23', 89, 12, 38);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (5, 'flocksg', 'Charlie Brown''s Christmas Tales', '0:43:01', 5, 96, 41);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (6, 'flocksg', 'With Fire and Sword (Ogniem i mieczem)', '20:22:55', 48, 75, 98);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (7, 'flocksg', 'Falling Up', '11:24:34', 51, 33, 42);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (8, 'jyakunkini', 'Stalag 17', '5:27:52', 36, 93, 73);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (9, 'dmedinac', 'Rockaway', '16:23:13', 46, 68, 11);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (10, 'jyakunkini', 'Neds', '9:43:56', 51, 76, 41);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (11, 'jyakunkini', 'Adios Sabata', '2:47:50', 56, 94, 99);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (12, 'jyakunkini', 'City Slickers II: The Legend of Curly''s Gold', '18:20:07', 7, 42, 99);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (13, 'dmedinac', 'We Are The Night (Wir sind die Nacht)', '2:33:18', 29, 85, 4);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (14, 'jyakunkini', 'Kon-Tiki', '0:32:08', 45, 50, 29);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (15, 'jyakunkini', 'Last Taboo, The', '15:41:11', 37, 19, 40);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (16, 'jyakunkini', 'Gloria', '4:48:17', 6, 33, 43);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (17, 'jyakunkini', 'Eye of God', '7:00:41', 52, 21, 59);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (18, 'cpidgeleyj', 'Casino Jack', '10:24:29', 51, 37, 6);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (19, 'cpidgeleyj', 'Nanny Diaries, The', '12:10:30', 46, 94, 53);
-INSERT INTO "post" (postnumber, author, title, time_stamp, upvotes, downvotes, balance) VALUES (20, 'cpidgeleyj', 'School of Flesh, The (École de la chair, L'')', '16:29:29', 52, 57, 67);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('chumburton4', 'Charlottes Web', '20:00:01', 73, 89, 49);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Such Good Friends', '5:28:29', 93, 43, 90);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Vertical Ray of the Sun, The (Mua he chieu thang dung)', '20:41:01', 90, 100, 62);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Love Crazy', '5:53:23', 89, 12, 38);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Charlie Browns Christmas Tales', '0:43:01', 5, 96, 41);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'With Fire and Sword (Ogniem i mieczem)', '20:22:55', 48, 75, 98);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Falling Up', '11:24:34', 51, 33, 42);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Stalag17', '5:27:52', 36, 93, 73);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Rockaway', '16:23:13', 46, 68, 11);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Neds', '9:43:56', 51, 76, 41);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Adios Sabata', '2:47:50', 56, 94, 99);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'City Slickers II: The Legend of Curlys Gold', '18:20:07', 7, 42, 99);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'We Are The Night (Wir sind die Nacht)', '2:33:18', 29, 85, 4);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Kon-Tiki', '0:32:08', 45, 50, 29);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Last Taboo, The', '15:41:11', 37, 19, 40);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Gloria', '4:48:17', 6, 33, 43);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Eye of God', '7:00:41', 52, 21, 59);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'Casino Jack', '10:24:29', 51, 37, 6);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'Nanny Diaries, The', '12:10:30', 46, 94, 53);
+INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'School of Flesh, The (Ecole de la chair, L)', '16:29:29', 52, 57, 67);
 
 INSERT INTO "image_post" (id_post, image, source) VALUES (1, 'http://dummyimage.com/186x117.jpg/dddddd/000000', 'http://blogger.com/phasellus/in.js');
 INSERT INTO "image_post" (id_post, image, source) VALUES (2, 'http://dummyimage.com/191x139.png/5fa2dd/ffffff', 'http://amazon.com/pede/ac.jsp');

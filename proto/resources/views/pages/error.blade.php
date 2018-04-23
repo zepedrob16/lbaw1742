@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="en">
+    @extends('layouts.app')
+
+    @section('content')
 <head>
     <meta charset="utf-8">
     <title>Page Not Found</title>
@@ -13,7 +14,7 @@
             color: #888;
             display: table;
             font-family: sans-serif;
-            height: 100%;
+  
             text-align: center;
             width: 100%;
         }
@@ -46,5 +47,4 @@
     <h1>Page Not Found - 404</h1>
     <p>Sorry, but the page you were trying to view does not exist.</p>
 </body>
-</html>
-<!-- IE needs 512+ bytes: https://blogs.msdn.microsoft.com/ieinternals/2010/08/18/friendly-http-error-pages/ -->
+    @endsection             

@@ -1,53 +1,75 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<link href="{{ asset('css/signin.css')}}" type="text/css" rel="stylesheet">
+@extends('layouts.app')
 
-<title>SHOWCHAN</title>
+<link rel="stylesheet" href="css/signin.css">
 
-</head>
-<body>
-
-<h2>WELCOME TO SHOWCHAN</h2>
-
-<form action="/action_page.php">
-  <div class="imgcontainer">
-    <img src="friends.png" alt="Avatar" class="avatar">
-  </div>
-
-  <div class="container">
+@section('content')
+<div class="container">
     <div class="row">
-        <label for="uname"><b>Username</b></label><br>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-    </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Login</div>
 
-    <div class="row">
-    <label for="psw"><b>Password</b></label><br>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-  </div>
-        
-    <div class="row">
-    <button type="submit">Login</button><br>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-    <div class="row">
-      <span class="psw">Forgot <a href="#">password?</a></span><br><br>
-    </div>
-  </div>
+                <div class="panel-body">
 
-</form>
+                <div class="imgcontainer">
+                    <img src="css/friends.jpg" alt="Avatar" class="avatar">
+                </div>
+                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
 
-<footer class="footer">
-        <div class="container">
-            <span class="text-muted">© SHOWCHAN 2018, LBAW Industries 42</span>
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Login
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Forgot Your Password?
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-    </footer>
-
-</body>
-</html>
+    </div>
+</div>
+@endsection

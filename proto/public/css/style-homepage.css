@@ -1,0 +1,120 @@
+#news_title {
+    font-family: 'harriet';
+    font-size: 1.6em;
+    text-decoration: none;
+    color: black;
+}
+
+#news_title:hover {
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+
+.btn-default {
+    margin-bottom: 30px;
+}
+
+.fa-imdb {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+#vote_balance p{
+    text-align: center;
+}
+
+.row {
+    font-size: 0.8em;
+    margin-bottom: 20px;
+}
+
+.fa-thumbs-up {
+	float: right;
+}
+
+.fa-thumbs-down {
+	float:right;
+}
+
+.upvote {
+  color: black;  
+}
+
+.downvote {
+    color: black;
+}
+
+.upvote:hover {
+  color: green;
+}
+
+.downvote:hover {
+  color: red;
+}
+
+.col-6 p{
+    font-size: 10px;
+    color: grey;
+}
+
+.col-6 .comments{
+    font-size: 10px;
+    float: right;
+}
+
+.col-1 {
+    font-style: italic;
+}
+
+
+
+#join {
+    float: right;
+}
+
+#join {
+    margin-right: 20px;
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #1a3073;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+.inbox{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#adminPanel{
+    color:red;
+}
+
+#horizontal-style {
+    display: table;
+}
+#horizontal-style li {
+    display: table-cell;
+}
+#horizontal-style a {
+    display: block;
+    text-align: center;
+}
+
+body {
+    font-family: 'Open Sans', monospace;
+    font-weight: 400;
+}
+
+/* Font-faces */
+@font-face {
+    font-family: 'harriet';
+    src: url('assets/fonts/Harriet Display Bold.otf');
+}
