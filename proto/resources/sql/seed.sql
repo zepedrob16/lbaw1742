@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS member cascade;
 DROP TABLE IF EXISTS admin cascade;
 DROP TABLE IF EXISTS post_tag cascade;
 DROP TABLE IF EXISTS post_category cascade;
+DROP TABLE IF EXISTS password_resets cascade;
 
 -- Tables
 
@@ -36,6 +37,12 @@ CREATE TABLE users (
   downvotes smallint,
   balance smallint,
   remember_token text
+);
+
+CREATE TABLE password_resets (
+  email text,
+  token text,
+  created_at text
 );
 
 CREATE TABLE post (
