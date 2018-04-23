@@ -291,11 +291,11 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 * R304: View Post
 * R305: Submit Post Form /sub-params
 * R306: Submit Post Action /sub-params/{id}
-* R307:
-* R308:
-* R309:
-* R310:
-* R311:
+* R307: Post Comment Action
+* R308: Delete Comment Action
+* R309: Delete Post Action
+* R310: Edit Comment Action
+* R311: Edit Post Action
 
 #### R301: View Posts
 
