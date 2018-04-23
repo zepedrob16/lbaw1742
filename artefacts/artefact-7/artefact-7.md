@@ -380,7 +380,7 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 |               | R305 | Error
 | **Permissions** | PUB
 
-### 3.4 Module M04:
+### 3.4 Module M04: User area
 
 * R401: View Inbox
 * R402: Open_inbox Form
@@ -422,6 +422,28 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | **Parameters** | +id: integer | User primary key
 |                | +recipient: string | Message recipient's username
 | **Request Body** | ?body: string | Message
+| **Permissions** | USR
+
+#### R404: Send Friend Request Action
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /friend_request/{id_sender, id_recipient}
+| **Description** | Web resource that sends a friendship request from one user to another.
+| **Method** | POST
+| **Redirects** | R106 | Success
+|           | R106 | Error
+| **Permissions** | USR
+
+#### R405: Report User Action
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /report/{id_reporter, id_reported}
+| **Description** | Web resource sent when one user reports another.
+| **Method** | POST
+| **Redirects** | R106 | Success
+|           | R106 | Error
 | **Permissions** | USR
 
 
@@ -483,6 +505,7 @@ Changes made to the first submission:
 * Added an index for **module 4**.
 * Deleted web resource descriptors.
 * **Overall small additions of missing information** on several resources (check revision history).
+* Added R404 and R405
  
 ***
  
