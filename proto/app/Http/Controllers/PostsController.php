@@ -7,6 +7,7 @@ use App\Post;
 use App\Text_Post;
 use App\Image_Post;
 use App\Link_Post;
+use App\Post_Comment;
 use DB;
 
 class PostsController extends Controller
@@ -41,7 +42,10 @@ class PostsController extends Controller
         $posts_image = Image_Post::orderBy('id_post','asc')->get();
         $posts_link = Link_Post::orderBy('id_post','asc')->get();
 
-        $allposts = array($posts,$posts_text,$posts_image,$posts_link);
+        $posts_comment = Post_Comment::all();
+
+
+        $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment);
 
 
         return view('posts.index')->with('allposts',$allposts);

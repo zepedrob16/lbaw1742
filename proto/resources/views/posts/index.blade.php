@@ -22,12 +22,12 @@ $_SESSION['allposts'] = $allposts;
             <div class="col-6">
                 <a href="/posts/{{ $post->postnumber }}" id="news_title">{{ $post->title }}</a><br>
                 <p>Nam consectetur iaculis imperdiet. Fusce ac eros justo. Sed vel risus ac sapien sollicitudin iaculis. Praesent non diam sapien. Curabitur et dui ut dolor mattis.</p>
-                <a href="post.html" class="comments">10 comments</a>
+                <a href="post.html" class="comments"></a>
             </div>
             <div class="col-3">
                 <i class="fas fa-tv"></i> <br>
-                BoJack Horseman<br>
-                <i class="fab fa-imdb"></i>10<br>
+                {{ $post->author }}<br>
+                <i class="fab fa-imdb"></i>{{ $allposts[4]->where('id_post', $post->postnumber)->count() }}<br>
             </div>
         </div>
 		@endforeach
