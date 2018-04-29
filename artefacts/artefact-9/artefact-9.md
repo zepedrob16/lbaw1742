@@ -235,51 +235,27 @@ Here follow transactions needed to assure the integrity of the data.
 
 | SQL Reference | Description | Justification | Isolation Level |
 |:------------- |:----------- |:------------- |:----------------|
-| T01           | User registration | By multiple users registering at the same time, altering the sequential user identificator, inconsistent data would be stored. It is necessary to guarantee the consistency of data by locking transactions when manipulating the user's ID. | REPEATABLE READ | 
+| T01           | Insert new Post | In order to maintain consistency, it's necessary to use a transaction to ensure that the all the code executes without errors. If an error occurs, a ROLLBACK is issued (when the insertion of a post fails, per example). The isolation level is Repeatable Read, because, otherwise, an update of id_post could happen, due to an insert in the table Post committed by a concurrent transaction, and as a result, inconsistent data would be stored.| REPEATABLE READ |
 
 ```sql
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
 
-INSERT INTO "user" (username, email, password, first_name, last_name, date_birth, nationality, 
-quote, avatar, upvotes, downvotes, balance)
-VALUES ($username, $email, $password, $first_name, $last_name, $date_birth, "NONE", "This user 
-hasn't setup their quote.", "default", 0, 0, 0);
+--Insert Post
+INSERT into "post" (author, title, time_stamp, upvotes, downvotes, balance)
+values ($author, $title, $time_stamp, $upvotes, $downvotes, $balance);
 
-COMMIT;
-```
+--Insert Text Post
+insert into "text_post" (id_post, opinion, source) 
+values ($id_post, $opinion, $source);
 
-| SQL Reference | Description | Justification | Isolation Level |
-|:------------- |:----------- |:------------- |:----------------|
-| T02           | Insert a new comment | An update of post_id could happen, due to insertion or deletion of a new post committed by a concurrent transaction, and as a result, a new comment would be published in an unexpected post. | REPEATABLE READ |
+--Insert Link Post
+insert into "link_post" (id_post, url) 
+VALUES ($id_post, $url);
 
-```sql
-BEGIN TRANSACTION;
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
-
-INSERT INTO "text_post" (id_post, opinion, source)
-VALUES ($id_post, $opinion, $source);
-
-INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
-VALUES (currval($id_post), $id_user, $body, current_timestamp);
-
-COMMIT;
-```
-
-| SQL Reference | Description | Justification | Isolation Level |
-|:------------- |:----------- |:------------- |:----------------|
-| T03           | Filtering posts by tag or category | Whilst a particular user filters content by tag or category, fetching posts from the database, fellow users may insert more posts that match the query, resulting on **Phantom Reads**. This would result on the particular user's query being executed twice. | SERIALIZABLE |
-
-```sql
-BEGIN TRANSACTION;
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
-
-SELECT * FROM "post", "post_tag", "media_tag"
-WHERE post.postnumber = post_tag.postnumber AND media_tag.tag_id = post_tag.tag_id;
-
-SELECT * FROM "post", media_category 
-WHERE "post".category = $category AND "post".mediacategory_id LIKE media_category.id 
-AND media_category.type LIKE 'action';
+--Insert Image Post
+insert into "image_post" (id_post, image, source) 
+VALUES ($id_post, $image, $source);
 
 COMMIT;
 ```
@@ -288,6 +264,9 @@ COMMIT;
 
 Changes made to the first submission:
 * Removed trivial queries (201/202/301);
+* Added query responsible for ordering the posts by date (from the most recent to the oldest) and that will be used on final product;
+* Removed all previous transactions;
+* Added transaction related to the insertion of a new Post considering all related tables (text_post, link_post and image_post);
 
 ## Submission Information
 
