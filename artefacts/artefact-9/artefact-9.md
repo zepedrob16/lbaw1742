@@ -106,7 +106,7 @@ DELETE FROM "user" WHERE username = $username;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL301        | View Posts by date | [R301](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r302-search-post-by-tag)|
+| SQL301        | View Posts by date | [R301](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r301-view-posts)|
 
 ```sql
 select title from post ORDER BY time_stamp DESC;
@@ -114,7 +114,7 @@ select title from post ORDER BY time_stamp DESC;
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL302        | Search posts by the provided tag | [R302](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r301-view-posts)|
+| SQL302        | Search posts by the provided tag | [R302](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r302-search-post-by-tag)|
 
 ```sql
 SELECT * FROM "post", "post_tag", "media_tag"
