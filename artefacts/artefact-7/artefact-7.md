@@ -285,7 +285,7 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 
 ### 3.3 Module M03: Posts
 
-* R301: View Posts /homepage
+* R301: View Posts by date /homepage
 * R302: Search Post by Tag /homepage/{search}
 * R303: Search Post by Category /homepage/{search}
 * R304: View Post
@@ -447,6 +447,7 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 * R403: Open_inbox Action
 * R404: Send Friend Request Action
 * R405: Report User Action
+* R406: View invitations received
 
 #### R401: View inbox
 
@@ -504,6 +505,17 @@ The goal of this project is to provide tv show and movie aficionados with daily 
 | **URL** | /report/{id_reporter, id_reported}
 | **Description** | Web resource sent when one user reports another.
 | **Method** | POST
+| **Redirects** | R106 | Success
+|           | R106 | Error
+| **Permissions** | USR
+
+#### R406: View invitations received
+
+|   |   |   |
+|--:|---|---|
+| **URL** | /invitations
+| **Description** | Web resource to view invitations received.
+| **Method** | GET
 | **Redirects** | R106 | Success
 |           | R106 | Error
 | **Permissions** | USR
