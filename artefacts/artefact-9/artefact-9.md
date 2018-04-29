@@ -241,11 +241,11 @@ Here follow transactions needed to assure the integrity of the data.
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
 
---Only one of these inserts will happen
-
 --Insert Post
 INSERT into "post" (author, title, time_stamp, upvotes, downvotes, balance)
 values ($author, $title, $time_stamp, $upvotes, $downvotes, $balance);
+
+--Only one of these inserts will happen (according to the type of the Post)
 
 --Insert Text Post
 insert into "text_post" (id_post, opinion, source) 
