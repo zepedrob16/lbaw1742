@@ -76,23 +76,7 @@ VALUES ($criminal, $author, $type, current_timestamp);
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL201        | Displays a list of every registered user | [R201](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r201-get-users)|
-
-```sql
-SELECT * FROM "user";
-```
-
-| SQL Reference | Access Description | Web Resource |
-|:------------- |:------------------ |:------------ |
-| SQL202        | Displays a list of reports related to comments and posts | [R204](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r204-get-reports)|
-
-```sql
-SELECT * FROM "report";
-```
-
-| SQL Reference | Access Description | Web Resource |
-|:------------- |:------------------ |:------------ |
-| SQL203        | Promotes user to a higher role on the platform | [R205](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r205-promote-user)|
+| SQL201        | Promotes user to a higher role on the platform | [R205](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r205-promote-user)|
 
 ```sql
 DELETE FROM "member" WHERE id_user = $id_user
@@ -102,7 +86,7 @@ VALUES ($id_user)
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL204        | Demotes user to a low role on the platform | [R206](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r206-demote-moderator)|
+| SQL202        | Demotes user to a low role on the platform | [R206](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r206-demote-moderator)|
 
 ```sql
 DELETE FROM "moderator" WHERE id_user = $id_user
@@ -112,21 +96,13 @@ VALUES ($id_user, NULL)
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL205        | Banishes user from platform yet their content remains available for access | [R207](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r207-ban-user)|
+| SQL203        | Banishes user from platform yet their content remains available for access | [R207](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r207-ban-user)|
 
 ```sql
 DELETE FROM "user" WHERE username = $username;
 ```
 
 ### 1.3. M03: Posts
-
-| SQL Reference | Access Description | Web Resource |
-|:------------- |:------------------ |:------------ |
-| SQL301        | Shows posts made by users on the system | [R301](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r301-view-posts)|
-
-```sql
-SELECT * FROM "post";
-```
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
@@ -303,7 +279,7 @@ COMMIT;
 ## Revision history
 
 Changes made to the first submission:
-* No changes thus far.
+* Removed trivial queries (201/202/301);
 
 ## Submission Information
 
