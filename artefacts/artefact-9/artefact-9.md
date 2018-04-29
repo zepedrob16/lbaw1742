@@ -241,6 +241,8 @@ Here follow transactions needed to assure the integrity of the data.
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
 
+--Onyl one of these inserts will happen
+
 --Insert Post
 INSERT into "post" (author, title, time_stamp, upvotes, downvotes, balance)
 values ($author, $title, $time_stamp, $upvotes, $downvotes, $balance);
