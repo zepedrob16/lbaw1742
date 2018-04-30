@@ -65,7 +65,16 @@ VALUES ($id_sender, $id_recipient, current_timestamp, NULL);
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL106        | Reports user so it must be reviewed by administrators | [R405](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r405-report-user-action) |
+| SQL106        | Lists received friend requests | [R406]https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r406-view-invitations-received) |
+
+```sql
+SELECT dateRequest, sender FROM "friend_request"
+WHERE receiver = $receiver
+```
+
+| SQL Reference | Access Description | Web Resource |
+|:------------- |:------------------ |:------------ |
+| SQL107        | Reports user so it must be reviewed by administrators | [R405](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r405-report-user-action) |
 
 ```sql
 INSERT INTO "report" (criminal, author, type, timestamp)
@@ -265,10 +274,12 @@ COMMIT;
 ## Revision history
 
 Changes made to the first submission:
-* Removed trivial queries (201/202/301);
-* Added query responsible for ordering the posts by date (from the most recent to the oldest) and that will be used on final product;
-* Removed all previous transactions;
-* Added transaction related to the insertion of a new Post considering all related tables (text_post, link_post and image_post);
+* **Removed trivial queries** (201/202/301);
+* Added query responsible for **ordering the posts by date** (from the most recent to the oldest) and that will be used on final product;
+* Added query for **friend request listing** received by a particular user;
+* Handled **selection of post's comments**;
+* **Rewritten** all previous **transactions**;
+* Added transaction related to the **insertion of a new Post** considering all related tables (text_post, link_post and image_post);
 
 ## Submission Information
 
