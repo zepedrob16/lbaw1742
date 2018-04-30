@@ -271,6 +271,23 @@ VALUES ($id_post, $image, $source);
 COMMIT;
 ```
 
+| SQL Reference | Description | Justification | Isolation Level |
+|:------------- |:----------- |:------------- |:----------------|
+| T02           | Insert a new comment | An update of post_id could happen, due to insertion or deletion of a new post committed by a concurrent transaction, and as a result, a new comment would be published in an unexpected post. | REPEATABLE READ |
+
+```sql
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ 
+
+INSERT INTO "text_post" (id_post, opinion, source)
+VALUES ($id_post, $opinion, $source);
+
+INSERT INTO "post_comment" (id_post, id_user, body, timestamp)
+VALUES (currval($id_post), $id_user, $body, current_timestamp);
+
+COMMIT;
+```
+
 ## Revision history
 
 Changes made to the first submission:
