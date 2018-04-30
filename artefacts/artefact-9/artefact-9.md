@@ -65,7 +65,7 @@ VALUES ($id_sender, $id_recipient, current_timestamp, NULL);
 
 | SQL Reference | Access Description | Web Resource |
 |:------------- |:------------------ |:------------ |
-| SQL106        | Lists received friend requests | [R406]https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r406-view-invitations-received) |
+| SQL106        | Lists received friend requests | [R406](https://github.com/zepedrob16/lbaw1742/blob/master/artefacts/artefact-7/artefact-7.md#r406-view-invitations-received) |
 
 ```sql
 SELECT dateRequest, sender FROM "friend_request"
