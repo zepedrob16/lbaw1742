@@ -69,24 +69,71 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'typepost' => 'required'
         ]);
 
-        
+        $typeOfPost = $_POST['typepost'];
+
         //Create Post
         $post = new Post;
-        //$post->postnumber = $request->input('title');
-
 
         $post->title = $request->input('title');
-      //  $post->body = $request->input('body');
-
+        $post->type = $typeOfPost;
 
         $post->save();
+    
+        if($typeOfPost === "text"){
+            
+            $post_text = new Text_Post;
+            $post_text->id_post = $post->postnumber;
+            $post_text->opinion = $request->input('body');
+            $post_text->source = $request->input('source');
+
+            $post_text->save();
+        }
+
+        else if ($typeOfPost === "link"){
+
+            $post_link = new Link_Post;
+            $post_link->id_post = $post->postnumber;
+            $post_link->url = $request->input('link');
+
+            $post_link->save();
+        }
+
+        else {
+
+            $post_image = new Image_Post;
+            $post_image->id_post = $post->postnumber;
+            $post_image->source = $request->input('source');
+
+            // Handle File Upload
+            if($request->hasFile('image_post')){
+                // Get filename with the extension
+                $filenameWithExt = $request->file('image_post')->getClientOriginalName();
+                // Get just filename
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                // Get just ext
+                $extension = $request->file('image_post')->getClientOriginalExtension();
+                // Filename to store
+                $fileNameToStore= $filename.'_'.time().'.'.$extension;
+                // Upload Image
+                $path = $request->file('image_post')->storeAs('public/post_images', $fileNameToStore);
+            } else {
+                $fileNameToStore = 'noimage.jpg';
+            }
+
+            $post_image->image = $fileNameToStore;
+
+            $post_image->save();
+        }
+
 
         return redirect('/posts')->with('success', 'Post Created');
+        
 
     }
 

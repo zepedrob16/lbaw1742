@@ -49,6 +49,7 @@ CREATE TABLE post (
   postnumber SERIAL UNIQUE ,
   author text ,
   title text NOT NULL,
+  type text NOT NULL,
   time_stamp time ,
   upvotes smallint,
   downvotes smallint,
@@ -312,26 +313,26 @@ INSERT INTO "users" (username, password, name, lastname, email, datebirth, natio
 INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'fQC51NA429Dx', 'Zoé', 'Pidgeley', 'mpidgeleyj@goo.gl', '1992/07/19', 'Kazakhstan', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', 'http://dummyimage.com/125x176.jpg/dddddd/000000', 49, 62, 69);
 
 
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('chumburton4', 'Charlottes Web', '20:00:01', 73, 89, 49);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Such Good Friends', '5:28:29', 93, 43, 90);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Vertical Ray of the Sun, The (Mua he chieu thang dung)', '20:41:01', 90, 100, 62);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Love Crazy', '5:53:23', 89, 12, 38);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Charlie Browns Christmas Tales', '0:43:01', 5, 96, 41);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'With Fire and Sword (Ogniem i mieczem)', '20:22:55', 48, 75, 98);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Falling Up', '11:24:34', 51, 33, 42);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Stalag17', '5:27:52', 36, 93, 73);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Rockaway', '16:23:13', 46, 68, 11);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Neds', '9:43:56', 51, 76, 41);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Adios Sabata', '2:47:50', 56, 94, 99);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'City Slickers II: The Legend of Curlys Gold', '18:20:07', 7, 42, 99);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'We Are The Night (Wir sind die Nacht)', '2:33:18', 29, 85, 4);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Kon-Tiki', '0:32:08', 45, 50, 29);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Last Taboo, The', '15:41:11', 37, 19, 40);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Gloria', '4:48:17', 6, 33, 43);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Eye of God', '7:00:41', 52, 21, 59);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'Casino Jack', '10:24:29', 51, 37, 6);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'Nanny Diaries, The', '12:10:30', 46, 94, 53);
-INSERT INTO "post" (author, title, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'School of Flesh, The (Ecole de la chair, L)', '16:29:29', 52, 57, 67);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('chumburton4', 'Charlottes Web','text', '20:00:01', 73, 89, 49);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Such Good Friends','text', '5:28:29', 93, 43, 90);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Vertical Ray of the Sun, The (Mua he chieu thang dung)','text', '20:41:01', 90, 100, 62);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Love Crazy','text', '5:53:23', 89, 12, 38);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Charlie Browns Christmas Tales','text', '0:43:01', 5, 96, 41);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'With Fire and Sword (Ogniem i mieczem)','text', '20:22:55', 48, 75, 98);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Falling Up','text', '11:24:34', 51, 33, 42);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Stalag17','text', '5:27:52', 36, 93, 73);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Rockaway','text', '16:23:13', 46, 68, 11);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Neds','text', '9:43:56', 51, 76, 41);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Adios Sabata','text', '2:47:50', 56, 94, 99);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'City Slickers II: The Legend of Curlys Gold','text', '18:20:07', 7, 42, 99);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'We Are The Night (Wir sind die Nacht)','text', '2:33:18', 29, 85, 4);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Kon-Tiki','text', '0:32:08', 45, 50, 29);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Last Taboo, The','text', '15:41:11', 37, 19, 40);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Gloria','text', '4:48:17', 6, 33, 43);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Eye of God','text', '7:00:41', 52, 21, 59);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'Casino Jack','text', '10:24:29', 51, 37, 6);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'Nanny Diaries, The','text', '12:10:30', 46, 94, 53);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'School of Flesh, The (Ecole de la chair, L)','text', '16:29:29', 52, 57, 67);
 
 INSERT INTO "image_post" (id_post, image, source) VALUES (1, 'http://dummyimage.com/186x117.jpg/dddddd/000000', 'http://blogger.com/phasellus/in.js');
 INSERT INTO "image_post" (id_post, image, source) VALUES (2, 'http://dummyimage.com/191x139.png/5fa2dd/ffffff', 'http://amazon.com/pede/ac.jsp');
