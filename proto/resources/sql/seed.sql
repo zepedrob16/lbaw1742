@@ -125,7 +125,7 @@ CREATE TABLE media_category (
 );
 
 CREATE TABLE media_tag (
-  tag_id INTEGER NOT NULL,
+  tag_id SERIAL UNIQUE,
   title text NOT NULL,
   rating FLOAT
 );
@@ -144,6 +144,7 @@ CREATE TABLE admin (
 );
 
 CREATE TABLE post_tag(
+  id SERIAL UNIQUE,
   postnumber INTEGER NOT NULL,
   tag_id INTEGER NOT NULL
 );
@@ -211,7 +212,7 @@ ALTER TABLE ONLY friendship
    ADD CONSTRAINT admin_pkey PRIMARY KEY (id_user); 
 
  ALTER TABLE ONLY post_tag
-   ADD CONSTRAINT post_tag_pk PRIMARY KEY (tag_id); 
+   ADD CONSTRAINT post_tag_pk PRIMARY KEY (id); 
 
  ALTER TABLE ONLY post_category
    ADD CONSTRAINT post_category_pk PRIMARY KEY (cat_id); 
@@ -247,7 +248,10 @@ ALTER TABLE ONLY post_reaction
     ADD CONSTRAINT id_user FOREIGN KEY (reactor) REFERENCES users(id) ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_reaction
-    ADD CONSTRAINT id_post FOREIGN KEY (reacted) REFERENCES post(postnumber) ON UPDATE CASCADE;
+    ADD CONSTRAINT id_user_2 FOREIGN KEY (reacted) REFERENCES users(id) ON UPDATE CASCADE;
+
+ALTER TABLE ONLY post_reaction
+    ADD CONSTRAINT reaction_post_fkey FOREIGN KEY (postnumber) REFERENCES post(postnumber) ON UPDATE CASCADE;
 
 ALTER TABLE ONLY image_post
     ADD CONSTRAINT image_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON UPDATE CASCADE;
@@ -266,9 +270,6 @@ ALTER TABLE ONLY conversation_message
    
 ALTER TABLE ONLY media_category
     ADD CONSTRAINT media_category_id_post_fkey FOREIGN KEY (cat_id) REFERENCES post(postnumber) on UPDATE CASCADE;
-
-ALTER TABLE ONLY media_tag
-    ADD CONSTRAINT media_tag_id_post_fkey FOREIGN KEY (tag_id) REFERENCES post(postnumber) on UPDATE CASCADE;
     
 ALTER TABLE ONLY moderator
     ADD CONSTRAINT moderator_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) on UPDATE CASCADE;
@@ -313,16 +314,16 @@ INSERT INTO "users" (username, password, name, lastname, email, datebirth, natio
 INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'fQC51NA429Dx', 'Zoé', 'Pidgeley', 'mpidgeleyj@goo.gl', '1992/07/19', 'Kazakhstan', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', 'http://dummyimage.com/125x176.jpg/dddddd/000000', 49, 62, 69);
 
 
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('chumburton4', 'Charlottes Web','text', '20:00:01', 73, 89, 49);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Such Good Friends','text', '5:28:29', 93, 43, 90);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Vertical Ray of the Sun, The (Mua he chieu thang dung)','text', '20:41:01', 90, 100, 62);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Love Crazy','text', '5:53:23', 89, 12, 38);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Charlie Browns Christmas Tales','text', '0:43:01', 5, 96, 41);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'With Fire and Sword (Ogniem i mieczem)','text', '20:22:55', 48, 75, 98);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Falling Up','text', '11:24:34', 51, 33, 42);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Stalag17','text', '5:27:52', 36, 93, 73);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Rockaway','text', '16:23:13', 46, 68, 11);
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Neds','text', '9:43:56', 51, 76, 41);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('chumburton4', 'Charlottes Web','image', '20:00:01', 73, 89, 49);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Such Good Friends','image', '5:28:29', 93, 43, 90);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Vertical Ray of the Sun, The (Mua he chieu thang dung)','image', '20:41:01', 90, 100, 62);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Love Crazy','image', '5:53:23', 89, 12, 38);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Charlie Browns Christmas Tales','image', '0:43:01', 5, 96, 41);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'With Fire and Sword (Ogniem i mieczem)','link', '20:22:55', 48, 75, 98);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('flocksg', 'Falling Up','link', '11:24:34', 51, 33, 42);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Stalag17','link', '5:27:52', 36, 93, 73);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'Rockaway','link', '16:23:13', 46, 68, 11);
+INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Neds','link', '9:43:56', 51, 76, 41);
 INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'Adios Sabata','text', '2:47:50', 56, 94, 99);
 INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('jyakunkini', 'City Slickers II: The Legend of Curlys Gold','text', '18:20:07', 7, 42, 99);
 INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance) VALUES ('dmedinac', 'We Are The Night (Wir sind die Nacht)','text', '2:33:18', 29, 85, 4);

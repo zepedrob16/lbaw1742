@@ -13,34 +13,49 @@ function searchForId($id, $array) {
    return null;
 }
 
-$id = searchForId($post->postnumber, $allposts[1]);
-$content = null;
-
-if($id!==null)
+if($post->type === "text"){
+	$id = searchForId($post->postnumber, $allposts[1]);
 	$content = $id->opinion;
-if($id===null){
-		$id = searchForId($post->postnumber, $allposts[2]);
-		if($id!==null)
-			$content = $id->image;
-	}
-if($id===null){
-		$id = searchForId($post->postnumber, $allposts[3]);
-		if($id!==null)
-			$content = $id->url;
-
-	}
+}
+else if($post->type === "image"){
+	$id = searchForId($post->postnumber, $allposts[2]);
+	$content = $id->image;
+}
+else{
+	$id = searchForId($post->postnumber, $allposts[3]);
+	$content = $id->url;
+}
 
 $_SESSION['content'] = $content;
+$_SESSION['id'] = $id;
+
+
 ?>
 
 @section('content')
 	<a href="/posts" class="btn btn-default">Go Back</a>
 	<h1>{{ $post->title }}</h1>
 	<div>
-		{!! $content !!}
+		@if($post->type === "image")
+			<img style="width:50%" src="/storage/post_images/{{ $content }}">
+		@else
+			{!! $content !!}
+		@endif
 	</div>
+	<br><br><br><br>
+	<div>
+		@if($post->type === "text" || $post->type === "image")
+			<small>Source: {{ $id->source }} </small>
+		@else
+			
+		@endif
+	</div>
+	<br>
 	<small>Posted by {{ $post->author }} </small>
+
 	<hr>
+	
+
 
     <a href="/posts/{{$post->postnumber}}/edit" class="btn btn-default">Edit</a>
 

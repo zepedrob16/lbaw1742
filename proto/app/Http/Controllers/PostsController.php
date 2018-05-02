@@ -8,6 +8,8 @@ use App\Text_Post;
 use App\Image_Post;
 use App\Link_Post;
 use App\Post_Comment;
+use App\Post_Reaction;
+use App\Media_Category;
 use DB;
 
 class PostsController extends Controller
@@ -77,11 +79,36 @@ class PostsController extends Controller
 
         $typeOfPost = $_POST['typepost'];
 
+        if($typeOfPost === "text")
+        {
+            $this->validate($request, [
+            'body' => 'required',
+            'source' => 'required'
+        ]);
+        }
+
+        else if($typeOfPost === "link")
+        {
+            $this->validate($request, [
+            'link' => 'required',
+        ]);
+        }
+
+        else if ($typeOfPost === "image") {
+            $this->validate($request, [
+            'image_post' => 'required',
+            'source' => 'required'
+        ]);            
+        }
+
         //Create Post
         $post = new Post;
 
         $post->title = $request->input('title');
         $post->type = $typeOfPost;
+        $post->upvotes = 0;
+        $post->downvotes = 0;
+        $post->balance = 0;
 
         $post->save();
     
@@ -172,38 +199,71 @@ class PostsController extends Controller
     public function update(Request $request, $postnumber)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required'
+            'title' => 'required'
         ]);
 
         //Find Post
         $post = Post::find($postnumber);
 
+        if($post->type === "text")
+        {
+            $this->validate($request, [
+            'body' => 'required',
+            'source' => 'required'
+        ]);
+        }
+
+        else if($post->type === "link")
+        {
+            $this->validate($request, [
+            'link' => 'required',
+        ]);
+        }
+
+        else if ($post->type === "image") {
+            $this->validate($request, [
+            'source' => 'required'
+        ]);            
+        }
+
         $post->title = $request->input('title');
 
-        //Save Content
-        $post_type = Text_Post::find($postnumber);
-        if($post_type !== null){
-            $post_type->opinion = $request->input('body');
+        if($post->type === "text"){
+            $sub_post = Text_Post::find($postnumber);
+            $sub_post->opinion = $request->input('body');
+            $sub_post->source = $request->input('source');
         }
-        if($post_type === null){
-            $post_type = Image_Post::find($postnumber);
-            if($post_type !== null){
-                $post_type->image = $request->input('body');
-             }
+
+        else if($post->type === "link"){
+            $sub_post = Link_Post::find($postnumber);
+            $sub_post->url = $request->input('link');
         }
-        if($post_type === null){
-            $post_type = Link_Post::find($postnumber);
-            if($post_type !== null){
-                $post_type->url = $request->input('body');
-             }
+        else if($post->type === "image"){
+            $sub_post = Image_Post::find($postnumber);
+
+            // Handle File Upload
+            if($request->hasFile('image_post')){
+                // Get filename with the extension
+                $filenameWithExt = $request->file('image_post')->getClientOriginalName();
+                // Get just filename
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                // Get just ext
+                $extension = $request->file('image_post')->getClientOriginalExtension();
+                // Filename to store
+                $fileNameToStore= $filename.'_'.time().'.'.$extension;
+                // Upload Image
+                $path = $request->file('image_post')->storeAs('public/post_images', $fileNameToStore);
+
+                $sub_post->image = $fileNameToStore;
+            }
+            
+            $sub_post->source = $request->input('source');
         }
-  
-        
+
+
         $post->save();
 
-        if($post_type !== null)
-         $post_type->save();
+        $sub_post->save();
 
         return redirect('/posts')->with('success', 'Post Updated');     
     }
@@ -217,7 +277,36 @@ class PostsController extends Controller
     public function destroy($postnumber)
     {
         $post = Post::find($postnumber);
+
+        if($post->type === "text"){
+            $sub_post = Text_Post::find($postnumber);
+            $sub_post->delete();
+        }
+        else if($post->type === "link"){
+            $sub_post = Link_Post::find($postnumber);
+            $sub_post->delete();
+        }
+        else {
+            $sub_post = Image_Post::find($postnumber);
+            $sub_post->delete();
+        }
+
+        Post_Reaction::where('postnumber', $postnumber)->delete();
+
+
+/*
+        $commentsRelated = Post_Comment::where('id_post', $postnumber);
+        $commentsRelated->delete();
+        
+
+        $reactionsRelated = Post_Reaction::where('id', $postnumber);
+        $reactionsRelated->delete();
+
+        $mediaCatRelated = Media_Category::where('cat_id', $postnumber);
+        $mediaCatRelated->delete();
+*/
         $post->delete();
+
         return redirect ('/posts')->with('success','Post Removed');
     }
 }
