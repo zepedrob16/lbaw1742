@@ -76,9 +76,9 @@
                             </div>
                         </div>
 
-                        <!-- INPUT NATIONALITY -->
+                        <!-- INPUT NATIONALITY TODO -->
 
-                        <div class="container field {{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="container field {{ $errors->has('nationality') ? ' has-error' : '' }}">
                             <div class="row">
                                 <div class="col-"><h2>Nationality</h2></div>
                             </div>
@@ -99,7 +99,7 @@
     <option value="AR">Argentina</option>
     <option value="AM">Armenia</option>
     <option value="AW">Aruba</option>
-    <option value="{{ old('nationality') }}">Australia</option>
+    <option value="AU">Australia</option>
     <option value="AT">Austria</option>
     <option value="AZ">Azerbaijan</option>
     <option value="BS">Bahamas</option>
@@ -344,6 +344,41 @@
                                 @endif
                             </div>
                         </div>
+
+                        <!-- INPUT AVATAR TODO -->
+
+                        <div class="container field {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div class="row">
+                                <div class="col-"><h2>Avatar</h2></div>
+                            </div>
+                            <div class="row field-input">
+                                <input type="file" name="avatar" id="avatar">
+
+                                @if ($errors->has('lastname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('lastname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- INPUT QUOTE -->
+
+                        <div class="container field {{ $errors->has('quote') ? ' has-error' : '' }}">
+                            <div class="row">
+                                <div class="col-"><h2>Favourite quote</h2></div>
+                            </div>
+                            <div class="row field-input">
+                                <div class="col-"><input id="quote" type="text" name="quote" placeholder="Enter your favourite quote" value="{{ old('quote') }}" required></div>
+
+                                @if ($errors->has('quote'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('quote') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>

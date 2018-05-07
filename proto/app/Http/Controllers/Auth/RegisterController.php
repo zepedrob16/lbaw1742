@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'nationality' => 'required|string|max:255',
+            'quote' => 'string|max:255',
         ]);
     }
 
@@ -73,6 +74,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'lastname' => $data['lastname'],
             'nationality' => $data['nationality'],
+            'quote' => $data['quote'],
         ]);
     }
 }
