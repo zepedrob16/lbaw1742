@@ -5,14 +5,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/statistic.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/icon.css" rel="stylesheet">
 
-  <h3>---Aqui a página que mostra o perfil---</h3>
-  <br>
-  <h4>Exemplo de uma forma de aceder ao utilizador</h4>
-
-      <div class="well">
-        <h3>Eu sou o {{$user->username}}</h3>
-      </div>
-
     <div class="container">
       <div class="row">
         <div class="col-5">

@@ -10,6 +10,8 @@
     
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="sub-params.css" rel="stylesheet">
+
 
     <title>SHOWCHAN</title>
 </head>
@@ -30,10 +32,31 @@
         </ul>
     </div>
 
-    <div class="row-">
+   
+
+<div class="row-">
+    <form action="/action_page.php">
         <div class="col">
                 <div class="container">
+                    <div class="container field">
                         <div class="row">
+                            <div class="col-"><h2>First Name</h2></div>
+                        </div>
+                        <div class="row field-input">
+                            <div class="col-"><input type="text" name="sub-title" placeholder="Enter your first name"></div>
+                        </div>
+                    </div>
+
+                    <div class="container field">
+                        <div class="row">
+                            <div class="col-"><h2>Last Name</h2></div>
+                        </div>
+                        <div class="row field-input">
+                            <div class="col-"><input type="text" name="sub-title" placeholder="Enter your last name"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
                             <div class="col-"><h2>Username</h2></div>
                         </div>
                         <div class="row field-input">
@@ -49,7 +72,34 @@
                             <div class="col-"><input type="text" name="sub-title" placeholder="Minimum 6 characters."></div>
                         </div>
                     </div>
-                
+
+                    <div class="container field">
+                        <div class="row">
+                            <div class="col-"><h2>Nationality</h2></div>
+                        </div>
+                        <div class="row field-input">
+                            <div class="col-"><input type="text" name="sub-title" placeholder="Enter your nationality"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="container field">
+                        <div class="row">
+                            <div class="col-"><h2>Profile Picture</h2></div>
+                        </div>
+                        <div class="row field-input">
+                            <div class="col-"><input type="text" name="sub-title"></div>
+                        </div>
+                    </div>
+
+                    <div class="container field">
+                        <div class="row">
+                            <div class="col-"><h2>Favourite Quote</h2></div>
+                        </div>
+                        <div class="row field-input">
+                            <div class="col-"><input type="text" name="sub-title" placeholder="Enter your favourite quote"></div>
+                        </div>
+                    </div>
+
                     <div class="container field">
                         <div class="row">
                             <div class="col-"><h2>Password</h2></div>
@@ -74,10 +124,13 @@
                         </div>
                     </div>
         </div>
+
+    </form>
+
         <div class="col">
             <img id="img-responsive" src="assets/images/stock.png" alt="stock" width="50%">
         </div>
-    </div>
+</div>
     
 
 
