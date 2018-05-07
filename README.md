@@ -17,7 +17,7 @@
 
 - [ ] Controlo de acesso
 
-- [ ] Ver Perfil
+- [x] Ver Perfil
 
 - [ ] Editar Perfil
 
