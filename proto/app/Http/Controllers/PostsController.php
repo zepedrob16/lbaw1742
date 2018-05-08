@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
 use App\Post;
 use App\Text_Post;
 use App\Image_Post;
@@ -309,4 +311,25 @@ class PostsController extends Controller
 
         return redirect ('/posts')->with('success','Post Removed');
     }
+
+    public static function incrementPostLikes($postnubmer){
+        $post = Post::find($postnubmer);
+        $post->upvotes=$post->upvotes+1;
+        $post->save();
+    }
+
+    public function updateCustomerRecord(Request $request){
+        return response()->json(['message' => 'successfull'],200);
+    }
+
+    public function postCustomerRecord(Request $request){
+        $data = $request->all(); // This will get all the request data.
+
+        $id = $data['id'];
+
+        $post = Post::find($id);
+        $post->upvotes=$post->upvotes+1;
+        $post->save();
+    }
+
 }
