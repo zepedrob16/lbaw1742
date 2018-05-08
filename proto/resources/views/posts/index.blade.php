@@ -19,8 +19,10 @@ $_SESSION['allposts'] = $allposts;
                 <div id="balance" number={{ $post->postnumber }}>
                 <p>{{ $post->balance }}</p>
                 </div>
+                @if(!Auth::guest())
                 <a number={{ $post->postnumber }} id="upvote" class="upvote" ><i class="far fa-thumbs-up"></i>Upvote</a> <br>
                 <a number={{ $post->postnumber }} id="downvote" class="downvote"><i class="far fa-thumbs-down"></i>Downvote</a>
+                @endif
             </div>
             <div class="col-6">
                 <a href="/posts/{{ $post->postnumber }}" id="news_title">{{ $post->title }}</a><br>
@@ -38,21 +40,11 @@ $_SESSION['allposts'] = $allposts;
         <p>No posts found</p>
     @endif
 
-<button type="button" class="btn btn-warning" id="pedido">getRequest</button>
-
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
 
-$.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
- });
-
-
-var id = 11; // A random variable for this example
-
+/*
 $.ajax({
     method: 'GET',
     url: 'here',
@@ -63,21 +55,8 @@ $.ajax({
     error: function( e ) {
         console.log(e);
     }
-});
+});*/
 
-$.ajax({
-    method: 'POST',
-    url: 'here2',
-    data: {'id' : id},
-    success: function( response ){
-        console.log( response );
-    },
-    error: function( e ) {
-        console.log(e);
-    }
-});
-
-/*
 var allBalance = document.querySelectorAll('#balance');
 
 var allUpvotes = document.querySelectorAll('#upvote');
@@ -89,15 +68,34 @@ for(var i = 0; i < allUpvotes.length; i++){
     });
  }  
 
-for(var i = 0; i < allDownVotes.length; i++){
+ for(var i = 0; i < allDownVotes.length; i++){
     allDownVotes[i].addEventListener('click',function(){
         downvote(this);
     });
  }  
 
-function upvote(upvoteNumb){
+ function upvote(upvoteNumb){
 
-    var currPostnum = upvoteNumb.getAttribute("number");
+ var currPostnum = upvoteNumb.getAttribute("number");
+
+
+$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+ });
+
+    $.ajax({
+    method: 'POST',
+    url: 'increment',
+    data: {'currPostnum' : currPostnum, 'reactor': reactor },
+    success: function( response ){
+        console.log( response );
+    },
+    error: function( e ) {
+        console.log(e);
+    }
+});
 
     for(var i = 0 ; i < allBalance.length; i++){
         if(allBalance[i].getAttribute("number") == currPostnum){
@@ -108,19 +106,38 @@ function upvote(upvoteNumb){
  
 }
 
-function downvote(downvoteNumb){
 
-    var currPostnum = downvoteNumb.getAttribute("number");
+ function downvote(downvoteNumb){
+
+ var currPostnum = downvoteNumb.getAttribute("number");
+
+$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+ });
+
+    $.ajax({
+    method: 'POST',
+    url: 'decrement',
+    data: {'currPostnum' : currPostnum},
+    success: function( response ){
+        console.log( response );
+    },
+    error: function( e ) {
+        console.log(e);
+    }
+});
 
     for(var i = 0 ; i < allBalance.length; i++){
         if(allBalance[i].getAttribute("number") == currPostnum){
             var newLikes = parseInt(allBalance[i].textContent)-1;
             allBalance[i].innerHTML="<p>"+newLikes+"</p>";
         }
-    }
-   // console.log(upvoteNumb);
+    }       
+ 
 }
-*/
+
 </script>
 
 @endsection

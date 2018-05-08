@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class User_table extends Model
 {
     // Table Name
-    protected $table = 'user';
+    protected $table = 'users';
     // Primary Key
     public $primaryKey = 'id';
     // Timestamps

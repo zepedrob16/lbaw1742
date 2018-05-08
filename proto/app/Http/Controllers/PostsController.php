@@ -12,10 +12,15 @@ use App\Link_Post;
 use App\Post_Comment;
 use App\Post_Reaction;
 use App\Media_Category;
+use App\User_Table;
 use DB;
 
 class PostsController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
 
     /**
      * Display a listing of the resource.
@@ -47,9 +52,10 @@ class PostsController extends Controller
         $posts_link = Link_Post::orderBy('id_post','asc')->get();
 
         $posts_comment = Post_Comment::all();
+        $users = User_Table::all();
 
 
-        $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment);
+        $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment,$users);
 
 
         return view('posts.index')->with('allposts',$allposts);
@@ -312,24 +318,31 @@ class PostsController extends Controller
         return redirect ('/posts')->with('success','Post Removed');
     }
 
-    public static function incrementPostLikes($postnubmer){
-        $post = Post::find($postnubmer);
-        $post->upvotes=$post->upvotes+1;
-        $post->save();
-    }
-
-    public function updateCustomerRecord(Request $request){
-        return response()->json(['message' => 'successfull'],200);
-    }
-
-    public function postCustomerRecord(Request $request){
+    public function incrementPostLikes(Request $request){
         $data = $request->all(); // This will get all the request data.
 
-        $id = $data['id'];
+        $id = $data['currPostnum'];
 
         $post = Post::find($id);
         $post->upvotes=$post->upvotes+1;
         $post->save();
+        return response()->json(['message' => 'successfull -> + 1 post like'],200);
+    }
+
+    public function decrementPostLikes(Request $request){
+        $data = $request->all(); // This will get all the request data.
+
+        $id = $data['currPostnum'];
+
+        $post = Post::find($id);
+        if($post->upvotes>0){
+            $post->upvotes=$post->upvotes-1;
+            $post->save();
+            return response()->json(['message' => 'successfull -> + 1 post dislike'],200);
+        }
+        else{
+            return response()->json(['message' => 'unsuccessfull -> not allowed'],200);
+        }
     }
 
 }

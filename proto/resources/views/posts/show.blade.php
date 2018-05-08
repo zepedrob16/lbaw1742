@@ -29,6 +29,7 @@ else{
 $_SESSION['content'] = $content;
 $_SESSION['id'] = $id;
 
+//$user = $allposts[5]->where('username', $post->author);
 
 ?>
 
@@ -56,12 +57,15 @@ $_SESSION['id'] = $id;
 	<hr>
 	
 
+	@if(!Auth::guest())
+		
+			<a href="/posts/{{$post->postnumber}}/edit" class="btn btn-default">Edit</a>
 
-    <a href="/posts/{{$post->postnumber}}/edit" class="btn btn-default">Edit</a>
-
-    {!!Form::open(['action' => ['PostsController@destroy', $post->postnumber], 'method' => 'POST', 'class' => 'pull-right'])!!}
-    {{Form::hidden('_method', 'DELETE')}}
-    {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-    {!!Form::close()!!}
+			{!!Form::open(['action' => ['PostsController@destroy', $post->postnumber], 'method' => 'POST', 'class' => 'pull-right'])!!}
+			{{Form::hidden('_method', 'DELETE')}}
+			{{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+			{!!Form::close()!!}
+		
+    @endif
 
 @endsection

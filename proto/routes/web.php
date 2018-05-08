@@ -22,5 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('profile','ProfileController');
 
-Route::get('/here','PostsController@updateCustomerRecord');
-Route::post('/here2','PostsController@postCustomerRecord');
+Route::post('/increment','PostsController@incrementPostLikes');
+Route::post('/decrement','PostsController@decrementPostLikes');
