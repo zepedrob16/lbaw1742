@@ -194,6 +194,12 @@ class PostsController extends Controller
     public function edit($postnumber)
     {
         $post =  Post::find($postnumber);
+
+        //Check for correct user
+        if(auth()->user()->username !== $post->author){
+            return redirect('/posts')->with('error','Unauthorized Page');
+        }
+
         return view('posts.edit')->with('post',$post);
       
     }
@@ -286,6 +292,11 @@ class PostsController extends Controller
     public function destroy($postnumber)
     {
         $post = Post::find($postnumber);
+
+        //Check for correct user
+        if(auth()->user()->username !== $post->author){
+            return redirect('/posts')->with('error','Unauthorized Page');
+        }
 
         if($post->type === "text"){
             $sub_post = Text_Post::find($postnumber);
