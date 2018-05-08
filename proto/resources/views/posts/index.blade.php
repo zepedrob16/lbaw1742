@@ -88,7 +88,7 @@ $.ajaxSetup({
     $.ajax({
     method: 'POST',
     url: 'increment',
-    data: {'currPostnum' : currPostnum, 'reactor': reactor },
+    data: {'currPostnum' : currPostnum},
     success: function( response ){
         console.log( response );
     },

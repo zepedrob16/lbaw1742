@@ -65,8 +65,8 @@ CREATE TABLE post_comment (
 );
 
 CREATE TABLE post_reaction (
+  id SERIAL UNIQUE,
   postnumber INTEGER NOT NULL,
-  id INTEGER NOT NULL,
   balance smallint NOT NULL,
   reactor INTEGER NOT NULL,
   reacted INTEGER NOT NULL
@@ -380,26 +380,26 @@ INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (18, 
 INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (19, 14, '19', 'Nulla justo.', '0:51:25');
 INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (20, 15, '20', 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '0:53:05');
 
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (1, 1, 0, 2, 6);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (2, 2, 1, 3, 7);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (3, 3, 0, 1, 9);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (4, 4, 1, 10, 10);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (5, 5, 1, 9, 9);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (6, 6, 1, 8, 8);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (7, 7, 0, 7, 7);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (8, 8, 0, 6, 6);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (9, 9, 1, 5, 5);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (10, 10, 0, 4, 4);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (11, 11, 0, 11, 11);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (12, 12, 1, 12, 12);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (13, 13, 0, 13, 13);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (14, 14, 0, 14, 14);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (15, 15, 1, 15, 15);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (16, 16, 1, 16, 16);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (17, 17, 0, 17, 17);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (18, 18, 1, 18, 18);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (19, 19, 1, 19, 19);
-INSERT INTO "post_reaction" (postnumber, id, balance, reactor, reacted) VALUES (20, 20, 1, 20, 20);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (1, 0, 2, 6);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (2, 1, 3, 7);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (3, 0, 1, 9);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (4, 1, 10, 10);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (5, 1, 9, 9);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (6, 1, 8, 8);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (7, 0, 7, 7);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (8, 0, 6, 6);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (9, 1, 5, 5);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (10, 0, 4, 4);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (11, 0, 11, 11);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (12, 1, 12, 12);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (13, 0, 13, 13);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (14, 0, 14, 14);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (15, 1, 15, 15);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (16, 1, 16, 16);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (17, 0, 17, 17);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (18, 1, 18, 18);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (19, 1, 19, 19);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (20, 1, 20, 20);
 
 INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (1, '21:04:52', 1, 1);
 INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (2, '3:49:41', 2, 2);
