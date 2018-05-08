@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 
 use App\Post;
 use App\Text_Post;
@@ -117,6 +117,7 @@ class PostsController extends Controller
         $post->upvotes = 0;
         $post->downvotes = 0;
         $post->balance = 0;
+        $post->author = Auth::user()->username;
 
         $post->save();
     
