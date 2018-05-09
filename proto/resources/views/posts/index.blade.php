@@ -20,8 +20,8 @@ $_SESSION['allposts'] = $allposts;
                 <p>{{ $post->balance }}</p>
                 </div>
                 @if(!Auth::guest())
-                <a number={{ $post->postnumber }} id="upvote" class="upvote" ><i class="far fa-thumbs-up"></i>Upvote</a> <br>
-                <a number={{ $post->postnumber }} id="downvote" class="downvote"><i class="far fa-thumbs-down"></i>Downvote</a>
+                <a href="#" number={{ $post->postnumber }} id="upvote" class="upvote" ><i class="far fa-thumbs-up"></i>Upvote</a> <br>
+                <a href="#" number={{ $post->postnumber }} id="downvote" class="downvote"><i class="far fa-thumbs-down"></i>Downvote</a>
                 @endif
             </div>
             <div class="col-6">
@@ -85,7 +85,8 @@ $.ajaxSetup({
         }
  });
 
-    $.ajax({
+
+    var request = $.ajax({
     method: 'POST',
     url: 'increment',
     data: {'currPostnum' : currPostnum},
@@ -97,14 +98,41 @@ $.ajaxSetup({
     }
 });
 
-    for(var i = 0 ; i < allBalance.length; i++){
+request.done(function(response) {
+  
+if(response.message=="successfull"){
+
+    var request2 = $.ajax({
+        method: 'GET',
+        url: 'getbalancepost',
+        data: {'currPostnum' : currPostnum},
+        success: function( response ){
+            console.log( response );
+        },
+        error: function( e ) {
+            console.log(e);
+        }
+    });
+
+request2.done(function(msg) {
+      for(var i = 0 ; i < allBalance.length; i++){
         if(allBalance[i].getAttribute("number") == currPostnum){
-            var newLikes = parseInt(allBalance[i].textContent)+1;
+            var newLikes = msg.info;
             allBalance[i].innerHTML="<p>"+newLikes+"</p>";
         }
-    }       
+    }  
+});
+
+
+}
+
+});
+
+     
  
 }
+
+
 
 
  function downvote(downvoteNumb){
@@ -117,7 +145,7 @@ $.ajaxSetup({
         }
  });
 
-    $.ajax({
+    var request = $.ajax({
     method: 'POST',
     url: 'decrement',
     data: {'currPostnum' : currPostnum},
@@ -129,12 +157,36 @@ $.ajaxSetup({
     }
 });
 
-    for(var i = 0 ; i < allBalance.length; i++){
+
+request.done(function(response) {
+  
+if(response.message=="successfull"){
+
+    var request2 = $.ajax({
+        method: 'GET',
+        url: 'getbalancepost',
+        data: {'currPostnum' : currPostnum},
+        success: function( response ){
+            console.log( response );
+        },
+        error: function( e ) {
+            console.log(e);
+        }
+    });
+
+request2.done(function(msg) {
+      for(var i = 0 ; i < allBalance.length; i++){
         if(allBalance[i].getAttribute("number") == currPostnum){
-            var newLikes = parseInt(allBalance[i].textContent)-1;
+            var newLikes = msg.info;
             allBalance[i].innerHTML="<p>"+newLikes+"</p>";
         }
-    }       
+    }  
+});
+
+
+}
+
+});
  
 }
 

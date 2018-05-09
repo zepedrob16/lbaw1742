@@ -352,7 +352,6 @@ class PostsController extends Controller
 
            foreach ($allReactions as $key => $val) {
                if ($val['postnumber'] === $postReaction->postnumber &&
-                   $val['balance'] === $postReaction->balance &&
                    $val['reactor'] === $postReaction->reactor &&
                    $val['reacted'] === $postReaction->reacted) {
                    $exists = "yes"; $save=$val;
@@ -361,8 +360,9 @@ class PostsController extends Controller
         if($exists=="no"){
             $postReaction->save();
             $post->upvotes=$post->upvotes+1;
+            $post->balance=$post->upvotes+$post->downvotes;
             $post->save();
-            return response()->json(['message' => 'successfull -> + 1 post like'],200);
+            return response()->json(['message' => 'successfull','info' => '+1 post like'],200);
         }
 
         else if ($exists=="yes" && $save['balance'] === -1){
@@ -371,12 +371,22 @@ class PostsController extends Controller
             $save->save();
             $post->upvotes=$post->upvotes+1;
             $post->downvotes=$post->downvotes-1;
+            $post->balance=$post->upvotes+$post->downvotes;
             $post->save();
-            return response()->json(['message' => 'successfull -> + 1 post like'],200);
+            return response()->json(['message' => 'successfull','info' => '+1 post like'],200);
 
         }
+        else if($exists=="yes" && $save['balance'] === 1){
 
-        return response()->json(['message' => 'unsuccessfull -> not allowed'],200);
+            $save->delete();
+            $post->upvotes=$post->upvotes-1;
+
+            $post->balance=$post->upvotes+$post->downvotes;
+            $post->save();
+            return response()->json(['message' => 'successfull','info' => 'like deleted'],200);
+        }
+
+        return response()->json(['message' => 'unsuccessfull','info' => 'not allowed'],200);
     }
 
     public function decrementPostLikes(Request $request){
@@ -400,7 +410,6 @@ class PostsController extends Controller
 
            foreach ($allReactions as $key => $val) {
                if ($val['postnumber'] === $postReaction->postnumber &&
-                   $val['balance'] === $postReaction->balance &&
                    $val['reactor'] === $postReaction->reactor &&
                    $val['reacted'] === $postReaction->reacted) {
                    $exists = "yes"; $save=$val;
@@ -411,8 +420,9 @@ class PostsController extends Controller
 
             $postReaction->save();
             $post->downvotes=$post->downvotes-1;
+            $post->balance=$post->upvotes+$post->downvotes;
             $post->save();
-            return response()->json(['message' => 'successfull -> + 1 post dislike'],200);
+            return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
         }
 
         else if($exists=="yes" && $save['balance'] === 1){
@@ -422,13 +432,36 @@ class PostsController extends Controller
             $post->upvotes=$post->upvotes-1;
             $post->downvotes=$post->downvotes-1;
 
+            $post->balance=$post->upvotes+$post->downvotes;
             $post->save();
-            return response()->json(['message' => 'successfull -> + 1 post dislike'],200);
+            return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
             
         }
+        else if($exists=="yes" && $save['balance'] === -1){
+
+            $save->delete();
+            $post->downvotes=$post->downvotes+1;
+
+            $post->balance=$post->upvotes+$post->downvotes;
+            $post->save();
+            return response()->json(['message' => 'successfull','info' => 'dislike deleted'],200);
+            
+        }
+
         
-        return response()->json(['message' => 'unsuccessfull -> not allowed'],200);
+        return response()->json(['message' => 'unsuccessfull','info' => 'not allowed'],200);
         
+    }
+
+    public function getBalancePost(Request $request){
+
+        $data = $request->all(); // This will get all the request data.
+
+        $id = $data['currPostnum'];
+
+        $post = Post::find($id);
+
+        return response()->json(['message' => 'balance','info' => $post->balance],200);
     }
 
 }

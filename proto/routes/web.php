@@ -24,3 +24,5 @@ Route::resource('profile','ProfileController');
 
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');
+
+Route::get('/getbalancepost','PostsController@getBalancePost');
