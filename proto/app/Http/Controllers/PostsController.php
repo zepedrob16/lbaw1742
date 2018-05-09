@@ -331,30 +331,104 @@ class PostsController extends Controller
     }
 
     public function incrementPostLikes(Request $request){
+
+        $allReactions = Post_Reaction::all();
+        $exists="no";
+
         $data = $request->all(); // This will get all the request data.
 
         $id = $data['currPostnum'];
 
         $post = Post::find($id);
-        $post->upvotes=$post->upvotes+1;
-        $post->save();
-        return response()->json(['message' => 'successfull -> + 1 post like'],200);
+
+        //Create Post Reaction
+            $postReaction = new Post_Reaction;
+            $postReaction->postnumber=$post->postnumber;
+            $postReaction->balance=1;
+            $postReaction->reactor=auth()->user()->id;
+            $userPost=DB::table('users')->where('username', $post->author)->first()->id;
+            $postReaction->reacted=$userPost;
+            
+
+           foreach ($allReactions as $key => $val) {
+               if ($val['postnumber'] === $postReaction->postnumber &&
+                   $val['balance'] === $postReaction->balance &&
+                   $val['reactor'] === $postReaction->reactor &&
+                   $val['reacted'] === $postReaction->reacted) {
+                   $exists = "yes"; $save=$val;
+               }
+           }
+        if($exists=="no"){
+            $postReaction->save();
+            $post->upvotes=$post->upvotes+1;
+            $post->save();
+            return response()->json(['message' => 'successfull -> + 1 post like'],200);
+        }
+
+        else if ($exists=="yes" && $save['balance'] === -1){
+
+            $save->balance=1;
+            $save->save();
+            $post->upvotes=$post->upvotes+1;
+            $post->downvotes=$post->downvotes-1;
+            $post->save();
+            return response()->json(['message' => 'successfull -> + 1 post like'],200);
+
+        }
+
+        return response()->json(['message' => 'unsuccessfull -> not allowed'],200);
     }
 
     public function decrementPostLikes(Request $request){
+
+        $allReactions = Post_Reaction::all();
+        $exists="no";
+
         $data = $request->all(); // This will get all the request data.
 
         $id = $data['currPostnum'];
 
         $post = Post::find($id);
-        if($post->upvotes>0){
-            $post->upvotes=$post->upvotes-1;
+
+        //Create Post Reaction
+            $postReaction = new Post_Reaction;
+            $postReaction->postnumber=$post->postnumber;
+            $postReaction->balance=-1;
+            $postReaction->reactor=auth()->user()->id;
+            $userPost=DB::table('users')->where('username', $post->author)->first()->id;
+            $postReaction->reacted=$userPost;
+
+           foreach ($allReactions as $key => $val) {
+               if ($val['postnumber'] === $postReaction->postnumber &&
+                   $val['balance'] === $postReaction->balance &&
+                   $val['reactor'] === $postReaction->reactor &&
+                   $val['reacted'] === $postReaction->reacted) {
+                   $exists = "yes"; $save=$val;
+               }
+           }
+
+        if($exists=="no"){
+
+            $postReaction->save();
+            $post->downvotes=$post->downvotes-1;
             $post->save();
             return response()->json(['message' => 'successfull -> + 1 post dislike'],200);
         }
-        else{
-            return response()->json(['message' => 'unsuccessfull -> not allowed'],200);
+
+        else if($exists=="yes" && $save['balance'] === 1){
+
+            $save->balance=-1;
+            $save->save();
+            $post->upvotes=$post->upvotes-1;
+            $post->downvotes=$post->downvotes-1;
+
+            $post->save();
+            return response()->json(['message' => 'successfull -> + 1 post dislike'],200);
+            
         }
+        
+        return response()->json(['message' => 'unsuccessfull -> not allowed'],200);
+        
     }
 
 }
