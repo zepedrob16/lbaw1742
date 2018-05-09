@@ -3,49 +3,40 @@
 @section('content')
 <!DOCTYPE html>
 
-<form action="{{ route('profile') }}">
+{!! Form::open(['action' => ['ProfileController@update', $user->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="container">
         <div class="panel-body">
             <div class="row">
                  <div style="margin-top:80px; margin-left: 33%;" class="col-xs-4 col-sm-4 col-md-4 login-box">
-                    <label for="uname"><b>Change Username</b></label><br>
+
+                    <!-- Change Username -->
                     <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                            <input class="form-control" type="password" placeholder="New Username" value="{{ old('username') }}">
-                        </div>
+                        {{ Form::label('username', 'Change Username') }}
+            {{ Form::text('username', $user->username, ['class' => 'form-control', 'placeholder' => 'Username']) }}
                     </div>
 
-                    <label for="quote"><b>New Quote</b></label><br>
+                    <!-- Change Quote -->
                     <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-font"></span></div>
-                            <input class="form-control" type="password" placeholder="New Quote" value=" {{ old('quote') }}">
-                        </div>
+                        {{ Form::label('quote', 'Change Quote') }}
+            {{ Form::text('quote', $user->quote, ['class' => 'form-control', 'placeholder' => 'Quote']) }}
                     </div>
 
-                    <label for="avatar"><b>Change Avatar</b></label><br>
+                    <!-- Change Avatar -->
                     <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-camera"></span></div>
-                            <input class="form-control" type="password" placeholder="New Avatar" value="{{ old('avatar') }}">
-                        </div>
+                        {{ Form::label('avatar', 'Change Avatar') }}
+            {{ Form::text('avatar', $user->avatar, ['class' => 'form-control', 'placeholder' => 'Avatar']) }}
                     </div>
 
-                    <label for="nation"><b>Change Nationality</b></label><br>
+                    <!-- Change Nationality -->
                     <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-flag"></span></div>
-                            <input class="form-control" type="password" placeholder="New Nationality" value="{{ old('nationality') }}">
-                        </div>
+                        {{ Form::label('nationality', 'Change Nationality') }}
+            {{ Form::text('nationality', $user->nationality, ['class' => 'form-control', 'placeholder' => 'Nationality']) }}
                     </div>
 
-                    <label for="email"><b>Change E-mail</b></label><br>
+                    <!-- Change email -->
                     <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-log-in"></span></div>
-                            <input class="form-control" type="password" placeholder="New E-mail" value="{{ old('email') }}">
-                        </div>
+                        {{ Form::label('email', 'Change Email') }}
+            {{ Form::text('email', $user->email, ['class' => 'form-control', 'placeholder' => 'email']) }}
                     </div>
 
                 </div>
@@ -53,18 +44,11 @@
         </div>
 
 
-        <div class="panel-footer">
-            <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-4"></div>
-                <div class="col-xs-4 col-sm-4 col-md-4">
-                    <button class="btn icon-btn-save btn-success" type="submit">
-                    <span class="btn-save-label"><i class="glyphicon glyphicon-floppy-disk"></i></span>Save</button>
-                </div>
-            </div>
-        </div>
+        {{ Form::hidden('_method','PUT') }}
+        {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
     </div> 
 
-</form> 
+{!! Form::close() !!}
 
 
 

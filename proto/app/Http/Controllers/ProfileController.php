@@ -71,7 +71,13 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user =  User::find($id);
+        $user->username = $request->username;
+        $user->quote = $request->quote;
+        $user->avatar = $request->avatar;
+        $user->nationality = $request->nationality;
+        $user->email = $request->email;
+        $user->save();
     }
 
     /**

@@ -12,7 +12,7 @@ use App\Link_Post;
 use App\Post_Comment;
 use App\Post_Reaction;
 use App\Media_Category;
-use App\User_Table;
+use App\User_table;
 use DB;
 
 class PostsController extends Controller
