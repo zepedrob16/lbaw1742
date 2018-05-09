@@ -3,7 +3,7 @@
 @section('content')
 <!DOCTYPE html>
 
-<form action="/action_page.php">
+<form action="{{ route('profile') }}">
     <div class="container">
         <div class="panel-body">
             <div class="row">
@@ -12,39 +12,39 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                            <input class="form-control" type="password" placeholder="New Username">
+                            <input class="form-control" type="password" placeholder="New Username" value="{{ old('username') }}">
                         </div>
                     </div>
 
-                    <label for="uname"><b>New Quote</b></label><br>
+                    <label for="quote"><b>New Quote</b></label><br>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-font"></span></div>
-                            <input class="form-control" type="password" placeholder="New Quote">
+                            <input class="form-control" type="password" placeholder="New Quote" value=" {{ old('quote') }}">
                         </div>
                     </div>
 
-                    <label for="uname"><b>Change Avatar</b></label><br>
+                    <label for="avatar"><b>Change Avatar</b></label><br>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-camera"></span></div>
-                            <input class="form-control" type="password" placeholder="New Avatar">
+                            <input class="form-control" type="password" placeholder="New Avatar" value="{{ old('avatar') }}">
                         </div>
                     </div>
 
-                    <label for="uname"><b>Change Nationality</b></label><br>
+                    <label for="nation"><b>Change Nationality</b></label><br>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-flag"></span></div>
-                            <input class="form-control" type="password" placeholder="New Nationality">
+                            <input class="form-control" type="password" placeholder="New Nationality" value="{{ old('nationality') }}">
                         </div>
                     </div>
 
-                    <label for="uname"><b>Change E-mail</b></label><br>
+                    <label for="email"><b>Change E-mail</b></label><br>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-log-in"></span></div>
-                            <input class="form-control" type="password" placeholder="New E-mail">
+                            <input class="form-control" type="password" placeholder="New E-mail" value="{{ old('email') }}">
                         </div>
                     </div>
 
