@@ -38,7 +38,7 @@
 
 - [x] Listar todos os Posts
 
-- [ ] Colocar “gosto” ou “não gosto” num Post
+- [x] Colocar “gosto” ou “não gosto” num Post
 
 - [ ] Ver ranking de um Post
 
