@@ -47,6 +47,9 @@
                                         <a href="/profile/{{ Auth::user()->id }}">
                                             My Profile
                                         </a>
+                                        <a href="/inbox/{{ Auth::user()->id }}">
+                                            Inbox
+                                        </a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
