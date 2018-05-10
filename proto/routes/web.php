@@ -24,7 +24,7 @@ Route::resource('profile','ProfileController');
 
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');
+Route::post('/addComment','PostsController@addComment');
 
 Route::get('/getbalancepost','PostsController@getBalancePost');
 
-Route::post('/addComment','PostsController@addComment');

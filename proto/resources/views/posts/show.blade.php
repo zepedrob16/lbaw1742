@@ -89,11 +89,12 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
         <p>No comments for this post.</p>
     @endif
 
-
+@if(!Auth::guest())
     <textarea id="commentBody" value="Comment" name="Comment" cols="55" rows="5" id="Comment"></textarea>
     <p>
         <input post="{{ $post->postnumber }}" parent="{{ 0 }}" id="comment" type="submit" name="Submit" value="Comment"> 
     </p>
+@endif
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -111,17 +112,18 @@ comment.addEventListener('click',function(){
 		var currPostnum = document.getElementById('comment').getAttribute("post");
 		var parent = document.getElementById('comment').getAttribute("parent");
 	 	var commentBody = document.getElementById("commentBody").value;
-/*
+
 		$.ajaxSetup({
 		        headers: {
 		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		        }
 		 });
 
+
 		    var request = $.ajax({
 		    method: 'POST',
-		    url: 'addComment',
-		    data: {},
+		    url: '/addComment',
+		    data: {'currPostnum' : currPostnum},
 		    success: function( response ){
 		        console.log( response );
 		    },
@@ -130,8 +132,8 @@ comment.addEventListener('click',function(){
 		    }
 		});
 
-*/
-	 }
+
+}
 
 </script>
 
