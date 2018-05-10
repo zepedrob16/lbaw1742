@@ -45,7 +45,7 @@ class InboxController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
         $user =  Conversation_Message::find($id);
         return view('profile.inbox')->with('user', $user);
     }
