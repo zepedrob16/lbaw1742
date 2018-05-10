@@ -54,7 +54,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 		@endif
 	</div>
 	<br>
-	<small>Posted by <a href="/profile/{{ $currUser->id }}">{{ $post->author }}</a> </small>
+	<small>Posted by <a href="/publicprofile/{{ $currUser->id }}">{{ $post->author }}</a> </small>
 	<br>
 	@if(!Auth::guest())
 		@if(Auth::user()->username == $post->author)

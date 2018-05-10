@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('profile','ProfileController');
+Route::resource('publicprofile','PublicProfileController');
 
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');
