@@ -57,9 +57,10 @@ CREATE TABLE post (
 );
 
 CREATE TABLE post_comment (
-  id INTEGER NOT NULL,
+  id SERIAL UNIQUE,
   id_post INTEGER,
-  id_user INTEGER,
+  id_author INTEGER,
+  id_parent INTEGER,
   body text NOT NULL,
   time_stamp time NOT NULL
 );
@@ -242,7 +243,7 @@ ALTER TABLE ONLY post_comment
     ADD CONSTRAINT id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_comment
-    ADD CONSTRAINT id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT id_user_fkey FOREIGN KEY (id_author) REFERENCES users(id) ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_reaction
     ADD CONSTRAINT id_user FOREIGN KEY (reactor) REFERENCES users(id) ON UPDATE CASCADE;
@@ -359,26 +360,26 @@ INSERT INTO "text_post" (id_post, opinion, source) VALUES (19, 'Nulla suscipit l
 INSERT INTO "text_post" (id_post, opinion, source) VALUES (20, 'Praesent id massa id nisl venenatis lacinia. Nulla suscipit ligula in lacus', 'https://surveymonkey.com/mauris/lacinia/sapien/quis.js');
 
 
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (1, 1, '1', 'Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', '18:45:06');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (2, 2, '2', 'Sed vel enim sit amet nunc viverra dapibus.', '2:01:48');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (3, 3, '3', 'Sed sagittis.', '23:36:05');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (4, 4, '4', 'Fusce posuere felis sed lacus.', '8:47:45');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (5, 5, '5', 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', '22:10:55');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (6, 1, '6', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', '15:02:59');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (7, 2, '7', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', '23:15:52');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (8, 3, '8', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '18:43:04');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (9, 4, '9', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', '18:48:00');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (10, 5, '10', 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', '19:40:29');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (11, 6, '11', 'Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', '22:10:37');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (12, 7, '12', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', '21:23:05');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (13, 8, '13', 'Quisque ut erat. Curabitur gravida nisi at nibh.', '6:23:32');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (14, 9, '14', 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '8:37:24');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (15, 10, '15', 'In hac habitasse platea dictumst.', '20:36:36');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (16, 11, '16', 'Vivamus tortor.', '14:35:25');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (17, 12, '17', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', '6:48:10');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (18, 13, '18', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', '2:22:20');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (19, 14, '19', 'Nulla justo.', '0:51:25');
-INSERT INTO "post_comment" (id, id_post, id_user, body, time_stamp) VALUES (20, 15, '20', 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '0:53:05');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (1, 1, 0, 'Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', '18:45:06');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (2, 2, 0, 'Sed vel enim sit amet nunc viverra dapibus.', '2:01:48');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (3, 3, 0, 'Sed sagittis.', '23:36:05');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (4, 4, 0, 'Fusce posuere felis sed lacus.', '8:47:45');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (5, 5, 0, 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', '22:10:55');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (1, 6, 0, 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', '15:02:59');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (2, 7, 0, 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', '23:15:52');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (3, 8, 0, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '18:43:04');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (4, 9, 0, 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', '18:48:00');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (5, 10, 0, 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', '19:40:29');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (6, 11, 0, 'Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', '22:10:37');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (7, 12, 0, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', '21:23:05');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (8, 13, 0, 'Quisque ut erat. Curabitur gravida nisi at nibh.', '6:23:32');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (9, 14, 0, 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '8:37:24');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (10, 15, 0, 'In hac habitasse platea dictumst.', '20:36:36');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (11, 16, 0, 'Vivamus tortor.', '14:35:25');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (12, 17, 0, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', '6:48:10');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (13, 18, 0, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', '2:22:20');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (14, 19, 0, 'Nulla justo.', '0:51:25');
+INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (15, 20, 0, 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '0:53:05');
 
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (1, 0, 2, 6);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (2, 1, 3, 7);

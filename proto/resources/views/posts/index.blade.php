@@ -20,14 +20,14 @@ $_SESSION['allposts'] = $allposts;
                 <p>{{ $post->balance }}</p>
                 </div>
                 @if(!Auth::guest())
-                <a href="#" number={{ $post->postnumber }} id="upvote" class="upvote" ><i class="far fa-thumbs-up"></i>Upvote</a> <br>
-                <a href="#" number={{ $post->postnumber }} id="downvote" class="downvote"><i class="far fa-thumbs-down"></i>Downvote</a>
+                    <a href="#" number={{ $post->postnumber }} id="upvote" class="upvote" ><i class="far fa-thumbs-up"></i>Upvote</a> <br>
+                    <a href="#" number={{ $post->postnumber }} id="downvote" class="downvote"><i class="far fa-thumbs-down"></i>Downvote</a>
                 @endif
             </div>
             <div class="col-6">
                 <a href="/posts/{{ $post->postnumber }}" id="news_title">{{ $post->title }}</a><br>
                 <p>Nam consectetur iaculis imperdiet. Fusce ac eros justo. Sed vel risus ac sapien sollicitudin iaculis. Praesent non diam sapien. Curabitur et dui ut dolor mattis.</p>
-                <a href="post.html" class="comments">{{ $allposts[4]->where('id_post', $post->postnumber)->count() }} comments</a>
+                <a href="/posts/{{ $post->postnumber }}" class="comments">{{ $allposts[4]->where('id_post', $post->postnumber)->count() }} comments</a>
             </div>
             <div class="col-3">
                 <i class="fas fa-video"></i><br>
@@ -43,19 +43,6 @@ $_SESSION['allposts'] = $allposts;
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
-
-/*
-$.ajax({
-    method: 'GET',
-    url: 'here',
-    data: {},
-    success: function( response ){
-        console.log( response );
-    },
-    error: function( e ) {
-        console.log(e);
-    }
-});*/
 
 var allBalance = document.querySelectorAll('#balance');
 

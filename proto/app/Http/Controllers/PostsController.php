@@ -464,4 +464,8 @@ class PostsController extends Controller
         return response()->json(['message' => 'balance','info' => $post->balance],200);
     }
 
+     public function addComment(Request $request){
+            return response()->json(['message' => 'successfull','info' => 'comment added'],200);
+     }
+
 }
