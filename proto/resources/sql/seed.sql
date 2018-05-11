@@ -113,9 +113,11 @@ CREATE TABLE friend_request (
 );
 
 CREATE TABLE conversation_message (
+  id_conversation SERIAL UNIQUE,
   id_sender INTEGER NOT NULL,
   id_recipient INTEGER NOT NULL,
   body text NOT NULL,
+  title text NOT NULL,
   time_stamp date NOT NULL,
   read smallint
 );
@@ -195,7 +197,7 @@ ALTER TABLE ONLY friendship
    ADD CONSTRAINT friend_request_id_pkey PRIMARY KEY (id);
 
  ALTER TABLE ONLY conversation_message
-   ADD CONSTRAINT conversation_message_pkey PRIMARY KEY (id_sender);
+   ADD CONSTRAINT conversation_message_pkey PRIMARY KEY (id_conversation);
 
  ALTER TABLE ONLY media_category
    ADD CONSTRAINT media_category_pkey PRIMARY KEY (cat_id);
@@ -465,26 +467,26 @@ INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receive
 INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (19, '2017/08/03', '2017/10/25', 19, 20);
 INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (20, '2017/01/29', '2017/04/26', 20, 1);
 
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (1, 2, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.', '2018/03/19', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (2, 3, 'Suspendisse potenti. Cras in purus eu magna vulputate luctus.', '2018/03/27', 0);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (3, 4, 'Vivamus tortor. Duis mattis egestas metus.', '2017/09/08', 0);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (4, 5, 'Morbi a ipsum. Integer a nibh.', '2017/10/11', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (5, 6, 'Phasellus sit amet erat. Nulla tempus.', '2018/03/23', 0);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (6, 7, 'In hac habitasse platea dictumst.', '2018/03/25', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (7, 8, 'Aliquam non mauris.', '2017/06/03', 0);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (8, 9, 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', '2017/11/03', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (9, 10, 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', '2017/07/08', 0);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (10, 11, 'Duis aliquam convallis nunc.', '2017/03/11', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (11, 12, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', '2017/06/20', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (12, 13, 'Suspendisse potenti.', '2017/03/22', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (13, 14, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', '2018/01/18', 0);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (14, 15, 'Nunc rhoncus dui vel sem. Sed sagittis.', '2017/10/30', 0);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (15, 16, 'Nulla mollis molestie lorem.', '2017/11/16', 0);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (16, 17, 'In est risus, auctor sed, tristique in, tempus sit amet, sem.', '2017/06/23', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (17, 18, 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', '2017/12/15', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (18, 19, 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', '2017/06/09', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (19, 20, 'Vestibulum sed magna at nunc commodo placerat.', '2018/01/19', 1);
-INSERT INTO "conversation_message" (id_sender, id_recipient, body, time_stamp, read) VALUES (20, 1, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '2017/01/29', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (1, 1, 2, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.', 'Generic Title', '2018/03/19', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (2, 2, 3, 'Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 'Generic Title', '2018/03/27', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (3, 3, 4, 'Vivamus tortor. Duis mattis egestas metus.', 'Generic Title', '2017/09/08', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (4, 4, 5, 'Morbi a ipsum. Integer a nibh.', 'Generic Title', '2017/10/11', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (5, 5, 6, 'Phasellus sit amet erat. Nulla tempus.', 'Generic Title', '2018/03/23', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (6, 6, 7, 'In hac habitasse platea dictumst.', 'Generic Title', '2018/03/25', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (7, 7, 8, 'Aliquam non mauris.', 'Generic Title', '2017/06/03', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (8, 8, 9, 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 'Generic Title', '2017/11/03', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (9, 9, 10, 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', 'Generic Title', '2017/07/08', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (10, 10, 11, 'Duis aliquam convallis nunc.', 'Generic Title', '2017/03/11', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (11, 11, 12, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', 'Generic Title', '2017/06/20', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (12, 12, 13, 'Suspendisse potenti.', 'Generic Title', '2017/03/22', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (13, 13, 14, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', 'Generic Title', '2018/01/18', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (14, 14, 15, 'Nunc rhoncus dui vel sem. Sed sagittis.', 'Generic Title', '2017/10/30', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (15, 15, 16, 'Nulla mollis molestie lorem.', 'Generic Title', '2017/11/16', 0);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (16, 16, 17, 'In est risus, auctor sed, tristique in, tempus sit amet, sem.', 'Generic Title', '2017/06/23', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (17, 17, 18, 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 'Generic Title', '2017/12/15', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (18, 18, 19, 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 'Generic Title', '2017/06/09', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (19, 19, 20, 'Vestibulum sed magna at nunc commodo placerat.', 'Generic Title', '2018/01/19', 1);
+INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (20, 20, 1, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 'Generic Title', '2017/01/29', 0);
 
 INSERT INTO "media_category" (cat_id, title) VALUES (1, 'Yellow Cab Man, The');
 INSERT INTO "media_category" (cat_id, title) VALUES (2, 'Shanghai Ghetto');

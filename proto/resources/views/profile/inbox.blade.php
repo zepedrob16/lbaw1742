@@ -5,6 +5,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/statistic.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/icon.css" rel="stylesheet">
 
+    @foreach($user as $conversation)
     <div class="container">
 
         <div class="row">
@@ -12,18 +13,18 @@
                 <div class = "row">
                     <i class="far fa-envelope" id="unopenMessage" aria-hidden="true"></i>
                     <p class = "font-weight-bold unread">
-                        <a href="#">{{$user->id_recipient}}</a>
+                        <a href="/open_inbox/{{$conversation->id_conversation}}">{{$conversation->title}}</a>
                     </p>
                 </div>
                 <div class = "row">
                     <span class="Message">
-                        {{$user->body}}
+                        {{$conversation->body}}
                     </span>
                 </div>
             
                 <div class="row">
                     <span class = "Sender">
-                        {{$user->id_sender}}
+                        {{$conversation->id_sender}}
                     </span>
                 </div>
 
@@ -37,6 +38,7 @@
         </div>
     
     </div>
+    @endforeach
 
     <footer class="footer"> <div class="container"> <span class="text-muted">© SHOWCHAN 2018, LBAW Industries 42</span> </div> </footer>
     

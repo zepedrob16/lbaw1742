@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Conversation_Message;
+use App\Open_Message;
 
-class InboxController extends Controller
+class OpenInboxController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -46,8 +46,8 @@ class InboxController extends Controller
      */
     public function show($id)
     {   
-        $user =  Conversation_Message::orderBy('title','asc')->get();
-        return view('profile.inbox')->with('user', $user);
+        $user =  Open_Message::find($id);
+        return view('profile.open_inbox')->with('user', $user);
     }
 
     /**
