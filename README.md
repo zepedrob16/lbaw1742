@@ -40,7 +40,7 @@
 
 - [x] Colocar “gosto” ou “não gosto” num Post
 
-- [ ] Ver ranking de um Post
+- [x] Ver ranking de um Post
 
 - [ ] Filtrar - Tv Shows e Movies
 
@@ -48,9 +48,9 @@
 
 - [x] Criar Post e distinguir entre texto, imagem e link
 
-- [ ] Editar Post e guardar para a base de dados
+- [x] Editar Post e guardar para a base de dados
 
-- [ ] Apagar Post
+- [x] Apagar Post (kind of)
 
 
 ## Admin
