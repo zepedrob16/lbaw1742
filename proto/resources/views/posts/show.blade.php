@@ -100,6 +100,8 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 
 <script type="text/javascript">
 
+@if(!Auth::guest())
+
 var comment = document.getElementById('comment');
 var comments = document.getElementById("comments");
 
@@ -152,11 +154,9 @@ comment.addEventListener('click',function(){
 				var commentedBy = document.createElement('small');
 				commentedBy.textContent = 'commented by ';
 
-				@if(!Auth::guest())
-					var anchor = document.createElement('a');
-					anchor.setAttribute("href", "/profile/{{ Auth::user()->id }}" );
-					anchor.textContent = "{{ Auth::user()->username }}";
-				@endif
+				var anchor = document.createElement('a');
+				anchor.setAttribute("href", "/profile/{{ Auth::user()->id }}" );
+				anchor.textContent = "{{ Auth::user()->username }}";
 
 				var report = document.createElement('small');
 				var respond = document.createElement('small');
@@ -190,7 +190,7 @@ comment.addEventListener('click',function(){
 
 
 }
-
+@endif
 </script>
 
 
