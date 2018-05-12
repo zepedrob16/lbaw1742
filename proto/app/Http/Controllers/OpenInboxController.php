@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Open_Message;
+use App\User_table;
 
 class OpenInboxController extends Controller
 {
@@ -46,7 +47,10 @@ class OpenInboxController extends Controller
      */
     public function show($id)
     {   
-        $user =  Open_Message::find($id);
+        $message =  Open_Message::find($id);
+        $users = User_Table::all();
+
+        $user = array($message, $users);
         return view('profile.open_inbox')->with('user', $user);
     }
 
