@@ -11,9 +11,14 @@ $_SESSION['allposts'] = $allposts;
 @section('content')
     <h1>Posts</h1>
     <a href="/posts/create">Create Post</a>
+
+    <br><br>
+    <a href="#" id="Movies"><i class="far fa-thumbs-up"></i>Movies</a> 
+    <a href="#" id="TVShow"><i class="far fa-thumbs-down"></i>TV Shows</a><br><br>
+
     @if(count($allposts[0]) > 0)
         @foreach($allposts[0] as $post)
-            <div class="row">
+            <div class="row" mediacat="{{ $post->media_category }}" id="post">
             <div class="col-1">
                 <i class="fas fa-link"></i>
                 <div id="balance" number={{ $post->postnumber }}>
@@ -30,8 +35,11 @@ $_SESSION['allposts'] = $allposts;
                 <a href="/posts/{{ $post->postnumber }}" class="comments">{{ $allposts[4]->where('id_post', $post->postnumber)->count() }} comments</a>
             </div>
             <div class="col-3">
-                <i class="fas fa-video"></i><br>
-                Shawshank Redemption<br>
+                <i class="fas fa-video">{{ $post->media_category }}</i>
+                <i class="fas fa-video"></i>
+                <br>
+                Shawshank Redemption
+                <br>
                 <i class="fab fa-imdb"></i>7.5<br>
             </div>
         </div>
@@ -43,6 +51,37 @@ $_SESSION['allposts'] = $allposts;
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
+
+
+var movie = document.getElementById('Movies');
+var tvShow = document.getElementById('TVShow');
+var allPosts = document.querySelectorAll('#post');
+
+movie.addEventListener('click',function(){
+    handle_movie();
+});
+
+tvShow.addEventListener('click',function(){
+    handle_tvShow();
+});
+
+function handle_movie(){
+for(var i = 0; i < allPosts.length; i++){
+    if(allPosts[i].getAttribute("mediacat") != "Movie")
+        allPosts[i].style.display = 'none';
+    else
+        allPosts[i].style.display = 'block';
+ }  
+}
+
+function handle_tvShow(){
+ for(var i = 0; i < allPosts.length; i++){
+    if(allPosts[i].getAttribute("mediacat") != "TV Show")
+        allPosts[i].style.display = 'none';
+    else
+        allPosts[i].style.display = 'block';
+ }     
+}
 
 var allBalance = document.querySelectorAll('#balance');
 
@@ -115,8 +154,6 @@ request2.done(function(msg) {
 
 });
 
-     
- 
 }
 
 

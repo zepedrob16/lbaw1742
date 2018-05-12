@@ -18,6 +18,14 @@
 			</select>
 	    </div>
 
+	    <div class="form-group">
+	    	{{ Form::label('mediacategory', 'Specify the type of Media') }}
+			<select name="mediacategory" id="mediacategory" onchange='load_new_content()'>
+				<option value="text" selected>TV Show</option>
+				<option value="image">Movie</option>
+			</select>
+	    </div>
+
 	    <div id="text" class="form-group" style="display: none;">
 	    	{{ Form::label('body', 'Body') }}
 	    	{{ Form::textarea('body', '',['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text']) }}

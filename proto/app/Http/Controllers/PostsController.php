@@ -82,10 +82,12 @@ class PostsController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
-            'typepost' => 'required'
+            'typepost' => 'required',
+            'mediacategory' => 'required'
         ]);
 
         $typeOfPost = $_POST['typepost'];
+        $media_category = $_POST['mediacategory'];
 
         if($typeOfPost === "text")
         {
@@ -118,6 +120,7 @@ class PostsController extends Controller
         $post->downvotes = 0;
         $post->balance = 0;
         $post->author = Auth::user()->username;
+        $post->media_category = $media_category;
 
         $post->save();
     
