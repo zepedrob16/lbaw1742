@@ -9,13 +9,11 @@ DROP TABLE IF EXISTS link_post cascade;
 DROP TABLE IF EXISTS post_reaction cascade;
 DROP TABLE IF EXISTS post_comment cascade;
 DROP TABLE IF EXISTS conversation_message cascade;
-DROP TABLE IF EXISTS media_category cascade;
 DROP TABLE IF EXISTS media_tag cascade;
 DROP TABLE IF EXISTS moderator cascade;
 DROP TABLE IF EXISTS member cascade;
 DROP TABLE IF EXISTS admin cascade;
 DROP TABLE IF EXISTS post_tag cascade;
-DROP TABLE IF EXISTS post_category cascade;
 DROP TABLE IF EXISTS password_resets cascade;
 
 -- Tables
@@ -122,11 +120,6 @@ CREATE TABLE conversation_message (
   read smallint
 );
 
-CREATE TABLE media_category (
-  cat_id INTEGER NOT NULL,
-  title text NOT NULL
-);
-
 CREATE TABLE media_tag (
   tag_id SERIAL UNIQUE,
   title text NOT NULL,
@@ -150,11 +143,6 @@ CREATE TABLE post_tag(
   id SERIAL UNIQUE,
   postnumber INTEGER NOT NULL,
   tag_id INTEGER NOT NULL
-);
-
-CREATE TABLE post_category(
-  postnumber INTEGER NOT NULL,
-  cat_id INTEGER NOT NULL
 );
 
 -- Primary Keys
@@ -199,9 +187,6 @@ ALTER TABLE ONLY friendship
  ALTER TABLE ONLY conversation_message
    ADD CONSTRAINT conversation_message_pkey PRIMARY KEY (id_conversation);
 
- ALTER TABLE ONLY media_category
-   ADD CONSTRAINT media_category_pkey PRIMARY KEY (cat_id);
-
  ALTER TABLE ONLY media_tag
    ADD CONSTRAINT media_tag_pkey PRIMARY KEY (tag_id);
 
@@ -216,9 +201,6 @@ ALTER TABLE ONLY friendship
 
  ALTER TABLE ONLY post_tag
    ADD CONSTRAINT post_tag_pk PRIMARY KEY (id); 
-
- ALTER TABLE ONLY post_category
-   ADD CONSTRAINT post_category_pk PRIMARY KEY (cat_id); 
 
 
 -- Foreign Keys
@@ -270,9 +252,6 @@ ALTER TABLE ONLY conversation_message
     
 ALTER TABLE ONLY conversation_message
     ADD CONSTRAINT conversation_id_recipient_fkey FOREIGN KEY (id_recipient) REFERENCES users(id) on UPDATE CASCADE;
-   
-ALTER TABLE ONLY media_category
-    ADD CONSTRAINT media_category_id_post_fkey FOREIGN KEY (cat_id) REFERENCES post(postnumber) on UPDATE CASCADE;
     
 ALTER TABLE ONLY moderator
     ADD CONSTRAINT moderator_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) on UPDATE CASCADE;
@@ -289,11 +268,6 @@ ALTER TABLE ONLY post_tag
 ALTER TABLE ONLY post_tag
     ADD CONSTRAINT postnumber_tag_id_fkey FOREIGN KEY (tag_id) REFERENCES media_tag(tag_id) on UPDATE CASCADE;
     
-ALTER TABLE ONLY post_category
-    ADD CONSTRAINT postnumber_cat_fkey FOREIGN KEY (postnumber) REFERENCES post(postnumber) on UPDATE CASCADE;
-
-ALTER TABLE ONLY post_category
-ADD CONSTRAINT postnumber_cat_id_fkey FOREIGN KEY (cat_id) REFERENCES media_category(cat_id) on UPDATE CASCADE;
 
 INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('bcurless0', 'HmeeUgMD7', 'Inès', 'Curless', 'lcurless0@google.com', '2002/01/09', 'Kazakhstan', 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 'http://dummyimage.com/237x147.png/ff4444/ffffff', 0, 0, 0);
 INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('cnolleth1', 'b6eeebM', 'Léandre', 'Nolleth', 'cnolleth1@illinois.edu', '1977/05/05', 'Brazil', 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', 'http://dummyimage.com/190x240.png/cc0000/ffffff', 0, 0, 0);
@@ -488,27 +462,6 @@ INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, bo
 INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (19, 19, 20, 'Vestibulum sed magna at nunc commodo placerat.', 'Generic Title', '2018/01/19', 1);
 INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (20, 20, 1, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 'Generic Title', '2017/01/29', 0);
 
-INSERT INTO "media_category" (cat_id, title) VALUES (1, 'Yellow Cab Man, The');
-INSERT INTO "media_category" (cat_id, title) VALUES (2, 'Shanghai Ghetto');
-INSERT INTO "media_category" (cat_id, title) VALUES (3, 'Caligula');
-INSERT INTO "media_category" (cat_id, title) VALUES (4, 'Rookie, The');
-INSERT INTO "media_category" (cat_id, title) VALUES (5, 'The Lego Movie');
-INSERT INTO "media_category" (cat_id, title) VALUES (6, '7th Floor');
-INSERT INTO "media_category" (cat_id, title) VALUES (7, 'Time Walker (a.k.a. Being From Another Planet)');
-INSERT INTO "media_category" (cat_id, title) VALUES (8, 'Flipper');
-INSERT INTO "media_category" (cat_id, title) VALUES (9, 'Lackawanna Blues');
-INSERT INTO "media_category" (cat_id, title) VALUES (10, 'Welcome to New York');
-INSERT INTO "media_category" (cat_id, title) VALUES (11, 'Merchant of Four Seasons, The (Händler der vier Jahreszeiten)');
-INSERT INTO "media_category" (cat_id, title) VALUES (12, 'Winchester ''73');
-INSERT INTO "media_category" (cat_id, title) VALUES (13, 'Private Romeo');
-INSERT INTO "media_category" (cat_id, title) VALUES (14, 'Defender, The (a.k.a. Bodyguard from Beijing, The) (Zhong Nan Hai bao biao)');
-INSERT INTO "media_category" (cat_id, title) VALUES (15, 'Song of the Thin Man');
-INSERT INTO "media_category" (cat_id, title) VALUES (16, 'Väreitä');
-INSERT INTO "media_category" (cat_id, title) VALUES (17, 'Coming Down the Mountain');
-INSERT INTO "media_category" (cat_id, title) VALUES (18, 'Woodsman, The');
-INSERT INTO "media_category" (cat_id, title) VALUES (19, 'Ordinary Decent Criminal');
-INSERT INTO "media_category" (cat_id, title) VALUES (20, 'Carnosaur 2');
-
 INSERT INTO "media_tag" (tag_id, rating, title) VALUES (1, 2.2, 'Tuareg: The Desert Warrior (Tuareg - Il guerriero del deserto)');
 INSERT INTO "media_tag" (tag_id, rating, title) VALUES (2, 8.3, 'Band Wagon, The');
 INSERT INTO "media_tag" (tag_id, rating, title) VALUES (3, 7.6, 'Boogie Nights');
@@ -568,19 +521,3 @@ INSERT INTO "post_tag" (postnumber, tag_id) VALUES (12, 12);
 INSERT INTO "post_tag" (postnumber, tag_id) VALUES (13, 13);
 INSERT INTO "post_tag" (postnumber, tag_id) VALUES (14, 14);
 INSERT INTO "post_tag" (postnumber, tag_id) VALUES (15, 15);
-
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (1, 1);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (2, 2);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (3, 3);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (4, 4);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (5, 5);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (6, 6);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (7, 7);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (8, 8);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (9, 9);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (10, 10);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (11, 11);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (12, 12);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (13, 13);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (14, 14);
-INSERT INTO "post_category" (postnumber, cat_id) VALUES (15, 15);

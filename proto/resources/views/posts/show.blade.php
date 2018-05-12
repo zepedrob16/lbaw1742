@@ -152,9 +152,11 @@ comment.addEventListener('click',function(){
 				var commentedBy = document.createElement('small');
 				commentedBy.textContent = 'commented by ';
 
-				var anchor = document.createElement('a');
-				anchor.setAttribute("href", "/profile/{{ Auth::user()->id }}" );
-				anchor.textContent = "{{ Auth::user()->username }}";
+				@if(!Auth::guest())
+					var anchor = document.createElement('a');
+					anchor.setAttribute("href", "/profile/{{ Auth::user()->id }}" );
+					anchor.textContent = "{{ Auth::user()->username }}";
+				@endif
 
 				var report = document.createElement('small');
 				var respond = document.createElement('small');
