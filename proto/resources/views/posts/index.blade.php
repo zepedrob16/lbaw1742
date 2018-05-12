@@ -156,9 +156,6 @@ request2.done(function(msg) {
 
 }
 
-
-
-
  function downvote(downvoteNumb){
 
  var currPostnum = downvoteNumb.getAttribute("number");

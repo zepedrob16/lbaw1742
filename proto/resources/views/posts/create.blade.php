@@ -20,9 +20,9 @@
 
 	    <div class="form-group">
 	    	{{ Form::label('mediacategory', 'Specify the type of Media') }}
-			<select name="mediacategory" id="mediacategory" onchange='load_new_content()'>
-				<option value="text" selected>TV Show</option>
-				<option value="image">Movie</option>
+			<select name="mediacategory" id="mediacategory">
+				<option value="TV Show" selected>TV Show</option>
+				<option value="Movie">Movie</option>
 			</select>
 	    </div>
 
