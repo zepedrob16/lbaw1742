@@ -15,7 +15,7 @@
 
 ## Perfil
 
-- [ ] Controlo de acesso
+- [x] Controlo de acesso
 
 - [x] Ver Perfil
 
