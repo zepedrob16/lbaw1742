@@ -464,8 +464,53 @@ class PostsController extends Controller
         return response()->json(['message' => 'balance','info' => $post->balance],200);
     }
 
+    public function getAllPosts(Request $request){
+
+        $posts = Post::orderBy('title','asc')->get();
+
+        $posts_text = Text_Post::orderBy('id_post','asc')->get();
+        $posts_image = Image_Post::orderBy('id_post','asc')->get();
+        $posts_link = Link_Post::orderBy('id_post','asc')->get();
+
+        $posts_comment = Post_Comment::all();
+        $users = User_Table::all();
+
+        $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment,$users);
+
+        return response()->json(['message' => $allposts],200);
+    }
+
      public function addComment(Request $request){
+
+            $data = $request->all(); 
+
+            $postnumber = $data['currPostnum'];
+            $postCommentBody = $data['commentBody'];
+            $postCommentParent = $data['parent'];
+
+            $post_comment = new Post_Comment;
+
+            $post_comment->id_post = $postnumber;
+            $post_comment->id_author = auth()->user()->id;
+            $post_comment->id_parent = $postCommentParent;
+            $post_comment->body  = $postCommentBody;
+            $post_comment->time_stamp = date("Y-m-d H:i:s");
+
+            $post_comment->save();
+
+            //updateContent
+            $posts = Post::orderBy('title','asc')->get();
+            $posts_text = Text_Post::orderBy('id_post','asc')->get();
+            $posts_image = Image_Post::orderBy('id_post','asc')->get();
+            $posts_link = Link_Post::orderBy('id_post','asc')->get();
+            $posts_comment = Post_Comment::all();
+            $users = User_Table::all();
+            $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment,$users);
+            session_start();
+            $_SESSION['allposts'] = $allposts;
+
             return response()->json(['message' => 'successfull','info' => 'comment added'],200);
      }
+
 
 }

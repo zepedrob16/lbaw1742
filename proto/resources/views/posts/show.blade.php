@@ -68,26 +68,25 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
     @endif
 
     <hr>
-
+	<div id="comments" class="row">
     @if(count($allposts[4]) > 0)
         @foreach($allposts[4] as $postComment)
         	@if($postComment->id_post===$post->postnumber)
-	            <div class="row">
 		     	     <div class="col-10 comment">
 		                <p>{!! $postComment->body !!}</p>
 		                <div class="pull-right">
 			                <small>commented by <a href="/profile/{{ $postComment->id_author }}">{{ $allposts[5]->where('id', $postComment->id_author)->first()->username }}</a></small>
-			                <small><a href="#" class="respond">report</a></small>
+			                <small><a href="#" class="report">report</a></small>
 			                <small><a href="#" class="respond">respond</a></small>
 		            	</div>
 		            </div>
-	        	</div>
 	        @else
 	        @endif
         @endforeach
     @else
         <p>No comments for this post.</p>
     @endif
+	</div>
 
 @if(!Auth::guest())
     <textarea id="commentBody" value="Comment" name="Comment" cols="55" rows="5" id="Comment"></textarea>
@@ -102,6 +101,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 <script type="text/javascript">
 
 var comment = document.getElementById('comment');
+var comments = document.getElementById("comments");
 
 comment.addEventListener('click',function(){
     submitComment();
@@ -119,11 +119,10 @@ comment.addEventListener('click',function(){
 		        }
 		 });
 
-
 		    var request = $.ajax({
 		    method: 'POST',
 		    url: '/addComment',
-		    data: {'currPostnum' : currPostnum},
+		    data: {'currPostnum' : currPostnum, 'commentBody' : commentBody, 'parent' : parent},
 		    success: function( response ){
 		        console.log( response );
 		    },
@@ -132,9 +131,67 @@ comment.addEventListener('click',function(){
 		    }
 		});
 
+		request.done(function(response) {
+		  
+		if(response.message=="successfull"){
+
+				//comment div
+				var newComment = document.createElement('div');
+				newComment.className='col-10 comment';
+
+				//comment content
+				var paragraph = document.createElement('p');
+				paragraph.textContent = commentBody;
+
+				newComment.appendChild(paragraph);
+
+				//div for comment identifier, respond and report
+				var divActions = document.createElement('div');
+				divActions.className='pull-right';
+
+				var commentedBy = document.createElement('small');
+				commentedBy.textContent = 'commented by ';
+
+				var anchor = document.createElement('a');
+				anchor.setAttribute("href", "/profile/{{ Auth::user()->id }}" );
+				anchor.textContent = "{{ Auth::user()->username }}";
+
+				var report = document.createElement('small');
+				var respond = document.createElement('small');
+
+				var anchor2 = document.createElement('a');
+				anchor2.setAttribute("href", "#" );
+				anchor2.textContent = " report";
+				anchor2.className = "report";
+
+				var anchor3 = document.createElement('a');
+				anchor3.setAttribute("href", "#" );
+				anchor3.textContent = " respond";
+				anchor3.className="respond";
+
+
+				commentedBy.appendChild(anchor);
+				report.appendChild(anchor2);
+				respond.appendChild(anchor3);
+				divActions.appendChild(commentedBy);
+				divActions.appendChild(report);
+				divActions.appendChild(respond);
+
+				newComment.appendChild(divActions);
+				comments.appendChild(newComment);
+
+				console.log(comments);
+
+		}
+
+		});
+
 
 }
 
 </script>
+
+
+
 
 @endsection

@@ -30,4 +30,5 @@ Route::post('/decrement','PostsController@decrementPostLikes');
 Route::post('/addComment','PostsController@addComment');
 
 Route::get('/getbalancepost','PostsController@getBalancePost');
+Route::get('/getAllPosts','PostsController@getAllPosts');
 
