@@ -370,7 +370,7 @@ class PostsController extends Controller
             $save->balance=1;
             $save->save();
             $post->upvotes=$post->upvotes+1;
-            $post->downvotes=$post->downvotes-1;
+            $post->downvotes=$post->downvotes+1;
             $post->balance=$post->upvotes+$post->downvotes;
             $post->save();
             return response()->json(['message' => 'successfull','info' => '+1 post like'],200);
