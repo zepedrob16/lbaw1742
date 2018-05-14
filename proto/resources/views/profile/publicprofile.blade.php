@@ -39,7 +39,7 @@
 
       <div class="row" id="last_row">
         <div class="col-3">
-          <a href="/profile/{{$user->id}}/edit" type="button" id="edit_profile" class="btn btn-primary">Send Friend Request</a>
+          <a href="#" type="button" id="friend_request" class="btn btn-primary">Send Friend Request</a>
         </div>
       </div>
       <div class="container" id="stats_container">
@@ -92,5 +92,44 @@
   </div>
 </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+
+var friend = document.getElementById('friend_request');
+
+friend.addEventListener('click', function() {
+  handle_friend();
+});
+
+function handle_friend() {
+
+  $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+ });
+
+
+    var request = $.ajax({
+    method: 'POST',
+    url: 'new_friend',
+    data: {'user' : {{$user->username}}},
+    success: function( response ){
+        console.log( response );
+    },
+    error: function( e ) {
+        console.log(e);
+    }
+
+    
+});
+
+
+
+}
+
+</script>
 
 @endsection
