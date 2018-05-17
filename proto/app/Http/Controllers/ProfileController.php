@@ -95,19 +95,19 @@ class ProfileController extends Controller
         $user->save();
     }
 
-    public function new_friendship(Request $request, $id) {
+    public function new_friendship(Request $request) {
 
-        //$data = $request->all();
+        $data = $request->all();
 
-        //$id_sender = $data['user'];
+        $id_sender = $data['user'];
 
-        //$friendship = new Friendship;
+        $friendship = new Friendship;
 
-        //$friendship->start = date("Y-m-d H:i:s");
-        //$friendship->user1 = auth()->user()->id;
-        //$friendship->user2 = $id_sender;
+        $friendship->start = date("Y-m-d H:i:s");
+        $friendship->user1 = auth()->user()->id;
+        $friendship->user2 = $id_sender;
 
-        //$friendship->save();
+        $friendship->save();
 
         return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
     }

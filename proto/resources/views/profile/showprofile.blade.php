@@ -95,12 +95,13 @@
 </div>
 
 <!-- FRIEND REQUESTS RECEIVED -->
+@if(count($info[1]) > 0)
 @foreach($info[1] as $request)
 
    <div class="container">
       <div class = "row">
         <div class= "col">
-          {{$request->id}}
+          {{$request->sender}}
         </div>
 
         <div class= "col">
@@ -110,6 +111,9 @@
       </div>
     </div>
 @endforeach
+@else
+        <p>No friend requests</p>
+@endif
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
