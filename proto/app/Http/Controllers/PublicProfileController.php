@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+
 use App\User;
+use App\FriendRequest;
 
 class PublicProfileController extends Controller
 {
+     public function __construct(){
+
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -77,6 +84,22 @@ class PublicProfileController extends Controller
         $user->nationality = $request->nationality;
         $user->email = $request->email;
         $user->save();
+    }
+
+    public function friend_request(Request $request) {
+        $data = $request->all();
+
+        $id_receiver = $data['user'];
+
+        $friend_request = new FriendRequest;
+
+        $friend_request->daterequest = date("Y-m-d H:i:s");
+        $friend_request->sender = auth()->user()->id;
+        $friend_request->receiver = $id_receiver;
+
+        $friend_request->save();
+
+        return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
     }
 
     /**

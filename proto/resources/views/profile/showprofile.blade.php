@@ -8,40 +8,41 @@
     <div class="container">
       <div class="row">
         <div class="col-5">
-          <img src={{$user->avatar}} width="150px" height ="150px" id="profile_pic">
-          <h1 id="username">{{$user->username}}</h1>
+          <img src={{$info[0]->avatar}} width="150px" height ="150px" id="profile_pic">
+          <h1 id="username">{{$info[0]->username}}</h1>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
-          <p id="full_name"><b>Full Name: </b>{{$user->name}} {{$user->lastname}}</p>
+          <p id="full_name"><b>Full Name: </b>{{$info[0]->name}} {{$info[0]->lastname}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
-          <p id="age"><b>Age: </b>{{$user->datebirth}}</p>
+          <p id="age"><b>Age: </b>{{$info[0]->datebirth}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
-          <p id="nationality"><b>Nationality: </b>{{$user->nationality}}</p>
+          <p id="nationality"><b>Nationality: </b>{{$info[0]->nationality}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
-          <p id="quote"><b>Favorite Quote: "</b>{{$user->quote}}<b>"</b></p>
+          <p id="quote"><b>Favorite Quote: "</b>{{$info[0]->quote}}<b>"</b></p>
         </div>
       </div>
 
       <div class="row" id="last_row">
         <div class="col-3">
-          <a href="/profile/{{$user->id}}/edit" type="button" id="edit_profile" class="btn btn-primary">Edit Profile</a>
+          <a href="/profile/{{$info[0]->id}}/edit" type="button" id="edit_profile" class="btn btn-primary">Edit Profile</a>
         </div>
       </div>
+      
       <div class="container" id="stats_container">
 
 
@@ -66,7 +67,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      <i class="hand point up outline icon"></i> {{$user->upvotes}}
+      <i class="hand point up outline icon"></i> {{$info[0]->upvotes}}
     </div>
     <div class="label">
       Upvotes Received
@@ -75,7 +76,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      <i class="handshake icon"></i> {{$user->downvotes}}
+      <i class="handshake icon"></i> {{$info[0]->downvotes}}
     </div>
     <div class="label">
       Upvotes Given
@@ -92,5 +93,64 @@
   </div>
 </div>
 </div>
+
+<!-- FRIEND REQUESTS RECEIVED -->
+@foreach($info[1] as $request)
+
+   <div class="container">
+      <div class = "row">
+        <div class= "col">
+          {{$request->id}}
+        </div>
+
+        <div class= "col">
+          <a href="#" type="button" class="btn btn-success">Accept</a>
+        </div>
+
+      </div>
+    </div>
+@endforeach
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+
+var requests = document.querySelectorAll('.btn-success');
+
+var i;
+for (i=0; i < requests.length; i++) {
+
+  requests[i].addEventListener('click', function() {
+    handle_friend();
+});
+}
+
+function handle_friend() {
+
+  $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+ });
+
+  
+    var request = $.ajax({
+    method: 'POST',
+    url: '/accept_friend',
+    data: {'user' : {{$info[1][0]->id}}},
+    success: function( response ){
+        console.log( response );
+    },
+    error: function( e ) {
+        console.log(e);
+    }
+
+    
+});
+
+
+}
+
+</script>
 
 @endsection

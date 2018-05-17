@@ -97,14 +97,14 @@ CREATE TABLE report (
 );
 
 CREATE TABLE friendship (
-  id INTEGER NOT NULL,
+  id SERIAL UNIQUE,
   start date,
   user1 INTEGER NOT NULL,
   user2 INTEGER NOT NULL
 );
 
 CREATE TABLE friend_request (
-  id INTEGER NOT NULL,
+  id SERIAL UNIQUE,
   dateRequest date,
   dateConfirmation date,
   sender INTEGER NOT NULL,
@@ -421,26 +421,26 @@ INSERT INTO "friendship" (id, start, user1, user2) VALUES (18, '2017/11/21', 18,
 INSERT INTO "friendship" (id, start, user1, user2) VALUES (19, '2017/11/12', 19, 19);
 INSERT INTO "friendship" (id, start, user1, user2) VALUES (20, '2017/10/19', 20, 20);
 
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (1, '2017/08/13', '2018/02/22', 1, 2);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (2, '2017/02/26', '2017/07/08', 2, 3);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (3, '2018/02/16', '2018/06/21', 3, 4);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (4, '2017/01/13', '2017/11/05', 4, 5);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (5, '2018/01/22', '2018/03/24', 5, 6);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (6, '2017/09/18', '2018/04/03', 6, 7);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (7, '2017/09/17', '2017/11/19', 7, 8);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (8, '2017/03/18', '2017/06/13', 8, 9);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (9, '2017/06/22', '2017/12/23', 9, 10);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (10, '2017/09/29', '2017/12/29', 10, 11);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (11, '2018/02/19', '2018/06/02', 11, 12);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (12, '2018/01/05', '2018/05/22', 12, 13);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (13, '2017/07/27', '2017/11/13', 13, 14);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (14, '2017/05/23', '2017/12/10', 14, 15);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (15, '2017/08/12', '2018/01/17', 15, 16);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (16, '2017/04/23', '2017/12/18', 16, 17);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (17, '2017/04/14', '2018/04/01', 17, 18);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (18, '2017/12/09', '2017/12/13', 18, 19);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (19, '2017/08/03', '2017/10/25', 19, 20);
-INSERT INTO "friend_request" (id, dateRequest, dateConfirmation, sender, receiver) VALUES (20, '2017/01/29', '2017/04/26', 20, 1);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/08/13', '2018/02/22', 1, 2);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/02/26', '2017/07/08', 2, 3);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2018/02/16', '2018/06/21', 3, 4);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/01/13', '2017/11/05', 4, 5);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2018/01/22', '2018/03/24', 5, 6);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/09/18', '2018/04/03', 6, 7);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/09/17', '2017/11/19', 7, 8);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/03/18', '2017/06/13', 8, 9);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/06/22', '2017/12/23', 9, 10);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/09/29', '2017/12/29', 10, 11);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2018/02/19', '2018/06/02', 11, 12);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2018/01/05', '2018/05/22', 12, 13);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/07/27', '2017/11/13', 13, 14);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/05/23', '2017/12/10', 14, 15);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/08/12', '2018/01/17', 15, 16);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/04/23', '2017/12/18', 16, 17);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/04/14', '2018/04/01', 17, 18);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/12/09', '2017/12/13', 18, 19);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/08/03', '2017/10/25', 19, 20);
+INSERT INTO "friend_request" (dateRequest, dateConfirmation, sender, receiver) VALUES ('2017/01/29', '2017/04/26', 20, 1);
 
 INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (1, 1, 2, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.', 'Generic Title', '2018/03/19', 1);
 INSERT INTO "conversation_message" (id_conversation, id_sender, id_recipient, body, title, time_stamp, read) VALUES (2, 2, 3, 'Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 'Generic Title', '2018/03/27', 0);

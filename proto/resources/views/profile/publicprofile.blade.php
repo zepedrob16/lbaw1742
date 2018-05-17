@@ -111,11 +111,11 @@ function handle_friend() {
         }
  });
 
-
+  
     var request = $.ajax({
     method: 'POST',
-    url: 'new_friend',
-    data: {'user' : {{$user->username}}},
+    url: '/new_friend',
+    data: {'user' : {{$user->id}}},
     success: function( response ){
         console.log( response );
     },
@@ -125,7 +125,6 @@ function handle_friend() {
 
     
 });
-
 
 
 }

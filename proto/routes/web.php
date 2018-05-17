@@ -28,6 +28,8 @@ Route::resource('open_inbox','OpenInboxController');
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');
 Route::post('/addComment','PostsController@addComment');
+Route::post('/new_friend', 'PublicProfileController@friend_request');
+Route::post('/accept_friend', 'ProfileController@new_friendship');
 
 Route::get('/getbalancepost','PostsController@getBalancePost');
 Route::get('/getAllPosts','PostsController@getAllPosts');
