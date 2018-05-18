@@ -42,6 +42,12 @@
           <a href="#" type="button" id="friend_request" class="btn btn-primary">Send Friend Request</a>
         </div>
       </div>
+
+      <div class="row" id="last_row">
+        <div class="col-3">
+          <a href="#" type="button" id="friend_request" class="btn btn-primary">Send Message</a>
+        </div>
+      </div>
       <div class="container" id="stats_container">
 
 

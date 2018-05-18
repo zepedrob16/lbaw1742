@@ -9,6 +9,8 @@ use App\User;
 use App\FriendRequest;
 use App\Friendship;
 
+use DB;
+
 class ProfileController extends Controller
 {
 
@@ -100,6 +102,10 @@ class ProfileController extends Controller
         $data = $request->all();
 
         $id_sender = $data['user'];
+
+        $friend_request = DB::update('update friend_request set dateconfirmation = ? where receiver = ? and sender = ?', [date("Y-m-d H:i:s"), auth()->user()->id, $id_sender]);
+
+        //$friend_request->save();
 
         $friendship = new Friendship;
 

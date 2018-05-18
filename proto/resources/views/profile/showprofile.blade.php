@@ -100,12 +100,12 @@
 
    <div class="container">
       <div class = "row">
-        <div class= "col">
+        <div class= "col" class="sender">
           {{$request->sender}}
         </div>
 
         <div class= "col">
-          <a href="#" type="button" class="btn btn-success">Accept</a>
+          <a href="#" type="button" class="btn btn-success" number = {{$request->sender}} >Accept</a>
         </div>
 
       </div>
@@ -121,27 +121,30 @@
 
 var requests = document.querySelectorAll('.btn-success');
 
-var i;
+var i = 0;
 for (i=0; i < requests.length; i++) {
 
-  requests[i].addEventListener('click', function() {
-    handle_friend();
-});
+  requests[i].addEventListener('click', function(){
+    handle_friend(this);
+  });
 }
 
-function handle_friend() {
+function handle_friend(friend) {
 
+  let friend_id = friend.getAttribute("number");
+  
   $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
  });
 
-  
+
+
     var request = $.ajax({
     method: 'POST',
     url: '/accept_friend',
-    data: {'user' : {{$info[1][0]->id}}},
+    data: {'user' : friend_id},
     success: function( response ){
         console.log( response );
     },
@@ -152,6 +155,7 @@ function handle_friend() {
     
 });
 
+request.done(function(response) {});
 
 }
 
