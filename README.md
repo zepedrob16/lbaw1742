@@ -25,11 +25,11 @@
 
 - [ ] Enviar mensagem para amigo
 
-- [ ] Enviar pedido de amizade
+- [x] Enviar pedido de amizade
 
-- [ ] Receber pedido de amizade
+- [x] Receber pedido de amizade
 
-- [ ] Aceitar ou Rejeitar pedido de amizade
+- [x] Aceitar ou Rejeitar pedido de amizade
 
 - [ ] Receber confirmação/rejeição de amizade
 
