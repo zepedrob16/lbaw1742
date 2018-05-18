@@ -42,7 +42,7 @@
 
 - [x] Ver ranking de um Post
 
-- [ ] Filtrar - Tv Shows e Movies
+- [x] Filtrar - Tv Shows e Movies
 
 - [ ] Procurar (Ajax)
 
