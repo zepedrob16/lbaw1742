@@ -115,6 +115,15 @@
         <p>No friend requests</p>
 @endif
 
+<!-- COUNT ALL FRIENDS -->
+@if(count($info[2]) > 0)
+  <p>You have <a href="/friends/{{$info[0]->id}}">{{count($info[2])}} friends</a></p>
+
+@else
+  <p>No friends</p>
+@endif
+
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">

@@ -24,6 +24,7 @@ Route::resource('profile','ProfileController');
 Route::resource('publicprofile','PublicProfileController');
 Route::resource('inbox','InboxController');
 Route::resource('open_inbox','OpenInboxController');
+Route::resource('friends', 'ShowFriendsController');
 
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');

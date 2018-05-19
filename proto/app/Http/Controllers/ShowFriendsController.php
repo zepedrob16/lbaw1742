@@ -11,7 +11,7 @@ use App\Friendship;
 
 use DB;
 
-class ProfileController extends Controller
+class ShowFriendsController extends Controller
 {
 
     public function __construct(){
@@ -57,17 +57,16 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $user =  User::find($id);
+    {   
+        $user = User::find($id);
 
-        $friend_requests = FriendRequest::where('receiver', $id)->get();
+        $all_users = User::all();
 
         $friends = DB::select('select * from friendship where user1 = ? or user2 = ?', [auth()->user()->id, auth()->user()->id]);
 
+        $info = array($user, $friends, $all_users);
 
-        $info = array($user, $friend_requests, $friends);
-        
-        return view('profile.showprofile')->with('info', $info);
+        return view('profile.showfriends')->with('info', $info);
     }
 
     /**
@@ -78,8 +77,6 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $user =  User::find($id);
-        return view('profile.editprofile')->with('user',$user);
     }
 
     /**
@@ -91,34 +88,6 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user =  User::find($id);
-        $user->username = $request->username;
-        $user->quote = $request->quote;
-        $user->avatar = $request->avatar;
-        $user->nationality = $request->nationality;
-        $user->email = $request->email;
-        $user->save();
-    }
-
-    public function new_friendship(Request $request) {
-
-        $data = $request->all();
-
-        $id_sender = $data['user'];
-
-        $friend_request = DB::update('update friend_request set dateconfirmation = ? where receiver = ? and sender = ?', [date("Y-m-d H:i:s"), auth()->user()->id, $id_sender]);
-
-        //$friend_request->save();
-
-        $friendship = new Friendship;
-
-        $friendship->start = date("Y-m-d H:i:s");
-        $friendship->user1 = auth()->user()->id;
-        $friendship->user2 = $id_sender;
-
-        $friendship->save();
-
-        return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
     }
 
     /**
