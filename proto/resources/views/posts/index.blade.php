@@ -4,49 +4,81 @@
 session_start();
 $_SESSION['allposts'] = $allposts;
 ?>
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta name="csrf-token" content="{{ csrf_token() }}" />
-<link rel="stylesheet" href="css/style-homepage.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
 
 @section('content')
     <h1>Posts</h1>
-    <a href="/posts/create">Create Post</a>
 
     <br><br>
-    <a href="#" id="Movies"><i class="far fa-thumbs-up"></i>Movies</a> 
-    <a href="#" id="TVShow"><i class="far fa-thumbs-down"></i>TV Shows</a><br><br>
+    <div class = "container">
 
-    @if(count($allposts[0]) > 0)
-        @foreach($allposts[0] as $post)
-            <div class="row" mediacat="{{ $post->media_category }}" id="post">
-            <div class="col-1">
-                <i class="fas fa-link"></i>
-                <div id="balance" number={{ $post->postnumber }}>
-                <p>{{ $post->balance }}</p>
-                </div>
-                @if(!Auth::guest())
-                    <a href="#" number={{ $post->postnumber }} id="upvote" class="upvote" ><i class="far fa-thumbs-up"></i>Upvote</a> <br>
-                    <a href="#" number={{ $post->postnumber }} id="downvote" class="downvote"><i class="far fa-thumbs-down"></i>Downvote</a>
-                @endif
-            </div>
-            <div class="col-6">
-                <a href="/posts/{{ $post->postnumber }}" id="news_title">{{ $post->title }}</a><br>
-                <p>Nam consectetur iaculis imperdiet. Fusce ac eros justo. Sed vel risus ac sapien sollicitudin iaculis. Praesent non diam sapien. Curabitur et dui ut dolor mattis.</p>
-                <a href="/posts/{{ $post->postnumber }}" class="comments">{{ $allposts[4]->where('id_post', $post->postnumber)->count() }} comments</a>
-            </div>
+        <!-- Tv show and movie selector -->
+
+        <button type="button" id = "Movies" class="btn btn-default"><i class="fas fa-tv"></i>  Movies</button>
+        <button type="button" id = "TVShow" class="btn btn-default"><i class="fas fa-video"></i>  TV Shows</button>
+
+
+        <!-- Submit post -->
+        <div class="row">
+            
             <div class="col-3">
-                <i class="fas fa-video">{{ $post->media_category }}</i>
-                <i class="fas fa-video"></i>
-                <br>
-                Shawshank Redemption
-                <br>
-                <i class="fab fa-imdb"></i>7.5<br>
+                <a href="/posts/create"><button type="button" class="btn btn-success" id="submit">Submit Post</button></a>
             </div>
         </div>
-        @endforeach
-    @else
-        <p>No posts found</p>
-    @endif
+
+        <!-- Display all posts -->
+
+        @if(count($allposts[0]) > 0)
+            @foreach($allposts[0] as $post)
+
+            <div class="row" mediacat="{{ $post->media_category }}" id="post">
+
+                <!-- First Column -> Upvote, downvote and balance -->
+                <div class="col-1">
+                    <i class="fas fa-link"></i>
+                    @if(!Auth::guest())
+                        <a href="#" number={{ $post->postnumber }} id="upvote" class="upvote"><i class="far fa-thumbs-up"></i></a>
+                        <div id="vote_balance" number={{ $post->postnumber }}>
+                            <p>{{ $post->balance }}</p>
+                        </div>
+                        <br>
+                        <a href="#" number={{ $post->postnumber }} id="downvote" class="downvote"><i class="far fa-thumbs-down"></i></a>
+                    @endif
+                </div>
+
+                <!-- Second Column -> Title and preview -->
+                <div class="col-6">
+                    <a href="/posts/{{ $post->postnumber }}" id="news_title">{{ $post->title }}</a><br>
+                    <p>Nam consectetur iaculis imperdiet. Fusce ac eros justo. Sed vel risus ac sapien sollicitudin iaculis. Praesent non diam sapien. Curabitur et dui ut dolor mattis.</p>
+                    <a href="/posts/{{ $post->postnumber }}" class="comments">{{ $allposts[4]->where('id_post', $post->postnumber)->count() }} comments</a>
+                </div>
+
+                <!-- Third Column -> Category, tag and score -->
+                <div class="col-3">
+                    <i class="fas fa-video">{{ $post->media_category }}</i>
+                    <i class="fas fa-video"></i>
+                    <br>
+                    Shawshank Redemption
+                    <br>
+                    <i class="fab fa-imdb"></i>7.5<br>
+                </div>
+            </div>
+            @endforeach
+        @else
+            <p>No posts found</p>
+        @endif
+
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 

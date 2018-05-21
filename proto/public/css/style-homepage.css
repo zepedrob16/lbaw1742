@@ -3,6 +3,7 @@
     font-size: 1.6em;
     text-decoration: none;
     color: black;
+    font-weight: bold;
 }
 
 #news_title:hover {

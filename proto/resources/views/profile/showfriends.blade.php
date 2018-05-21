@@ -12,7 +12,7 @@
 	@else
 		@foreach($info[2] as $check_user)
 			@if($check_user->id === $friend->user1)
-				<p><a href="#">{{$check_user->username}}</a></p>
+				<p><a href="/publicprofile/{{$check_user->id}}">{{$check_user->username}}</a></p>
 			@endif
 		@endforeach
 	@endif
