@@ -117,7 +117,7 @@ function handle_tvShow(){
  }     
 }
 
-var allBalance = document.querySelectorAll('#balance');
+var allBalance = document.querySelectorAll('#vote_balance');
 
 var allUpvotes = document.querySelectorAll('#upvote');
 var allDownVotes = document.querySelectorAll('#downvote');
