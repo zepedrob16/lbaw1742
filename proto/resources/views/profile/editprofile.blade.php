@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
 
 {!! Form::open(['action' => ['ProfileController@update', $user->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="container">

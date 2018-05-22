@@ -25,12 +25,14 @@ Route::resource('publicprofile','PublicProfileController');
 Route::resource('inbox','InboxController');
 Route::resource('open_inbox','OpenInboxController');
 Route::resource('friends', 'ShowFriendsController');
+Route::resource('admin','AdminController');
 
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');
 Route::post('/addComment','PostsController@addComment');
 Route::post('/new_friend', 'PublicProfileController@friend_request');
 Route::post('/accept_friend', 'ProfileController@new_friendship');
+Route::post('/ban','AdminController@ban_user');
 
 Route::get('/getbalancepost','PostsController@getBalancePost');
 Route::get('/getAllPosts','PostsController@getAllPosts');

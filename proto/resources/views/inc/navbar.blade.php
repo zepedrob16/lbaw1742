@@ -50,6 +50,12 @@
                                         <a href="/inbox/{{ Auth::user()->id }}">
                                             Inbox
                                         </a>
+                                        <!-- TODO IF AUTHENTICATED USER IS ADMIN ONLY -->
+
+                                        <a href="/admin/{{ Auth::user()->id }}">
+                                            Admin
+                                        </a>
+
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
