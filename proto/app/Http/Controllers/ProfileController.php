@@ -8,6 +8,9 @@ use Auth;
 use App\User;
 use App\FriendRequest;
 use App\Friendship;
+use App\Post_Reaction;
+use App\Post_Comment;
+use App\Post;
 
 use DB;
 
@@ -64,8 +67,14 @@ class ProfileController extends Controller
 
         $friends = DB::select('select * from friendship where user1 = ? or user2 = ?', [auth()->user()->id, auth()->user()->id]);
 
+        $reactions_given = Post_Reaction::where('reactor', $id)->get();
 
-        $info = array($user, $friend_requests, $friends);
+        $comments = Post_Comment::where('id_author', $id)->get();
+
+        $posts_made = Post::where('author', $user->username)->get();
+
+        $info = array($user, $friend_requests, $friends, $reactions_given, $comments, $posts_made);
+
         
         return view('profile.showprofile')->with('info', $info);
     }

@@ -7,6 +7,12 @@ use Auth;
 
 use App\User;
 use App\FriendRequest;
+use App\Friendship;
+use App\Post_Reaction;
+use App\Post_Comment;
+use App\Post;
+
+use DB;
 
 class PublicProfileController extends Controller
 {
@@ -54,7 +60,18 @@ class PublicProfileController extends Controller
     public function show($id)
     {
         $user =  User::find($id);
-        return view('profile.publicprofile')->with('user', $user);
+
+        $friends = DB::select('select * from friendship where user1 = ? or user2 = ?', [auth()->user()->id, auth()->user()->id]);
+
+        $reactions_given = Post_Reaction::where('reactor', $id)->get();
+
+        $comments = Post_Comment::where('id_author', $id)->get();
+
+        $posts_made = Post::where('author', $user->username)->get();
+
+        $info = array($user, $friends, $reactions_given, $comments, $posts_made);
+
+        return view('profile.publicprofile')->with('info', $info);
     }
 
     /**

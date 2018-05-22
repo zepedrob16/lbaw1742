@@ -8,32 +8,32 @@
     <div class="container">
       <div class="row">
         <div class="col-5">
-          <img src={{$user->avatar}} width="150px" height ="150px" id="profile_pic">
-          <h1 id="username">{{$user->username}}</h1>
+          <img src={{$info[0]->avatar}} width="150px" height ="150px" id="profile_pic">
+          <h1 id="username">{{$info[0]->username}}</h1>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
-          <p id="full_name"><b>Full Name: </b>{{$user->name}} {{$user->lastname}}</p>
+          <p id="full_name"><b>Full Name: </b>{{$info[0]->name}} {{$info[0]->lastname}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
-          <p id="age"><b>Age: </b>{{$user->datebirth}}</p>
+          <p id="age"><b>Age: </b>{{$info[0]->datebirth}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
-          <p id="nationality"><b>Nationality: </b>{{$user->nationality}}</p>
+          <p id="nationality"><b>Nationality: </b>{{$info[0]->nationality}}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
-          <p id="quote"><b>Favorite Quote: "</b>{{$user->quote}}<b>"</b></p>
+          <p id="quote"><b>Favorite Quote: "</b>{{$info[0]->quote}}<b>"</b></p>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
 <div class="ui small statistics">
   <div class="statistic">
     <div class="value">
-      <i class="comment icon"></i> 5
+      <i class="comment icon"></i> {{ count($info[3]) }}
     </div>
     <div class="label">
       Comments
@@ -63,7 +63,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      22
+      {{ count($info[4] )}}
     </div>
     <div class="label">
       Posts
@@ -72,7 +72,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      <i class="hand point up outline icon"></i> {{$user->upvotes}}
+      <i class="hand point up outline icon"></i> {{$info[0]->upvotes}}
     </div>
     <div class="label">
       Upvotes Received
@@ -81,7 +81,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      <i class="handshake icon"></i> {{$user->downvotes}}
+      <i class="handshake icon"></i> {{ count($info[2]) }}
     </div>
     <div class="label">
       Upvotes Given
@@ -90,7 +90,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      <i class="users icon"></i> 99
+      <i class="users icon"></i> {{ count($info[1]) }}
     </div>
     <div class="label">
       Friends
@@ -121,7 +121,7 @@ function handle_friend() {
     var request = $.ajax({
     method: 'POST',
     url: '/new_friend',
-    data: {'user' : {{$user->id}}},
+    data: {'user' : {{$info[0]->id}}},
     success: function( response ){
         console.log( response );
     },

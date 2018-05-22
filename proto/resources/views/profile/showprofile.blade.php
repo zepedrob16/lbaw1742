@@ -2,6 +2,19 @@
 
 @section('content')
 
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/statistic.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/icon.css" rel="stylesheet">
 
@@ -49,7 +62,7 @@
 <div class="ui small statistics">
   <div class="statistic">
     <div class="value">
-      <i class="comment icon"></i> 5
+      <i class="comment icon"></i>{{ count($info[4]) }}
     </div>
     <div class="label">
       Comments
@@ -58,7 +71,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      22
+      {{ count($info[5]) }}
     </div>
     <div class="label">
       Posts
@@ -76,7 +89,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      <i class="handshake icon"></i> {{$info[0]->downvotes}}
+      <i class="handshake icon"></i> {{count($info[3])}}
     </div>
     <div class="label">
       Upvotes Given
@@ -85,7 +98,7 @@
   <span style="display:inline-block; width: 40px;"></span>
   <div class="statistic">
     <div class="value">
-      <i class="users icon"></i> 99
+      <i class="users icon"></i>{{count($info[2])}}
     </div>
     <div class="label">
       Friends
@@ -117,7 +130,7 @@
 
 <!-- COUNT ALL FRIENDS -->
 @if(count($info[2]) > 0)
-  <p>You have <a href="/friends/{{$info[0]->id}}">{{count($info[2])}} friends</a></p>
+  <p><a href="/friends/{{$info[0]->id}}">Show all friends.</a></p>
 
 @else
   <p>No friends</p>
