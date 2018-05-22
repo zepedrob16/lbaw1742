@@ -1,3 +1,8 @@
+DROP schema IF EXISTS lbaw1742db cascade;
+CREATE schema lbaw1742db;
+
+SET schema 'lbaw1742db';
+
 DROP TABLE IF EXISTS users cascade;
 DROP TABLE IF EXISTS post cascade;
 DROP TABLE IF EXISTS report cascade;
@@ -358,23 +363,23 @@ INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VAL
 INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (14, 19, 0, 'Nulla justo.', '0:51:25');
 INSERT INTO "post_comment" (id_post, id_author, id_parent, body, time_stamp) VALUES (15, 20, 0, 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '0:53:05');
 
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (1, 0, 2, 6);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (1, -1, 2, 6);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (2, 1, 3, 7);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (3, 0, 1, 9);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (3, -1, 1, 9);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (4, 1, 10, 10);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (5, 1, 9, 9);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (6, 1, 8, 8);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (7, 0, 7, 7);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (8, 0, 6, 6);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (6, -1, 8, 8);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (7, -1, 7, 7);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (8, 1, 6, 6);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (9, 1, 5, 5);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (10, 0, 4, 4);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (11, 0, 11, 11);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (10, -1, 4, 4);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (11, -1, 11, 11);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (12, 1, 12, 12);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (13, 0, 13, 13);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (14, 0, 14, 14);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (13, -1, 13, 13);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (14, -1, 14, 14);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (15, 1, 15, 15);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (16, 1, 16, 16);
-INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (17, 0, 17, 17);
+INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (17, -1, 17, 17);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (18, 1, 18, 18);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (19, 1, 19, 19);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (20, 1, 20, 20);
