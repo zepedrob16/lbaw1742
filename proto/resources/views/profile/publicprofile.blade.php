@@ -37,15 +37,19 @@
         </div>
       </div>
 
+      @if(count($info[5]) > 0)
+      <p> Already sent friend request </p>
+      @else
       <div class="row" id="last_row">
         <div class="col-3">
           <a href="#" type="button" id="friend_request" class="btn btn-primary">Send Friend Request</a>
         </div>
       </div>
+      @endif
 
       <div class="row" id="last_row">
         <div class="col-3">
-          <a href="#" type="button" id="friend_request" class="btn btn-primary">Send Message</a>
+          <a href="/send_message/{{$info[0]->id}}" type="button" id="friend_request" class="btn btn-primary">Send Message</a>
         </div>
       </div>
       <div class="container" id="stats_container">

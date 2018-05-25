@@ -8,13 +8,11 @@ use Auth;
 use App\User;
 use App\FriendRequest;
 use App\Friendship;
-use App\Post_Reaction;
-use App\Post_Comment;
-use App\Post;
+use App\Conversation_Message;
 
 use DB;
 
-class PublicProfileController extends Controller
+class SendMessageController extends Controller
 {
      public function __construct(){
 
@@ -58,22 +56,12 @@ class PublicProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $user =  User::find($id);
+    {   
+        $user = User::find($id);
 
-        $friends = DB::select('select * from friendship where user1 = ? or user2 = ?', [auth()->user()->id, auth()->user()->id]);
+        $info = array($user, auth()->user()->id);
 
-        $reactions_given = Post_Reaction::where('reactor', $id)->get();
-
-        $comments = Post_Comment::where('id_author', $id)->get();
-
-        $posts_made = Post::where('author', $user->username)->get();
-
-        $friend_requests = DB::select('select * from friend_request where sender = ? and receiver = ?', [auth()->user()->id, $id]);
-
-        $info = array($user, $friends, $reactions_given, $comments, $posts_made, $friend_requests);
-
-        return view('profile.publicprofile')->with('info', $info);
+        return view('profile.send_message')->with('info', $info);
     }
 
     /**
@@ -87,6 +75,30 @@ class PublicProfileController extends Controller
         
     }
 
+    public function send_new_message(Request $request) {
+
+        $data = $request->all();
+
+        $id_user = $data['message'][0];
+
+        $title = $data['message'][1];
+
+        $body = $data['message'][2];
+
+        $message = new Conversation_Message;
+
+        $message->id_sender = auth()->user()->id;
+        $message->id_recipient = $id_user;
+        $message->body = $body;
+        $message->title = $title;
+        $message->time_stamp = date("Y-m-d H:i:s");
+        $message->read = 0;
+
+        $message->save();
+
+        return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -96,29 +108,6 @@ class PublicProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user =  User::find($id);
-        $user->username = $request->username;
-        $user->quote = $request->quote;
-        $user->avatar = $request->avatar;
-        $user->nationality = $request->nationality;
-        $user->email = $request->email;
-        $user->save();
-    }
-
-    public function friend_request(Request $request) {
-        $data = $request->all();
-
-        $id_receiver = $data['user'];
-
-        $friend_request = new FriendRequest;
-
-        $friend_request->daterequest = date("Y-m-d H:i:s");
-        $friend_request->sender = auth()->user()->id;
-        $friend_request->receiver = $id_receiver;
-
-        $friend_request->save();
-
-        return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
     }
 
     /**

@@ -26,6 +26,7 @@ Route::resource('inbox','InboxController');
 Route::resource('open_inbox','OpenInboxController');
 Route::resource('friends', 'ShowFriendsController');
 Route::resource('admin','AdminController');
+Route::resource('send_message', 'SendMessageController');
 
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');
@@ -33,6 +34,7 @@ Route::post('/addComment','PostsController@addComment');
 Route::post('/new_friend', 'PublicProfileController@friend_request');
 Route::post('/accept_friend', 'ProfileController@new_friendship');
 Route::post('/ban','AdminController@ban_user');
+Route::post('/send_new_message', 'SendMessageController@send_new_message');
 
 Route::get('/getbalancepost','PostsController@getBalancePost');
 Route::get('/getAllPosts','PostsController@getAllPosts');
