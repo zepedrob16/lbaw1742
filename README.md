@@ -23,7 +23,7 @@
 
 - [x] Ver Inbox (kind of)
 
-- [ ] Enviar mensagem para amigo
+- [x] Enviar mensagem para amigo
 
 - [x] Enviar pedido de amizade
 
