@@ -8,6 +8,15 @@ use Auth;
 use App\User;
 use App\Post;
 use App\Admin;
+use App\Conversation_Message;
+use App\Friendship;
+use App\FriendRequest;
+use App\Post_Comment;
+use App\Post_Reaction;
+use App\Text_Post;
+use App\Link_Post;
+use App\Image_Post;
+use App\Media_Category;
 
 use DB;
 
@@ -58,8 +67,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $user =  Admin::find($id);
-
+        $user =  User::all();
         
         return view('admin.admin')->with('info', $user);
     }
@@ -122,10 +130,11 @@ class AdminController extends Controller
 
         $data = $request->all();
 
-        $userId = $data['user'];
-        $user = User::find($userId);
-        $user->delete();
+        $user_id = $data['user'];
+        $user = User::findOrFail($user_id);
 
+        $user->delete();
+       
         return response()->json(['message' => 'successfull','info' => 'banned user'],200);
     }
 

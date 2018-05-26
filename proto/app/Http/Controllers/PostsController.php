@@ -300,6 +300,7 @@ class PostsController extends Controller
         if(auth()->user()->username !== $post->author){
             return redirect('/posts')->with('error','Unauthorized Page');
         }
+        /*
 
         if($post->type === "text"){
             $sub_post = Text_Post::find($postnumber);

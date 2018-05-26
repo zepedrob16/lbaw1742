@@ -207,67 +207,73 @@ ALTER TABLE ONLY friendship
 -- Foreign Keys
 
 ALTER TABLE ONLY report
-   ADD CONSTRAINT report_id_user_fkey FOREIGN KEY (author) REFERENCES users(id) ON UPDATE CASCADE;
+   ADD CONSTRAINT report_id_user_fkey FOREIGN KEY (author) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY report
-   ADD CONSTRAINT report_id2_user_fkey FOREIGN KEY (criminal) REFERENCES users(id) ON UPDATE CASCADE;
+   ADD CONSTRAINT report_id2_user_fkey FOREIGN KEY (criminal) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY friendship
-    ADD CONSTRAINT friendship_id_user_fkey FOREIGN KEY (user1) REFERENCES users(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT friendship_id_user_fkey FOREIGN KEY (user1) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY friendship
-    ADD CONSTRAINT friendship_id2_user_fkey FOREIGN KEY (user2) REFERENCES users(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT friendship_id2_user_fkey FOREIGN KEY (user2) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY friend_request
-    ADD CONSTRAINT friend_request1_id_user_fkey FOREIGN KEY (sender) REFERENCES users(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT friend_request1_id_user_fkey FOREIGN KEY (sender) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY friend_request
-    ADD CONSTRAINT friend_request2_id_user_fkey FOREIGN KEY (receiver) REFERENCES users(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT friend_request2_id_user_fkey FOREIGN KEY (receiver) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_comment
-    ADD CONSTRAINT id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON UPDATE CASCADE;
+    ADD CONSTRAINT id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_comment
-    ADD CONSTRAINT id_user_fkey FOREIGN KEY (id_author) REFERENCES users(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT id_user_fkey FOREIGN KEY (id_author) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_reaction
-    ADD CONSTRAINT id_user FOREIGN KEY (reactor) REFERENCES users(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT id_user FOREIGN KEY (reactor) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_reaction
-    ADD CONSTRAINT id_user_2 FOREIGN KEY (reacted) REFERENCES users(id) ON UPDATE CASCADE;
+    ADD CONSTRAINT id_user_2 FOREIGN KEY (reacted) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_reaction
-    ADD CONSTRAINT reaction_post_fkey FOREIGN KEY (postnumber) REFERENCES post(postnumber) ON UPDATE CASCADE;
+    ADD CONSTRAINT reaction_post_fkey FOREIGN KEY (postnumber) REFERENCES post(postnumber) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY image_post
-    ADD CONSTRAINT image_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON UPDATE CASCADE;
+    ADD CONSTRAINT image_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY text_post
-    ADD CONSTRAINT text_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON UPDATE CASCADE;
+    ADD CONSTRAINT text_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY link_post
-    ADD CONSTRAINT link_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON UPDATE CASCADE;
+    ADD CONSTRAINT link_post_id_post_fkey FOREIGN KEY (id_post) REFERENCES post(postnumber) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY conversation_message
-    ADD CONSTRAINT conversation_id_sender_fkey FOREIGN KEY (id_sender) REFERENCES users(id) on UPDATE CASCADE;
+    ADD CONSTRAINT conversation_id_sender_fkey FOREIGN KEY (id_sender) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
     
 ALTER TABLE ONLY conversation_message
-    ADD CONSTRAINT conversation_id_recipient_fkey FOREIGN KEY (id_recipient) REFERENCES users(id) on UPDATE CASCADE;
+    ADD CONSTRAINT conversation_id_recipient_fkey FOREIGN KEY (id_recipient) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
     
 ALTER TABLE ONLY moderator
-    ADD CONSTRAINT moderator_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) on UPDATE CASCADE;
+    ADD CONSTRAINT moderator_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY member
-    ADD CONSTRAINT member_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) on UPDATE CASCADE;
+    ADD CONSTRAINT member_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
     
 ALTER TABLE ONLY admin
-    ADD CONSTRAINT admin_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) on UPDATE CASCADE;
+    ADD CONSTRAINT admin_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_tag
-    ADD CONSTRAINT postnumber_tag_fkey FOREIGN KEY (postnumber) REFERENCES post(postnumber) on UPDATE CASCADE;
+    ADD CONSTRAINT postnumber_tag_fkey FOREIGN KEY (postnumber) REFERENCES post(postnumber) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE ONLY post_tag
-    ADD CONSTRAINT postnumber_tag_id_fkey FOREIGN KEY (tag_id) REFERENCES media_tag(tag_id) on UPDATE CASCADE;
+    ADD CONSTRAINT postnumber_tag_id_fkey FOREIGN KEY (tag_id) REFERENCES media_tag(tag_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+ALTER TABLE ONLY post
+    ADD CONSTRAINT postauthor_tag_id_fkey FOREIGN KEY (author) REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
     
 
 INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('bcurless0', 'HmeeUgMD7', 'Inès', 'Curless', 'lcurless0@google.com', '2002/01/09', 'Kazakhstan', 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 'http://dummyimage.com/237x147.png/ff4444/ffffff', 0, 0, 0);

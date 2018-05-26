@@ -54,91 +54,28 @@
       <th scope="col">Ban | Promote</th>
     </tr>
   </thead>
+
   <tbody>
+    @foreach($info as $user)
     <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/person.svg" alt="icon name" height="13" width="13"></th>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>16</td>
-      <td>email@feup.pt</td>
+      <th scope="row"><i class="fas fa-user"></i></th>
+      <td>{{$user->username}}</td>
+      <td>{{$user->name}}</td>
+      <td>{{$user->lastname}}</td>
+      <td>ups</td>
+      <td>{{$user->email}}</td>
       <td>Member</td>
       <td> 
-        <i id = "este" class="fas fa-ban"></i>
+        <span class = "ban" number = {{$user->id}}>
+          <i class="fas fa-ban" style = "cursor:pointer;"></i>
+        </span>
         <span style="display:inline-block; width: 30px;"></span>
-        <img src="assets/open-iconic/svg/arrow-thick-top.svg" alt="icon name" height="13" width="13">
+        <i class="fas fa-long-arrow-alt-up"></i>
       </td>
     </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/person.svg" alt="icon name" height="13" width="13"></th>
-      <td>@fat</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>20</td>
-      <td>email@feup.pt</td>
-      <td>Member</td>
-      <td> 
-        <img src="assets/open-iconic/svg/ban.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 30px;"></span>
-        <img src="assets/open-iconic/svg/arrow-thick-top.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/person.svg" alt="icon name" height="13" width="13"></th>
-      <td>@twitter</td>
-      <td>Larry</td>
-      <td>the Bird</td> 
-      <td>21</td>
-      <td>email@feup.pt</td>
-      <td>Admin</td>
-      <td> 
-        <img src="assets/open-iconic/svg/ban.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 30px;"></span>
-        <img src="assets/open-iconic/svg/arrow-thick-top.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/person.svg" alt="icon name" height="13" width="13"></th>
-      <td>@askmgsd</td>
-      <td>Louis</td>
-      <td>Striker</td> 
-      <td>19</td>
-      <td>email@feup.pt</td>
-      <td>Member</td>
-      <td> 
-        <img src="assets/open-iconic/svg/ban.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 30px;"></span>
-        <img src="assets/open-iconic/svg/arrow-thick-top.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/person.svg" alt="icon name" height="13" width="13"></th>
-      <td>@twislt</td>
-      <td>Sue</td>
-      <td>Morgan</td> 
-      <td>39</td>
-      <td>email@feup.pt</td>
-      <td>Member</td>
-      <td> 
-        <img src="assets/open-iconic/svg/ban.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 30px;"></span>
-        <img src="assets/open-iconic/svg/arrow-thick-top.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/person.svg" alt="icon name" height="13" width="13"></th>
-      <td id="aquele">@lagiu</td>
-      <td>Peter</td>
-      <td>Parker</td> 
-      <td>12</td>
-      <td>email@feup.pt</td>
-      <td>Member</td>
-      <td> 
-        <img src="assets/open-iconic/svg/ban.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 30px;"></span>
-        <img src="assets/open-iconic/svg/arrow-thick-top.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
+    @endforeach
+
+
   </tbody>
 </table>
 <nav aria-label="Page navigation example">
@@ -164,12 +101,6 @@
 </div>
 
 
-<footer class="footer">
-        <div class="container">
-            <span class="text-muted">© SHOWCHAN 2018, LBAW Industries 42</span>
-        </div>
-    </footer> 
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -182,38 +113,39 @@
 
 <script type="text/javascript">
 
-var requests = document.getElementById('aquele');
-console.log(requests);
-requests.addEventListener('click',function(){
-	ban_request();
-});
-
-function ban_request(){
-
-
+var requests = document.querySelectorAll('.ban');
 console.log(requests);
 
-	$.ajaxSetup({
+var i;
+for(i = 0; i < requests.length; i++) {
+  requests[i].addEventListener('click',function(){
+	   ban_request(this);
+  });
+}
+
+function ban_request(user){
+
+  let id = user.getAttribute("number");
+
+  $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
  });
-
   
     var request = $.ajax({
     method: 'POST',
     url: '/ban',
-    data: {'user' : 21},
+    data: {'user' : id},
     success: function( response ){
         console.log( response );
     },
     error: function( e ) {
         console.log(e);
     }
-
     
 });
-
+	
 
 }
 
