@@ -19,6 +19,7 @@ use App\Image_Post;
 use App\Media_Category;
 use App\Moderator;
 use App\Member;
+use App\Report;
 
 use DB;
 
@@ -71,9 +72,9 @@ class AdminReportController extends Controller
     {
         $user =  User::all();
 
-        $moderator = Moderator::all();
+        $report = Report::all();
 
-        $info = array($user, $moderator);
+        $info = array($user, $report);
         
         return view('admin.admin_report')->with('info', $info);
     }

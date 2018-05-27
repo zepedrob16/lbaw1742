@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="admin_reports.css"/>
 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <title>SHOWCHAN</title>
@@ -24,9 +26,9 @@
     <tr>
       <td align="center" class="bg-dark" scope="col">Dashboard</td> 
       <td align="center" scope="col"><a href="admin_stats.html">Statistics</a></td> 
-      <td align="center" scope="col"><a href="admin_mod.html">Moderators</a></td>
-      <td align="center" scope="col"><a href="admin.html">Users</a></td>
-      <td align="center" scope="col"><a href="admin_reports.html">Reports</a></td>
+      <td align="center" scope="col"><a href="/admin_mod/{{ Auth::user()->id }}">Moderators</a></td>
+      <td align="center" scope="col"><a href="/admin/{{ Auth::user()->id }}">Users</a></td>
+      <td align="center" scope="col"><a href="/admin_report/{{ Auth::user()->id }}">Reports</a></td>
     </tr>
   </table>
 </div>
@@ -47,84 +49,24 @@
       <th scope="col">Report Title</th>
       <th scope="col">Type</th>
       <th scope="col">Date</th>
-      <th scope="col">Nrº</th>
-      <th scope="col">Delete | Solved</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Solved</th>
     </tr>
   </thead>
 
   <tbody>
+
+    @foreach($info[1] as $report)
     <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/flag.svg" alt="icon name" height="13" width="13"></th>
-      <td>Racist</td>
-      <td>Post</td>
-      <td>10/2/2018</td>
-      <td>2</td>
-      <td> 
-        <img src="assets/open-iconic/svg/delete.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 50px;"></span>
-        <img src="assets/open-iconic/svg/task.svg" alt="icon name" height="13" width="13">
-      </td>
+      <th scope="row"><i class="fas fa-flag"></i></th>
+      <td>{{$report->title}}</td>
+      <td>{{$report->type}}</td>
+      <td>{{$report->time_stamp}}</td>
+      <td><i class="fas fa-times-circle"></i></td>
+      <td><i class="fas fa-check"></i></td>
     </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/flag.svg" alt="icon name" height="13" width="13"></th>
-      <td>Inappropriate</td>
-      <td>Comment</td>
-      <td>1/3/2018</td>
-      <td>9</td>
-      <td> 
-        <img src="assets/open-iconic/svg/delete.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 50px;"></span>
-        <img src="assets/open-iconic/svg/task.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/flag.svg" alt="icon name" height="13" width="13"></th>
-      <td>Abusive</td>
-      <td>Comment</td>
-      <td>7/2/2018</td>
-      <td>1</td>
-      <td> 
-        <img src="assets/open-iconic/svg/delete.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 50px;"></span>
-        <img src="assets/open-iconic/svg/task.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/flag.svg" alt="icon name" height="13" width="13"></th>
-      <td>Bad Link</td>
-      <td>Post</td>
-      <td>3/4/2017</td>
-      <td>5</td>
-      <td> 
-        <img src="assets/open-iconic/svg/delete.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 50px;"></span>
-        <img src="assets/open-iconic/svg/task.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/flag.svg" alt="icon name" height="13" width="13"></th>
-      <td>Bug</td>
-      <td>Post</td>
-      <td>15/2/2018</td>
-      <td>1</td>
-      <td> 
-        <img src="assets/open-iconic/svg/delete.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 50px;"></span>
-        <img src="assets/open-iconic/svg/task.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row"><img src="assets/open-iconic/svg/flag.svg" alt="icon name" height="13" width="13"></th>
-      <td>Off-topic</td>
-      <td>Comment</td>
-      <td>18/1/2018</td>
-      <td>2</td>
-      <td> 
-        <img src="assets/open-iconic/svg/delete.svg" alt="icon name" height="13" width="13"> 
-        <span style="display:inline-block; width: 50px;"></span>
-        <img src="assets/open-iconic/svg/task.svg" alt="icon name" height="13" width="13">
-      </td>
-    </tr>
+    @endforeach
+    
   </tbody>
 </table>
 

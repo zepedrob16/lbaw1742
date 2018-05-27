@@ -91,7 +91,9 @@ CREATE TABLE link_post (
 
 CREATE TABLE report (
   id INTEGER NOT NULL,
-  time_stamp time NOT NULL,
+  time_stamp date NOT NULL,
+  title text NOT NULL,
+  type text NOT NULL,
   author INTEGER NOT NULL,
   criminal INTEGER NOT NULL
 );
@@ -385,26 +387,12 @@ INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (18, 
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (19, 1, 19, 19);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (20, 1, 20, 20);
 
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (1, '21:04:52', 1, 1);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (2, '3:49:41', 2, 2);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (3, '12:34:51', 3, 3);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (4, '12:25:02', 4, 4);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (5, '18:35:36', 5, 5);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (6, '0:44:21', 6, 6);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (7, '9:01:58', 7, 7);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (8, '21:38:33', 8, 8);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (9, '4:15:15', 9, 9);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (10, '14:54:43', 10, 10);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (11, '6:50:21', 11, 11);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (12, '4:00:59', 12, 12);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (13, '14:01:28', 13, 13);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (14, '17:35:30', 14, 14);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (15, '22:56:21', 15, 15);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (16, '18:53:54', 16, 16);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (17, '0:29:02', 17, 17);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (18, '22:27:26', 18, 18);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (19, '13:07:22', 19, 19);
-INSERT INTO "report" (id, time_stamp, criminal, author) VALUES (20, '20:29:50', 20, 20);
+INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (1, 'Innapropriate', 'Post', '2017/12/23', 1, 1);
+INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (2, 'Abusive', 'Comment', '2017/06/27', 2, 2);
+INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (3, 'Sexual', 'Post', '2017/12/12', 3, 3);
+INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (4, 'Spam', 'Comment', '2017/03/14', 4, 4);
+INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (5, 'Minors', 'Post', '2017/02/28', 5, 5);
+INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (6, 'Terrorist', 'Post', '2017/01/30', 6, 6);
 
 INSERT INTO "friendship" (start, user1, user2) VALUES ('2017/10/19', 1, 2);
 INSERT INTO "friendship" (start, user1, user2) VALUES ('2017/08/03', 2, 3);

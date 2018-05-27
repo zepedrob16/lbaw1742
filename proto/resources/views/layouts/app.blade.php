@@ -11,13 +11,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style-homepage.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin_mod.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin_reports.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/inbox.css') }}" rel="stylesheet">
     @yield('style-homepage')
+
 </head>
 <body>
     <div id="app">

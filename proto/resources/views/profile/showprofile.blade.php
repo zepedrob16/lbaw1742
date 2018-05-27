@@ -151,22 +151,19 @@ for (i=0; i < requests.length; i++) {
   });
 }
 
-function handle_friend(friend) {
+function handle_friend() {
 
-  let friend_id = friend.getAttribute("number");
-  
   $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
  });
 
-
-
+  
     var request = $.ajax({
     method: 'POST',
-    url: '/accept_friend',
-    data: {'user' : friend_id},
+    url: '/new_friend',
+    data: {'user' : {{$info[0]->id}}},
     success: function( response ){
         console.log( response );
     },
@@ -177,7 +174,6 @@ function handle_friend(friend) {
     
 });
 
-request.done(function(response) {});
 
 }
 

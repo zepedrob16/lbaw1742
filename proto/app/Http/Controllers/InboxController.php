@@ -47,6 +47,8 @@ class InboxController extends Controller
     public function show($id)
     {   
         $user =  Conversation_Message::where('id_recipient', $id)->get();
+
+        $user = Conversation_Message::orderBy('time_stamp', 'des')->get();
         return view('profile.inbox')->with('user', $user);
     }
 

@@ -24,8 +24,8 @@
       <td align="center" class="bg-dark" scope="col">Dashboard</td> 
       <td align="center" scope="col"><a href="admin_stats.html">Statistics</a></td> 
       <td align="center" scope="col"><a href="/admin_mod/{{ Auth::user()->id }}">Moderators</a></td>
-      <td align="center" scope="col"><a href="admin.html">Users</a></td>
-      <td align="center" scope="col"><a href="admin_reports.html">Reports</a></td>
+      <td align="center" scope="col"><a href="/admin/{{ Auth::user()->id }}">Users</a></td>
+      <td align="center" scope="col"><a href="/admin_report/{{ Auth::user()->id }}">Reports</a></td>
     </tr>
   </table>
 </div>
