@@ -27,6 +27,8 @@ Route::resource('open_inbox','OpenInboxController');
 Route::resource('friends', 'ShowFriendsController');
 Route::resource('admin','AdminController');
 Route::resource('send_message', 'SendMessageController');
+Route::resource('admin_mod', 'AdminModController');
+Route::resource('admin_report', 'AdminReportController');
 
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');

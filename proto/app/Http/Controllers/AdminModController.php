@@ -22,7 +22,7 @@ use App\Member;
 
 use DB;
 
-class AdminController extends Controller
+class AdminModController extends Controller
 {
 
     public function __construct(){
@@ -71,15 +71,11 @@ class AdminController extends Controller
     {
         $user =  User::all();
 
-        $admin = Admin::all();
-
         $moderator = Moderator::all();
 
-        $member = Member::all();
-
-        $info = array($user, $admin, $moderator, $member);
+        $info = array($user, $moderator);
         
-        return view('admin.admin')->with('info', $info);
+        return view('admin.admin_mod')->with('info', $info);
     }
 
     /**

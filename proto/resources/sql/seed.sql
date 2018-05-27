@@ -490,28 +490,28 @@ INSERT INTO "media_tag" (tag_id, rating, title) VALUES (18, 6.8, 'Lust for Gold 
 INSERT INTO "media_tag" (tag_id, rating, title) VALUES (19, 3.0, 'Dead Men Walk');
 INSERT INTO "media_tag" (tag_id, rating, title) VALUES (20, 3.7, 'Dark Floors');
 
-INSERT INTO "member" (id_user, reports) VALUES (1, 3);
-INSERT INTO "member" (id_user, reports) VALUES (2, 2);
-INSERT INTO "member" (id_user, reports) VALUES (3, 0);
-INSERT INTO "member" (id_user, reports) VALUES (4, 1);
-INSERT INTO "member" (id_user, reports) VALUES (5, 2);
-INSERT INTO "member" (id_user, reports) VALUES (6, 0);
-INSERT INTO "member" (id_user, reports) VALUES (7, 0);
-INSERT INTO "member" (id_user, reports) VALUES (8, 0);
-INSERT INTO "member" (id_user, reports) VALUES (9, 0);
+INSERT INTO "member" (id_user, reports) VALUES (9, 3);
 INSERT INTO "member" (id_user, reports) VALUES (10, 2);
-INSERT INTO "member" (id_user, reports) VALUES (11, 1);
+INSERT INTO "member" (id_user, reports) VALUES (11, 0);
 INSERT INTO "member" (id_user, reports) VALUES (12, 1);
+INSERT INTO "member" (id_user, reports) VALUES (13, 2);
+INSERT INTO "member" (id_user, reports) VALUES (14, 0);
+INSERT INTO "member" (id_user, reports) VALUES (15, 0);
+INSERT INTO "member" (id_user, reports) VALUES (16, 0);
+INSERT INTO "member" (id_user, reports) VALUES (17, 0);
+INSERT INTO "member" (id_user, reports) VALUES (18, 2);
+INSERT INTO "member" (id_user, reports) VALUES (19, 1);
+INSERT INTO "member" (id_user, reports) VALUES (20, 1);
 
 INSERT INTO "moderator" (id_user) VALUES (1);
 INSERT INTO "moderator" (id_user) VALUES (2);
 INSERT INTO "moderator" (id_user) VALUES (3);
 INSERT INTO "moderator" (id_user) VALUES (4);
 
-INSERT INTO "admin" (id_user) VALUES (1);
-INSERT INTO "admin" (id_user) VALUES (2);
-INSERT INTO "admin" (id_user) VALUES (3);
-INSERT INTO "admin" (id_user) VALUES (4);
+INSERT INTO "admin" (id_user) VALUES (5);
+INSERT INTO "admin" (id_user) VALUES (6);
+INSERT INTO "admin" (id_user) VALUES (7);
+INSERT INTO "admin" (id_user) VALUES (8);
 
 INSERT INTO "post_tag" (postnumber, tag_id) VALUES (1, 1);
 INSERT INTO "post_tag" (postnumber, tag_id) VALUES (2, 2);
