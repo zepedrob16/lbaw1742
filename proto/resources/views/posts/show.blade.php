@@ -174,7 +174,7 @@ function ReportComment() {
 		});
 
 		 request.done(function(response) {
-		 	 document.getElementById("myDialogPost").close(); 
+		 	 document.getElementById("myDialogComment").close(); 
 		 });
 } 
 
