@@ -80,8 +80,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 
 	<div>
 		@if($post->type === "image")
-			<img style="width:50%" src="{{ asset("storage/post_images/$content")}}">
-			<p>this is a test222</p>
+			<img style="width:50%" src="/storage/{{ $content }}">
 		@else
 			{!! $content !!}
 		@endif
