@@ -106,6 +106,7 @@ function handle_search(){
 var regex = "^\\s+$";
 for(var i = 0; i < allPosts.length; i++){
     if(allPosts[i].getAttribute("titlePost").toLowerCase() == searchengine.value || allPosts[i].getAttribute("titlePost").toLowerCase().includes(searchengine.value)
+        || allPosts[i].getAttribute("titlePost").toUpperCase() == searchengine.value || allPosts[i].getAttribute("titlePost").toUpperCase().includes(searchengine.value)
         || allPosts[i].getAttribute("titlePost") == searchengine.value || allPosts[i].getAttribute("titlePost").includes(searchengine.value))
         allPosts[i].style.display = 'block';
     else if(allPosts[i].getAttribute("titlePost") != searchengine.value)
