@@ -538,4 +538,25 @@ class PostsController extends Controller
     }
 
 
+    public function reportComment(Request $request){
+
+        $data = $request->all(); 
+
+        $postCriminal = $data['currPostCriminal'];
+        $reportTitle = $data['reportType'];
+        $postnumber = $data['currPostnum'];
+
+        $report = new Report;
+        $report->time_stamp = date("Y-m-d H:i:s");
+        $report->title = $reportTitle;
+        $report->type = "Comment";
+        $report->author = Auth::user()->id;
+        $report->criminal = $postCriminal;
+
+        $report->save();
+
+        return response()->json(['message' => 'successfull reported'],200);
+    }
+
+
 }
