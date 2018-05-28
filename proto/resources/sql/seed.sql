@@ -90,7 +90,7 @@ CREATE TABLE link_post (
 );
 
 CREATE TABLE report (
-  id INTEGER NOT NULL,
+  id SERIAL UNIQUE ,
   time_stamp date NOT NULL,
   title text NOT NULL,
   type text NOT NULL,
@@ -387,12 +387,12 @@ INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (18, 
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (19, 1, 19, 19);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (20, 1, 20, 20);
 
-INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (1, 'Innapropriate', 'Post', '2017/12/23', 1, 1);
-INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (2, 'Abusive', 'Comment', '2017/06/27', 2, 2);
-INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (3, 'Sexual', 'Post', '2017/12/12', 3, 3);
-INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (4, 'Spam', 'Comment', '2017/03/14', 4, 4);
-INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (5, 'Minors', 'Post', '2017/02/28', 5, 5);
-INSERT INTO "report" (id, title, type, time_stamp, criminal, author) VALUES (6, 'Terrorist', 'Post', '2017/01/30', 6, 6);
+INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Innapropriate', 'Post', '2017/12/23', 1, 1);
+INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Abusive', 'Comment', '2017/06/27', 2, 2);
+INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Sexual', 'Post', '2017/12/12', 3, 3);
+INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Spam', 'Comment', '2017/03/14', 4, 4);
+INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Minors', 'Post', '2017/02/28', 5, 5);
+INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Terrorist', 'Post', '2017/01/30', 6, 6);
 
 INSERT INTO "friendship" (start, user1, user2) VALUES ('2017/10/19', 1, 2);
 INSERT INTO "friendship" (start, user1, user2) VALUES ('2017/08/03', 2, 3);

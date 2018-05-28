@@ -30,6 +30,7 @@ Route::resource('send_message', 'SendMessageController');
 Route::resource('admin_mod', 'AdminModController');
 Route::resource('admin_report', 'AdminReportController');
 
+Route::post('/reportPost','PostsController@reportPost');
 Route::post('/increment','PostsController@incrementPostLikes');
 Route::post('/decrement','PostsController@decrementPostLikes');
 Route::post('/addComment','PostsController@addComment');
