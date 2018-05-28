@@ -69,6 +69,11 @@
                             </li>
                         @endguest
                     </ul>
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input id="searchengine" oninput="handle_search()" type="text" class="form-control" placeholder="Search...">
+                    </div>
+                </form>
                 </div>
             </div>
         </nav>

@@ -4,16 +4,15 @@
 session_start();
 $_SESSION['allposts'] = $allposts;
 ?>
+
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    
-    
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
@@ -43,7 +42,7 @@ $_SESSION['allposts'] = $allposts;
         @if(count($allposts[0]) > 0)
             @foreach($allposts[0] as $post)
 
-            <div class="row" mediacat="{{ $post->media_category }}" id="post">
+            <div class="row" mediacat="{{ $post->media_category }}" id="post" titlePost="{{ $post->title }}">
 
                 <!-- First Column -> Upvote, downvote and balance -->
                 <div class="col-1">
@@ -91,6 +90,9 @@ var movie = document.getElementById('Movies');
 var tvShow = document.getElementById('TVShow');
 var allPosts = document.querySelectorAll('#post');
 
+var searchEngine = document.getElementById('searchengine');
+
+
 movie.addEventListener('click',function(){
     handle_movie();
 });
@@ -98,6 +100,24 @@ movie.addEventListener('click',function(){
 tvShow.addEventListener('click',function(){
     handle_tvShow();
 });
+
+
+function handle_search(){
+var regex = "^\\s+$";
+for(var i = 0; i < allPosts.length; i++){
+    if(allPosts[i].getAttribute("titlePost").toLowerCase() == searchengine.value || allPosts[i].getAttribute("titlePost").toLowerCase().includes(searchengine.value)
+        || allPosts[i].getAttribute("titlePost") == searchengine.value || allPosts[i].getAttribute("titlePost").includes(searchengine.value))
+        allPosts[i].style.display = 'block';
+    else if(allPosts[i].getAttribute("titlePost") != searchengine.value)
+        allPosts[i].style.display = 'none';
+ }  
+ for(var i = 0; i < allPosts.length; i++){
+    if(searchengine.value.match(regex) || searchengine.value == '')
+        allPosts[i].style.display = 'block';
+ }  
+}
+
+
 
 function handle_movie(){
 for(var i = 0; i < allPosts.length; i++){
