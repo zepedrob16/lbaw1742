@@ -13,6 +13,7 @@ use App\Post_Comment;
 use App\Post_Reaction;
 use App\Media_Category;
 use App\User_table;
+use App\Report;
 use DB;
 
 class PostsController extends Controller
@@ -29,7 +30,6 @@ class PostsController extends Controller
      */
     public function index()
     {
-
     /*
         //tudo
         $posts = Post::all();
@@ -515,6 +515,48 @@ class PostsController extends Controller
 
             return response()->json(['message' => 'successfull','info' => 'comment added'],200);
      }
+
+
+    public function reportPost(Request $request){
+
+        $data = $request->all(); 
+
+        $postCriminal = $data['currPostCriminal'];
+        $reportTitle = $data['reportType'];
+        $postnumber = $data['currPostnum'];
+
+        $report = new Report;
+        $report->time_stamp = date("Y-m-d H:i:s");
+        $report->title = $reportTitle;
+        $report->type = "Post";
+        $report->author = Auth::user()->id;
+        $report->criminal = $postCriminal;
+
+        $report->save();
+
+        return response()->json(['message' => 'successfull reported'],200);
+    }
+
+
+    public function reportComment(Request $request){
+
+        $data = $request->all(); 
+
+        $postCriminal = $data['currPostCriminal'];
+        $reportTitle = $data['reportType'];
+        $postnumber = $data['currPostnum'];
+
+        $report = new Report;
+        $report->time_stamp = date("Y-m-d H:i:s");
+        $report->title = $reportTitle;
+        $report->type = "Comment";
+        $report->author = Auth::user()->id;
+        $report->criminal = $postCriminal;
+
+        $report->save();
+
+        return response()->json(['message' => 'successfull reported'],200);
+    }
 
 
 }

@@ -37,10 +37,50 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 
 @section('content')
 	<a href="/posts" class="btn btn-default">Go Back</a>
+	<button class="btn btn-default" onclick="showReportBox()">Report</button>
 	<h1>{{ $post->title }}</h1>
+
+<dialog id="myDialogPost">
+ <form >
+ 	<h3>Report - Post</h3>
+   	<p>Type of Report:
+   		<select id="selectReportPost">
+   			<option value="Innapropriate">Innapropriate</option>
+    		<option value="Abusive">Abusive</option>
+    		<option value="Sexual">Sexual Content</option>
+    		<option value="Spam">Spam</option>
+    		<option value="Terrorist">Terrorism</option>
+    		<option value="Minors">Minors</option>
+    	</select>
+	</p>
+    <p>
+        <button id="reportPost" value="Report" type="button">Report</button>
+    </p>
+ </form>
+</dialog>
+
+<dialog id="myDialogComment">
+ <form >
+ 	<h3>Report - Comment</h3>
+   	<p>Type of Report:
+   		<select id="selectReportComment">
+   			<option value="Innapropriate">Innapropriate</option>
+    		<option value="Abusive">Abusive</option>
+    		<option value="Sexual">Sexual Content</option>
+    		<option value="Spam">Spam</option>
+    		<option value="Terrorist">Terrorism</option>
+    		<option value="Minors">Minors</option>
+    	</select>
+	</p>
+    <p>
+        <button id="reportComment" value="Report" type="button">Report</button>
+    </p>
+ </form>
+</dialog>
+
 	<div>
 		@if($post->type === "image")
-			<img style="width:50%" src="/storage/post_images/{{ $content }}">
+			<img style="width:50%" src="/storage/{{ $content }}">
 		@else
 			{!! $content !!}
 		@endif
@@ -76,7 +116,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 		                <p>{!! $postComment->body !!}</p>
 		                <div class="pull-right">
 			                <small>commented by <a href="/profile/{{ $postComment->id_author }}">{{ $allposts[5]->where('id', $postComment->id_author)->first()->username }}</a></small>
-			                <small><a href="#" class="report">report</a></small>
+			                <small><a id="reportComment" onclick="showReportCommentBox()" href="#" class="report">report</a></small>
 			                <small><a href="#" class="respond">respond</a></small>
 		            	</div>
 		            </div>
@@ -101,6 +141,75 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 <script type="text/javascript">
 
 @if(!Auth::guest())
+
+var reportpost = document.getElementById('reportPost');
+var reportcomment = document.getElementById('reportComment');
+
+reportpost.addEventListener('click',function(){
+    ReportPost();
+});
+
+reportcomment.addEventListener('click',function(){
+    ReportComment();
+});
+
+function ReportComment() { 
+		var selectReportPost = document.getElementById("selectReportComment").value;
+		$.ajaxSetup({
+		        headers: {
+		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		        }
+		 });
+
+		    var request = $.ajax({
+		    method: 'POST',
+		    url: '/reportComment',
+		    data: {'currPostCriminal' : {{ $currUser->id }}, 'reportType' : selectReportPost, 'currPostnum' : {{ $post->postnumber }} },
+		    success: function( response ){
+		        console.log( response );
+		    },
+		    error: function( e ) {
+		        console.log(e);
+		    }
+		});
+
+		 request.done(function(response) {
+		 	 document.getElementById("myDialogComment").close(); 
+		 });
+} 
+
+function ReportPost() { 
+		var selectReportPost = document.getElementById("selectReportPost").value;
+		$.ajaxSetup({
+		        headers: {
+		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		        }
+		 });
+
+		    var request = $.ajax({
+		    method: 'POST',
+		    url: '/reportPost',
+		    data: {'currPostCriminal' : {{ $currUser->id }}, 'reportType' : selectReportPost, 'currPostnum' : {{ $post->postnumber }} },
+		    success: function( response ){
+		        console.log( response );
+		    },
+		    error: function( e ) {
+		        console.log(e);
+		    }
+		});
+
+		 request.done(function(response) {
+		 	 document.getElementById("myDialogPost").close(); 
+		 });
+} 
+
+function showReportBox() { 
+    document.getElementById("myDialogPost").showModal(); 
+} 
+
+function showReportCommentBox() { 
+    document.getElementById("myDialogComment").showModal(); 
+} 
 
 var comment = document.getElementById('comment');
 var comments = document.getElementById("comments");
