@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Conversation_Message;
+use App\User;
+use App\InboxMessage;
+
+use DB;
 
 class InboxController extends Controller
 {
@@ -46,10 +50,13 @@ class InboxController extends Controller
      */
     public function show($id)
     {   
-        $user =  Conversation_Message::where('id_recipient', $id)->get();
+        $conversation = DB::select('select * from conversation_message where id_recipient = ? order by time_stamp DESC', [$id]);
 
-        $user = Conversation_Message::orderBy('time_stamp', 'des')->get();
-        return view('profile.inbox')->with('user', $user);
+        $user = User::all();
+
+        $info = array($conversation, $user);
+
+        return view('profile.inbox')->with('info', $info);
     }
 
     /**
@@ -73,6 +80,21 @@ class InboxController extends Controller
     public function update(Request $request, $id)
     {
         
+    }
+
+    public function read_message(Request $request) {
+
+        $data = $request->all();
+
+        $id = $data['id'];
+
+        $conversation = InboxMessage::find($id);
+
+        $conversation->read = 1;
+        $conversation->save();
+
+
+        return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
     }
 
     /**

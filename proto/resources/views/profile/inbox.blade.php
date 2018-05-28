@@ -5,7 +5,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/statistic.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/icon.css" rel="stylesheet">
 
-    @foreach($user as $conversation)
+    @foreach($info[0] as $conversation)
     <div class="container">
     @if($conversation->read === 1)
         <div class="row">
@@ -26,7 +26,13 @@
             
                 <div class="row">
                     <span class = "Sender">
-                        {{$conversation->id_sender}}
+                        @foreach($info[1] as $user)
+                            
+                            @if($user->id === $conversation->id_sender)
+                                {{$user->username}}
+                            @endif
+
+                        @endforeach
                     </span>
                 </div>
 
@@ -46,8 +52,8 @@
                 <div class = "row">
                     <i class="far fa-envelope" aria-hidden="true"></i>
                 
-                    <p class = "font-weight-bold unread">
-                        <a href="/open_inbox/{{$conversation->id_conversation}}">{{$conversation->title}}</a>
+                    <p class = "font-weight-bold unread" number="{{$conversation->id_conversation}}">
+                        <a href="#">{{$conversation->title}}</a>
                     </p>
                 
                 </div>
@@ -59,7 +65,13 @@
             
                 <div class="row">
                     <span class = "Sender">
-                        {{$conversation->id_sender}}
+                        @foreach($info[1] as $user)
+                            
+                            @if($user->id === $conversation->id_sender)
+                                {{$user->username}}
+                            @endif
+
+                        @endforeach
                     </span>
                 </div>
 
@@ -82,9 +94,17 @@
 
 <script type="text/javascript">
 
+    var read_message = document.querySelectorAll('.unread');
+    var i;
+    for (i = 0; i < read_message.length; i++) {
+        read_message[i].addEventListener('click', function() {
+            handle_read(this);
+        });
+    }
 
 
-function handle_friend(friend) {
+
+function handle_read(read) {
   
   $.ajaxSetup({
         headers: {
@@ -92,12 +112,14 @@ function handle_friend(friend) {
         }
  });
 
+    let id = read.getAttribute("number");
 
+    console.log(id);
 
     var request = $.ajax({
     method: 'POST',
-    url: '/accept_friend',
-    data: {'user' : friend_id},
+    url: '/read_message',
+    data: {'id' : id},
     success: function( response ){
         console.log( response );
     },
