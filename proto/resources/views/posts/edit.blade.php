@@ -11,7 +11,7 @@ $id = $_SESSION['id'];
 	{!! Form::open(['action' => ['PostsController@update', $post->postnumber], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 	    <div class="form-group">
 	    	{{ Form::label('title', 'Title') }}
-	    	{{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Title']) }}
+	    	{{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Title', 'readonly' => 'true']) }}
 	    </div>
 	    <div class="form-group">
 	    	{{ Form::label('preview', 'Preview') }}
