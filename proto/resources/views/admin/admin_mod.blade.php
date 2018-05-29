@@ -73,7 +73,9 @@
               <i class="fas fa-ban" style = "cursor:pointer;"></i>
               </span>
               <span style="display:inline-block; width: 30px;"></span>
-              <i class="fas fa-long-arrow-alt-up"></i>
+              <span class = "demote" number = {{$mod->id_user}}>
+                <i class="fas fa-arrow-down"></i>
+              </span>
             </td>
 
           </tr>
@@ -111,5 +113,82 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+
+var requests = document.querySelectorAll('.ban');
+
+var i;
+for(i = 0; i < requests.length; i++) {
+  requests[i].addEventListener('click',function(){
+     ban_request(this);
+  });
+}
+
+function ban_request(user){
+
+  let id = user.getAttribute("number");
+
+  $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+ });
+  
+    var request = $.ajax({
+    method: 'POST',
+    url: '/ban_mod',
+    data: {'user' : id},
+    success: function( response ){
+        console.log( response );
+    },
+    error: function( e ) {
+        console.log(e);
+    }
+    
+});
+
+}
+
+var demotes = document.querySelectorAll('.demote');
+
+var i;
+
+for(i = 0; i < demotes.length; i++) {
+  demotes[i].addEventListener('click',function(){
+     demote_request(this);
+  });
+}
+
+function demote_request(user){
+
+  let id = user.getAttribute("number");
+
+  $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+ });
+  
+    var request = $.ajax({
+    method: 'POST',
+    url: '/demote_mod',
+    data: {'user' : id},
+    success: function( response ){
+        console.log( response );
+    },
+    error: function( e ) {
+        console.log(e);
+    }
+    
+});
+  
+
+}
+
+</script>
 
 @endsection

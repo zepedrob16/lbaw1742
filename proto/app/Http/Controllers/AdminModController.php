@@ -110,29 +110,7 @@ class AdminModController extends Controller
         $user->save();
     }
 
-    public function new_friendship(Request $request) {
-
-        $data = $request->all();
-
-        $id_sender = $data['user'];
-
-        $friend_request = DB::update('update friend_request set dateconfirmation = ? where receiver = ? and sender = ?', [date("Y-m-d H:i:s"), auth()->user()->id, $id_sender]);
-
-        //$friend_request->save();
-
-        $friendship = new Friendship;
-
-        $friendship->start = date("Y-m-d H:i:s");
-        $friendship->user1 = auth()->user()->id;
-        $friendship->user2 = $id_sender;
-
-        $friendship->save();
-
-        return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
-    }
-
-
-    public function ban_user(Request $request){
+    public function ban_mod(Request $request){
 
         $data = $request->all();
 
@@ -140,6 +118,23 @@ class AdminModController extends Controller
         $user = User::findOrFail($user_id);
 
         $user->delete();
+       
+        return response()->json(['message' => 'successfull','info' => 'banned user'],200);
+    }
+
+    public function demote_mod(Request $request){
+
+        $data = $request->all();
+
+        $user_id = $data['user'];
+        $user_mod = Moderator::findOrFail($user_id);
+        $user_mod->delete();
+
+        $user = new Member;
+        $user->id_user = $user_id;
+        $user->reports = 0;
+        $user->save();
+
        
         return response()->json(['message' => 'successfull','info' => 'banned user'],200);
     }

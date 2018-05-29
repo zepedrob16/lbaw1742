@@ -34,12 +34,6 @@
 
       <div class="row">
         <div class="col-8">
-          <p id="age"><b>Age: </b>{{$info[0]->datebirth}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-8">
           <p id="nationality"><b>Nationality: </b>{{$info[0]->nationality}}</p>
         </div>
       </div>

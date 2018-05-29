@@ -40,6 +40,8 @@ Route::post('/accept_friend', 'ProfileController@new_friendship');
 Route::post('/ban','AdminController@ban_user');
 Route::post('/send_new_message', 'SendMessageController@send_new_message');
 Route::post('/read_message', 'InboxController@read_message');
+Route::post('/ban_mod', 'AdminModController@ban_mod');
+Route::post('/demote_mod', 'AdminModController@demote_mod');
 
 Route::get('/getbalancepost','PostsController@getBalancePost');
 Route::get('/getAllPosts','PostsController@getAllPosts');
