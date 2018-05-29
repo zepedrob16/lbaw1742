@@ -57,11 +57,11 @@
 
 - [ ] Estatísticas
 
-- [ ] Ver Moderadores
+- [x] Ver Moderadores
 
 - [ ] Procurar Moderadores
 
-- [ ] Ver utilizadores
+- [x] Ver utilizadores
 
 - [ ] Procurar utilizadores
 
@@ -69,11 +69,11 @@
 
 - [ ] Demover moderador
 
-- [ ] Banir membro
+- [x] Banir membro
 
 - [ ] Promover membro
 
-- [ ] Ver reports
+- [x] Ver reports
 
 - [ ] Apagar report
 
