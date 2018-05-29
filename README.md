@@ -57,23 +57,23 @@
 
 - [ ] Estatísticas
 
-- [ ] Ver Moderadores
+- [x] Ver Moderadores
 
 - [ ] Procurar Moderadores
 
-- [ ] Ver utilizadores
+- [x] Ver utilizadores
 
 - [ ] Procurar utilizadores
 
-- [ ] Banir moderador
+- [x] Banir moderador
 
 - [ ] Demover moderador
 
-- [ ] Banir membro
+- [x] Banir membro
 
 - [ ] Promover membro
 
-- [ ] Ver reports
+- [x] Ver reports
 
 - [ ] Apagar report
 

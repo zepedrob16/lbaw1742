@@ -14,6 +14,8 @@ use App\Post_Reaction;
 use App\Media_Category;
 use App\User_table;
 use App\Report;
+use App\Media_Tag;
+use App\Post_Tag;
 use DB;
 
 class PostsController extends Controller
@@ -54,8 +56,10 @@ class PostsController extends Controller
         $posts_comment = Post_Comment::all();
         $users = User_Table::all();
 
+        $post_tag = Post_Tag::all();
+        $media_tag = Media_Tag::all();
 
-        $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment,$users);
+        $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment,$users,$post_tag,$media_tag);
 
 
         return view('posts.index')->with('allposts',$allposts);
@@ -170,6 +174,22 @@ class PostsController extends Controller
             $post_image->save();
         }
 
+          session_start();
+          if($_SESSION['tags']){
+
+            $mytags = $_SESSION['tags'];
+
+            foreach ($mytags as $value) {
+                $newtag = new Media_Tag;
+                $newtag->title = $value;
+                $newtag->save();
+
+                $newpostTag = new Post_Tag;
+                $newpostTag->postnumber = $post->postnumber;
+                $newpostTag->tag_id = $newtag->tag_id;
+                $newpostTag->save();
+            }
+          }
 
         return redirect('/posts')->with('success', 'Post Created');
         
@@ -558,5 +578,16 @@ class PostsController extends Controller
         return response()->json(['message' => 'successfull reported'],200);
     }
 
+    public function addTags(Request $request){
+
+        $data = $request->all(); 
+
+        $alltags = $data['tags'];
+
+        session_start();
+        $_SESSION['tags']=$alltags;
+
+        return response()->json(['message' => 'successfull tags added'],200);
+    }
 
 }
