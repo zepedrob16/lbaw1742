@@ -1,10 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/statistic.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/icon.css" rel="stylesheet">
 
+
+
+
+  
+
+
+      
     <div class="container">
       <div class="row">
         <div class="col-5">
@@ -41,14 +48,16 @@
         </div>
       </div>
 
-      @if(count($info[5]) > 0)
-      <p> Already sent friend request </p>
-      @else
+      @if(count($info[5]) == 0)
       <div class="row" id="last_row">
         <div class="col-3">
-          <a href="#" type="button" id="friend_request" class="btn btn-primary">Send Friend Request</a>
+          <button type="button" id="friend_request" class="btn btn-primary" >Send Friend Request</button>
         </div>
       </div>
+
+     
+      @else
+       <p> Already sent friend request </p>
       @endif
 
       <div class="row" id="last_row">
@@ -111,10 +120,14 @@
 
 <script type="text/javascript">
 
+
+
 var friend = document.getElementById('friend_request');
 
 friend.addEventListener('click', function() {
+
   handle_friend();
+  location.reload(true);
 });
 
 function handle_friend() {

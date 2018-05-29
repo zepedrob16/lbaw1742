@@ -118,6 +118,8 @@ class PublicProfileController extends Controller
 
         $friend_request->save();
 
+   
+
         return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
     }
 
