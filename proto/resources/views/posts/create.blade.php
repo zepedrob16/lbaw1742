@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
 	<h1>Create Post</h1>
-	{!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data' ]) !!}
-	    <div class="form-group">
+	{!! Form::open(['action' => 'PostsController@store','id' => 'createpost', 'method' => 'POST', 'enctype' => 'multipart/form-data' ]) !!}
+
+
+	    <div class="form-group" >
 	    	{{ Form::label('title', 'Title') }}
 	    	{{ Form::text('title', '',['class' => 'form-control', 'placeholder' => 'Title']) }}
 	    </div>
-
 	    <div class="form-group">
 	    	{{ Form::label('typepost', 'Choose the type of Post') }}
 			<select name="typepost" id="typepost" onchange='load_new_content()'>
@@ -45,16 +47,53 @@
 	    	{{ Form::text('source', '',['class' => 'form-control', 'placeholder' => 'Source...']) }}
 	    </div>
 
+	    <div class="submitbtm">
 	    {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
-
+		</div>
 		{!! Form::close() !!}
-@endsection
 
+	    <div class="listoftags" id="listoftags" class="form-group" oninput="storeTags()">
+		    {{ Form::label('tags', 'Add your tags') }}
+		    <input id="inputtags" type="text" value="showchan" data-role="tagsinput" > 
+ 		</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
 </script>
 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+
+function storeTags(){
+	var x = document.getElementsByClassName("tag label label-info");
+	var alltags=[];
+	for(var i = 0 ; i < x.length; i++){
+		alltags.push(x[i].innerText);
+	}
+	console.log(alltags);
+
+		$.ajaxSetup({
+		        headers: {
+		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		        }
+		 });
+			if(alltags.length>0){
+		    var request = $.ajax({
+		    method: 'POST',
+		    url: '/addTags',
+		    data: {'tags' : alltags},
+		    success: function( response ){
+		        console.log( response );
+		    },
+		    error: function( e ) {
+		        console.log(e);
+		    }
+		});
+
+		request.done(function(response) {
+		});
+	}
+}
+
 function load_new_content(){
      var selected_option_value=$("#typepost option:selected").val(); //get the value of the current selected option.
      if(selected_option_value=="text"){
@@ -77,3 +116,4 @@ function load_new_content(){
      }
 } 
 </script>
+@endsection

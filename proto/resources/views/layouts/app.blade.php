@@ -17,6 +17,8 @@
     <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin_reports.css') }}" rel="stylesheet">
     <link href="{{ asset('css/inbox.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/createPost.css') }}" rel="stylesheet">
     @yield('style-homepage')
 
 </head>
@@ -37,5 +39,6 @@
 
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-tagsinput.js') }}"></script>
 </body>
 </html>

@@ -60,7 +60,7 @@ $_SESSION['allposts'] = $allposts;
                 <!-- Second Column -> Title and preview -->
                 <div class="col-6">
                     <a href="/posts/{{ $post->postnumber }}" id="news_title">{{ $post->title }}</a><br>
-                    <p>Nam consectetur iaculis imperdiet. Fusce ac eros justo. Sed vel risus ac sapien sollicitudin iaculis. Praesent non diam sapien. Curabitur et dui ut dolor mattis.</p>
+                    <p>Nam consecteCurabitur et dui ut dolor mattis.</p>
                     <a href="/posts/{{ $post->postnumber }}" class="comments">{{ $allposts[4]->where('id_post', $post->postnumber)->count() }} comments</a>
                 </div>
 
@@ -69,7 +69,17 @@ $_SESSION['allposts'] = $allposts;
                     <i class="fas fa-video">{{ $post->media_category }}</i>
                     <i class="fas fa-video"></i>
                     <br>
-                    Shawshank Redemption
+                    @foreach($allposts[6] as $post_tag)
+                    @if($post_tag->postnumber ===  $post->postnumber)
+                            @foreach($allposts[7] as $media_tag)
+                            @if($media_tag->tag_id ===  $post_tag->tag_id)
+                                #{{ $media_tag->title }}
+                             @else
+                             @endif
+                             @endforeach
+                     @else
+                     @endif
+                     @endforeach
                     <br>
                     <i class="fab fa-imdb"></i>7.5<br>
                 </div>
