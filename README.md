@@ -19,9 +19,9 @@
 
 - [x] Ver Perfil
 
-- [x] Editar Perfil (kind of)
+- [x] Editar Perfil
 
-- [x] Ver Inbox (kind of)
+- [x] Ver Inbox
 
 - [x] Enviar mensagem para amigo
 
