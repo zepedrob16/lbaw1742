@@ -65,7 +65,7 @@
 
 - [ ] Procurar utilizadores
 
-- [ ] Banir moderador
+- [x] Banir moderador
 
 - [ ] Demover moderador
 
