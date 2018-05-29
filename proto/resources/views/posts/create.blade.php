@@ -13,8 +13,7 @@
 	    <div class="form-group">
 	    	{{ Form::label('typepost', 'Choose the type of Post') }}
 			<select name="typepost" id="typepost" onchange='load_new_content()'>
-				<option value="Select" selected>Select</option>
-				<option value="text">Text</option>
+				<option value="text" selected>Text</option>
 				<option value="image">Image</option>
 				<option value="link">Link</option>
 			</select>
@@ -28,7 +27,7 @@
 			</select>
 	    </div>
 
-	    <div id="text" class="form-group" style="display: none;">
+	    <div id="text" class="form-group" >
 	    	{{ Form::label('body', 'Body') }}
 	    	{{ Form::textarea('body', '',['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text']) }}
 	    </div>
