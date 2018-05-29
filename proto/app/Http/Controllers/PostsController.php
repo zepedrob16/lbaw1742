@@ -239,7 +239,8 @@ class PostsController extends Controller
     public function update(Request $request, $postnumber)
     {
         $this->validate($request, [
-            'title' => 'required'
+            'title' => 'required',
+            'preview' => 'required',
         ]);
 
         //Find Post
@@ -267,6 +268,7 @@ class PostsController extends Controller
         }
 
         $post->title = $request->input('title');
+        $post->preview = $request->input('preview');
 
         if($post->type === "text"){
             $sub_post = Text_Post::find($postnumber);
