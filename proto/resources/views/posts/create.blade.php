@@ -52,7 +52,7 @@
 		</div>
 		{!! Form::close() !!}
 
-	    <div class="listoftags" id="listoftags" class="form-group" oninput="storeTags()">
+	    <div class="listoftags" id="listoftags" class="form-group" >
 		    {{ Form::label('tags', 'Add your tags') }}
 		    <input id="inputtags" type="text" value="showchan" data-role="tagsinput" > 
  		</div>
@@ -63,36 +63,44 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 
-function storeTags(){
-	var x = document.getElementsByClassName("tag label label-info");
-	var alltags=[];
-	for(var i = 0 ; i < x.length; i++){
-		alltags.push(x[i].innerText);
-	}
-	console.log(alltags);
 
-		$.ajaxSetup({
-		        headers: {
-		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		        }
-		 });
-			if(alltags.length>0){
-		    var request = $.ajax({
-		    method: 'POST',
-		    url: '/addTags',
-		    data: {'tags' : alltags},
-		    success: function( response ){
-		        console.log( response );
-		    },
-		    error: function( e ) {
-		        console.log(e);
-		    }
-		});
+document.querySelector('#listoftags').addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // enter key
 
-		request.done(function(response) {
-		});
-	}
-}
+			var x = document.getElementsByClassName("tag label label-info");
+			var alltags=[];
+			for(var i = 0 ; i < x.length; i++){
+				alltags.push(x[i].innerText);
+			}
+
+			console.log(alltags);
+
+				$.ajaxSetup({
+				        headers: {
+				            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				        }
+				 });
+
+			if(alltags.length > 0){
+
+				    var request = $.ajax({
+				    method: 'POST',
+				    url: '/addTags',
+				    data: {'tags' : alltags},
+				    success: function( response ){
+				        console.log( response );
+				    },
+				    error: function( e ) {
+				        console.log(e);
+				    }
+				});
+
+				request.done(function(response) {
+				});
+			}
+    }
+});
 
 function load_new_content(){
      var selected_option_value=$("#typepost option:selected").val(); //get the value of the current selected option.
