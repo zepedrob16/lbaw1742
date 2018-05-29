@@ -140,7 +140,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 
 <script type="text/javascript">
 
-function handle_search(){}
+document.getElementById('searchengine').style.display = 'none';
 
 @if(!Auth::guest())
 
