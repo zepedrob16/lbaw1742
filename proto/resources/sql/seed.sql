@@ -96,7 +96,8 @@ CREATE TABLE report (
   title text NOT NULL,
   type text NOT NULL,
   author INTEGER NOT NULL,
-  criminal INTEGER NOT NULL
+  criminal INTEGER NOT NULL,
+  postid INTEGER NOT NULL
 );
 
 CREATE TABLE friendship (
@@ -388,12 +389,12 @@ INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (18, 
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (19, 1, 19, 19);
 INSERT INTO "post_reaction" (postnumber, balance, reactor, reacted) VALUES (20, 1, 20, 20);
 
-INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Innapropriate', 'Post', '2017/12/23', 1, 1);
-INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Abusive', 'Comment', '2017/06/27', 2, 2);
-INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Sexual', 'Post', '2017/12/12', 3, 3);
-INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Spam', 'Comment', '2017/03/14', 4, 4);
-INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Minors', 'Post', '2017/02/28', 5, 5);
-INSERT INTO "report" (title, type, time_stamp, criminal, author) VALUES ('Terrorist', 'Post', '2017/01/30', 6, 6);
+INSERT INTO "report" (title, type, time_stamp, criminal, author, postid) VALUES ('Innapropriate', 'Post', '2017/12/23', 1, 1, 1);
+INSERT INTO "report" (title, type, time_stamp, criminal, author, postid) VALUES ('Abusive', 'Comment', '2017/06/27', 2, 2, 2);
+INSERT INTO "report" (title, type, time_stamp, criminal, author, postid) VALUES ('Sexual', 'Post', '2017/12/12', 3, 3, 3);
+INSERT INTO "report" (title, type, time_stamp, criminal, author, postid) VALUES ('Spam', 'Comment', '2017/03/14', 4, 4, 4);
+INSERT INTO "report" (title, type, time_stamp, criminal, author, postid) VALUES ('Minors', 'Post', '2017/02/28', 5, 5, 5);
+INSERT INTO "report" (title, type, time_stamp, criminal, author, postid) VALUES ('Terrorist', 'Post', '2017/01/30', 6, 6, 6);
 
 INSERT INTO "friendship" (start, user1, user2) VALUES ('2017/10/19', 1, 2);
 INSERT INTO "friendship" (start, user1, user2) VALUES ('2017/08/03', 2, 3);

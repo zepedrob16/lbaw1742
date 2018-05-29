@@ -563,6 +563,7 @@ class PostsController extends Controller
         $report->type = "Post";
         $report->author = Auth::user()->id;
         $report->criminal = $postCriminal;
+        $report->postid = $postnumber;
 
         $report->save();
 
@@ -584,6 +585,7 @@ class PostsController extends Controller
         $report->type = "Comment";
         $report->author = Auth::user()->id;
         $report->criminal = $postCriminal;
+        $report->postid = $postnumber;
 
         $report->save();
 
