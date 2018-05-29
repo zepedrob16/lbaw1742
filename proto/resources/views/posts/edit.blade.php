@@ -13,6 +13,10 @@ $id = $_SESSION['id'];
 	    	{{ Form::label('title', 'Title') }}
 	    	{{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Title']) }}
 	    </div>
+	    <div class="form-group">
+	    	{{ Form::label('preview', 'Preview') }}
+	    	{{ Form::text('preview', $post->preview, ['class' => 'form-control', 'placeholder' => 'Preview']) }}
+	    </div>
 			@if($post->type === "text")
 			    <div class="form-group">
 			    	{{ Form::label('body', 'Body') }}

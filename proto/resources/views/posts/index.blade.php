@@ -60,7 +60,7 @@ $_SESSION['allposts'] = $allposts;
                 <!-- Second Column -> Title and preview -->
                 <div class="col-6">
                     <a href="/posts/{{ $post->postnumber }}" id="news_title">{{ $post->title }}</a><br>
-                    <p>Nam consecteCurabitur et dui ut dolor mattis.</p>
+                    <p>{{ $post->preview }}</p>
                     <a href="/posts/{{ $post->postnumber }}" class="comments">{{ $allposts[4]->where('id_post', $post->postnumber)->count() }} comments</a>
                 </div>
 
