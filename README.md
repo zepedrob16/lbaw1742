@@ -71,13 +71,13 @@
 
 - [x] Banir membro
 
-- [ ] Promover membro
+- [x] Promover membro
 
 - [x] Ver reports
 
-- [ ] Apagar report
+- [x] Apagar report
 
-- [ ] Marcar report como resolvido
+- [x] Marcar report como resolvido
 
 
 ### Collaborative News
