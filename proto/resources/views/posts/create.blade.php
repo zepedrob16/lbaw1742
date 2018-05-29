@@ -10,6 +10,10 @@
 	    	{{ Form::label('title', 'Title') }}
 	    	{{ Form::text('title', '',['class' => 'form-control', 'placeholder' => 'Title']) }}
 	    </div>
+	    <div class="form-group" >
+	    	{{ Form::label('preview', 'Preview') }}
+	    	{{ Form::text('preview', '',['class' => 'form-control', 'placeholder' => 'Preview post...']) }}
+	    </div>
 	    <div class="form-group">
 	    	{{ Form::label('typepost', 'Choose the type of Post') }}
 			<select name="typepost" id="typepost" onchange='load_new_content()'>

@@ -47,6 +47,7 @@ CREATE TABLE post (
   postnumber SERIAL UNIQUE ,
   author text ,
   title text NOT NULL,
+  preview text NOT NULL, 
   type text NOT NULL,
   time_stamp time ,
   upvotes smallint,
@@ -300,26 +301,26 @@ INSERT INTO "users" (username, password, name, lastname, email, datebirth, natio
 INSERT INTO "users" (username, password, name, lastname, email, datebirth, nationality, quote, avatar, upvotes, downvotes, balance) VALUES ('cpidgeleyj', 'fQC51NA429Dx', 'Zoé', 'Pidgeley', 'mpidgeleyj@goo.gl', '1992/07/19', 'Kazakhstan', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', 'http://dummyimage.com/125x176.jpg/dddddd/000000', 0, 0, 0);
 
 
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('chumburton4', 'Charlottes Web','image', '20:00:01', 0, 0, 0 ,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('dmedinac', 'Such Good Friends','image', '5:28:29', 0, 0, 0,'TV Show');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('flocksg', 'Vertical Ray of the Sun, The (Mua he chieu thang dung)','image', '20:41:01', 0, 0, 0,'TV Show');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('dmedinac', 'Love Crazy','image', '5:53:23', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('flocksg', 'Charlie Browns Christmas Tales','image', '0:43:01', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('flocksg', 'With Fire and Sword (Ogniem i mieczem)','link', '20:22:55', 0, 0, 0,'TV Show');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('flocksg', 'Falling Up','link', '11:24:34', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Stalag17','link', '5:27:52', 0, 0, 0,'TV Show');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('dmedinac', 'Rockaway','link', '16:23:13', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Neds','link', '9:43:56', 0, 0, 0,'TV Show');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Adios Sabata','text', '2:47:50', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'City Slickers II: The Legend of Curlys Gold','text', '18:20:07', 0, 0, 0,'TV Show');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('dmedinac', 'We Are The Night (Wir sind die Nacht)','text', '2:33:18', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Kon-Tiki','text', '0:32:08', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Last Taboo, The','text', '15:41:11', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Gloria','text', '4:48:17', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Eye of God','text', '7:00:41', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('cpidgeleyj', 'Casino Jack','text', '10:24:29', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('cpidgeleyj', 'Nanny Diaries, The','text', '12:10:30', 0, 0, 0,'Movie');
-INSERT INTO "post" (author, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('cpidgeleyj', 'School of Flesh, The (Ecole de la chair, L)','text', '16:29:29', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('chumburton4', 'Charlottes Web','gestoken verkocht geringer te ad zuiniger','image', '20:00:01', 0, 0, 0 ,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('dmedinac', 'Such Good Friends','t kamper zoo. Leveren zwijnen hoogere duivels sombere bak van dik','image', '5:28:29', 0, 0, 0,'TV Show');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('flocksg', 'Vertical Ray of the Sun, The (Mua he chieu thang dung)','t kamper zoo. Leveren zwijnen hoogere duivels sombere bak van dik','image','image', '20:41:01', 0, 0, 0,'TV Show');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('dmedinac', 'Love Crazy','t kamper zoo. Leveren zwijnen hoogere duivels sombere bak van dik','image','image', '5:53:23', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('flocksg', 'Charlie Browns Christmas Tales','t kamper zoo. Leveren zwijnen hoogere duivels sombere bak van dik','image','image', '0:43:01', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('flocksg', 'With Fire and Sword (Ogniem i mieczem)','gestoken verkocht geringer te ad zuiniger','link', '20:22:55', 0, 0, 0,'TV Show');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('flocksg', 'Falling Up','link','gestoken verkocht geringer te ad zuiniger', '11:24:34', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Stalag17','link','gestoken verkocht geringer te ad zuiniger', '5:27:52', 0, 0, 0,'TV Show');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('dmedinac', 'Rockaway','link','gestoken verkocht geringer te ad zuiniger', '16:23:13', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Neds','link','gestoken verkocht geringer te ad zuiniger', '9:43:56', 0, 0, 0,'TV Show');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Adios Sabata','text','gestoken verkocht geringer te ad zuiniger', '2:47:50', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'City Slickers II: The Legend of Curlys Gold','text', 'uropeanen. Nn. Uren nog drie mei duim vrij. Den','18:20:07', 0, 0, 0,'TV Show');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('dmedinac', 'We Are The Night (Wir sind die Nacht)','text','ur werkten te de procede. Hun per diepe deden elk wezen halen. Uren nog drie mei duim vrij. Den','18:20:07', '2:33:18', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Kon-Tiki','text','uropeanen. Noemden werkten te de procede. Hun per diepeg drie mei duim vrij. Den','18:20:07', '0:32:08', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Last Taboo, The','text','uropeanen. Noemden werkten te de procede. Hun per diepe deden elk wezen halen. Uren nog drie mei duim vrij. Den','18:20:07', '15:41:11', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Gloria','text','uropeanen. Noemden werkten te de procede. Hun per diepe deden elk wezen halen. Uren nog drie mei duim vrij. Den','18:20:07', '4:48:17', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('jyakunkini', 'Eye of God','text','uropeanen. Noemden werkten deden elk wezen halen. Uren nog drie mei duim vrij. Den','18:20:07', '7:00:41', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('cpidgeleyj', 'Casino Jack','text','uropeanen. Noemden werkten te de procede. Hun per diepe deden elk wezen halen. Uren nog drie mei duim vrij. Den','18:20:07', '10:24:29', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('cpidgeleyj', 'Nanny Diaries, The','text','uropeanen. Noemden werkten te de procede. Hun per di vrij. Den','18:20:07', '12:10:30', 0, 0, 0,'Movie');
+INSERT INTO "post" (author, title, preview, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('cpidgeleyj', 'School of Flesh, The (Ecole de la chair, L)','text','uropeanen. Noemden werkten te dalen. Uren nog drie mei duim vrij. Den','18:20:07', '16:29:29', 0, 0, 0,'Movie');
 
 INSERT INTO "image_post" (id_post, image, source) VALUES (1, 'http://dummyimage.com/186x117.jpg/dddddd/000000', 'http://blogger.com/phasellus/in.js');
 INSERT INTO "image_post" (id_post, image, source) VALUES (2, 'http://dummyimage.com/191x139.png/5fa2dd/ffffff', 'http://amazon.com/pede/ac.jsp');

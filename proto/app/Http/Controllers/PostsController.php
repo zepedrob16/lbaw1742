@@ -86,6 +86,7 @@ class PostsController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
+            'preview' => 'required',
             'typepost' => 'required',
             'mediacategory' => 'required'
         ]);
@@ -119,6 +120,7 @@ class PostsController extends Controller
         $post = new Post;
 
         $post->title = $request->input('title');
+        $post->preview = $request->input('preview');
         $post->type = $typeOfPost;
         $post->upvotes = 0;
         $post->downvotes = 0;
