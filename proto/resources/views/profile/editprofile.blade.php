@@ -21,9 +21,9 @@
                     </div>
 
                     <!-- Change Avatar -->
-                    <div class="form-group">
-                        {{ Form::label('avatar', 'Change Avatar') }}
-            {{ Form::text('avatar', $user->avatar, ['class' => 'form-control', 'placeholder' => 'Avatar']) }}
+                    <div id="image" class="form-group" placeholder="Avatar">
+                        {{ Form::label('image_profile', 'Choose your avatar') }}
+                        {{ Form::file('image_profile') }}
                     </div>
 
                     <!-- Change Nationality -->

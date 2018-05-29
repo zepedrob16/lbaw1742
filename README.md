@@ -44,7 +44,7 @@
 
 - [x] Filtrar - Tv Shows e Movies
 
-- [ ] Procurar (Ajax)
+- [x] Procurar (Ajax)
 
 - [x] Criar Post e distinguir entre texto, imagem e link
 

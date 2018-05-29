@@ -81,7 +81,6 @@ $_SESSION['allposts'] = $allposts;
                      @endif
                      @endforeach
                     <br>
-                    <i class="fab fa-imdb"></i>7.5<br>
                 </div>
             </div>
             @endforeach

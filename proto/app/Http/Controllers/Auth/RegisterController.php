@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'nationality' => $data['nationality'],
             'quote' => $data['quote'],
+            'avatar' => ':)',
         ]);
     }
 }

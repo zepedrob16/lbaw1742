@@ -45,7 +45,7 @@
 	    	{{ Form::file('image_post') }}
 	    </div>
 
-	    <div id="source" class="form-group" style="display: none;">
+	    <div id="source" class="form-group">
 	    	{{ Form::label('source', 'Source') }}
 	    	{{ Form::text('source', '',['class' => 'form-control', 'placeholder' => 'Source...']) }}
 	    </div>

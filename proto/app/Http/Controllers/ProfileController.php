@@ -103,10 +103,28 @@ class ProfileController extends Controller
         $user =  User::find($id);
         $user->username = $request->username;
         $user->quote = $request->quote;
-        $user->avatar = $request->avatar;
         $user->nationality = $request->nationality;
         $user->email = $request->email;
+
+        // Handle File Upload
+        if($request->hasFile('image_profile')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('image_profile')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('image_profile')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('image_profile')->storeAs('public/post_images', $fileNameToStore);
+
+            $user->avatar = $fileNameToStore;
+        }
+
+
         $user->save();
+        return redirect('/profile/'.$user->id)->with('success', 'Profile Updated'); 
     }
 
     public function new_friendship(Request $request) {
