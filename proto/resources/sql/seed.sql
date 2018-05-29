@@ -322,11 +322,11 @@ INSERT INTO "post" (author, preview, title, type, time_stamp, upvotes, downvotes
 INSERT INTO "post" (author, preview, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('cpidgeleyj','sdfsdhdfsrg qwwdc', 'Nanny Diaries, The','text', '12:10:30', 0, 0, 0,'Movie');
 INSERT INTO "post" (author, preview, title, type, time_stamp, upvotes, downvotes, balance, media_category) VALUES ('cpidgeleyj','sdfgfhqwwdc', 'School of Flesh, The (Ecole de la chair, L)','text', '16:29:29', 0, 0, 0,'Movie');
 
-INSERT INTO "image_post" (id_post, image, source) VALUES (1, 'http://dummyimage.com/186x117.jpg/dddddd/000000', 'http://blogger.com/phasellus/in.js');
-INSERT INTO "image_post" (id_post, image, source) VALUES (2, 'http://dummyimage.com/191x139.png/5fa2dd/ffffff', 'http://amazon.com/pede/ac.jsp');
-INSERT INTO "image_post" (id_post, image, source) VALUES (3, 'http://dummyimage.com/187x113.jpg/cc0000/ffffff', 'https://ebay.co.uk/parturient/montes/nascetur.jsp');
-INSERT INTO "image_post" (id_post, image, source) VALUES (4, 'http://dummyimage.com/103x218.jpg/ff4444/ffffff', 'http://businessinsider.com/mi.js');
-INSERT INTO "image_post" (id_post, image, source) VALUES (5, 'http://dummyimage.com/125x149.png/5fa2dd/ffffff', 'http://canalblog.com/pretium/iaculis/justo/in/hac.xml');
+INSERT INTO "image_post" (id_post, image, source) VALUES (1, 'anao.png', 'http://blogger.com/phasellus/in.js');
+INSERT INTO "image_post" (id_post, image, source) VALUES (2, 'arvore.png', 'http://amazon.com/pede/ac.jsp');
+INSERT INTO "image_post" (id_post, image, source) VALUES (3, 'cogumelo.png', 'https://ebay.co.uk/parturient/montes/nascetur.jsp');
+INSERT INTO "image_post" (id_post, image, source) VALUES (4, 'horse.png', 'http://businessinsider.com/mi.js');
+INSERT INTO "image_post" (id_post, image, source) VALUES (5, 'anao.png', 'http://canalblog.com/pretium/iaculis/justo/in/hac.xml');
 
 INSERT INTO "link_post" (id_post, url) VALUES (6, 'https://mac.com/congue/elementum.js');
 INSERT INTO "link_post" (id_post, url) VALUES (7, 'https://opensource.org/potenti/nullam.aspx');
