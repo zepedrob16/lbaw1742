@@ -95,6 +95,9 @@ class SendMessageController extends Controller
         $message->read = 0;
 
         $message->save();
+        
+
+
 
         return response()->json(['message' => 'successfull','info' => '+1 post dislike'],200);
     }

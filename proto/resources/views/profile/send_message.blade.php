@@ -19,7 +19,7 @@
             <div class="col-12">
                 <textarea id = "body" class="form-control" rows="5" cols="10"></textarea>
                 <br>
-                <button type="button" number = "{{$info[0]->id}}" id = "send" class="btn btn-default">Send</button>
+                <button type="button" number = "{{$info[0]->id}}" id = "send" class="btn btn-default" onclick="window.location.href='/inbox/{{Auth::user()->id}}'">Send</button>
             </div>
         </div>
         
@@ -63,6 +63,7 @@ function new_message() {
 
     
 });
+
 
 
 }
