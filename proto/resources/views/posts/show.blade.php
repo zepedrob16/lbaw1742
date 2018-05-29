@@ -140,6 +140,8 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 
 <script type="text/javascript">
 
+function handle_search(){}
+
 @if(!Auth::guest())
 
 var reportpost = document.getElementById('reportPost');
@@ -306,6 +308,8 @@ comment.addEventListener('click',function(){
 }
 @endif
 </script>
+
+
 
 
 
