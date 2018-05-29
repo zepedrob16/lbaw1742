@@ -73,7 +73,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
     	</select>
 	</p>
     <p>
-        <button id="reportComment" value="Report" type="button">Report</button>
+        <button id="sendreportComment" value="Report" type="button">Report</button>
     </p>
  </form>
 </dialog>
@@ -116,7 +116,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 		                <p>{!! $postComment->body !!}</p>
 		                <div class="pull-right">
 			                <small>commented by <a href="/profile/{{ $postComment->id_author }}">{{ $allposts[5]->where('id', $postComment->id_author)->first()->username }}</a></small>
-			                <small><a id="reportComment" onclick="showReportCommentBox()" href="#" class="report">report</a></small>
+			                <small><a author = "{{ $postComment->id_author }}" id="reportComment" onclick="showReportCommentBox({{ $postComment->id_author }})" href="#" class="report">report</a></small>
 			                <small><a href="#" class="respond">respond</a></small>
 		            	</div>
 		            </div>
@@ -143,18 +143,21 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 @if(!Auth::guest())
 
 var reportpost = document.getElementById('reportPost');
-var reportcomment = document.getElementById('reportComment');
+var sendreportComment = document.getElementById('sendreportComment');
+
 
 reportpost.addEventListener('click',function(){
     ReportPost();
 });
 
-reportcomment.addEventListener('click',function(){
+sendreportComment.addEventListener('click',function(){
     ReportComment();
 });
 
 function ReportComment() { 
+
 		var selectReportPost = document.getElementById("selectReportComment").value;
+
 		$.ajaxSetup({
 		        headers: {
 		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -164,7 +167,7 @@ function ReportComment() {
 		    var request = $.ajax({
 		    method: 'POST',
 		    url: '/reportComment',
-		    data: {'currPostCriminal' : {{ $currUser->id }}, 'reportType' : selectReportPost, 'currPostnum' : {{ $post->postnumber }} },
+		    data: {'currPostCriminal' : this.commentAuthor, 'reportType' : selectReportPost, 'currPostnum' : {{ $post->postnumber }} },
 		    success: function( response ){
 		        console.log( response );
 		    },
@@ -180,6 +183,7 @@ function ReportComment() {
 
 function ReportPost() { 
 		var selectReportPost = document.getElementById("selectReportPost").value;
+
 		$.ajaxSetup({
 		        headers: {
 		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -207,8 +211,9 @@ function showReportBox() {
     document.getElementById("myDialogPost").showModal(); 
 } 
 
-function showReportCommentBox() { 
+function showReportCommentBox(Author) { 
     document.getElementById("myDialogComment").showModal(); 
+    this.commentAuthor = Author;
 } 
 
 var comment = document.getElementById('comment');
