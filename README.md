@@ -67,7 +67,7 @@
 
 - [x] Banir moderador
 
-- [ ] Demover moderador
+- [x] Demover moderador
 
 - [x] Banir membro
 
