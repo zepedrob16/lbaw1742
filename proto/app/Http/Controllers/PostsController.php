@@ -16,6 +16,7 @@ use App\User_table;
 use App\Report;
 use App\Media_Tag;
 use App\Post_Tag;
+use App\Friendship;
 use DB;
 
 class PostsController extends Controller
@@ -24,6 +25,9 @@ class PostsController extends Controller
 
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
+
+
+
 
     /**
      * Display a listing of the resource.
@@ -47,7 +51,13 @@ class PostsController extends Controller
         colocar     {{ $posts->links() }}  depois do @endforeach em index.blade
     */
 
-        $posts = Post::orderBy('title','asc')->get();
+
+        $posts = Post::all();
+
+        if(!Auth::guest()){
+             $posts = Post::orderBy('balance','desc')->get();}
+        else
+            $posts = Post::all();
 
         $posts_text = Text_Post::orderBy('id_post','asc')->get();
         $posts_image = Image_Post::orderBy('id_post','asc')->get();
