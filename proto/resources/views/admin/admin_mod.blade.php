@@ -119,6 +119,11 @@
 
 <script type="text/javascript">
 
+
+
+
+
+
 var requests = document.querySelectorAll('.ban');
 
 var i;

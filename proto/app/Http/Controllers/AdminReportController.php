@@ -111,6 +111,15 @@ class AdminReportController extends Controller
         $user->save();
     }
 
+    public function solve_report(Request $request){
+        $data = $request->all();
+
+        $report_id = $data['report'];
+        $report = Report::findOrFail($report_id);
+        $report->delete();
+        return response()->json(['message' => 'successful','info' => 'solved request'],200);
+    }
+
     public function new_friendship(Request $request) {
 
         $data = $request->all();

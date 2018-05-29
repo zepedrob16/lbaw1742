@@ -136,6 +136,24 @@ class AdminController extends Controller
     }
 
 
+    public function promote_user(Request $request){
+        $data = $request->all();
+        $user_id = $data['user'];
+        
+        $user = new Moderator;
+
+        $user->id_user = $user_id;
+        $user->save();
+
+        $old_member = Member::findOrFail($user_id);
+        $old_member->delete();
+
+        return response()->json(['message' => 'successfull','info' => 'promoted user'],200);
+
+
+
+    }
+
     public function ban_user(Request $request){
 
         $data = $request->all();

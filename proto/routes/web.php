@@ -43,6 +43,8 @@ Route::post('/send_new_message', 'SendMessageController@send_new_message');
 Route::post('/read_message', 'InboxController@read_message');
 Route::post('/ban_mod', 'AdminModController@ban_mod');
 Route::post('/demote_mod', 'AdminModController@demote_mod');
+Route::post('/promote', 'AdminController@promote_user');
+Route::post('/solve_report', 'AdminReportController@solve_report');
 
 Route::get('/getbalancepost','PostsController@getBalancePost');
 Route::get('/getAllPosts','PostsController@getAllPosts');

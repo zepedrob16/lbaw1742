@@ -16,6 +16,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
+
     <title>SHOWCHAN</title>
   </head>
 
@@ -49,7 +50,6 @@
       <th scope="col">Report Title</th>
       <th scope="col">Type</th>
       <th scope="col">Date</th>
-      <th scope="col">Delete</th>
       <th scope="col">Solved</th>
     </tr>
   </thead>
@@ -61,9 +61,12 @@
       <th scope="row"><i class="fas fa-flag"></i></th>
       <td>{{$report->title}}</td>
       <td>{{$report->type}}</td>
+
       <td>{{$report->time_stamp}}</td>
-      <td><i class="fas fa-times-circle"></i></td>
-      <td><i class="fas fa-check"></i></td>
+      <td>
+          <span class="fixed" number = {{$report->id}}> 
+          <i class="fas fa-check" style = "cursor:pointer;"></i></td>
+        </span>
     </tr>
     @endforeach
     
@@ -97,5 +100,60 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+
+
+var reports = document.querySelectorAll('.fixed');
+
+var i;
+
+for(i = 0; i < reports.length; i++) {
+  reports[i].addEventListener('click',function(){
+     solve_report(this);
+  });
+}
+
+function solve_report(report){
+
+  let id = report.getAttribute("number");
+
+  $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+ });
+  
+    var request = $.ajax({
+    method: 'POST',
+    url: '/solve_report',
+    data: {'report' : id},
+    success: function( response ){
+        console.log( response );
+    },
+    error: function( e ) {
+        console.log(e);
+    }
+    
+});
+  
+
+}
+
+</script>
+
+
+
+
 
 @endsection

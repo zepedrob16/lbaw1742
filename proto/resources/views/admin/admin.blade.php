@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="admin_style.css"/>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <title>SHOWCHAN</title>
   </head>
 
@@ -88,7 +88,12 @@
           <i class="fas fa-ban" style = "cursor:pointer;"></i>
         </span>
         <span style="display:inline-block; width: 30px;"></span>
-        <i class="fas fa-long-arrow-alt-up"></i>
+        @foreach($info[3] as $member)
+        @if($member->id_user === $user->id)
+          <span class = "promote" number = {{$user->id}}><i class="fas fa-long-arrow-alt-up" style = "cursor:pointer;" ></i></span>0
+        @endif
+      @endforeach
+        
       </td>
     </tr>
     @endforeach
@@ -133,6 +138,8 @@
 
 var requests = document.querySelectorAll('.ban');
 console.log(requests);
+var promote_requests = document.querySelectorAll('.promote');
+console.log(promote_requests);
 
 var i;
 for(i = 0; i < requests.length; i++) {
@@ -140,6 +147,40 @@ for(i = 0; i < requests.length; i++) {
 	   ban_request(this);
   });
 }
+
+var j;
+for(j=0; j< promote_requests.length; j++){
+	promote_requests[j].addEventListener('click',function(){
+		promote_user(this);
+	});
+}
+
+function promote_user(user){
+
+	let id = user.getAttribute("number");
+
+$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+ });
+  
+    var request = $.ajax({
+    method: 'POST',
+    url: '/promote',
+    data: {'user' : id},
+    success: function( response ){
+        console.log( response );
+    },
+    error: function( e ) {
+        console.log(e);
+    }
+    
+});
+	
+
+}
+
 
 function ban_request(user){
 
