@@ -60,7 +60,7 @@
     <tr>
       <th scope="row"><i class="fas fa-flag"></i></th>
       <td>{{$report->title}}</td>
-      <td><a href="http://127.0.0.1:8000/posts/<?php echo strval($report->postid); ?>" >{{$report->type}}</a></td>
+      <td><a href="/posts/{{$report->postid}}">{{$report->type}}</a></td>
       
      
 
