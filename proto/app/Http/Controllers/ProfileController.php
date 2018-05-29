@@ -124,6 +124,7 @@ class ProfileController extends Controller
 
 
         $user->save();
+        return redirect('/profile/'.$user->id)->with('success', 'Profile Updated'); 
     }
 
     public function new_friendship(Request $request) {
