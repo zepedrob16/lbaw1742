@@ -345,22 +345,6 @@
                             </div>
                         </div>
 
-                        <!-- INPUT AVATAR TODO -->
-
-                        <div class="container field {{ $errors->has('email') ? ' has-error' : '' }}">
-                            <div class="row">
-                                <div class="col-"><h2>Avatar</h2></div>
-                            </div>
-                            <div class="row field-input">
-                                <input type="file" name="avatar" id="avatar">
-
-                                @if ($errors->has('lastname'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('lastname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <!-- INPUT QUOTE -->
 

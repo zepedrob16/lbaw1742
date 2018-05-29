@@ -21,7 +21,11 @@
     <div class="container">
       <div class="row">
         <div class="col-5">
-          <img src={{$info[0]->avatar}} width="150px" height ="150px" id="profile_pic">
+         @if( $info[0]->avatar!=null )
+            <img src="/storage/{{$info[0]->avatar}}" width="150px" height ="150px" id="profile_pic">
+          @else
+            <p>Edit your Profile to upload your pretty face!</p>
+          @endif
           <h1 id="username">{{$info[0]->username}}</h1>
         </div>
       </div>
