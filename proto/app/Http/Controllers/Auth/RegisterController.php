@@ -57,6 +57,8 @@ class RegisterController extends Controller
             'lastname' => 'required|string|max:255',
             'nationality' => 'required|string|max:255',
             'quote' => 'string|max:255',
+            'avatar' => 'string|max:255',
+            'admin_or_not' => 'max:255',
         ]);
     }
 
@@ -69,16 +71,18 @@ class RegisterController extends Controller
     protected function create(array $data)
     {   
 
-        $user = User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'name' => $data['name'],
-            'lastname' => $data['lastname'],
-            'nationality' => $data['nationality'],
-            'quote' => $data['quote'],
-            'avatar' => ':)',
-        ]);
+        $user = new User;
+
+        $user->username = $data['username'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->name = $data['name'];
+        $user->lastname = $data['lastname'];
+        $user->nationality = $data['nationality'];
+        $user->quote = $data['quote'];
+        $user->avatar = ':)';
+        $user->admin_or_not = 0;
+        $user->save();
 
         $member = new Member;
         $member->id_user = $user->id;

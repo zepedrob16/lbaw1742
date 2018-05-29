@@ -393,6 +393,10 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('admin_or_not') ? ' has-error' : '' }}">
+                            
+                        </div>
                     </form>
                 </div>
             </div>

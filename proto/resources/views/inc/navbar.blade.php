@@ -52,9 +52,13 @@
                                         </a>
                                         <!-- TODO IF AUTHENTICATED USER IS ADMIN ONLY -->
 
-                                        <a href="/admin/{{ Auth::user()->id }}">
+                                        @if( Auth::user()->admin_or_not === 1 )
+                                            <a href="/admin/{{ Auth::user()->id }}">
                                             Admin
                                         </a>
+                                        @endif
+
+                                        
 
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
