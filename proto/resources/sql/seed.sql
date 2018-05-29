@@ -35,7 +35,7 @@ CREATE TABLE users (
   downvotes smallint,
   balance smallint,
   remember_token text,
-  admin_or_not INTEGER NOT NULL
+  admin_or_not INTEGER
 );
 
 CREATE TABLE password_resets (
