@@ -46,7 +46,7 @@ $_SESSION['allposts'] = $allposts;
 
                 <!-- First Column -> Upvote, downvote and balance -->
                 <div class="col-1">
-                    <i class="fas fa-link"></i>
+     
                     @if(!Auth::guest())
                         <a href="#" number={{ $post->postnumber }} id="upvote" class="upvote"><i class="far fa-thumbs-up"></i></a>
                         <div id="vote_balance" number={{ $post->postnumber }}>
@@ -66,8 +66,11 @@ $_SESSION['allposts'] = $allposts;
 
                 <!-- Third Column -> Category, tag and score -->
                 <div class="col-3">
-                    <i class="fas fa-video">{{ $post->media_category }}</i>
-                    <i class="fas fa-video"></i>
+                    @if( $post->media_category == 'TV Show')
+                        <i class="fas fa-video"></i>
+                    @else
+                        <i class="fas fa-tv"></i>
+                    @endif
                     <br>
                     @foreach($allposts[6] as $post_tag)
                     @if($post_tag->postnumber ===  $post->postnumber)
