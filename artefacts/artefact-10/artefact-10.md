@@ -97,8 +97,8 @@ Several new user stories were added too.
 | US30          | Exchange Messages | Important | José Borges | 100% |
 | US31          | View Post History | Optional | | 0% |
 | US32          | Logout | Important | Miguel Mano, Ventura Pereira | 100% |
-| US33          | Delete User Comments | Important | Bernardo Leite| 0% |
-| US34          | Delete User Posts | Important | Bernardo Leite | 0% |
+| US33          | Delete User Comments | Important | Bernardo Leite| 100% |
+| US34          | Delete User Posts | Important | Bernardo Leite | 100% |
 | US35          | Change Content Tags | Optional | | 0% |
 | US41          | Name Moderators | Mandatory | Miguel Mano, Ventura Pereira | 100% |
 | US42          | Promote Users | Important | Miguel Mano | 100% |
