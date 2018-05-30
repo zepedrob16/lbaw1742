@@ -4,6 +4,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/statistic.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/icon.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     @foreach($info[0] as $conversation)
     <div class="container">
@@ -11,7 +12,7 @@
         <div class="row">
             <div class="col">
                 <div class = "row">
-                    <i class="far fa-envelope" aria-hidden="true"></i>
+                    <i class="far fa-envelope-open" aria-hidden="true"></i>
                 
                     <p class = "font-weight-bold read">
                         <a href="/open_inbox/{{$conversation->id_conversation}}">{{$conversation->title}}</a>

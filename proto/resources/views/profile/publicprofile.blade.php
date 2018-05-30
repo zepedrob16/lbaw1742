@@ -4,13 +4,6 @@
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/statistic.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/icon.css" rel="stylesheet">
-
-
-
-
-  
-
-
       
     <div class="container">
       <div class="row">
@@ -51,7 +44,7 @@
       @if(count($info[5]) == 0)
       <div class="row" id="last_row">
         <div class="col-3">
-          <button type="button" id="friend_request" class="btn btn-primary" >Send Friend Request</button>
+          <a href="#" type="button" id="friend_request" class="btn btn-primary" >Send Friend Request</a>
         </div>
       </div>
 
@@ -127,7 +120,6 @@ var friend = document.getElementById('friend_request');
 friend.addEventListener('click', function() {
 
   handle_friend();
-  location.reload(true);
 });
 
 function handle_friend() {

@@ -108,6 +108,8 @@
 </div>
 </div>
 
+
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -193,6 +195,22 @@ function demote_request(user){
   
 
 }
+
+/*function handle_search(){
+var regex = "^\\s+$";
+for(var i = 0; i < allPosts.length; i++){
+    if(allPosts[i].getAttribute("titlePost").toLowerCase() == searchengine.value || allPosts[i].getAttribute("titlePost").toLowerCase().includes(searchengine.value)
+        || allPosts[i].getAttribute("titlePost").toUpperCase() == searchengine.value || allPosts[i].getAttribute("titlePost").toUpperCase().includes(searchengine.value)
+        || allPosts[i].getAttribute("titlePost") == searchengine.value || allPosts[i].getAttribute("titlePost").includes(searchengine.value))
+        allPosts[i].style.display = 'block';
+    else if(allPosts[i].getAttribute("titlePost") != searchengine.value)
+        allPosts[i].style.display = 'none';
+ }  
+ for(var i = 0; i < allPosts.length; i++){
+    if(searchengine.value.match(regex) || searchengine.value == '')
+        allPosts[i].style.display = 'block';
+ }  
+}*/
 
 </script>
 

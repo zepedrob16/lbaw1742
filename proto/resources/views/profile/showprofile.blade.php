@@ -112,7 +112,11 @@
    <div class="container">
       <div class = "row">
         <div class= "col" class="sender">
-          {{$request->sender}}
+          @foreach($info[6] as $user)
+            @if($user->id === $request->sender)
+              {{$user->username}}
+            @endif
+          @endforeach
         </div>
 
         <div class= "col">

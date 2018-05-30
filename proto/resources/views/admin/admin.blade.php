@@ -92,7 +92,7 @@
         <span style="display:inline-block; width: 30px;"></span>
         @foreach($info[3] as $member)
         @if($member->id_user === $user->id)
-          <span class = "promote" number = {{$user->id}}><i class="fas fa-long-arrow-alt-up" style = "cursor:pointer;" ></i></span>0
+          <span class = "promote" number = {{$user->id}}><i class="fas fa-long-arrow-alt-up" style = "cursor:pointer;" ></i></span>
         @endif
       @endforeach
         
