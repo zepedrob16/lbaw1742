@@ -92,13 +92,13 @@ Several new user stories were added too.
 | US25          | Upvote | Mandatory | Bernardo Leite, Ventura Pereira | 100% |
 | US26          | Downvote | Mandatory | Bernardo Leite, Ventura Pereira | 100% |
 | US27          | Share | Optional |  | 0% |
-| US28          | Post | Mandatory | José Borges, Miguel Mano, Bernardo Leite | 100% |
+| US28          | Create Post | Mandatory | José Borges, Miguel Mano, Bernardo Leite | 100% |
 | US29          | Check Statistics | Optional |  | 100% |
 | US30          | Exchange Messages | Important | José Borges | 100% |
 | US31          | View Post History | Optional | | 0% |
 | US32          | Logout | Important | Miguel Mano, Ventura Pereira | 100% |
 | US33          | Delete User Comments | Important | Bernardo Leite| 100% |
-| US34          | Delete User Posts | Important | Bernardo Leite | 100% |
+| US34          | Delete User Posts | Important | | 0% |
 | US35          | Change Content Tags | Optional | | 0% |
 | US41          | Name Moderators | Mandatory | Miguel Mano, Ventura Pereira | 100% |
 | US42          | Promote Users | Important | Miguel Mano | 100% |
