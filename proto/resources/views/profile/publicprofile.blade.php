@@ -11,7 +11,7 @@
          @if( $info[0]->avatar!=null )
             <img src="/storage/{{$info[0]->avatar}}" width="150px" height ="150px" id="profile_pic">
           @else
-            <p>This is user doesn't have an avatar!</p>
+            <p>This user doesn't have an avatar!</p>
           @endif
           <h1 id="username">My name is {{$info[0]->username}}</h1>
         </div>
