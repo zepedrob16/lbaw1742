@@ -499,6 +499,7 @@ INSERT INTO "moderator" (id_user) VALUES (2);
 INSERT INTO "moderator" (id_user) VALUES (3);
 INSERT INTO "moderator" (id_user) VALUES (4);
 
+
 INSERT INTO "admin" (id_user) VALUES (5);
 INSERT INTO "admin" (id_user) VALUES (6);
 INSERT INTO "admin" (id_user) VALUES (7);

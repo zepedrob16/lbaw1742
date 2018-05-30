@@ -17,6 +17,7 @@ use App\Report;
 use App\Media_Tag;
 use App\Post_Tag;
 use App\Friendship;
+use App\Moderator;
 use DB;
 
 class PostsController extends Controller
@@ -67,8 +68,9 @@ class PostsController extends Controller
         $post_tag = Post_Tag::all();
         $media_tag = Media_Tag::all();
 
-        $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment,$users,$post_tag,$media_tag);
+        $allmods = Moderator::all();
 
+        $allposts = array($posts,$posts_text,$posts_image,$posts_link,$posts_comment,$users,$post_tag,$media_tag,$allmods);
 
         return view('posts.index')->with('allposts',$allposts);
     }
@@ -328,10 +330,12 @@ class PostsController extends Controller
     {
         $post = Post::find($postnumber);
 
+        $allmods = Moderator::all();
+
         //Check for correct user
-        if(auth()->user()->username !== $post->author){
+        if(auth()->user()->username !== $post->author && Moderator::where('id_user', auth()->user()->id )->count() === 0){
             return redirect('/posts')->with('error','Unauthorized Page');
-        }
+         }
         /*
 
         if($post->type === "text"){

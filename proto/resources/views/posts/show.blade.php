@@ -97,9 +97,8 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 	<small>Posted by <a href="/publicprofile/{{ $currUser->id }}">{{ $post->author }}</a> </small>
 	<br>
 	@if(!Auth::guest())
-		@if(Auth::user()->username == $post->author)
+		@if(Auth::user()->username == $post->author || $allposts[8]->where('id_user', Auth::user()->id )->count() > 0)
 			<a href="/posts/{{$post->postnumber}}/edit" class="btn btn-default">Edit</a>
-
 			{!!Form::open(['action' => ['PostsController@destroy', $post->postnumber], 'method' => 'POST', 'class' => 'pull-right'])!!}
 			{{Form::hidden('_method', 'DELETE')}}
 			{{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
