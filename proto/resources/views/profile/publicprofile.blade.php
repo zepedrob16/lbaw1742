@@ -4,13 +4,6 @@
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/statistic.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/icon.css" rel="stylesheet">
-
-
-
-
-  
-
-
       
     <div class="container">
       <div class="row">
@@ -20,19 +13,13 @@
           @else
             <p>This is user doesn't have an avatar!</p>
           @endif
-          <h1 id="username">{{$info[0]->username}}</h1>
+          <h1 id="username">My name is {{$info[0]->username}}</h1>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
           <p id="full_name"><b>Full Name: </b>{{$info[0]->name}} {{$info[0]->lastname}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-8">
-          <p id="age"><b>Age: </b>{{$info[0]->datebirth}}</p>
         </div>
       </div>
 
@@ -51,7 +38,7 @@
       @if(count($info[5]) == 0)
       <div class="row" id="last_row">
         <div class="col-3">
-          <button type="button" id="friend_request" class="btn btn-primary" >Send Friend Request</button>
+          <a href="#" type="button" id="friend_request" class="btn btn-primary" >Send Friend Request</a>
         </div>
       </div>
 
@@ -122,12 +109,11 @@
 
 
 
-var friend = document.getElementById('friend_request');
+let friend = document.getElementById('friend_request');
 
 friend.addEventListener('click', function() {
 
   handle_friend();
-  location.reload(true);
 });
 
 function handle_friend() {
@@ -149,9 +135,13 @@ function handle_friend() {
     error: function( e ) {
         console.log(e);
     }
-
     
 });
+
+
+    request.done(function(response) {
+      friend.style.display="none";
+      });
 
 
 }

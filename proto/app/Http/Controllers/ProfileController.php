@@ -73,7 +73,9 @@ class ProfileController extends Controller
 
         $posts_made = Post::where('author', $user->username)->get();
 
-        $info = array($user, $friend_requests, $friends, $reactions_given, $comments, $posts_made);
+        $users = User::all();
+
+        $info = array($user, $friend_requests, $friends, $reactions_given, $comments, $posts_made, $users);
 
         
         return view('profile.showprofile')->with('info', $info);

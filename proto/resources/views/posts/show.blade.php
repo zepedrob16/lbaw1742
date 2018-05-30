@@ -65,7 +65,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
    	<p>Type of Report:
    		<select id="selectReportComment">
    			<option value="Innapropriate">Innapropriate</option>
-    		<option value="Abusive">Abusive</option>
+    		<option value="Abusive">Abusive))</option>
     		<option value="Sexual">Sexual Content</option>
     		<option value="Spam">Spam</option>
     		<option value="Terrorist">Terrorism</option>
@@ -117,7 +117,6 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 		                <div class="pull-right">
 			                <small>commented by <a href="/profile/{{ $postComment->id_author }}">{{ $allposts[5]->where('id', $postComment->id_author)->first()->username }}</a></small>
 			                <small><a author = "{{ $postComment->id_author }}" id="reportComment" onclick="showReportCommentBox({{ $postComment->id_author }})" href="#" class="report">report</a></small>
-			                <small><a href="#" class="respond">respond</a></small>
 		            	</div>
 		            </div>
 	        @else
@@ -129,7 +128,7 @@ $currUser = $allposts[5]->where('username', $post->author)->first();
 	</div>
 
 @if(!Auth::guest())
-    <textarea id="commentBody" value="Comment" name="Comment" cols="55" rows="5" id="Comment"></textarea>
+    <textarea id="commentBody" value="Comment" name="Comment" cols="55" rows="5" id="Comment" required></textarea>
     <p>
         <input post="{{ $post->postnumber }}" parent="{{ 0 }}" id="comment" type="submit" name="Submit" value="Comment"> 
     </p>
@@ -237,6 +236,9 @@ comment.addEventListener('click',function(){
 		        }
 		 });
 
+		var str = commentBody;
+		if(commentBody.length > 0 && str.trim().length > 0)
+		{
 		    var request = $.ajax({
 		    method: 'POST',
 		    url: '/addComment',
@@ -293,7 +295,7 @@ comment.addEventListener('click',function(){
 				respond.appendChild(anchor3);
 				divActions.appendChild(commentedBy);
 				divActions.appendChild(report);
-				divActions.appendChild(respond);
+	
 
 				newComment.appendChild(divActions);
 				comments.appendChild(newComment);
@@ -304,7 +306,7 @@ comment.addEventListener('click',function(){
 
 		});
 
-
+	}
 }
 @endif
 </script>

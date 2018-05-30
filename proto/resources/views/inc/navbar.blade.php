@@ -56,15 +56,18 @@
                                             <a href="/admin/{{ Auth::user()->id }}">
                                             Admin
                                         </a>
-                                        @endif
+                                        @endif                        
 
+                                        <a href = "/about">
+                                            About
+                                        </a>
                                         
-
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -81,3 +84,10 @@
                 </div>
             </div>
         </nav>
+
+
+<script type="text/javascript">
+
+document.getElementById('searchengine').style.display = 'none';
+
+</script>

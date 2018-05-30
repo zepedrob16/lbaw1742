@@ -185,7 +185,7 @@ class PostsController extends Controller
         }
 
           session_start();
-          if($_SESSION['tags']){
+          if(isset($_SESSION['tags'])){
 
             $mytags = $_SESSION['tags'];
 
