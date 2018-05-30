@@ -32,7 +32,7 @@ $_SESSION['allposts'] = $allposts;
         <!-- Submit post -->
         <div class="row">
             
-            <div class="col-3">
+            <div style="margin-top: 10px; margin-left: 15px;" class="col-3">
                 <a href="/posts/create"><button type="button" class="btn btn-success" id="submit">Submit Post</button></a>
             </div>
         </div>
