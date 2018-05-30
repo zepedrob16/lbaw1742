@@ -110,12 +110,12 @@
 
 
 
-var friend = document.getElementById('friend_request');
+let friend = document.getElementById('friend_request');
 
 friend.addEventListener('click', function() {
 
   handle_friend();
-  location.reload(true);
+  
 });
 
 function handle_friend() {
@@ -137,9 +137,13 @@ function handle_friend() {
     error: function( e ) {
         console.log(e);
     }
-
     
 });
+
+
+    request.done(function(response) {
+      friend.style.display="none";
+      });
 
 
 }
