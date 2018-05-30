@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-<link rel="stylesheet" href="css/sub-params.css">
 
 @section('content')
 
@@ -15,9 +14,9 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username" class="col-md-4 control-label">Username</label>
+                            <label for="username" id="usernamelabel" class="col-md-2 control-label">Username</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
 
                                 @if ($errors->has('username'))
@@ -29,7 +28,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail</label>
+                            <label for="email" class="col-md-2 control-label">E-Mail</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -46,10 +45,10 @@
 
                         <div class="container field {{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-"><h2>First Name</h2></div>
+                                <div class="col-md-2"><h2>First Name</h2></div>
                             </div>
                             <div class="row field-input">
-                                <div class="col-"><input id="name" type="text" name="name" placeholder="Enter your first name" value="{{ old('name') }}" required></div>
+                                <div class="col-md-6"><input id="name" type="text" name="name" placeholder="Enter your first name" value="{{ old('name') }}" required></div>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -63,10 +62,10 @@
 
                         <div class="container field {{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-"><h2>Last Name</h2></div>
+                                <div class="col-md-2"><h2>Last Name</h2></div>
                             </div>
                             <div class="row field-input">
-                                <div class="col-"><input id="lastname" type="text" name="lastname" placeholder="Enter your last name" value="{{ old('lastname') }}" required></div>
+                                <div class="col-md-6"><input id="lastname" type="text" name="lastname" placeholder="Enter your last name" value="{{ old('lastname') }}" required></div>
 
                                 @if ($errors->has('lastname'))
                                     <span class="help-block">
@@ -80,12 +79,12 @@
 
                         <div class="container field {{ $errors->has('nationality') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-"><h2>Nationality</h2></div>
+                                <div class="col-md-2"><h2>Nationality</h2></div>
                             </div>
                             <div class="row field-input">
                                 
 
-                                <select name="nationality">
+                                <select name="nationality" class="col-md-6">
     <option value="Afghanistan">Afghanistan</option>
     <option value="Åland Islands">Åland Islands</option>
     <option value="Albania">Albania</option>
@@ -350,10 +349,10 @@
 
                         <div class="container field {{ $errors->has('quote') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-"><h2>Favourite quote</h2></div>
+                                <div class="col-md-2"><h2>Favourite quote</h2></div>
                             </div>
                             <div class="row field-input">
-                                <div class="col-"><input id="quote" type="text" name="quote" placeholder="Enter your favourite quote" value="{{ old('quote') }}" required></div>
+                                <div class="col-md-6"><input id="quote" type="text" name="quote" placeholder="Enter your favourite quote" value="{{ old('quote') }}" required></div>
 
                                 @if ($errors->has('quote'))
                                     <span class="help-block">

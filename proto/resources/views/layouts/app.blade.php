@@ -19,6 +19,8 @@
     <link href="{{ asset('css/inbox.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet">
     <link href="{{ asset('css/createPost.css') }}" rel="stylesheet">
+    <link href="{{asset('css/signin.css') }}" rel="stylesheet">
+    <link href="{{asset('css/sub-params.css')}}" rel="stylesheet">
     @yield('style-homepage')
 
 </head>

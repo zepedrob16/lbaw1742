@@ -13,8 +13,11 @@ h2 {
 }
 
 input[type=text] {
+    border: 0;
+    outline: 0;
     background: transparent;
     border-bottom: 1px solid rgb(206, 206, 206);
+    width: 494px;
     height: 29px;
 }
 
@@ -28,6 +31,7 @@ input[type=text] {
     margin-bottom: 0.5em;
 }
 
+
 /* Icon styling */
 .fa-pencil-alt, .fa-link, .fa-comment-alt, .fa-tv, .fa-bullhorn {
     color: #a5a5a5;
@@ -40,11 +44,20 @@ input[type=text] {
     margin-bottom: 0em;
 }
 
+#usernamelabel{
+    float: left;
+
+}
+#username{
+    float:left;
+    padding: 0px;
+    width: 70%
+
+}
 /*
 div[class="row"] {
     border: 1px dotted rgba(0, 0, 0, 0.5);
 }
-
 div[class^="col-"] {
     background-color: rgba(255, 0, 0, 0.2);
 }*/
