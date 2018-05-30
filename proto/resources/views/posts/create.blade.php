@@ -66,7 +66,6 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 
-
 document.querySelector('#listoftags').addEventListener('keypress', function (e) {
     var key = e.which || e.keyCode;
     if (key === 13) { // enter key
