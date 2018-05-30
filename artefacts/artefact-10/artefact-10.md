@@ -82,29 +82,29 @@ Several new user stories were added too.
 | US02          | Check Profile | Mandatory | José Borges |  100%  |
 | US03          | View Home Page | Mandatory | Bernardo Leite, Ventura Pereira |  100%  |
 | US04          | View About Page | Optional | José Borges |  100%  |
-| US05          | View Individual Post | Mandatory | José Borges, Miguel Mano |  100%  |
+| US05          | View Individual Post | Mandatory | José Borges, Miguel Mano, Bernardo Leite |  100%  |
 | US11          | Register | Mandatory | José Borges | 100% |
 | US12          | Login | Mandatory | Bernardo Leite, José Borges | 100% |
 | US21          | Add Friend | Important | José Borges, Miguel Mano, Ventura Pereira | 100% |
 | US22          | Filter Information | Optional | Bernardo Leite | 100% |
 | US23          | Check Profile | Optional | José Borges, Miguel Mano | 100% |
-| US24          | Post Comments | Mandatory | José Borges, Miguel Mano | 100% |
+| US24          | Post Comments | Mandatory | José Borges, Miguel Mano, Bernardo Leite | 100% |
 | US25          | Upvote | Mandatory | Bernardo Leite, Ventura Pereira | 100% |
 | US26          | Downvote | Mandatory | Bernardo Leite, Ventura Pereira | 100% |
 | US27          | Share | Optional |  | 0% |
-| US28          | Post | Mandatory | José Borges, Miguel Mano | 100% |
-| US29          | Check Statistics | Optional | Bernardo Leite | 100% |
+| US28          | Post | Mandatory | José Borges, Miguel Mano, Bernardo Leite | 100% |
+| US29          | Check Statistics | Optional |  | 100% |
 | US30          | Exchange Messages | Important | José Borges | 100% |
 | US31          | View Post History | Optional | | 0% |
 | US32          | Logout | Important | Miguel Mano, Ventura Pereira | 100% |
-| US33          | Delete User Comments | Important | | 0% |
-| US34          | Delete User Posts | Important | | 0% |
+| US33          | Delete User Comments | Important | Bernardo Leite| 0% |
+| US34          | Delete User Posts | Important | Bernardo Leite | 0% |
 | US35          | Change Content Tags | Optional | | 0% |
 | US41          | Name Moderators | Mandatory | Miguel Mano, Ventura Pereira | 100% |
 | US42          | Promote Users | Important | Miguel Mano | 100% |
 | US43          | Demote Users | Important | Ventura Pereira | 100% |
 | US44          | Ban Users | Important | Miguel Mano, Ventura Pereira | 100%
-| US45          | Enter Admin Control Panel | Mandatory | Bernardo Leite, Miguel Mano, Ventura Pereira | 100%
+| US45          | Enter Admin Control Panel | Mandatory | Miguel Mano, Ventura Pereira | 100%
  
 
 ## 9. Group Specification
