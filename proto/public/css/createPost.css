@@ -1,5 +1,5 @@
 .listoftags {
-  position: absolute;
+  position: static;
   top: 340px;
   left: 500px;
 }

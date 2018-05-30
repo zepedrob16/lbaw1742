@@ -9,13 +9,13 @@
                  <div style="margin-top:80px; margin-left: 33%;" class="col-xs-4 col-sm-4 col-md-4 login-box">
 
                     <!-- Change Username -->
-                    <div class="form-group">
+                    <div class="form-group" id="changeusername">
                         {{ Form::label('username', 'Change Username') }}
                     {{ Form::text('username', $user->username, ['class' => 'form-control', 'placeholder' => 'Username']) }}
                     </div>
 
                     <!-- Change Quote -->
-                    <div class="form-group">
+                    <div class="form-group" id="changequote">
                         {{ Form::label('quote', 'Change Quote') }}
             {{ Form::text('quote', $user->quote, ['class' => 'form-control', 'placeholder' => 'Quote']) }}
                     </div>

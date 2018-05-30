@@ -21,6 +21,15 @@
 
 }
 
+#changeusername{
+    margin-right: 100px;
+}
+
+#changequote{
+    margin-right: 100px;
+    color:red;
+}
+
 #likes_received {
     padding-left: 20px;
     font-weight: bold;
