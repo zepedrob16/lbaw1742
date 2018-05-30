@@ -32,7 +32,7 @@ $_SESSION['allposts'] = $allposts;
         <!-- Submit post -->
         <div class="row">
             
-            <div class="col-3">
+            <div style="margin-top: 10px; margin-left: 15px;" class="col-3">
                 <a href="/posts/create"><button type="button" class="btn btn-success" id="submit">Submit Post</button></a>
             </div>
         </div>
@@ -49,7 +49,7 @@ $_SESSION['allposts'] = $allposts;
      
                     @if(!Auth::guest())
                         <a href="#" number={{ $post->postnumber }} id="upvote" class="upvote"><i class="far fa-thumbs-up"></i></a>
-                        <div id="vote_balance" number={{ $post->postnumber }}>
+                        <div style="margin-right: 2000px;" id="vote_balance" number={{ $post->postnumber }}>
                             <p>{{ $post->balance }}</p>
                         </div>
                         <br>
@@ -97,6 +97,7 @@ $_SESSION['allposts'] = $allposts;
 
 <script type="text/javascript">
 
+document.getElementById('searchengine').style.display = 'block';
 
 var movie = document.getElementById('Movies');
 var tvShow = document.getElementById('TVShow');

@@ -13,19 +13,13 @@
           @else
             <p>This is user doesn't have an avatar!</p>
           @endif
-          <h1 id="username">{{$info[0]->username}}</h1>
+          <h1 id="username">My name is {{$info[0]->username}}</h1>
         </div>
       </div>
 
       <div class="row">
         <div class="col-8">
           <p id="full_name"><b>Full Name: </b>{{$info[0]->name}} {{$info[0]->lastname}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-8">
-          <p id="age"><b>Age: </b>{{$info[0]->datebirth}}</p>
         </div>
       </div>
 
@@ -115,7 +109,7 @@
 
 
 
-var friend = document.getElementById('friend_request');
+let friend = document.getElementById('friend_request');
 
 friend.addEventListener('click', function() {
 
@@ -141,9 +135,13 @@ function handle_friend() {
     error: function( e ) {
         console.log(e);
     }
-
     
 });
+
+
+    request.done(function(response) {
+      friend.style.display="none";
+      });
 
 
 }

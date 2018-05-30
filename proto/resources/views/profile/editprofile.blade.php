@@ -11,7 +11,7 @@
                     <!-- Change Username -->
                     <div class="form-group">
                         {{ Form::label('username', 'Change Username') }}
-            {{ Form::text('username', $user->username, ['class' => 'form-control', 'placeholder' => 'Username']) }}
+                    {{ Form::text('username', $user->username, ['class' => 'form-control', 'placeholder' => 'Username']) }}
                     </div>
 
                     <!-- Change Quote -->

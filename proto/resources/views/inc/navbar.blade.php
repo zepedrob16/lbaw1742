@@ -84,3 +84,10 @@
                 </div>
             </div>
         </nav>
+
+
+<script type="text/javascript">
+
+document.getElementById('searchengine').style.display = 'none';
+
+</script>
