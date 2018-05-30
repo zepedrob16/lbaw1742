@@ -49,7 +49,7 @@ $_SESSION['allposts'] = $allposts;
      
                     @if(!Auth::guest())
                         <a href="#" number={{ $post->postnumber }} id="upvote" class="upvote"><i class="far fa-thumbs-up"></i></a>
-                        <div id="vote_balance" number={{ $post->postnumber }}>
+                        <div style="margin-right: 2000px;" id="vote_balance" number={{ $post->postnumber }}>
                             <p>{{ $post->balance }}</p>
                         </div>
                         <br>
