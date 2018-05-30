@@ -67,9 +67,9 @@ $_SESSION['allposts'] = $allposts;
                 <!-- Third Column -> Category, tag and score -->
                 <div class="col-3">
                     @if( $post->media_category == 'TV Show')
-                        <i class="fas fa-video"></i>
-                    @else
                         <i class="fas fa-tv"></i>
+                    @else
+                        <i class="fas fa-video"></i>
                     @endif
                     <br>
                     @foreach($allposts[6] as $post_tag)
