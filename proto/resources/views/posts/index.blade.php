@@ -97,6 +97,7 @@ $_SESSION['allposts'] = $allposts;
 
 <script type="text/javascript">
 
+document.getElementById('searchengine').style.display = 'block';
 
 var movie = document.getElementById('Movies');
 var tvShow = document.getElementById('TVShow');
