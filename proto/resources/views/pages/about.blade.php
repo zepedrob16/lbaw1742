@@ -6,7 +6,7 @@
  <div class="container">
 
  	<h1 class="my-4"> About Us </h1>
- 	<p>Este projeto foi realizado no âmbito da unidade curricular de Laboratório de Base de Dados e Aplicações Web.</p>
+ 	<p>Este projeto foi realizado no âmbito da unidade curricular de Laboratório de Base de Dados e Aplicações Web. Os estudantes pertencem ao terceiro</p>
  	
  	<div class ="row">
  		<div class="col-lg-12 mb-4">
