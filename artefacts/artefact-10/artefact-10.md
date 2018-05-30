@@ -6,7 +6,7 @@ The goal of this project is to provide television show and movie aficionados dai
  
 ## 1. Installation
 ### GitHub release
-The GitHub release with the final version of the code was made available [here](#).
+The GitHub release with the final version of the code was made available [here](https://github.com/zepedrob16/lbaw1742/releases/tag/A10).
 
 ### Full Docker command for Docker Hub image testing
 `docker pull aquelemiguel/lbaw1742`
@@ -19,29 +19,27 @@ The full product may be accessed [here](http://lbaw1742.lbaw-prod.fe.up.pt).
 ### 2.1. Administration Credentials
 The administration URL was is avaliable [here](http://lbaw1742.lbaw-prod.fe.up.pt/admin/[ADMIN_ID]). The URL must be completed with the administrator user's ID.
  
-| Username | Password |
+| Email | Password |
 | -------- | -------- |
-| admin    | admin |
+| bigz@fe.up.pt    | password |
  
 ### 2.2. User Credentials
 Here follow example user credentials for the three different types of user roles in the system.
  
-| Type          | Username  | Password |
+| Type          | Email  | Password |
 | ------------- | --------- | -------- |
-| Regular user account | reguser    | regpass |
-| Moderator account   | moduser    | modpass |
-| Administrator account | adminuser | adminpass |
- 
+| Regular user account | lpaulich8@youtu.be    | password |
+| Moderator account   | lcurless0@google.com   | password |
  
 ## 3. Application Help
 No application help has been implemented.
- 
  
 ## 4. Input Validation
 * On the registration action, a user must introduce a **password with more than 6 characters**. This is accomplished via **HTML checking**.
 * On the registration action, a user's **password confirmation must match with their desired password**. This is accomplished via **HTML checking**.
 * On the registration action, the user's username must be unique. This is verified by **querying the database**.
 * On the profile section, a user **may not send multiple friend requests** to the same user. This is accomplished by **querying the database** and **disallowing button presses**.
+* On the create post section, the user must **fill all required fields**. This is accomplished via **HTML checking**.
  
 ## 5. Check Accessibility and Usability
 The website has been thoroughly tested for accessibility and usability and changes were made according to the feedback.
@@ -51,27 +49,17 @@ This project's accessibility checklist may be found in the submission folder at 
 
 ### Usability
 This project's usability checklist may be found in the submission folder at **usability-checklist.pdf**.
- 
-## 6. HTML & CSS Validation
 
-### HTML Validation
-This project's HTML has been validated and its results may be found in the submission folder at **html-validation.pdf**.
-
-### CSS Validation
-This project's CSS has been validated and its results may be found in the submission folder at **css-validation.pdf**.
-> HTML: https://validator.w3.org/nu/
-> https://jigsaw.w3.org/css-validator/
-
-## 7. Revisions to the Project
+## 6. Revisions to the Project
 Minor changes were made to the **stylesheet** but pages maintained their **general appearance and functionality**.  
 Many extra user stories were implemented.
 
-## 8. Implementation Details
+## 7. Implementation Details
  
-### 8.1. Libraries Used
+### 7.1. Libraries Used
 No external libraries were used. The website was developed simply using **jQuery** and **Bootstrap**.
  
-### 8.2 User Stories
+### 7.2 User Stories
  
 Here follow the proposed user stories and their corresponding state of implementation.  
 Several new user stories were added too.
@@ -97,8 +85,8 @@ Several new user stories were added too.
 | US30          | Exchange Messages | Important | José Borges | 100% |
 | US31          | View Post History | Optional | | 0% |
 | US32          | Logout | Important | Miguel Mano, Ventura Pereira | 100% |
-| US33          | Delete User Comments | Important | Bernardo Leite| 100% |
-| US34          | Delete User Posts | Important | | 0% |
+| US33          | Delete User Comments | Important | | 0% |
+| US34          | Delete User Posts | Important | Bernardo Leite | 100% |
 | US35          | Change Content Tags | Optional | | 0% |
 | US41          | Name Moderators | Mandatory | Miguel Mano, Ventura Pereira | 100% |
 | US42          | Promote Users | Important | Miguel Mano | 100% |
@@ -106,8 +94,7 @@ Several new user stories were added too.
 | US44          | Ban Users | Important | Miguel Mano, Ventura Pereira | 100%
 | US45          | Enter Admin Control Panel | Mandatory | Miguel Mano, Ventura Pereira | 100%
  
-
-## 9. Group Specification
+## 8. Group Specification
  
 **GROUP1742**, 30/05/2018  
 
