@@ -6,7 +6,10 @@ The goal of this project is to provide television show and movie aficionados dai
 The URL of the product is available over [here](http://lbaw1742.lbaw-prod.fe.up.pt/).
 
 ## 2. Video presentation
-The video presentation was made available on this [YouTube link](#).
+The video presentation was made available on this [YouTube link](https://www.youtube.com/watch?v=jBPQiPnRBNI&feature=youtu.be).
+
+Here's a screenshot from the video.
+![](https://i.imgur.com/SCZTeYl.jpg)
 
 ## 3. Contacts
 Bernardo José Coelho Leite, 201404464  
