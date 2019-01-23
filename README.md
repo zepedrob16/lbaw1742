@@ -3,8 +3,6 @@
 ## 1. Product presentation
 The goal of this project is to provide television show and movie aficionados daily news and updates of this media. This very system will be community-based since only registered members are allowed to both rate and comment each other's submissions, triggering healthy discussions.
 
-The URL of the product is available over [here](http://lbaw1742.lbaw-prod.fe.up.pt/).
-
 ## 2. Video presentation
 The video presentation was made available on this [YouTube link](https://www.youtube.com/watch?v=jBPQiPnRBNI&feature=youtu.be).
 
